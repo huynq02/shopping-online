@@ -7,7 +7,7 @@ namespace shopping_online.Models
 {
     public class Class2
     {
-        public int n;
-        public string m;
+        //public int n;
+        //public string mmmmm;
     }
 }
