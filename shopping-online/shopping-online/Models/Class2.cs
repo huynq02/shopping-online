@@ -9,5 +9,6 @@ namespace shopping_online.Models
     {
         public int n;
         public string m;
+        public string k;
     }
 }
