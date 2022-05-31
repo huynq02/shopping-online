@@ -120,6 +120,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Marketing\AddProductController.cs" />
     <Compile Include="Controllers\Marketing\AdminController.cs" />
@@ -136,6 +138,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\ajax\dashboard-boxrefresh-demo.php" />
+    <Content Include="Content\Blog\css\animate.css" />
+    <Content Include="Content\Blog\css\bootstrap.min.css" />
+    <Content Include="Content\Blog\css\font-awesome.min.css" />
+    <Content Include="Content\Blog\css\main.css" />
+    <Content Include="Content\Blog\css\prettyPhoto.css" />
+    <Content Include="Content\Blog\css\price-range.css" />
+    <Content Include="Content\Blog\css\responsive.css" />
+    <Content Include="Content\Blog\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Blog\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Blog\js\bootstrap.min.js" />
+    <Content Include="Content\Blog\js\contact.js" />
+    <Content Include="Content\Blog\js\gmaps.js" />
+    <Content Include="Content\Blog\js\html5shiv.js" />
+    <Content Include="Content\Blog\js\jquery.js" />
+    <Content Include="Content\Blog\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\Blog\js\jquery.scrollUp.min.js" />
+    <Content Include="Content\Blog\js\main.js" />
+    <Content Include="Content\Blog\js\price-range.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -829,6 +849,9 @@
     <Content Include="Content\js\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Content\js\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Content\js\plugins\slimScroll\slimScroll.jquery.json" />
+    <Content Include="Content\Blog\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Blog\fonts\FontAwesome.otf" />
+    <Content Include="Content\Blog\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -858,6 +881,8 @@
     <Content Include="Views\ProductAdmin\Index.cshtml" />
     <Content Include="Views\AddProduct\Index.cshtml" />
     <Content Include="Views\BlogAdmin\Index.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\BlogDetail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
