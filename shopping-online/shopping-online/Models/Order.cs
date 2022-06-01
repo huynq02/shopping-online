@@ -8,5 +8,7 @@ namespace shopping_online.Models
     public class Order
     {
         public int OrderID { get; set; } 
+
+        public string NameOrder { get; set; }
     }
 }
