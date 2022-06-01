@@ -5,7 +5,7 @@ using System.Web;
 
 namespace shopping_online.Models
 {
-    public class Class1
+    public class Class3
     {
     }
 }

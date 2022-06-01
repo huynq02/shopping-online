@@ -5,9 +5,10 @@ using System.Web;
 
 namespace shopping_online.Models
 {
-    public class Class2
+    public class Order
     {
-        public int n;
-        public string m;
+        public int OrderID { get; set; } 
+
+        public string NameOrder { get; set; }
     }
 }
