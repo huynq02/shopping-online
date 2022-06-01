@@ -126,6 +126,7 @@
     <Compile Include="Controllers\Marketing\AddProductController.cs" />
     <Compile Include="Controllers\Marketing\AdminController.cs" />
     <Compile Include="Controllers\Marketing\BlogAdminController.cs" />
+    <Compile Include="Controllers\Marketing\CustomerAdminController.cs" />
     <Compile Include="Controllers\Marketing\ProductAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -883,6 +884,7 @@
     <Content Include="Views\BlogAdmin\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\BlogDetail\Index.cshtml" />
+    <Content Include="Views\CustomerAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
