@@ -313,8 +313,8 @@
                             </div>
                         }
                     </div>
-                </div>
-                @Html.PagedListPager(Model.blog, page => Url.Action("Index", new { page }))
+                </div><br />
+                <div>@Html.PagedListPager(Model.blog, page => Url.Action("Index", new { page }))</div> 
             </div>
         </div>
     </section>
