@@ -45,10 +45,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,21 +134,89 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\Account.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Blog.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Category.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Color.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Feedback.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Image_product.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineShop.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Order.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Order_Details.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Product.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Product_size.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Role.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Shipping.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Size.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Slide.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Status_order.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Status_product.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Marketing\AddBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\AddProductController.cs" />
     <Compile Include="Controllers\Marketing\AdminController.cs" />
     <Compile Include="Controllers\Marketing\BlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\CustomerAdminController.cs" />
+    <Compile Include="Controllers\Marketing\EditBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\ProductAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\1234.cs" />
+    <Compile Include="Models\AddBlog.cs" />
+    <Compile Include="Models\BlogModel.cs" />
     <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Class2.cs" />
     <Compile Include="Models\Class4.cs" />
+    <Compile Include="Models\EditBlog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -823,6 +905,17 @@
     <Content Include="Content\js\plugins\slimScroll\jquery.slimscroll.min.js" />
     <Content Include="Content\js\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Content\js\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Context\OnlineShop.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OnlineShop.Context.cs</LastGenOutput>
+      <DependentUpon>OnlineShop.edmx</DependentUpon>
+    </Content>
+    <Content Include="Context\OnlineShop.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineShop.edmx</DependentUpon>
+      <LastGenOutput>OnlineShop.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -853,6 +946,13 @@
     <Content Include="Content\Blog\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Blog\fonts\FontAwesome.otf" />
     <Content Include="Content\Blog\fonts\glyphicons-halflings-regular.woff" />
+    <EntityDeploy Include="Context\OnlineShop.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OnlineShop.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Context\OnlineShop.edmx.diagram">
+      <DependentUpon>OnlineShop.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -885,6 +985,8 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\BlogDetail\Index.cshtml" />
     <Content Include="Views\CustomerAdmin\Index.cshtml" />
+    <Content Include="Views\AddBlogAdmin\Index.cshtml" />
+    <Content Include="Views\EditBlogAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -901,6 +1003,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
