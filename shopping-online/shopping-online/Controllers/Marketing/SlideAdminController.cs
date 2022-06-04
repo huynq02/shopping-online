@@ -6,12 +6,11 @@ using System.Web.Mvc;
 
 namespace shopping_online.Controllers.Marketing
 {
-    public class AddProductController : Controller
+    public class SlideAdminController : Controller
     {
-        // GET: AddProduct
+        // GET: SlideAdmin
         public ActionResult Index()
         {
-
             return View();
         }
     }
