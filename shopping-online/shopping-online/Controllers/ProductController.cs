@@ -19,7 +19,7 @@ namespace shopping_online.Controllers
             //productDetail.objProduct = objProduct;
             //productDetail.objImage = objImg;
             //productDetail.lstCategory = listCategory;
-            //productDetail.lstColor = listColor;
+            //productDetail.lstColor = listColor   ;
 
             //return View(productDetail);
         }
