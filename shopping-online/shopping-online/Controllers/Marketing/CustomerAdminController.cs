@@ -11,6 +11,7 @@ namespace shopping_online.Controllers.Marketing
         // GET: CustomerAdmin
         public ActionResult Index()
         {
+            //New Commment
             return View();
         }
     }

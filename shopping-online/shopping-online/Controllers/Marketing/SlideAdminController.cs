@@ -11,6 +11,7 @@ namespace shopping_online.Controllers.Marketing
         // GET: SlideAdmin
         public ActionResult Index()
         {
+            //New Slide Commnet
             return View();
         }
     }
