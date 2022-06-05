@@ -40,9 +40,9 @@ namespace shopping_online.Controllers.Marketing
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Blog entity, string des)
+        public ActionResult Create(Blog entity)
         {
-            entity.descriptions = "Tất cả các thương hiệu xa xỉ đều rao giảng về sự quý hiếm và độc quyền của họ, nhưng rất ít trong số họ có đủ can đảm để trở nên khó nắm bắt và kín đáo theo bất kỳ cách nào tron...";
+            //entity.descriptions = des;
             db.Blogs.Add(entity);
             db.SaveChanges();
             return RedirectToAction("Index", "BlogAdmin");

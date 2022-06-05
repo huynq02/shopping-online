@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-@model shopping_online.Models.BlogModel
+@model shopping_online.Models.SlideModel
 @using PagedList.Mvc
 <!DOCTYPE html>
 <html>
@@ -310,13 +310,13 @@
                         </a>
                     </li>
 
-                    <li class="active">
+                    <li>
                         <a href="/BlogAdmin/Index">
                             <i class="fa fa-globe"></i> <span>Blog</span>
                         </a>
                     </li>
 
-                    <li>
+                    <li class="active">
                         <a href="/SlideAdmin/Index">
                             <i class="fa fa-glass"></i> <span>Slide</span>
                         </a>
@@ -349,14 +349,14 @@
                     <div class="col-md-12">
                         <section class="panel tasks-widget">
                             <header class="panel-heading">
-                                Blog list
+                                Slide list
                             </header>
                             <div class="panel-body">
 
                                 <div class="task-content">
 
                                     <ul class="task-list">
-                                        @foreach (var blog in Model.blog)
+                                        @foreach (var slide in Model.slide)
                                         {
                                             <li>
                                                 <!--<div class="task-checkbox">-->
@@ -365,22 +365,22 @@
                                                 <!-- <input type="checkbox" class="square-grey"/> -->
                                                 <!--</div>-->
                                                 <div class="task-title">
-                                                    <span class="task-title-sp">@blog.title</span>
-                                                    <span class="label label-success">@blog.createdate</span>
+                                                    <span class="task-title-sp">@slide.title</span>
+                                                    <span class="label label-success">@slide.createdate</span>
                                                     <div class="pull-right hidden-phone">
-                                                        <a href="/SlideAdmin/Create?Id=@blog.id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
-                                                        <a href="/EditBlogAdmin/Index?Id=@blog.id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                                        <a href="/DeleteBlogAdmin/Index?Id=@blog.id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                        <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
+                                                        <a href="/EditBlogAdmin/Index?Id="><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                        <a href="/DeleteBlogAdmin/Index?Id="><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
                                                     </div>
                                                 </div>
                                             </li>
                                         }
-                                        @Html.PagedListPager(Model.blog, page => Url.Action("Index", new { page }))
+                                        @Html.PagedListPager(Model.slide, page => Url.Action("Index", new { page }))
                                     </ul>
                                 </div>
 
                                 <div class=" add-task-row">
-                                    <a class="btn btn-success btn-sm pull-left" href="/AddBlogAdmin/Index">Add New Blog</a>
+                                    <a class="btn btn-success btn-sm pull-left" href="/AddBlogAdmin/Index">Add New Slide</a>
                                 </div>
                             </div>
                         </section>
@@ -485,7 +485,7 @@
             });
 
         });
-                            // Chart.defaults.global.responsive = true;
+                                // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

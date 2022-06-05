@@ -218,6 +218,7 @@
     <Compile Include="Models\Class2.cs" />
     <Compile Include="Models\Class4.cs" />
     <Compile Include="Models\EditBlog.cs" />
+    <Compile Include="Models\SlideModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -988,10 +989,10 @@
     <Content Include="Views\CustomerAdmin\Index.cshtml" />
     <Content Include="Views\AddBlogAdmin\Index.cshtml" />
     <Content Include="Views\EditBlogAdmin\Index.cshtml" />
+    <Content Include="Views\SlideAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\SlideAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
