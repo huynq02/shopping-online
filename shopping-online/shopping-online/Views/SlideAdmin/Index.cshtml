@@ -349,6 +349,37 @@
                     <div class="col-md-12">
                         <section class="panel tasks-widget">
                             <header class="panel-heading">
+                                Slide active list
+                            </header>
+                            <div class="panel-body">
+
+                                <div class="task-content">
+                                    <ul class="task-list">
+                                        @foreach (var slide in Model.slActive)
+                                        {
+                                            <li>
+                                                <!--<div class="task-checkbox">-->
+                                                <!-- <input type="checkbox" class="list-child" value=""  /> -->
+                                                <!--<input type="checkbox" class="flat-grey list-child" />-->
+                                                <!-- <input type="checkbox" class="square-grey"/> -->
+                                                <!--</div>-->
+                                                <div class="task-title">
+                                                    <span class="task-title-sp">@slide.title</span>
+                                                    <span class="label label-success">@slide.createdate</span>
+                                                    <div class="pull-right hidden-phone">
+                                                        @*<button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
+                                                        <a href="/EditBlogAdmin/Index?Id="><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>*@
+                                                        <a href="/SlideAdmin/Delete?Id=@slide.id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="panel tasks-widget">
+                            <header class="panel-heading">
                                 Slide list
                             </header>
                             <div class="panel-body">
