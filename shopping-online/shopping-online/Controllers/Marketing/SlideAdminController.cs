@@ -24,6 +24,8 @@ namespace shopping_online.Controllers.Marketing
             return View(sl);
         }
 
+        //Insert Slide
+
         public ActionResult Create(Slide slide)
         {
             db.Slides.Add(slide);
@@ -41,7 +43,7 @@ namespace shopping_online.Controllers.Marketing
         public ActionResult Delete(int Id)
         {
             Slide slide = db.Slides.Where(x => x.id == Id).FirstOrDefault();
-            slide.status_id = 2;
+            //slide.status_id = 2;
             db.Entry(slide).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");
