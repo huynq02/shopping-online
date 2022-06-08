@@ -21,7 +21,7 @@ namespace shopping_online.Controllers
         }
         void connectionString() 
         {
-            con.ConnectionString = "data source= ADMIN-PC\SQLSERVERHUY; database=Project_SU22_lan3_TuanAnh; intergrated security = SSPI; ";
+            con.ConnectionString = "data source= ADMIN-PCSQLSERVERHUY; database=Project_SU22_lan3_TuanAnh; intergrated security = SSPI; ";
         }
         public ActionResult Verify(Account acc)
         {
