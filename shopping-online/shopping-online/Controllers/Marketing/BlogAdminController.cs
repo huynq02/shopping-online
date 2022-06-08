@@ -13,7 +13,7 @@ namespace shopping_online.Controllers.Marketing
     {
         Project_SU22Entities db = new Project_SU22Entities();
         // GET: BlogAdmin
-        public ActionResult Index(int page = 1, int pageSize = 1)
+        public ActionResult Index(int page = 1, int pageSize = 5)
         {
             var blog = db.Blogs.OrderByDescending(x => x.createdate).ToPagedList(page, pageSize);
             BlogModel bg = new BlogModel();

@@ -24,28 +24,35 @@ namespace shopping_online.Controllers.Marketing
             db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");
         }
-        public ActionResult SlideNeedEdit (int Id)
+        public ActionResult SlideNeedEdit(int Id)
         {
             var slide = db.Slides.Where(x => x.id == Id).FirstOrDefault();
             SlideModel sl = new SlideModel();
             sl.sl = slide;
-            return View(sl) ;
+            return View(sl);
         }
 
         [HttpPost]
-        public ActionResult Edit (Slide slide, int Id, string img)
+        public ActionResult Edit(Slide sl, int Id, string img, string Status_id)
         {
-            if (slide.imageslide == null)
+            if (sl.imageslide == null)
             {
-                slide.imageslide = img;
+                sl.imageslide = img;
             }
-            slide.id = Id;
-            db.Entry(slide).State = EntityState.Modified;
+            sl.id = Id;
+            if (Status_id.ToLower() == "value")
+            {
+                sl.status_id = true;
+            } else
+            {
+                sl.status_id = false;
+            }
+            db.Entry(sl).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");
         }
 
-        public ActionResult Delete (int Id)
+        public ActionResult Delete(int Id)
         {
             Slide slide = db.Slides.Where(x => x.id == Id).FirstOrDefault();
             db.Slides.Remove(slide);

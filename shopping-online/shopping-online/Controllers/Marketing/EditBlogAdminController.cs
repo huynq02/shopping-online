@@ -56,5 +56,13 @@ namespace shopping_online.Controllers.Marketing
             db.SaveChanges();
             return RedirectToAction("Index", "BlogAdmin");
         }
+
+        public ActionResult Delete(int Id)
+        {
+            Blog blog = db.Blogs.Where(x => x.id == Id).FirstOrDefault();
+            db.Blogs.Remove(blog);
+            db.SaveChanges();
+            return RedirectToAction("Index", "BlogAdmin");
+        }
     }
 }
