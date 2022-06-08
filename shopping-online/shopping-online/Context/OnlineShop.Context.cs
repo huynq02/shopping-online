@@ -40,6 +40,7 @@ namespace shopping_online.Context
         public virtual DbSet<Slide> Slides { get; set; }
         public virtual DbSet<Status_order> Status_order { get; set; }
         public virtual DbSet<Status_product> Status_product { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Product_size> Product_size { get; set; }
     }
 }

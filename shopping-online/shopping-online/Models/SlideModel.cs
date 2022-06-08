@@ -10,7 +10,7 @@ namespace shopping_online.Models
     public class SlideModel
     {
         public Slide sl { get; set; }
-        public IList<Slide> slActive { get; set; }
+        public IPagedList<Slide> slActive { get; set; }
         public IPagedList<Slide> slide { get; set; }
     }
 }

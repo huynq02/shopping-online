@@ -47,8 +47,11 @@ namespace shopping_online.Controllers.Marketing
         [ValidateInput(false)]
         public ActionResult Edit(Blog blog, int Id, string img)
         {
+            if (blog.images == null)
+            {
+                blog.images = img;
+            }
             blog.id = Id;
-            blog.images = img;
             db.Entry(blog).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", "BlogAdmin");

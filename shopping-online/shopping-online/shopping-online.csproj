@@ -197,11 +197,15 @@
     <Compile Include="Context\Status_product.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\sysdiagram.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Marketing\AddBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\AddProductController.cs" />
+    <Compile Include="Controllers\Marketing\AddSlideAdminController.cs" />
     <Compile Include="Controllers\Marketing\AdminController.cs" />
     <Compile Include="Controllers\Marketing\BlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\CustomerAdminController.cs" />
@@ -211,12 +215,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\1234.cs" />
     <Compile Include="Models\AddBlog.cs" />
+    <Compile Include="Models\AddSlide.cs" />
     <Compile Include="Models\BlogModel.cs" />
-    <Compile Include="Models\Class1.cs" />
-    <Compile Include="Models\Class2.cs" />
-    <Compile Include="Models\Class4.cs" />
     <Compile Include="Models\EditBlog.cs" />
     <Compile Include="Models\SlideModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -913,6 +914,7 @@
       <LastGenOutput>OnlineShop.Context.cs</LastGenOutput>
       <DependentUpon>OnlineShop.edmx</DependentUpon>
     </Content>
+    <Content Include="Context\OnlineShop.edmx.sql" />
     <Content Include="Context\OnlineShop.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>OnlineShop.edmx</DependentUpon>
@@ -990,6 +992,8 @@
     <Content Include="Views\AddBlogAdmin\Index.cshtml" />
     <Content Include="Views\EditBlogAdmin\Index.cshtml" />
     <Content Include="Views\SlideAdmin\Index.cshtml" />
+    <Content Include="Views\AddSlideAdmin\Index.cshtml" />
+    <Content Include="Views\AddSlideAdmin\SlideNeedEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

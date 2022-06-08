@@ -143,6 +143,7 @@ warning 6002: The table/view 'Project_SU22.dbo.Product_size' does not have a pri
     <Property Name="modifyby" Type="nvarchar" MaxLength="50" />
     <Property Name="imageslide" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="descriptions" Type="nvarchar" MaxLength="500" />
+    <Property Name="status_id" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Status_order">
     <Key>
@@ -157,6 +158,16 @@ warning 6002: The table/view 'Project_SU22.dbo.Product_size' does not have a pri
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="status" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK_Account_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
@@ -330,6 +341,7 @@ warning 6002: The table/view 'Project_SU22.dbo.Product_size' does not have a pri
     <EntitySet Name="Slide" EntityType="Self.Slide" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status_order" EntityType="Self.Status_order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status_product" EntityType="Self.Status_product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product_size" EntityType="Self.Product_size" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Product_size].[product_id] AS [product_id], 

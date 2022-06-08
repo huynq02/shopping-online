@@ -1,34 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Project_SU22Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Project_SU22Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Project_SU22Model.Account" />
+    <EntitySet Name="Blogs" EntityType="Project_SU22Model.Blog" />
+    <EntitySet Name="Categories" EntityType="Project_SU22Model.Category" />
+    <EntitySet Name="Colors" EntityType="Project_SU22Model.Color" />
+    <EntitySet Name="Feedbacks" EntityType="Project_SU22Model.Feedback" />
+    <EntitySet Name="Image_product" EntityType="Project_SU22Model.Image_product" />
+    <EntitySet Name="Orders" EntityType="Project_SU22Model.Order" />
+    <EntitySet Name="Order_Details" EntityType="Project_SU22Model.Order_Details" />
+    <EntitySet Name="Products" EntityType="Project_SU22Model.Product" />
+    <EntitySet Name="Roles" EntityType="Project_SU22Model.Role" />
+    <EntitySet Name="Shippings" EntityType="Project_SU22Model.Shipping" />
+    <EntitySet Name="Sizes" EntityType="Project_SU22Model.Size" />
+    <EntitySet Name="Slides" EntityType="Project_SU22Model.Slide" />
+    <EntitySet Name="Status_order" EntityType="Project_SU22Model.Status_order" />
+    <EntitySet Name="Status_product" EntityType="Project_SU22Model.Status_product" />
+    <EntitySet Name="sysdiagrams" EntityType="Project_SU22Model.sysdiagram" />
+    <EntitySet Name="Product_size" EntityType="Project_SU22Model.Product_size" />
+    <AssociationSet Name="FK_Account_Role" Association="Project_SU22Model.FK_Account_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Status_Account" Association="Project_SU22Model.FK_Order_Status_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="Project_SU22Model.FK_Product_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Color" Association="Project_SU22Model.FK_Product_Color">
+      <End Role="Color" EntitySet="Colors" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Feedback_Product" Association="Project_SU22Model.FK_Feedback_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Image_product" Association="Project_SU22Model.FK_Product_Image_product">
+      <End Role="Image_product" EntitySet="Image_product" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Details_Order" Association="Project_SU22Model.FK_Order_Details_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Order_Details" EntitySet="Order_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Shipping" Association="Project_SU22Model.FK_Order_Shipping">
+      <End Role="Shipping" EntitySet="Shippings" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Status_order" Association="Project_SU22Model.FK_Order_Status_order">
+      <End Role="Status_order" EntitySet="Status_order" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Details_Product" Association="Project_SU22Model.FK_Order_Details_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Order_Details" EntitySet="Order_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_size_Product" Association="Project_SU22Model.FK_Product_size_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Product_size" EntitySet="Product_size" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Status_product" Association="Project_SU22Model.FK_Product_Status_product">
+      <End Role="Status_product" EntitySet="Status_product" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_size_Size" Association="Project_SU22Model.FK_Product_size_Size">
+      <End Role="Size" EntitySet="Sizes" />
+      <End Role="Product_size" EntitySet="Product_size" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Account">
     <Key>
       <PropertyRef Name="account_id" />
     </Key>
     <Property Name="account_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="account_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="account_password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="account_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="account_phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="account_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="account_email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="account_password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="account_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="account_phone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="account_address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="account_gender" Type="Boolean" Nullable="false" />
     <Property Name="account_role" Type="Int32" />
-    <NavigationProperty Name="Role" Relationship="Self.FK_Account_Role" FromRole="Account" ToRole="Role" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Status_Account" FromRole="Account" ToRole="Order" />
+    <NavigationProperty Name="Role" Relationship="Project_SU22Model.FK_Account_Role" FromRole="Account" ToRole="Role" />
+    <NavigationProperty Name="Orders" Relationship="Project_SU22Model.FK_Order_Status_Account" FromRole="Account" ToRole="Order" />
   </EntityType>
   <EntityType Name="Blog">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="author" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="descriptions" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="author" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="descriptions" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="createdate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="createby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="createby" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="images" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="modifydate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="modifyby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="detail" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="modifyby" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="detail" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Category">
     <Key>
@@ -36,7 +107,7 @@
     </Key>
     <Property Name="category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="category_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+    <NavigationProperty Name="Products" Relationship="Project_SU22Model.FK_Product_Category" FromRole="Category" ToRole="Product" />
   </EntityType>
   <EntityType Name="Color">
     <Key>
@@ -44,7 +115,7 @@
     </Key>
     <Property Name="color_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="color_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Color" FromRole="Color" ToRole="Product" />
+    <NavigationProperty Name="Products" Relationship="Project_SU22Model.FK_Product_Color" FromRole="Color" ToRole="Product" />
   </EntityType>
   <EntityType Name="Feedback">
     <Key>
@@ -55,7 +126,7 @@
     <Property Name="ratting" Type="Double" Nullable="false" />
     <Property Name="product_id" Type="Int32" />
     <Property Name="account_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Feedback_Product" FromRole="Feedback" ToRole="Product" />
+    <NavigationProperty Name="Product" Relationship="Project_SU22Model.FK_Feedback_Product" FromRole="Feedback" ToRole="Product" />
   </EntityType>
   <EntityType Name="Image_product">
     <Key>
@@ -63,7 +134,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Image_product" FromRole="Image_product" ToRole="Product" />
+    <NavigationProperty Name="Products" Relationship="Project_SU22Model.FK_Product_Image_product" FromRole="Image_product" ToRole="Product" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -76,10 +147,10 @@
     <Property Name="total_money" Type="Double" Nullable="false" />
     <Property Name="Date" Type="DateTime" Precision="0" />
     <Property Name="shipping_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Account" Relationship="Self.FK_Order_Status_Account" FromRole="Order" ToRole="Account" />
-    <NavigationProperty Name="Order_Details" Relationship="Self.FK_Order_Details_Order" FromRole="Order" ToRole="Order_Details" />
-    <NavigationProperty Name="Shipping" Relationship="Self.FK_Order_Shipping" FromRole="Order" ToRole="Shipping" />
-    <NavigationProperty Name="Status_order" Relationship="Self.FK_Order_Status_order" FromRole="Order" ToRole="Status_order" />
+    <NavigationProperty Name="Account" Relationship="Project_SU22Model.FK_Order_Status_Account" FromRole="Order" ToRole="Account" />
+    <NavigationProperty Name="Order_Details" Relationship="Project_SU22Model.FK_Order_Details_Order" FromRole="Order" ToRole="Order_Details" />
+    <NavigationProperty Name="Shipping" Relationship="Project_SU22Model.FK_Order_Shipping" FromRole="Order" ToRole="Shipping" />
+    <NavigationProperty Name="Status_order" Relationship="Project_SU22Model.FK_Order_Status_order" FromRole="Order" ToRole="Status_order" />
   </EntityType>
   <EntityType Name="Order_Details">
     <Key>
@@ -91,8 +162,8 @@
     <Property Name="price" Type="Double" />
     <Property Name="num" Type="Int32" />
     <Property Name="total_number" Type="Double" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Details_Order" FromRole="Order_Details" ToRole="Order" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Order_Details_Product" FromRole="Order_Details" ToRole="Product" />
+    <NavigationProperty Name="Order" Relationship="Project_SU22Model.FK_Order_Details_Order" FromRole="Order_Details" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="Project_SU22Model.FK_Order_Details_Product" FromRole="Order_Details" ToRole="Product" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -100,40 +171,40 @@
     </Key>
     <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="image_id" Type="Int32" Nullable="false" />
-    <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="product_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="product_price" Type="Double" Nullable="false" />
     <Property Name="color_id" Type="Int32" Nullable="false" />
     <Property Name="product_quantity" Type="Int32" Nullable="false" />
     <Property Name="category_id" Type="Int32" Nullable="false" />
     <Property Name="status_id" Type="Int32" Nullable="false" />
     <Property Name="product_description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-    <Property Name="product_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="product_code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="product_sale" Type="Int32" />
-    <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
-    <NavigationProperty Name="Color" Relationship="Self.FK_Product_Color" FromRole="Product" ToRole="Color" />
-    <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedback_Product" FromRole="Product" ToRole="Feedback" />
-    <NavigationProperty Name="Image_product" Relationship="Self.FK_Product_Image_product" FromRole="Product" ToRole="Image_product" />
-    <NavigationProperty Name="Order_Details" Relationship="Self.FK_Order_Details_Product" FromRole="Product" ToRole="Order_Details" />
-    <NavigationProperty Name="Product_size" Relationship="Self.FK_Product_size_Product" FromRole="Product" ToRole="Product_size" />
-    <NavigationProperty Name="Status_product" Relationship="Self.FK_Product_Status_product" FromRole="Product" ToRole="Status_product" />
+    <NavigationProperty Name="Category" Relationship="Project_SU22Model.FK_Product_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Color" Relationship="Project_SU22Model.FK_Product_Color" FromRole="Product" ToRole="Color" />
+    <NavigationProperty Name="Feedbacks" Relationship="Project_SU22Model.FK_Feedback_Product" FromRole="Product" ToRole="Feedback" />
+    <NavigationProperty Name="Image_product" Relationship="Project_SU22Model.FK_Product_Image_product" FromRole="Product" ToRole="Image_product" />
+    <NavigationProperty Name="Order_Details" Relationship="Project_SU22Model.FK_Order_Details_Product" FromRole="Product" ToRole="Order_Details" />
+    <NavigationProperty Name="Product_size" Relationship="Project_SU22Model.FK_Product_size_Product" FromRole="Product" ToRole="Product_size" />
+    <NavigationProperty Name="Status_product" Relationship="Project_SU22Model.FK_Product_Status_product" FromRole="Product" ToRole="Status_product" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_Role" FromRole="Role" ToRole="Account" />
+    <Property Name="role_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accounts" Relationship="Project_SU22Model.FK_Account_Role" FromRole="Role" ToRole="Account" />
   </EntityType>
   <EntityType Name="Shipping">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Shipping" FromRole="Shipping" ToRole="Order" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Project_SU22Model.FK_Order_Shipping" FromRole="Shipping" ToRole="Order" />
   </EntityType>
   <EntityType Name="Size">
     <Key>
@@ -141,20 +212,21 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="names" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Product_size" Relationship="Self.FK_Product_size_Size" FromRole="Size" ToRole="Product_size" />
+    <NavigationProperty Name="Product_size" Relationship="Project_SU22Model.FK_Product_size_Size" FromRole="Size" ToRole="Product_size" />
   </EntityType>
   <EntityType Name="Slide">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="createdate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="createby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="createby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="modifydate" Type="DateTime" Precision="0" />
     <Property Name="modifyby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="imageslide" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="imageslide" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="descriptions" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="status_id" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Status_order">
     <Key>
@@ -162,7 +234,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Status_order" FromRole="Status_order" ToRole="Order" />
+    <NavigationProperty Name="Orders" Relationship="Project_SU22Model.FK_Order_Status_order" FromRole="Status_order" ToRole="Order" />
   </EntityType>
   <EntityType Name="Status_product">
     <Key>
@@ -170,7 +242,17 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Status_product" FromRole="Status_product" ToRole="Product" />
+    <NavigationProperty Name="Products" Relationship="Project_SU22Model.FK_Product_Status_product" FromRole="Status_product" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Product_size">
     <Key>
@@ -179,12 +261,12 @@
     <Property Name="product_id" Type="Int32" />
     <Property Name="size_id" Type="Int32" />
     <Property Name="quantity" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Product_size_Product" FromRole="Product_size" ToRole="Product" />
-    <NavigationProperty Name="Size" Relationship="Self.FK_Product_size_Size" FromRole="Product_size" ToRole="Size" />
+    <NavigationProperty Name="Product" Relationship="Project_SU22Model.FK_Product_size_Product" FromRole="Product_size" ToRole="Product" />
+    <NavigationProperty Name="Size" Relationship="Project_SU22Model.FK_Product_size_Size" FromRole="Product_size" ToRole="Size" />
   </EntityType>
   <Association Name="FK_Account_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
-    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <End Type="Project_SU22Model.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="Project_SU22Model.Account" Role="Account" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="id" />
@@ -195,8 +277,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_Status_Account">
-    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Type="Project_SU22Model.Account" Role="Account" Multiplicity="0..1" />
+    <End Type="Project_SU22Model.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Account">
         <PropertyRef Name="account_id" />
@@ -207,8 +289,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Category">
-    <End Role="Category" Type="Self.Category" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Type="Project_SU22Model.Category" Role="Category" Multiplicity="1" />
+    <End Type="Project_SU22Model.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Category">
         <PropertyRef Name="category_id" />
@@ -219,8 +301,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Color">
-    <End Role="Color" Type="Self.Color" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Type="Project_SU22Model.Color" Role="Color" Multiplicity="1" />
+    <End Type="Project_SU22Model.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Color">
         <PropertyRef Name="color_id" />
@@ -231,8 +313,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Feedback_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <End Type="Project_SU22Model.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="Project_SU22Model.Feedback" Role="Feedback" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="product_id" />
@@ -243,8 +325,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Image_product">
-    <End Role="Image_product" Type="Self.Image_product" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Type="Project_SU22Model.Image_product" Role="Image_product" Multiplicity="1" />
+    <End Type="Project_SU22Model.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Image_product">
         <PropertyRef Name="id" />
@@ -255,8 +337,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_Details_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
-    <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+    <End Type="Project_SU22Model.Order" Role="Order" Multiplicity="0..1" />
+    <End Type="Project_SU22Model.Order_Details" Role="Order_Details" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Order">
         <PropertyRef Name="id" />
@@ -267,8 +349,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_Shipping">
-    <End Role="Shipping" Type="Self.Shipping" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Type="Project_SU22Model.Shipping" Role="Shipping" Multiplicity="1" />
+    <End Type="Project_SU22Model.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Shipping">
         <PropertyRef Name="id" />
@@ -279,8 +361,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_Status_order">
-    <End Role="Status_order" Type="Self.Status_order" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Type="Project_SU22Model.Status_order" Role="Status_order" Multiplicity="1" />
+    <End Type="Project_SU22Model.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Status_order">
         <PropertyRef Name="id" />
@@ -291,8 +373,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_Details_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+    <End Type="Project_SU22Model.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="Project_SU22Model.Order_Details" Role="Order_Details" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="product_id" />
@@ -303,8 +385,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_size_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="Product_size" Type="Self.Product_size" Multiplicity="*" />
+    <End Type="Project_SU22Model.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="Project_SU22Model.Product_size" Role="Product_size" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="product_id" />
@@ -315,8 +397,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Status_product">
-    <End Role="Status_product" Type="Self.Status_product" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Type="Project_SU22Model.Status_product" Role="Status_product" Multiplicity="1" />
+    <End Type="Project_SU22Model.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Status_product">
         <PropertyRef Name="id" />
@@ -327,8 +409,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_size_Size">
-    <End Role="Size" Type="Self.Size" Multiplicity="0..1" />
-    <End Role="Product_size" Type="Self.Product_size" Multiplicity="*" />
+    <End Type="Project_SU22Model.Size" Role="Size" Multiplicity="0..1" />
+    <End Type="Project_SU22Model.Product_size" Role="Product_size" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Size">
         <PropertyRef Name="id" />
@@ -338,74 +420,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Project_SU22Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Accounts" EntityType="Self.Account" />
-    <EntitySet Name="Blogs" EntityType="Self.Blog" />
-    <EntitySet Name="Categories" EntityType="Self.Category" />
-    <EntitySet Name="Colors" EntityType="Self.Color" />
-    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
-    <EntitySet Name="Image_product" EntityType="Self.Image_product" />
-    <EntitySet Name="Orders" EntityType="Self.Order" />
-    <EntitySet Name="Order_Details" EntityType="Self.Order_Details" />
-    <EntitySet Name="Products" EntityType="Self.Product" />
-    <EntitySet Name="Roles" EntityType="Self.Role" />
-    <EntitySet Name="Shippings" EntityType="Self.Shipping" />
-    <EntitySet Name="Sizes" EntityType="Self.Size" />
-    <EntitySet Name="Slides" EntityType="Self.Slide" />
-    <EntitySet Name="Status_order" EntityType="Self.Status_order" />
-    <EntitySet Name="Status_product" EntityType="Self.Status_product" />
-    <EntitySet Name="Product_size" EntityType="Self.Product_size" />
-    <AssociationSet Name="FK_Account_Role" Association="Self.FK_Account_Role">
-      <End Role="Role" EntitySet="Roles" />
-      <End Role="Account" EntitySet="Accounts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Status_Account" Association="Self.FK_Order_Status_Account">
-      <End Role="Account" EntitySet="Accounts" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
-      <End Role="Category" EntitySet="Categories" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Color" Association="Self.FK_Product_Color">
-      <End Role="Color" EntitySet="Colors" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Feedback_Product" Association="Self.FK_Feedback_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="Feedback" EntitySet="Feedbacks" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Image_product" Association="Self.FK_Product_Image_product">
-      <End Role="Image_product" EntitySet="Image_product" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Details_Order" Association="Self.FK_Order_Details_Order">
-      <End Role="Order" EntitySet="Orders" />
-      <End Role="Order_Details" EntitySet="Order_Details" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Shipping" Association="Self.FK_Order_Shipping">
-      <End Role="Shipping" EntitySet="Shippings" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Status_order" Association="Self.FK_Order_Status_order">
-      <End Role="Status_order" EntitySet="Status_order" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Details_Product" Association="Self.FK_Order_Details_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="Order_Details" EntitySet="Order_Details" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_size_Product" Association="Self.FK_Product_size_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="Product_size" EntitySet="Product_size" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Status_product" Association="Self.FK_Product_Status_product">
-      <End Role="Status_product" EntitySet="Status_product" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_size_Size" Association="Self.FK_Product_size_Size">
-      <End Role="Size" EntitySet="Sizes" />
-      <End Role="Product_size" EntitySet="Product_size" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

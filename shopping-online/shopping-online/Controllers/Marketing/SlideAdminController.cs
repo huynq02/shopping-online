@@ -14,36 +14,30 @@ namespace shopping_online.Controllers.Marketing
     {
         Project_SU22Entities db = new Project_SU22Entities();
         // GET: SlideAdmin
-        public ActionResult Index(int page = 1, int pageSize = 1)
+        public ActionResult Index(int page = 1, int pageSize = 5)
         {
-            //var slAc = db.Slides.Where(x => x.status_id == 1).ToList();
+            
+            var slAc = db.Slides.OrderByDescending(x => x.createdate).Where(x => x.status_id == true).ToPagedList(page, pageSize);
             var slide = db.Slides.OrderByDescending(x => x.createdate).ToPagedList(page, pageSize);
             SlideModel sl = new SlideModel();
             sl.slide = slide;
-            //sl.slActive = slAc;
+            sl.slActive = slAc;
             return View(sl);
-        }
-
-        //Insert Slide
-
-        public ActionResult Create(Slide slide)
-        {
-            db.Slides.Add(slide);
-            db.SaveChanges();
-            return RedirectToAction("Index", "SlideAdmin");
         }
 
         public ActionResult InsertActive(int Id)
         {
-
+            Slide slide = db.Slides.Where(x => x.id == Id).FirstOrDefault();
+            slide.status_id = true;
+            db.Entry(slide).State = EntityState.Modified;
+            db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");
         }
 
-        [HttpPost]
-        public ActionResult Delete(int Id)
+        public ActionResult DeleteSlideActive(int Id)
         {
             Slide slide = db.Slides.Where(x => x.id == Id).FirstOrDefault();
-            //slide.status_id = 2;
+            slide.status_id = false;
             db.Entry(slide).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");
