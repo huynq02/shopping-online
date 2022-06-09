@@ -8,16 +8,66 @@ create table Category(
 	category_name nvarchar(30)
 )
 GO
+
+create table [Role](
+	Role_id int primary key NOT NULL,
+	Role_name nvarchar (100) NOT NULL,
+	Role_description nvarchar (200) NOT NULL,
+)
+GO
+
+insert into [Role] (Role_id, Role_name, Role_description) values (1, 'Andee Trencher', 'felis eu sapien');
+insert into [Role] (Role_id, Role_name, Role_description) values (2, 'Auguste Ubanks', 'nam ultrices libero non');
+insert into [Role] (Role_id, Role_name, Role_description) values (3, 'Forester Siemianowicz', 'blandit mi in');
+insert into [Role] (Role_id, Role_name, Role_description) values (4, 'Lainey Batteson', 'luctus rutrum nulla');
+insert into [Role] (Role_id, Role_name, Role_description) values (5, 'Lynne Foresight', 'blandit mi in');
+insert into [Role] (Role_id, Role_name, Role_description) values (6, 'Linell Drinkale', 'tortor quis turpis sed');
+insert into [Role] (Role_id, Role_name, Role_description) values (7, 'Erek Brightey', 'sit amet sapien dignissim');
+insert into [Role] (Role_id, Role_name, Role_description) values (8, 'Anderea Shelvey', 'ligula nec sem duis');
+insert into [Role] (Role_id, Role_name, Role_description) values (9, 'Gertrude Jaggar', 'vestibulum rutrum rutrum neque');
+insert into [Role] (Role_id, Role_name, Role_description) values (10, 'Cammy Melmoth', 'aliquam quis turpis eget');
+GO
+
+create table [Function](
+	function_id int primary key NOT NULL,
+	function_name varchar (100) NOT NULL, 
+	function_description nvarchar (200) NOT NULL,
+	function_ordernumber int NOT NULL,
+	function_createday Date NOT NULL,
+)
+GO
+
+create table Role_function (
+	Role_function_id int primary key NOT NULL,
+	function_id int references [Function](function_id),
+	role_id int references [Role] (Role_id),
+	Role_function_view int NOT NULL,
+	Role_function_insert int NOT NULL,
+	Role_function_update int NOT NULL,
+	Role_function_delete int NOT NULL,
+)
+GO
+
+
 Create table Account(
 	account_id int identity(1,1) primary key NOT NULL,
-	account_email nvarchar(50) NOT NULL,
+	account_username nvarchar (50) NOT NULL,
 	account_password nvarchar(30) NOT NULL,
+	account_email nvarchar(50) NOT NULL,
 	account_name nvarchar(30) NOT NULL,
 	account_phone nvarchar(10) not null,
 	account_address nvarchar(100) not null,
-	account_role int,
+	account_role_id int NOT NULL,
+	account_gender bit , 
+	account_DOB Date 
 )
 GO
+
+
+ALTER TABLE Account  WITH CHECK ADD FOREIGN KEY(account_role_id)
+REFERENCES [Role] (Role_id)
+GO
+
 create table Color(
 	color_id int primary key identity(1,1) not null,
 	color_name nvarchar(30)
@@ -26,7 +76,7 @@ GO
 
 create table product(
 	product_id int identity(1,1) primary key NOT NULL,
-	image_product_id int NOT NULL,
+	image_product nvarchar (500) NOT NULL,
 	product_name nvarchar(50) NOT NULL,
 	product_price float NOT NULL,
 	color_id int foreign key references Color(color_id),
@@ -71,7 +121,7 @@ create table slide(
 	slide_modifyby nvarchar(50) NOT NULL,
 	slide_images nvarchar(50) NOT NULL,
 	slide_descriptions nvarchar(200) NULL,
-	slide_status_id int NOT NULL,
+	slide_status_id bit NOT NULL,
 )
 GO
 
@@ -94,19 +144,7 @@ ALTER TABLE [dbo].[product]  WITH CHECK ADD FOREIGN KEY([status_product_id])
 REFERENCES [dbo].[status_product] ([status_product_id])
 GO
 
-CREATE TABLE [dbo].[image_product](
-	[image_product_id] [int] IDENTITY(1,1) NOT NULL,
-	[image_product_image] [nvarchar](100) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[image_product_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
 
-ALTER TABLE [dbo].[product]  WITH CHECK ADD FOREIGN KEY([image_product_id])
-REFERENCES [dbo].[image_product] ([image_product_id])
-GO
 
 create table [Order](
 	Order_id int primary key identity(1,1) not null,
@@ -173,3 +211,7 @@ create table blog(
 	blog_detail nvarchar (2000) NOT NULL,
 )
 GO
+
+
+
+
