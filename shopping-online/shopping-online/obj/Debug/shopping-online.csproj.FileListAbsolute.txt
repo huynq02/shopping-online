@@ -156,3 +156,11 @@ C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\obj\
 C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
+C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\EntityFramework.dll
+C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\EntityFramework.SqlServer.dll
+C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\PagedList.dll
+C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\PagedList.Mvc.dll
+C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\EntityFramework.xml
+C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\EntityFramework.SqlServer.xml
+C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\PagedList.xml
+C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\PagedList.Mvc.xml

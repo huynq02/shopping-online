@@ -2,7 +2,8 @@
 @{
     Layout = null;
 }
-@*@model AddBlog.Models.BlogDetail*@
+@model shopping_online.Models.BlogModel
+@using PagedList.Mvc
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -293,7 +294,7 @@
                 <div class="col-sm-9">
                     <div class="blog-post-area">
                         <h2 class="title text-center">TIN TỨC SNEAKERS</h2>
-                        @*@foreach (var blog in Model.lstBlog)
+                        @foreach (var blog in Model.blog)
                         {
                             <div class="single-blog-post">
                                 <h3>@blog.title</h3>
@@ -308,12 +309,12 @@
                                     <img src="~/Content/images/blog/@blog.images" alt="">
                                 </a>
                                 <p>@blog.descriptions</p>
-                                <a class="btn btn-primary" href="/SingleBlog/Index?Id=@blog.id">Read More</a>
+                                <a class="btn btn-primary" href="/BlogDetail/Index?Id=@blog.id">Read More</a>
                             </div>
-                        }*@
-
+                        }
                     </div>
-                </div>
+                </div><br />
+                <div>@Html.PagedListPager(Model.blog, page => Url.Action("Index", new { page }))</div> 
             </div>
         </div>
     </section>

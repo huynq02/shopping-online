@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-@*@model AddBlog.Models.SingleBlog*@
+@model shopping_online.Models.BlogModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta content="1230730321091573" property="fb:app_id"/>
+    <meta content="A2bRexp9mTVEIAL_slgqE7-" property="fb:admins"/>
     <title>Blog Single | E-Shopper</title>
     <link href="~/Content/Blog/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/Blog/css/font-awesome.min.css" rel="stylesheet">
@@ -289,16 +291,15 @@
                     <div class="blog-post-area">
                         <h2 class="title text-center">Blog Detail</h2>
                         <div class="single-blog-post">
-                            @*<h3>@Model.blog.title</h3>
+                            <h3>@Model.bg.title</h3>
                             <div class="post-meta">
                                 <ul>
-                                    <li><i class="fa fa-user"></i>@Model.blog.author</li>
+                                    <li><i class="fa fa-user"></i>@Model.bg.author</li>
                                     <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                    <li><i class="fa fa-calendar"></i>@Model.blog.createdate</li>
+                                    <li><i class="fa fa-calendar"></i>@Model.bg.createdate</li>
                                 </ul>
                             </div>
-                            @<p></p> <br>
-                            @Html.Raw(Model.blog.detail)*@
+                            @Html.Raw(Model.bg.detail)
                         </div>
                     </div><!--/blog-post-area-->
 

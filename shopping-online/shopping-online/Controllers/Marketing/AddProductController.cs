@@ -11,6 +11,7 @@ namespace shopping_online.Controllers.Marketing
         // GET: AddProduct
         public ActionResult Index()
         {
+
             return View();
         }
     }
