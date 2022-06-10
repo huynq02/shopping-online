@@ -164,3 +164,7 @@ C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\
 C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\EntityFramework.SqlServer.xml
 C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\PagedList.xml
 C:\Users\Admin\Source\Repos\shopping-online\shopping-online\shopping-online\bin\PagedList.Mvc.xml
+D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
+D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
+D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
+D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
