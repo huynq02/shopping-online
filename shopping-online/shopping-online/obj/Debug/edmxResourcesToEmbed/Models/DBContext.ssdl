@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="account_id" />
+    </Key>
+    <Property Name="account_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="account_password" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="account_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="account_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="account_phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="account_address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="account_role_id" Type="int" Nullable="false" />
+    <Property Name="account_gender" Type="bit" />
+    <Property Name="account_DOB" Type="date" />
+  </EntityType>
+  <EntityType Name="blog">
+    <Key>
+      <PropertyRef Name="blog_id" />
+    </Key>
+    <Property Name="blog_id" Type="int" Nullable="false" />
+    <Property Name="blog_title" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="blog_author" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="blog_descriptions" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="blog_createdate" Type="datetime" Nullable="false" />
+    <Property Name="blog_createby" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="blog_images" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="blog_modifydate" Type="datetime" Nullable="false" />
+    <Property Name="blog_modifyby" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="blog_detail" Type="nvarchar" MaxLength="2000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="color_id" />
+    </Key>
+    <Property Name="color_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="color_name" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="feetback_id" />
+    </Key>
+    <Property Name="feetback_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="feetback_content" Type="nvarchar" MaxLength="2000" />
+    <Property Name="feetback_ratting" Type="float" Nullable="false" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="account_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Function">
+    <Key>
+      <PropertyRef Name="function_id" />
+    </Key>
+    <Property Name="function_id" Type="int" Nullable="false" />
+    <Property Name="function_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="function_description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="function_ordernumber" Type="int" Nullable="false" />
+    <Property Name="function_createday" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Order_id" />
+    </Key>
+    <Property Name="Order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account_id" Type="int" />
+    <Property Name="Order_note" Type="nvarchar" MaxLength="50" />
+    <Property Name="Order_status_id" Type="int" Nullable="false" />
+    <Property Name="Order_total_money" Type="float" Nullable="false" />
+    <Property Name="Order_Date" Type="date" />
+    <Property Name="shipping_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order_Details">
+    <Key>
+      <PropertyRef Name="Order_Details_id" />
+    </Key>
+    <Property Name="Order_Details_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Order_id" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="Order_Details_price" Type="float" />
+    <Property Name="Order_Details_num" Type="int" />
+    <Property Name="Order_Details_total_number" Type="float" />
+  </EntityType>
+  <EntityType Name="Order_status">
+    <Key>
+      <PropertyRef Name="Order_status_id" />
+    </Key>
+    <Property Name="Order_status_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Order_status_status" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="image_product" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_price" Type="float" Nullable="false" />
+    <Property Name="color_id" Type="int" />
+    <Property Name="product_quantity" Type="int" Nullable="false" />
+    <Property Name="category_id" Type="int" />
+    <Property Name="status_product_id" Type="int" Nullable="false" />
+    <Property Name="product_description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="product_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="product_sale" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="productsize">
+    <Key>
+      <PropertyRef Name="product_quantity" />
+    </Key>
+    <Property Name="product_id" Type="int" />
+    <Property Name="size_id" Type="int" />
+    <Property Name="product_quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_id" />
+    </Key>
+    <Property Name="Role_id" Type="int" Nullable="false" />
+    <Property Name="Role_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Role_description" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role_function">
+    <Key>
+      <PropertyRef Name="Role_function_id" />
+    </Key>
+    <Property Name="Role_function_id" Type="int" Nullable="false" />
+    <Property Name="function_id" Type="int" />
+    <Property Name="role_id" Type="int" />
+    <Property Name="Role_function_view" Type="int" Nullable="false" />
+    <Property Name="Role_function_insert" Type="int" Nullable="false" />
+    <Property Name="Role_function_update" Type="int" Nullable="false" />
+    <Property Name="Role_function_delete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shipping">
+    <Key>
+      <PropertyRef Name="shipping_id" />
+    </Key>
+    <Property Name="shipping_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shipping_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="shipping_email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="shipping_phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="size">
+    <Key>
+      <PropertyRef Name="size_id" />
+    </Key>
+    <Property Name="size_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="size_names" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="slide">
+    <Key>
+      <PropertyRef Name="slide_id" />
+    </Key>
+    <Property Name="slide_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="slide_title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="slide_createdate" Type="date" Nullable="false" />
+    <Property Name="slide_createby" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="slide_modifydate" Type="date" Nullable="false" />
+    <Property Name="slide_modifyby" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="slide_images" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="slide_descriptions" Type="nvarchar" MaxLength="200" />
+    <Property Name="slide_status_id" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="status_product">
+    <Key>
+      <PropertyRef Name="status_product_id" />
+    </Key>
+    <Property Name="status_product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status_product_status" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Account__account__2E1BDC42">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Role_id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="account_role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__feedback__accoun__3C69FB99">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="feedback" Type="Self.feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__feedback__produc__3B75D760">
+    <End Role="product" Type="Self.product" Multiplicity="0..1" />
+    <End Role="feedback" Type="Self.feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__account_i__440B1D61">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__Order_sta__49C3F6B7">
+    <End Role="Order_status" Type="Self.Order_status" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_status">
+        <PropertyRef Name="Order_status_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Order_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__shipping___46E78A0C">
+    <End Role="shipping" Type="Self.shipping" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipping">
+        <PropertyRef Name="shipping_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="shipping_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Det__Order__4CA06362">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Order_id" />
+      </Principal>
+      <Dependent Role="Order_Details">
+        <PropertyRef Name="Order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Det__produ__4D94879B">
+    <End Role="product" Type="Self.product" Multiplicity="0..1" />
+    <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Order_Details">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__categor__33D4B598">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__color_i__32E0915F">
+    <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="color_id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="color_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__status___412EB0B6">
+    <End Role="status_product" Type="Self.status_product" Multiplicity="1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_product">
+        <PropertyRef Name="status_product_id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="status_product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__productsi__produ__37A5467C">
+    <End Role="product" Type="Self.product" Multiplicity="0..1" />
+    <End Role="productsize" Type="Self.productsize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="productsize">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__productsi__size___38996AB5">
+    <End Role="size" Type="Self.size" Multiplicity="0..1" />
+    <End Role="productsize" Type="Self.productsize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="size">
+        <PropertyRef Name="size_id" />
+      </Principal>
+      <Dependent Role="productsize">
+        <PropertyRef Name="size_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Role_func__funct__2A4B4B5E">
+    <End Role="Function" Type="Self.Function" Multiplicity="0..1" />
+    <End Role="Role_function" Type="Self.Role_function" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Function">
+        <PropertyRef Name="function_id" />
+      </Principal>
+      <Dependent Role="Role_function">
+        <PropertyRef Name="function_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Role_func__role___2B3F6F97">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Role_function" Type="Self.Role_function" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Role_id" />
+      </Principal>
+      <Dependent Role="Role_function">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelsStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blog" EntityType="Self.blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="feedback" EntityType="Self.feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Function" EntityType="Self.Function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_Details" EntityType="Self.Order_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_status" EntityType="Self.Order_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role_function" EntityType="Self.Role_function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shipping" EntityType="Self.shipping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="size" EntityType="Self.size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="slide" EntityType="Self.slide" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="status_product" EntityType="Self.status_product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productsize" EntityType="Self.productsize" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [productsize].[product_id] AS [product_id], 
+    [productsize].[size_id] AS [size_id], 
+    [productsize].[product_quantity] AS [product_quantity]
+    FROM [dbo].[productsize] AS [productsize]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Account__account__2E1BDC42" Association="Self.FK__Account__account__2E1BDC42">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK__feedback__accoun__3C69FB99" Association="Self.FK__feedback__accoun__3C69FB99">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="feedback" EntitySet="feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__feedback__produc__3B75D760" Association="Self.FK__feedback__produc__3B75D760">
+      <End Role="product" EntitySet="product" />
+      <End Role="feedback" EntitySet="feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__account_i__440B1D61" Association="Self.FK__Order__account_i__440B1D61">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__Order_sta__49C3F6B7" Association="Self.FK__Order__Order_sta__49C3F6B7">
+      <End Role="Order_status" EntitySet="Order_status" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__shipping___46E78A0C" Association="Self.FK__Order__shipping___46E78A0C">
+      <End Role="shipping" EntitySet="shipping" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Det__Order__4CA06362" Association="Self.FK__Order_Det__Order__4CA06362">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_Details" EntitySet="Order_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Det__produ__4D94879B" Association="Self.FK__Order_Det__produ__4D94879B">
+      <End Role="product" EntitySet="product" />
+      <End Role="Order_Details" EntitySet="Order_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__categor__33D4B598" Association="Self.FK__product__categor__33D4B598">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__color_i__32E0915F" Association="Self.FK__product__color_i__32E0915F">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__status___412EB0B6" Association="Self.FK__product__status___412EB0B6">
+      <End Role="status_product" EntitySet="status_product" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__productsi__produ__37A5467C" Association="Self.FK__productsi__produ__37A5467C">
+      <End Role="product" EntitySet="product" />
+      <End Role="productsize" EntitySet="productsize" />
+    </AssociationSet>
+    <AssociationSet Name="FK__productsi__size___38996AB5" Association="Self.FK__productsi__size___38996AB5">
+      <End Role="size" EntitySet="size" />
+      <End Role="productsize" EntitySet="productsize" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Role_func__funct__2A4B4B5E" Association="Self.FK__Role_func__funct__2A4B4B5E">
+      <End Role="Function" EntitySet="Function" />
+      <End Role="Role_function" EntitySet="Role_function" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Role_func__role___2B3F6F97" Association="Self.FK__Role_func__role___2B3F6F97">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Role_function" EntitySet="Role_function" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

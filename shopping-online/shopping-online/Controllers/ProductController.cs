@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using shopping_online.Models;
 namespace shopping_online.Controllers
 {
     public class ProductController : Controller
@@ -22,6 +22,13 @@ namespace shopping_online.Controllers
             //productDetail.lstColor = listColor;
 
             //return View(productDetail);
+            return View();
+        }
+        public ActionResult loadProduct()
+        {
+ DBContext dBContext = new DBContext();
+            List<product> products = dBContext.products.ToList();
+            return View(products);
         }
     }
 }

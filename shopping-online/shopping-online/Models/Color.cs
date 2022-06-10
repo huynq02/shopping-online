@@ -12,26 +12,18 @@ namespace shopping_online.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class Color
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+        public Color()
         {
-            this.Order_Details = new HashSet<Order_Details>();
+            this.products = new HashSet<product>();
         }
     
-        public int Order_id { get; set; }
-        public Nullable<int> account_id { get; set; }
-        public string Order_note { get; set; }
-        public int Order_status_id { get; set; }
-        public double Order_total_money { get; set; }
-        public Nullable<System.DateTime> Order_Date { get; set; }
-        public int shipping_id { get; set; }
+        public int color_id { get; set; }
+        public string color_name { get; set; }
     
-        public virtual Account Account { get; set; }
-        public virtual Order_status Order_status { get; set; }
-        public virtual shipping shipping { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order_Details> Order_Details { get; set; }
+        public virtual ICollection<product> products { get; set; }
     }
 }

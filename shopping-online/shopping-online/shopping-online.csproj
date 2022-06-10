@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -123,80 +127,80 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\Sale\OrderController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\Account.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\AccountDataConnection.Context.cs">
+    <Compile Include="Models\blog.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Color.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AccountDataConnection.Context.tt</DependentUpon>
+      <DependentUpon>DBContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\AccountDataConnection.cs">
+    <Compile Include="Models\DBContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\AccountDataConnection.Designer.cs">
+    <Compile Include="Models\DBContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AccountDataConnection.edmx</DependentUpon>
+      <DependentUpon>DBContext.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\blog.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\feedback.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\Category.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\Function.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\Color.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\feedback.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\Order_Details.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\Function.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\Order_status.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\Order.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\product.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\Order_Details.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\productsize.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\Order_status.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\product.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\Role_function.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\productsize.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\shipping.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\Role.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\size.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\Role_function.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\slide.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\shipping.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\status_product.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataConnect\size.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataConnect\slide.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataConnect\status_product.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataConnect\sysdiagram.cs">
-      <DependentUpon>AccountDataConnection.tt</DependentUpon>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -209,24 +213,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\DataConnect\AccountDataConnection.Context.tt">
+    <Content Include="Models\DBContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AccountDataConnection.edmx</DependentUpon>
-      <LastGenOutput>AccountDataConnection.Context.cs</LastGenOutput>
+      <DependentUpon>DBContext.edmx</DependentUpon>
+      <LastGenOutput>DBContext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DataConnect\AccountDataConnection.tt">
+    <Content Include="Models\DBContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AccountDataConnection.edmx</DependentUpon>
-      <LastGenOutput>AccountDataConnection.cs</LastGenOutput>
+      <DependentUpon>DBContext.edmx</DependentUpon>
+      <LastGenOutput>DBContext.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\DataConnect\AccountDataConnection.edmx">
+    <EntityDeploy Include="Models\DBContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AccountDataConnection.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DataConnect\AccountDataConnection.edmx.diagram">
-      <DependentUpon>AccountDataConnection.edmx</DependentUpon>
+    <Content Include="Models\DBContext.edmx.diagram">
+      <DependentUpon>DBContext.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -254,10 +258,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Product\loadProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Order\" />
+    <Folder Include="Controllers\Sale\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>

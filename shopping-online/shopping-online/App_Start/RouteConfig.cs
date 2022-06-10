@@ -17,7 +17,17 @@ namespace shopping_online
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+
             );
+            //routes.MapRoute(
+            //    name: "Default", //Route Name
+            //    url: "{controller}/{action}/{id}", //Route Pattern
+            //    defaults: new
+            //    {
+            //        controller = "Home", //Controller Name
+            //        action = "Index", //Action method Name
+            //        id = UrlParameter.Optional //Defaut value for above defined parameter
+            //    });
         }
     }
 }
