@@ -2,7 +2,8 @@
 @{
     Layout = null;
 }
-
+@model shopping_online.Models.CustomerModel
+@using PagedList.Mvc
 <!DOCTYPE html>
 <html>
 <head>
@@ -356,53 +357,40 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Color</th>
-                                            <th>Price</th>
+                                            <th>FullName</th>
+                                            <th>Gender</th>
+                                            <th>Address</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Status</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Facebook</td>
-                                            <td>Mark</td>
-                                            <!-- <td>Steve</td> -->
-                                            <td>10/10/2014</td>
-                                            <!-- <td>$1500</td> -->
-                                            <td><span class="label label-danger">in progress</span></td>
-                                            <td>
-                                                <div class="pull-right hidden-phone">
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Twitter</td>
-                                            <td>Evan</td>
-                                            <!-- <td>Darren</td> -->
-                                            <td>10/8/2014</td>
-                                            <!-- <td>$1500</td> -->
-                                            <td><span class="label label-success">completed</span></td>
-                                            <td>
-                                                <div class="pull-right hidden-phone">
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach (var item in Model.account)
+                                        {
+                                            <tr>
+                                                <td>@item.account_id</td>
+                                                <td>@item.account_name</td>
+                                                <td>@item.account_gender</td>
+                                                <td>@item.account_address</td>
+                                                <td>@item.account_email</td>
+                                                <td>@item.account_phone</td>
+                                                <td>@item.Account_status</td>
+                                                <td>
+                                                    <div class="pull-right hidden-phone">
+                                                        <a href="/AddCustomerAdmin/UnLockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
+                                                        <a href="/AddCustomerAdmin/AccountNeedEdit?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                        <a href="/AddCustomerAdmin/LockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>
                         </section>
                         <div class=" add-task-row">
-                            <a class="btn btn-success btn-sm pull-left" href="/AddProduct/Index">Add New Product</a>
+                            <a class="btn btn-success btn-sm pull-left" href="/AddCustomerAdmin/Index">Add New Customer</a>
                             @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
                         </div>
                     </div><!--end col-6 -->
@@ -506,7 +494,7 @@
             });
 
         });
-                    // Chart.defaults.global.responsive = true;
+                            // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

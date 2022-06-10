@@ -44,6 +44,15 @@ namespace shopping_online.Controllers.Marketing
             return RedirectToAction("Index", "CustomerAdmin");
         }
 
+        public ActionResult UnLockAccount(int Id)
+        {
+            Account account = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
+            account.Account_status = true;
+            db.Entry(account).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index", "CustomerAdmin");
+        }
+
         public ActionResult LockAccount(int Id)
         {
             Account account = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();

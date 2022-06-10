@@ -12,6 +12,7 @@
     <Property Name="account_address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="account_gender" Type="bit" Nullable="false" />
     <Property Name="account_role" Type="int" />
+    <Property Name="Account_status" Type="bit" />
   </EntityType>
   <EntityType Name="Blog">
     <Key>
