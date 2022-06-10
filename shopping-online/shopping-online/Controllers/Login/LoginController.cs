@@ -16,9 +16,9 @@ namespace shopping_online.Controllers.Login
         }
 
 
-    // GET: Login
+    // GET: Register
     [HttpGet]
-        public ActionResult Login()
+        public ActionResult Register()
         {
             return View();
         }
