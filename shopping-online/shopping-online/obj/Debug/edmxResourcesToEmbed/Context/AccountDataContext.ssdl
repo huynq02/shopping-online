@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Project_SU22Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="account_id" />
+    </Key>
+    <Property Name="account_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="account_password" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="account_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="account_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="account_phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="account_address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="account_role_id" Type="int" Nullable="false" />
+    <Property Name="account_gender" Type="bit" />
+    <Property Name="account_DOB" Type="date" />
+  </EntityType>
+  <EntityType Name="Function">
+    <Key>
+      <PropertyRef Name="function_id" />
+    </Key>
+    <Property Name="function_id" Type="int" Nullable="false" />
+    <Property Name="function_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="function_description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="function_ordernumber" Type="int" Nullable="false" />
+    <Property Name="function_createday" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_id" />
+    </Key>
+    <Property Name="Role_id" Type="int" Nullable="false" />
+    <Property Name="Role_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Role_description" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role_function">
+    <Key>
+      <PropertyRef Name="Role_function_id" />
+    </Key>
+    <Property Name="Role_function_id" Type="int" Nullable="false" />
+    <Property Name="function_id" Type="int" />
+    <Property Name="role_id" Type="int" />
+    <Property Name="Role_function_view" Type="int" Nullable="false" />
+    <Property Name="Role_function_insert" Type="int" Nullable="false" />
+    <Property Name="Role_function_update" Type="int" Nullable="false" />
+    <Property Name="Role_function_delete" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Account__account__2E1BDC42">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Role_id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="account_role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Role_func__funct__2A4B4B5E">
+    <End Role="Function" Type="Self.Function" Multiplicity="0..1" />
+    <End Role="Role_function" Type="Self.Role_function" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Function">
+        <PropertyRef Name="function_id" />
+      </Principal>
+      <Dependent Role="Role_function">
+        <PropertyRef Name="function_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Role_func__role___2B3F6F97">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Role_function" Type="Self.Role_function" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Role_id" />
+      </Principal>
+      <Dependent Role="Role_function">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Project_SU22ModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Function" EntityType="Self.Function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role_function" EntityType="Self.Role_function" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Account__account__2E1BDC42" Association="Self.FK__Account__account__2E1BDC42">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Role_func__funct__2A4B4B5E" Association="Self.FK__Role_func__funct__2A4B4B5E">
+      <End Role="Function" EntitySet="Function" />
+      <End Role="Role_function" EntitySet="Role_function" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Role_func__role___2B3F6F97" Association="Self.FK__Role_func__role___2B3F6F97">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Role_function" EntitySet="Role_function" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

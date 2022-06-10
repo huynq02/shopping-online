@@ -156,3 +156,7 @@ E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shoppin
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
+E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
+E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
+E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
+E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb

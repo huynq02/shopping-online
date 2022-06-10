@@ -15,30 +15,42 @@ namespace shopping_online.Controllers
         SqlCommand com = new SqlCommand();
         // GET: Account
         [HttpGet]
-        public ActionResult Login()
+        // GET: /Account/Login
+        [AllowAnonymous]
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-        void connectionString() 
-        {
-            con.ConnectionString = "data source= ADMIN-PCSQLSERVERHUY; database=Project_SU22_lan3_TuanAnh; intergrated security = SSPI; ";
-        }
-        public ActionResult Verify(Account acc)
-        {
-            connectionString();
-            con.Open();
-            com.Connection = con;
-            com.CommandText = "select* from Account where account_name";
-            return View();
-        //    if (Dr.Read());
+
+        //
+        // POST: /Account/Login
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        //{
+        //    if (!ModelState.IsValid)
         //    {
-        //        return View();
+        //        return View(model);
         //    }
-        //    else 
+
+        //    // This doesn't count login failures towards account lockout
+        //    // To enable password failures to trigger account lockout, change to shouldLockout: true
+        //    var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+        //    switch (result)
         //    {
-        //        return View();
+        //        case SignInStatus.Success:
+        //            return RedirectToLocal(returnUrl);
+        //        case SignInStatus.LockedOut:
+        //            return View("Lockout");
+        //        case SignInStatus.RequiresVerification:
+        //            return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+        //        case SignInStatus.Failure:
+        //        default:
+        //            ModelState.AddModelError("", "Invalid login attempt.");
+        //            return View(model);
         //    }
-        //    con.Close();
         //}
 
     }
