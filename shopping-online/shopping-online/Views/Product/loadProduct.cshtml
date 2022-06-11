@@ -1,16 +1,10 @@
-﻿
-
-@using shopping_online.Models;
-@model IEnumerable<product>
+﻿@model IEnumerable<shopping_online.Models.product>
 
 @{
     ViewBag.Title = "loadProduct";
-}
-
-
-@{
     Layout = null;
 }
+
 
 <!DOCTYPE html>
 <html>
@@ -313,11 +307,25 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="/ProductAdmin/Index">
+                        <a href="/ProductAdmin/loadProduct">
                             <i class="fa fa-gavel"></i> <span>Product</span>
                         </a>
                     </li>
-
+                    <li>
+                        <a href="/Order/Orders">
+                            <i class="fa fa-globe"></i> <span>Order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Shipping/Shipping">
+                            <i class="fa fa-globe"></i> <span>Ship</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/ProductAdmin/Index">
+                            <i class="fa fa-globe"></i> <span>Product</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="/BlogAdmin/Index">
                             <i class="fa fa-globe"></i> <span>Blog</span>
@@ -361,58 +369,105 @@
                                 List Product
                             </header>
                             <div class="panel-body table-responsive">
+
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Color</th>
-                                            <th>Price</th>
-                                            <th>Status</th>
-                                            <th></th>
+                                            <th>
+                                                <p>Image </p>
+                                                @*       @Html.DisplayNameFor(model => model.image_product)*@
+                                            </th>
+                                            <th>
+                                                <p>Name </p>
+                                                @*         @Html.DisplayNameFor(model => model.product_name)*@
+                                            </th>
+                                            <th>
+                                                <p>Price</p>
+                                                @*      @Html.DisplayNameFor(model => model.product_price)*@
+                                            </th>
+                                            <th>
+                                                <p>Quantity </p>
+                                                @*      @Html.DisplayNameFor(model => model.product_quantity)*@
+                                            </th>
+                                            <th>
+                                                <p>Description</p>
+                                                @*      @Html.DisplayNameFor(model => model.product_description)*@
+                                            </th>
+                                            <th>
+                                                <p>Code</p>
+                                                @*     @Html.DisplayNameFor(model => model.product_code)*@
+                                            </th>
+                                            <th>
+                                                <p>Sale</p>
+                                                @*     @Html.DisplayNameFor(model => model.product_sale)*@
+                                            </th>
+                                            <th>
+                                                <p>Category</p>
+                                                @*     @Html.DisplayNameFor(model => model.Category.category_name)*@
+                                            </th>
+                                            <th>
+                                                <p>Color</p>
+                                                @*       @Html.DisplayNameFor(model => model.Color.color_name)*@
+                                            </th>
+                                            <th>
+                                                <p>Status of product</p>
+                                                @*   @Html.DisplayNameFor(model => model.status_product.status_product_status)*@
+                                            </th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><img alt="Adidas Stan Smith All Black (Men)(Black)(Adidas).jpg"/></td>
-                                            <td>Mark</td>
-                                            <!-- <td>Steve</td> -->
-                                            <td>10/10/2014</td>
-                                            <!-- <td>$1500</td> -->
-                                            <td><span class="label label-danger">in progress</span></td>
-                                            <td>
-                                                <div class="pull-right hidden-phone">
-                                                    @*<button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>*@
-                                                    <a href=""><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Twitter</td>
-                                            <td>Evan</td>
-                                            <!-- <td>Darren</td> -->
-                                            <td>10/8/2014</td>
-                                            <!-- <td>$1500</td> -->
-                                            <td><span class="label label-success">completed</span></td>
-                                            <td>
-                                                <div class="pull-right hidden-phone">
-                                                    @*<button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>*@
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.image_product)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.product_name)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.product_price)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.product_quantity)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.product_description)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.product_code)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.product_sale)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Category.category_name)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Color.color_name)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.status_product.status_product_status)
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Edit", "Edit", new { id = item.product_id }) |
+                                                    @*   @Html.ActionLink("Details", "Details", new { id = item.product_id }) |*@
+                                                    @Html.ActionLink("Delete", "Delete", new { id = item.product_id })
+                                                </td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>
                         </section>
                         <div class=" add-task-row">
-                            <a class="btn btn-success btn-sm pull-left" href="/AddProduct/Index">Add New Product</a>
-                            @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
+                          @*  <a class="btn btn-success btn-sm pull-left" href="/AddProduct/Index">Ad new product</a>*@
+                            
+                            <p class="btn btn-success btn-sm pull-left">
+                                @Html.ActionLink("Create New", "Create")
+                            </p>
+                                @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
                         </div>
                     </div><!--end col-6 -->
                 </div>

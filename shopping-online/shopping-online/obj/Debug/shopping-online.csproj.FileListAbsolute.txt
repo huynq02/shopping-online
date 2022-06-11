@@ -244,3 +244,6 @@ D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\Newto
 D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.pdb
 D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
+D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\EntityFramework.dll
+D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\EntityFramework.SqlServer.dll
+D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\EntityFramework.SqlServer.xml

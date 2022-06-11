@@ -8,12 +8,17 @@ namespace shopping_online.Controllers
 {
     public class OrderController : Controller
     {
-        // GET: Order
+        DBContext db = new DBContext();
+        // GET: Sale
         public ActionResult Index()
         {
-            DBContext dBContext = new DBContext();
-            List<Order> orders = dBContext.Orders.ToList();
+            return View();
+        }
+        public ActionResult Orders()
+        {
+            List<Order> orders = db.Orders.ToList();
             return View(orders);
+
         }
     }
 }

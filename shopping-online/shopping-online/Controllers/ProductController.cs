@@ -24,9 +24,10 @@ namespace shopping_online.Controllers
             //return View(productDetail);
             return View();
         }
+         DBContext dBContext = new DBContext();
         public ActionResult loadProduct()
         {
- DBContext dBContext = new DBContext();
+            
             List<product> products = dBContext.products.ToList();
             return View(products);
         }
