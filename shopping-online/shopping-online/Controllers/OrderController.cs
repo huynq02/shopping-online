@@ -16,9 +16,15 @@ namespace shopping_online.Controllers
         }
         public ActionResult Orders()
         {
+           
             List<Order> orders = db.Orders.ToList();
             return View(orders);
 
+        }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
         }
     }
 }
