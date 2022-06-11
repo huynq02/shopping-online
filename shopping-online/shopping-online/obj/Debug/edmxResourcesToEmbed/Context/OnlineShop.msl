@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="Project_SU22Model.Account">
         <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Account_status" ColumnName="Account_status" />
           <ScalarProperty Name="account_role" ColumnName="account_role" />
           <ScalarProperty Name="account_gender" ColumnName="account_gender" />
           <ScalarProperty Name="account_address" ColumnName="account_address" />

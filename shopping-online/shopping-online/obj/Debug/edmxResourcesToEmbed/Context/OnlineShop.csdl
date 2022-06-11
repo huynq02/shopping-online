@@ -83,6 +83,7 @@
     <Property Name="account_address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="account_gender" Type="Boolean" Nullable="false" />
     <Property Name="account_role" Type="Int32" />
+    <Property Name="Account_status" Type="Boolean" />
     <NavigationProperty Name="Role" Relationship="Project_SU22Model.FK_Account_Role" FromRole="Account" ToRole="Role" />
     <NavigationProperty Name="Orders" Relationship="Project_SU22Model.FK_Order_Status_Account" FromRole="Account" ToRole="Order" />
   </EntityType>

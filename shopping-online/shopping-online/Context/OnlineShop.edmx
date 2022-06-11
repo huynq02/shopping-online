@@ -17,6 +17,7 @@
           <Property Name="account_address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="account_gender" Type="bit" Nullable="false" />
           <Property Name="account_role" Type="int" />
+          <Property Name="Account_status" Type="bit" />
         </EntityType>
         <EntityType Name="Blog">
           <Key>
@@ -494,6 +495,7 @@ warning 6002: The table/view 'Project_SU22.dbo.Product_size' does not have a pri
           <Property Name="account_address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="account_gender" Type="Boolean" Nullable="false" />
           <Property Name="account_role" Type="Int32" />
+          <Property Name="Account_status" Type="Boolean" />
           <NavigationProperty Name="Role" Relationship="Project_SU22Model.FK_Account_Role" FromRole="Account" ToRole="Role" />
           <NavigationProperty Name="Orders" Relationship="Project_SU22Model.FK_Order_Status_Account" FromRole="Account" ToRole="Order" />
         </EntityType>
@@ -840,6 +842,7 @@ warning 6002: The table/view 'Project_SU22.dbo.Product_size' does not have a pri
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="Project_SU22Model.Account">
               <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Account_status" ColumnName="Account_status" />
                 <ScalarProperty Name="account_role" ColumnName="account_role" />
                 <ScalarProperty Name="account_gender" ColumnName="account_gender" />
                 <ScalarProperty Name="account_address" ColumnName="account_address" />

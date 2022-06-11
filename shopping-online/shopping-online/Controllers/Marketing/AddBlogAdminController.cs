@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace shopping_online.Controllers.Marketing
 {
+    //Add blog
     public class AddBlogAdminController : Controller
     {
         Project_SU22Entities db = new Project_SU22Entities();

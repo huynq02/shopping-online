@@ -28,6 +28,7 @@ namespace shopping_online.Context
         public string account_address { get; set; }
         public bool account_gender { get; set; }
         public Nullable<int> account_role { get; set; }
+        public Nullable<bool> Account_status { get; set; }
     
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
