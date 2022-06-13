@@ -1,165 +1,82 @@
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll.config
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\shopping-online.pdb
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\csc.exe
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\csc.exe.config
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\csc.rsp
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\csi.exe
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\csi.exe.config
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\csi.rsp
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.Managed.Core.targets
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.Win32.Primitives.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.AppContext.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Collections.Immutable.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Console.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Diagnostics.StackTrace.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Globalization.Calendars.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.IO.Compression.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.IO.Compression.ZipFile.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.IO.FileSystem.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.IO.FileSystem.Primitives.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Net.Http.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Net.Sockets.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Reflection.Metadata.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.Encoding.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.Primitives.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Text.Encoding.CodePages.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Threading.Tasks.Extensions.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.ValueTuple.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Xml.ReaderWriter.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Xml.XmlDocument.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Xml.XPath.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Xml.XPath.XDocument.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\vbc.exe
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\vbc.exe.config
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\vbc.rsp
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\VBCSCompiler.exe
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\roslyn\VBCSCompiler.exe.config
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\Microsoft.Web.Infrastructure.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\Newtonsoft.Json.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.Helpers.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.Mvc.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.Optimization.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.Razor.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Deployment.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Razor.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\WebGrease.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.Helpers.xml
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.Mvc.xml
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.Optimization.xml
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.Razor.xml
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.xml
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Deployment.xml
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Razor.xml
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\Newtonsoft.Json.xml
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.pdb
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
-E:\Admin\Documents\New folder (2)\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll.config
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\shopping-online.pdb
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\csc.exe
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\csc.exe.config
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\csc.rsp
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\csi.exe
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\csi.exe.config
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\csi.rsp
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.Managed.Core.targets
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\Microsoft.Win32.Primitives.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.AppContext.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Collections.Immutable.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Console.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Diagnostics.StackTrace.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Globalization.Calendars.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.IO.Compression.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.IO.Compression.ZipFile.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.IO.FileSystem.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.IO.FileSystem.Primitives.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Net.Http.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Net.Sockets.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Reflection.Metadata.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.Encoding.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.Primitives.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Text.Encoding.CodePages.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Threading.Tasks.Extensions.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.ValueTuple.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Xml.ReaderWriter.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Xml.XmlDocument.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Xml.XPath.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\System.Xml.XPath.XDocument.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\vbc.exe
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\vbc.exe.config
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\vbc.rsp
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\VBCSCompiler.exe
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\roslyn\VBCSCompiler.exe.config
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\Microsoft.Web.Infrastructure.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\Newtonsoft.Json.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.Helpers.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.Mvc.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.Optimization.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.Razor.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Deployment.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Razor.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\WebGrease.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.Helpers.xml
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.Mvc.xml
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.Optimization.xml
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.Razor.xml
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.xml
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Deployment.xml
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Razor.xml
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\Newtonsoft.Json.xml
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.pdb
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\shopping-online.dll.config
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\shopping-online.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\shopping-online.pdb
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\csc.exe
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\csc.exe.config
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\csc.rsp
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\csi.exe
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\csi.exe.config
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\csi.rsp
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.Managed.Core.targets
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.AppContext.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Collections.Immutable.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Console.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Globalization.Calendars.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.IO.Compression.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.IO.FileSystem.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Net.Http.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Net.Sockets.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Reflection.Metadata.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.ValueTuple.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Xml.XmlDocument.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Xml.XPath.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\vbc.exe
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\vbc.exe.config
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\vbc.rsp
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\VBCSCompiler.exe
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\roslyn\VBCSCompiler.exe.config
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\Antlr3.Runtime.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\Microsoft.Web.Infrastructure.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\Newtonsoft.Json.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.Helpers.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.Mvc.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.Optimization.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.Razor.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.WebPages.Deployment.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.WebPages.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.WebPages.Razor.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\WebGrease.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.Helpers.xml
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.Mvc.xml
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.Optimization.xml
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.Razor.xml
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.WebPages.xml
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.WebPages.Deployment.xml
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\System.Web.WebPages.Razor.xml
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\Newtonsoft.Json.xml
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\Antlr3.Runtime.pdb
+E:\FPT UNIVERSITY\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\FPT UNIVERSITY\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
+E:\FPT UNIVERSITY\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
+E:\FPT UNIVERSITY\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
+E:\FPT UNIVERSITY\shopping-online\shopping-online\obj\Debug\shopping-online.dll
+E:\FPT UNIVERSITY\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll.config
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\shopping-online.pdb
@@ -213,7 +130,6 @@ E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shoppin
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\roslyn\VBCSCompiler.exe
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\roslyn\VBCSCompiler.exe.config
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\EntityFramework.dll
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\Microsoft.Web.Infrastructure.dll
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\Newtonsoft.Json.dll
@@ -225,7 +141,6 @@ E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shoppin
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.dll
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Razor.dll
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\WebGrease.dll
-E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\EntityFramework.xml
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\System.Web.Helpers.xml
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\System.Web.Mvc.xml
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\System.Web.Optimization.xml
@@ -236,4 +151,8 @@ E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shoppin
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\Newtonsoft.Json.xml
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.pdb
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
+E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
 E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
+E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
+E:\FPT UNIVERSITY\PROJECT_SHOPPINGONLINE\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
