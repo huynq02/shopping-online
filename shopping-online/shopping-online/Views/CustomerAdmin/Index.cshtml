@@ -350,7 +350,7 @@
                     <div class="col-md-12">
                         <section class="panel">
                             <header class="panel-heading">
-                                List Product
+                                List Customer
                             </header>
                             <div class="panel-body table-responsive">
                                 <table class="table table-hover">
@@ -387,6 +387,7 @@
                                         }
                                     </tbody>
                                 </table>
+                                @Html.PagedListPager(Model.account, page => Url.Action("Index", new { page }))
                             </div>
                         </section>
                         <div class=" add-task-row">
