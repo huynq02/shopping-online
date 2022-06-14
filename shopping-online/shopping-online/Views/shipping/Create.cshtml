@@ -1,10 +1,10 @@
-﻿@model IEnumerable<shopping_online.Models.Order>
+﻿@model shopping_online.Models.shipping
 
 @{
-    ViewBag.Title = "orderId";
+    ViewBag.Title = "Create";
     Layout = null;
 }
-}
+
 
 
 
@@ -363,111 +363,64 @@
             <section class="content">
 
                 <!-- Main row -->
-
                 <div class="row">
-                    <div class="col-xs-12">
-                        <div class="panel">
-                            <header class="panel-heading">
-                                List Order
 
+                    <div class="col-md-8">
+                        <section class="panel">
+
+                            <header class="panel-heading">
+                                Form Elements
                             </header>
-                            <!-- <div class="box-header"> -->
-                            <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-                            <!-- </div> -->
-                            <div class="panel-body table-responsive">
-                                <div class="box-tools m-b-15">
-                                    <div class="input-group">
-                                        <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-default" style="height: 30px;"><i class="fa fa-search"></i></button>
+                            <div class="panel-body">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        <h4>shipping</h4>
+                                        <hr />
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.shipping_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.shipping_name, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.shipping_name, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.shipping_email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.shipping_email, new { htmlAttributes = new { @class = "form-control", Type = "email" } })
+                                                @Html.ValidationMessageFor(model => model.shipping_email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.shipping_phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.shipping_phone, new { htmlAttributes = new { @class = "form-control", Type = "phone" } })
+                                                @Html.ValidationMessageFor(model => model.shipping_phone, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Create" class="btn btn-default" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Order_note)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Order_total_money)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Order_Date)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Account.account_username)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Order_status.Order_status_status)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.shipping.shipping_name)
-                                            </th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Order_note)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Order_total_money)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Order_Date)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Account.account_username)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Order_status.Order_status_status)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.shipping.shipping_name)
-                                                </td>
-                                                <td>
-                                                    <div class="pull-right hidden-phone">
-                                                    @Html.ActionLink("Detail", "Detail", new { id = item.Order_id })
-                                                     @Html.ActionLink("Edit", "Edit", new { id = item.Order_id }) 
-                                                     @Html.ActionLink("Delete", "Delete", new { id = item.Order_id })
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        }
-                                    </tbody>
+                                }
+                            </div>
 
-                                </table>
-                            </div><!-- /.box-body -->
-                        </div><!-- /.box -->
+                        </section>
                     </div>
+                        <div class=" add-task-row">
+                            <div>
+                                @Html.ActionLink("Back to List", "Shipping")
+                            </div>
+                        </div><!--end col-6 -->
                 </div>
-                <!--page-->
-                <div>
-                    <ul class="pagination pagination-sm pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                </div>
-                <!--page-->
-                <div class=" add-task-row">
-                    @*  <a class="btn btn-success btn-sm pull-left" href="/AddProduct/Index">Ad new product</a>*@
-
-                    <p class="btn btn-success btn-sm pull-left">
-                        @Html.ActionLink("Create New", "Create")
-                    </p>
-                    @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
-                </div>
-
-
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">

@@ -17,5 +17,6 @@ namespace shopping_online.Controllers
         public ActionResult Oderdetails() {
             return View(db.Order_Details.ToList());
         }
+       
         }
 }
