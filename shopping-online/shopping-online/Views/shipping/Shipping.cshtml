@@ -1,5 +1,5 @@
 ﻿@using shopping_online.Models;
-@model IEnumerable<shopping_online.Models.shipping>
+@*@model IEnumerable<shopping_online.Models.shipping>*@
 @using PagedList.Mvc;
 @model PagedList.PagedList<shopping_online.Models.shipping>
  
@@ -372,18 +372,23 @@
                                 List Product
                             </header>
                             <div class="panel-body table-responsive">
-
+                                <div class=" add-task-row">
+                                    <p class="btn btn-success btn-sm pull-left">
+                                        @Html.ActionLink("Create New", "Create")
+                                    </p>
+                                    @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
+                                </div>
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.shipping_name)
+                                                @Html.DisplayNameFor(model => model.First().shipping_name)
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.shipping_email)
+                                                @Html.DisplayNameFor(model => model.First().shipping_email)
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.shipping_phone)
+                                                @Html.DisplayNameFor(model => model.First().shipping_phone)
                                             </th>
 
                                             <th>Action</th>
@@ -416,34 +421,22 @@
                         </section>
                         <!--page-->
                     @*tao lien ket trang*@
-                    @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount;
-                        <div>
-                            <ul class="pagination pagination-sm pull-right">
-                                <li><a href="#">«</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">»</a></li>
-                            </ul>
-                        </div>
+                   
+                    <div>
+                       
+                        <ul class="pagination pagination-sm pull-right">
+                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount
+                            @Html.PagedListPager(Model, page => Url.Action("Shipping", new { page = page }))
+                        </ul>
+                    </div>
                         <!--page-->
-                        <div class=" add-task-row">
-                            @*  <a class="btn btn-success btn-sm pull-left" href="/AddProduct/Index">Ad new product</a>*@
-
-                            <p class="btn btn-success btn-sm pull-left">
-                                @Html.ActionLink("Create New", "Create")
-                            </p>
-                            @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
-                        </div>
                     </div><!--end col-6 -->
                 </div>
                 <!-- row end -->
             </section><!-- /.content -->
-            <div class="footer-main">
+            @*<div class="footer-main">
                 Copyright &copy Director, 2022
-            </div>
+            </div>*@
         </aside><!-- /.right-side -->
 
     </div><!-- ./wrapper -->
