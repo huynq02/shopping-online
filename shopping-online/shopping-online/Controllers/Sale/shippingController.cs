@@ -24,13 +24,20 @@ namespace shopping_online.Controllers.Sale
         {
             return View();
         }
-        public ActionResult Shipping(int? page)
+        public ActionResult Shipping(string table_search, int? page)
         {
             int padeNum = (page ?? 1);
-            int pageSize = 15;
-            List<shipping> shippings = db.shippings.ToList();
-            var pt = shippings.OrderBy(x => x.shipping_id).ToPagedList(padeNum, pageSize);
-            return View(pt);
+            int pageSize = 10;
+            List<shipping> ship = db.shippings.ToList();
+            IQueryable<shipping> pt = db.shippings;
+           
+            if (!string.IsNullOrEmpty(table_search))
+            {
+                pt = pt.Where(x => x.shipping_name.Contains(table_search) || x.shipping_email.Contains(table_search) || x.shipping_phone.Contains(table_search));
+            } 
+            var pts = pt.OrderBy(x => x.shipping_id).ToPagedList(padeNum, pageSize);
+            ViewBag.table_search = table_search;
+            return View(pts);
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -79,6 +86,13 @@ namespace shopping_online.Controllers.Sale
                 db.Entry(ship).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Shipping", "Shipping");
+        }
+        public ActionResult Delete(int Id)
+        {
+            shipping ship = db.shippings.Where(x => x.shipping_id == Id).FirstOrDefault();
+            db.shippings.Remove(ship);
+            db.SaveChanges();
+            return RedirectToAction("Shipping", "Shipping");
         }
     }
 }

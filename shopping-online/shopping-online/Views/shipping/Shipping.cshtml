@@ -2,7 +2,7 @@
 @*@model IEnumerable<shopping_online.Models.shipping>*@
 @using PagedList.Mvc;
 @model PagedList.PagedList<shopping_online.Models.shipping>
- 
+
 @{
     ViewBag.Title = "Shipping";
     Layout = null;
@@ -309,12 +309,12 @@
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="/ProductAdmin/loadProduct">
                             <i class="fa fa-gavel"></i> <span>Product</span>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="/Order/Orders">
                             <i class="fa fa-globe"></i> <span>Order</span>
                         </a>
@@ -378,6 +378,18 @@
                                     </p>
                                     @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
                                 </div>
+                                @using (Html.BeginForm("Shipping", "shipping", FormMethod.Get))
+                                {
+                                    <div class="box-tools m-b-15">
+                                        <div class="input-group">
+                                            <input type="text" name="table_search" value="@ViewBag.table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-sm btn-default" style="height: 30px;"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
@@ -420,23 +432,23 @@
                             </div>
                         </section>
                         <!--page-->
-                    @*tao lien ket trang*@
-                   
-                    <div>
-                       
-                        <ul class="pagination pagination-sm pull-right">
-                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount
-                            @Html.PagedListPager(Model, page => Url.Action("Shipping", new { page = page }))
-                        </ul>
-                    </div>
+                        @*tao lien ket trang*@
+
+                        <div>
+
+                            <ul class="pagination pagination-sm pull-right">
+                                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount
+                                @Html.PagedListPager(Model, page => Url.Action("Shipping", new { page = page, @table_search = @ViewBag.table_search }))
+                            </ul>
+                        </div>
                         <!--page-->
                     </div><!--end col-6 -->
                 </div>
                 <!-- row end -->
             </section><!-- /.content -->
             @*<div class="footer-main">
-                Copyright &copy Director, 2022
-            </div>*@
+                    Copyright &copy Director, 2022
+                </div>*@
         </aside><!-- /.right-side -->
 
     </div><!-- ./wrapper -->
@@ -531,7 +543,7 @@
             });
 
         });
-                        // Chart.defaults.global.responsive = true;
+                            // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>
