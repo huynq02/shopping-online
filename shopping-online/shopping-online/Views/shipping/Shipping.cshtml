@@ -1,5 +1,8 @@
-﻿@model IEnumerable<shopping_online.Models.shipping>
-
+﻿@using shopping_online.Models;
+@model IEnumerable<shopping_online.Models.shipping>
+@using PagedList.Mvc;
+@model PagedList.PagedList<shopping_online.Models.shipping>
+ 
 @{
     ViewBag.Title = "Shipping";
     Layout = null;
@@ -382,7 +385,7 @@
                                             <th>
                                                 @Html.DisplayNameFor(model => model.shipping_phone)
                                             </th>
-                                 
+
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -411,6 +414,21 @@
                                 </table>
                             </div>
                         </section>
+                        <!--page-->
+                    @*tao lien ket trang*@
+                    @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount;
+                        <div>
+                            <ul class="pagination pagination-sm pull-right">
+                                <li><a href="#">«</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                        </div>
+                        <!--page-->
                         <div class=" add-task-row">
                             @*  <a class="btn btn-success btn-sm pull-left" href="/AddProduct/Index">Ad new product</a>*@
 

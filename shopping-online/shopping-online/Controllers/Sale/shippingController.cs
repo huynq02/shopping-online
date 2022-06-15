@@ -4,21 +4,36 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using shopping_online.Models;
+
+
+
 namespace shopping_online.Controllers.Sale
 {
     public class shippingController : Controller
     {
+        public class InstructorIndexData
+        {
+            public PagedList.IPagedList<shipping> Shipping { get; set; }
+         
+        }
         DBContext db = new DBContext();
         // GET: shipping
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Shipping()
+        public ActionResult Shipping(int ?page)
         {
+            int padeNum = (page ?? 1);
+            int pageSize = 7;
+
+
+
             List<shipping> shippings = db.shippings.ToList();
-            return View(shippings);
+            var pt = shippings.OrderBy(x => x.shipping_id).ToPagedList(padeNum, pageSize);
+            return View(pt);
         }
         public ActionResult Edit(int id)
         {
@@ -37,11 +52,11 @@ namespace shopping_online.Controllers.Sale
             db.SaveChanges();
             return RedirectToAction("Shipping", "Shipping");
         }
-        public ActionResult Edits(shipping ship, int Id, string name, string email, string phone)
+        public ActionResult Edit(shipping ship, int Id, string name, string email, string phone)
         {
            
             ship.shipping_id = Id;
-            if (ship.shipping_name == null)
+            if (ship.shipping_name != null)
             {
                 ship.shipping_name = name;
             }

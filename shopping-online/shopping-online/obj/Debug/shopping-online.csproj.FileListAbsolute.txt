@@ -247,3 +247,4 @@ D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\obj\Debug
 D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\EntityFramework.dll
 D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\EntityFramework.SqlServer.dll
 D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\EntityFramework.SqlServer.xml
+D:\FPTU\PRN211\project\shopping-online\shopping-online\shopping-online\bin\PagedList.xml
