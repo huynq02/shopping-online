@@ -277,6 +277,7 @@
     <Content Include="Views\shipping\Create.cshtml" />
     <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\shipping\Edit.cshtml" />
+    <Content Include="Views\Shared\shippinglayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

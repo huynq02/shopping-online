@@ -1,19 +1,10 @@
-﻿@using shopping_online.Models;
-@*@model IEnumerable<shopping_online.Models.shipping>*@
-@using PagedList.Mvc;
-@model PagedList.PagedList<shopping_online.Models.shipping>
- 
-@{
-    ViewBag.Title = "Shipping";
-    Layout = null;
-}
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Product | Dashboard</title>
+    <title>Ship | Dashboard</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Developed By M Abdur Rokib Promy">
     <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
@@ -53,6 +44,7 @@
 
     <style type="text/css">
     </style>
+
 </head>
 <body class="skin-black">
     <!-- header logo: style can be found in header.less -->
@@ -309,12 +301,12 @@
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="/ProductAdmin/loadProduct">
                             <i class="fa fa-gavel"></i> <span>Product</span>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="/Order/Orders">
                             <i class="fa fa-globe"></i> <span>Order</span>
                         </a>
@@ -324,7 +316,7 @@
                             <i class="fa fa-globe"></i> <span>Ship</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li class="#">
                         <a href="/ProductAdmin/Index">
                             <i class="fa fa-globe"></i> <span>Product</span>
                         </a>
@@ -366,81 +358,29 @@
                 <!-- Main row -->
                 <div class="row">
 
-                    <div class="col-md-12">
+                    <div class="col-md-8">
                         <section class="panel">
-                            <header class="panel-heading">
-                                List ship
-                            </header>
-                            <div class="panel-body table-responsive">
-                                <div class=" add-task-row">
-                                    <p class="btn btn-success btn-sm pull-left">
-                                        @Html.ActionLink("Create New", "Create")
-                                    </p>
-                                    @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
-                                </div>
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.First().shipping_name)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.First().shipping_email)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.First().shipping_phone)
-                                            </th>
-
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.shipping_name)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.shipping_email)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.shipping_phone)
-                                                </td>
-                                                <td>
-                                                    @Html.ActionLink("Edit", "Edit", new { id = item.shipping_id }) |
-                                                    @Html.ActionLink("Details", "Details", new { id = item.shipping_id }) |
-                                                    @Html.ActionLink("Delete", "Delete", new { id = item.shipping_id })
-                                                </td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
+                            @RenderBody()
                         </section>
-                        <!--page-->
-                    @*tao lien ket trang*@
-                   
-                    <div>
-                       
-                        <ul class="pagination pagination-sm pull-right">
-                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount
-                            @Html.PagedListPager(Model, page => Url.Action("Shipping", new { page = page }))
-                        </ul>
                     </div>
-                        <!--page-->
-                    </div><!--end col-6 -->
                 </div>
-                <!-- row end -->
-            </section><!-- /.content -->
-            @*<div class="footer-main">
-                Copyright &copy Director, 2022
-            </div>*@
-        </aside><!-- /.right-side -->
+            </section>
+        </aside>
+    </div>
 
-    </div><!-- ./wrapper -->
+    @*</div>end col-6
+        </div>
+         row end
+        </section> /.content
+        </aside> /.right-side
+        </div> ./wrapper*@
     <!-- jQuery 2.0.2 -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="~/Content/js/jquery.min.js" type="text/javascript"></script>
 
@@ -531,8 +471,8 @@
             });
 
         });
-                        // Chart.defaults.global.responsive = true;
+                                                        // Chart.defaults.global.responsive = true;
     </script>
+
 </body>
 </html>
-
