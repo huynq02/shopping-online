@@ -43,7 +43,13 @@ namespace shopping_online.Controllers.Marketing
         [ValidateInput(false)]
         public ActionResult Create(Blog entity)
         {
-            //entity.descriptions = des;
+            if (entity.title == null || entity.descriptions == null || entity.author == null || entity.createdate == null
+                || entity.createby == null || entity.detail == null || entity.images == null 
+                || entity.modifyby == null || entity.modifydate == null)
+            {
+                ModelState.AddModelError("", "Không thể Add Blog");
+                return RedirectToAction("Index", "AddBlogAdmin");
+            }
             db.Blogs.Add(entity);
             db.SaveChanges();
             return RedirectToAction("Index", "BlogAdmin");
