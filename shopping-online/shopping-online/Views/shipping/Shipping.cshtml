@@ -394,13 +394,16 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.First().shipping_name)
+                                                <p>Name</p>
+                                             @*   @Html.DisplayNameFor(model => model.First().shipping_name)*@
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.First().shipping_email)
+                                                <p>Email</p>
+                                           @*     @Html.DisplayNameFor(model => model.First().shipping_email)*@
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.First().shipping_phone)
+                                                <p>Phone</p>
+                                              @*  @Html.DisplayNameFor(model => model.First().shipping_phone)*@
                                             </th>
 
                                             <th>Action</th>
@@ -422,7 +425,7 @@
                                                 </td>
                                                 <td>
                                                     @Html.ActionLink("Edit", "Edit", new { id = item.shipping_id }) |
-                                                    @Html.ActionLink("Details", "Details", new { id = item.shipping_id }) |
+                                                    @*@Html.ActionLink("Details", "Details", new { id = item.shipping_id }) |*@
                                                     @Html.ActionLink("Delete", "Delete", new { id = item.shipping_id })
                                                 </td>
                                             </tr>

@@ -13,10 +13,7 @@ namespace shopping_online.Controllers
     {
         DBContext db = new DBContext();
         // GET: Sale
-        public ActionResult Index()
-        {
-            return View();
-        }
+       
         public ActionResult Orders()
         {
            
