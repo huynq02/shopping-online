@@ -39,8 +39,25 @@ namespace shopping_online.Controllers.Marketing
             return View(cus);
         }
 
-        public ActionResult Edit(Account account)
+        public ActionResult Edit(Account acc, int Id, string gender, string status)
         {
+            if (gender == "Male")
+            {
+                acc.account_gender = true;
+            } else
+            {
+                acc.account_gender = false;
+            }
+            if (status == "Active")
+            {
+                acc.Account_status = true;
+            } else
+            {
+                acc.Account_status = false;
+            }
+            acc.account_id = Id;
+            db.Entry(acc).State = EntityState.Modified;
+            db.SaveChanges();
             return RedirectToAction("Index", "CustomerAdmin");
         }
 

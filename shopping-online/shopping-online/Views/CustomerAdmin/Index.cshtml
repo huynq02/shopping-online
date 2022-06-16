@@ -368,22 +368,29 @@
                                     <tbody>
                                         @foreach (var item in Model.account)
                                         {
-                                            <tr>
-                                                <td>@item.account_id</td>
-                                                <td>@item.account_name</td>
-                                                <td>@item.account_gender</td>
-                                                <td>@item.account_address</td>
-                                                <td>@item.account_email</td>
-                                                <td>@item.account_phone</td>
-                                                <td>@item.Account_status</td>
-                                                <td>
-                                                    <div class="pull-right hidden-phone">
-                                                        <a href="/AddCustomerAdmin/UnLockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
-                                                        <a href="/AddCustomerAdmin/AccountNeedEdit?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                                        <a href="/AddCustomerAdmin/LockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td>@item.account_id</td>
+                                            <td>@item.account_name</td>
+                                            @if (item.account_gender == true)
+                                            {
+                                                <td>Male</td>
+}
+                                            @if (item.account_gender == false)
+                                            {
+                                                <td>Female</td>
+}
+                                            <td>@item.account_address</td>
+                                            <td>@item.account_email</td>
+                                            <td>@item.account_phone</td>
+                                            <td>@item.Account_status</td>
+                                            <td>
+                                                <div class="pull-right hidden-phone">
+                                                    <a href="/AddCustomerAdmin/UnLockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
+                                                    <a href="/AddCustomerAdmin/AccountNeedEdit?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                    <a href="/AddCustomerAdmin/LockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>

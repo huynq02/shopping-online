@@ -351,12 +351,13 @@
                             <header class="panel-heading">
                                 Blog list
                             </header>
-                            <div class="input-group rounded">
-                                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                                <span class="input-group-text border-0" id="search-addon">
-                                    <i class="glyphicon glyphicon-search"></i>
-                                </span>
-                            </div>
+                            @using (Html.BeginForm("Index", "BlogAdmin", FormMethod.Get))
+                            {
+                                <div class="input-group">
+                                    <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                    <input type="button" class="btn btn-primary" value="Search"/>
+                                </div>
+                            }
                             <div class="panel-body">
 
                                 <div class="task-content">
@@ -491,7 +492,7 @@
             });
 
         });
-                            // Chart.defaults.global.responsive = true;
+                                            // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>
