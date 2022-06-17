@@ -12,37 +12,33 @@ namespace shopping_online.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public product()
         {
-            this.Feedbacks = new HashSet<Feedback>();
             this.Order_Details = new HashSet<Order_Details>();
-            this.Product_size = new HashSet<Product_size>();
+            this.productsizes = new HashSet<productsize>();
         }
     
         public int product_id { get; set; }
-        public int image_id { get; set; }
+        public string image_product { get; set; }
         public string product_name { get; set; }
         public double product_price { get; set; }
-        public int color_id { get; set; }
+        public Nullable<int> color_id { get; set; }
         public int product_quantity { get; set; }
-        public int category_id { get; set; }
-        public int status_id { get; set; }
+        public Nullable<int> category_id { get; set; }
+        public int status_product_id { get; set; }
         public string product_description { get; set; }
         public string product_code { get; set; }
-        public Nullable<int> product_sale { get; set; }
+        public Nullable<System.DateTime> product_create_date { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Color Color { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Feedback> Feedbacks { get; set; }
-        public virtual Image_product Image_product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Details> Order_Details { get; set; }
+        public virtual status_product status_product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product_size> Product_size { get; set; }
-        public virtual Status_product Status_product { get; set; }
+        public virtual ICollection<productsize> productsizes { get; set; }
     }
 }

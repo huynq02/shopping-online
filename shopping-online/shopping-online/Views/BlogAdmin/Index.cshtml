@@ -351,6 +351,13 @@
                             <header class="panel-heading">
                                 Blog list
                             </header>
+                            @using (Html.BeginForm("Index", "BlogAdmin", FormMethod.Get))
+                            {
+                                <div class="input-group">
+                                    <input type="text" name="search" value="@Model.search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                    <input type="submit" class="btn btn-primary" value="Search"/>
+                                </div>
+                            }
                             <div class="panel-body">
 
                                 <div class="task-content">
@@ -485,7 +492,7 @@
             });
 
         });
-                            // Chart.defaults.global.responsive = true;
+                                            // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

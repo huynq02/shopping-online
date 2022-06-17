@@ -12,18 +12,18 @@ namespace shopping_online.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Shipping
+    public partial class shipping
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Shipping()
+        public shipping()
         {
             this.Orders = new HashSet<Order>();
         }
     
-        public int id { get; set; }
-        public string name { get; set; }
-        public string email { get; set; }
-        public string phone { get; set; }
+        public int shipping_id { get; set; }
+        public string shipping_name { get; set; }
+        public string shipping_email { get; set; }
+        public string shipping_phone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

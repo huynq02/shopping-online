@@ -12,12 +12,13 @@ namespace shopping_online.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class productsize
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public Nullable<int> product_id { get; set; }
+        public Nullable<int> size_id { get; set; }
+        public int product_quantity { get; set; }
+    
+        public virtual product product { get; set; }
+        public virtual size size { get; set; }
     }
 }

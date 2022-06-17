@@ -12,18 +12,18 @@ namespace shopping_online.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Size
+    public partial class size
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Size()
+        public size()
         {
-            this.Product_size = new HashSet<Product_size>();
+            this.productsizes = new HashSet<productsize>();
         }
     
-        public int id { get; set; }
-        public int names { get; set; }
+        public int size_id { get; set; }
+        public int size_names { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product_size> Product_size { get; set; }
+        public virtual ICollection<productsize> productsizes { get; set; }
     }
 }

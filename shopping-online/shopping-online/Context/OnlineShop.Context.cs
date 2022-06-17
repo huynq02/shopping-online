@@ -29,18 +29,15 @@ namespace shopping_online.Context
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
-        public virtual DbSet<Feedback> Feedbacks { get; set; }
-        public virtual DbSet<Image_product> Image_product { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Order_Details> Order_Details { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Order_status> Order_status { get; set; }
+        public virtual DbSet<product> products { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<Shipping> Shippings { get; set; }
-        public virtual DbSet<Size> Sizes { get; set; }
+        public virtual DbSet<shipping> shippings { get; set; }
+        public virtual DbSet<size> sizes { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
-        public virtual DbSet<Status_order> Status_order { get; set; }
-        public virtual DbSet<Status_product> Status_product { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Product_size> Product_size { get; set; }
+        public virtual DbSet<status_product> status_product { get; set; }
+        public virtual DbSet<productsize> productsizes { get; set; }
     }
 }

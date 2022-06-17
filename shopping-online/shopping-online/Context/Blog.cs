@@ -21,8 +21,9 @@ namespace shopping_online.Context
         public System.DateTime createdate { get; set; }
         public string createby { get; set; }
         public string images { get; set; }
-        public System.DateTime modifydate { get; set; }
+        public Nullable<System.DateTime> modifydate { get; set; }
         public string modifyby { get; set; }
         public string detail { get; set; }
+        public string back_link { get; set; }
     }
 }

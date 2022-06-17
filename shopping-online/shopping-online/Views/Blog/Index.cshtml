@@ -291,7 +291,7 @@
                         </div><!--/shipping-->
                     </div>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-9" style="margin-bottom:20px">
                     <div class="blog-post-area">
                         <h2 class="title text-center">TIN TỨC SNEAKERS</h2>
                         @foreach (var blog in Model.blog)
@@ -313,8 +313,8 @@
                             </div>
                         }
                     </div>
-                </div><br />
-                <div>@Html.PagedListPager(Model.blog, page => Url.Action("Index", new { page }))</div> 
+                </div>
+                @Html.PagedListPager(Model.blog, page => Url.Action("Index", new { page }))
             </div>
         </div>
     </section>

@@ -9,6 +9,7 @@ namespace shopping_online.Models
 {
     public class BlogModel
     { 
+        public string search { get; set; }
         public IPagedList<Blog> blog { get; set; }
         public Blog bg { get; set; }
         public List<Category> cate { get; set; }
