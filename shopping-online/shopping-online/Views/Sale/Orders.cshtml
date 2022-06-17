@@ -1,0 +1,62 @@
+﻿@model IEnumerable<shopping_online.Models.Order>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_total_money)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account.account_username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_status.Order_status_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shipping.shipping_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_total_money)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account.account_username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_status.Order_status_status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shipping.shipping_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Order_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Order_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Order_id })
+        </td>
+    </tr>
+}
+
+</table>
