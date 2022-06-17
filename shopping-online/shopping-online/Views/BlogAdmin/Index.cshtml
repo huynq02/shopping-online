@@ -354,8 +354,8 @@
                             @using (Html.BeginForm("Index", "BlogAdmin", FormMethod.Get))
                             {
                                 <div class="input-group">
-                                    <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                                    <input type="button" class="btn btn-primary" value="Search"/>
+                                    <input type="text" name="search" value="@Model.search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                    <input type="submit" class="btn btn-primary" value="Search"/>
                                 </div>
                             }
                             <div class="panel-body">

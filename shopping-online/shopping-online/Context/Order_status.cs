@@ -12,18 +12,18 @@ namespace shopping_online.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Image_product
+    public partial class Order_status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Image_product()
+        public Order_status()
         {
-            this.Products = new HashSet<Product>();
+            this.Orders = new HashSet<Order>();
         }
     
-        public int id { get; set; }
-        public string image { get; set; }
+        public int Order_status_id { get; set; }
+        public string Order_status_status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

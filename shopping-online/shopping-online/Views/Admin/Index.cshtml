@@ -375,9 +375,9 @@
                     </div>
                     <div class="col-md-3">
                         <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-green"><i class="glyphicon glyphicon-eur"></i></span>
+                            <span class="sm-st-icon st-green"><i class="glyphicon glyphicon-usd"></i></span>
                             <div class="sm-st-info">
-                                <span>4567</span>
+                                <span>@Model.sum</span>
                                 Total Profits
                             </div>
                         </div>
@@ -416,6 +416,36 @@
                                             <i class="fa fa-times"></i>
                                         </button>
                                         <strong>Well done!</strong> You successfully add new blog.
+                                    </div>
+                                }
+
+                                @if (Model.proCreate != null)
+                                {
+                                    <div class="alert alert-success">
+                                        <button data-dismiss="alert" class="close close-sm" type="button">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        <strong>Well done!</strong> You successfully add new product.
+                                    </div>
+                                }
+
+                                @if (Model.cusCreate != null)
+                                {
+                                    <div class="alert alert-success">
+                                        <button data-dismiss="alert" class="close close-sm" type="button">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        <strong>Well done!</strong> New customer added.
+                                    </div>
+                                }
+
+                                @if (Model.slideCreate != null)
+                                {
+                                    <div class="alert alert-success">
+                                        <button data-dismiss="alert" class="close close-sm" type="button">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        <strong>Well done!</strong> You successfully add new slide.
                                     </div>
                                 }
                                 <div class="alert alert-info">
@@ -468,8 +498,8 @@
 
 
                 </div>
-                
-           
+
+
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">
@@ -569,7 +599,7 @@
             });
 
         });
-                        // Chart.defaults.global.responsive = true;
+                                // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

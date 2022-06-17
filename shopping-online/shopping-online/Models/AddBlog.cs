@@ -25,5 +25,6 @@ namespace shopping_online.Models
         public string ModifyBy { get; set; }
         [Required(ErrorMessage = "Mời nhập Detail")]
         public string Detail { get; set; }
+        public string Back_Link { get; set; }
     }
 }

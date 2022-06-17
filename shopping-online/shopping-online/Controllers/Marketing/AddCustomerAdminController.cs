@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace shopping_online.Controllers.Marketing
 {
@@ -24,18 +25,27 @@ namespace shopping_online.Controllers.Marketing
             {
                 account.account_gender = true;
             }
-            account.Account_status = true;
+            account.account_status= true;
             account.account_role = 1;
             db.Accounts.Add(account);
             db.SaveChanges();
             return RedirectToAction("Index", "CustomerAdmin");
         }
 
-        public ActionResult AccountNeedEdit(int Id)
+        public ActionResult AccountNeedEdit(int Id, int page = 1, int pageSize = 5)
         {
             var customer = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
+            var orderCustomer = db.Orders.Where(x => x.account_id == Id).ToList();
+            var orderCus = db.Orders.Where(x => x.account_id == Id).FirstOrDefault();
+            var orderDetailCus = db.Order_Details.Where(x => x.Order_id == orderCus.Order_id).ToList();
+            var product = db.products.ToList();
+            var orderSta = db.Order_status.ToList();
             CustomerModel cus = new CustomerModel();
             cus.acc = customer;
+            cus.lstOrder = orderCustomer;
+            cus.product = product;
+            cus.lstOrderCus = orderDetailCus;
+            cus.lstOrderStatus = orderSta;
             return View(cus);
         }
 
@@ -50,10 +60,10 @@ namespace shopping_online.Controllers.Marketing
             }
             if (status == "Active")
             {
-                acc.Account_status = true;
+                acc.account_status = true;
             } else
             {
-                acc.Account_status = false;
+                acc.account_status = false;
             }
             acc.account_id = Id;
             db.Entry(acc).State = EntityState.Modified;
@@ -64,7 +74,7 @@ namespace shopping_online.Controllers.Marketing
         public ActionResult UnLockAccount(int Id)
         {
             Account account = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
-            account.Account_status = true;
+            account.account_status = true;
             db.Entry(account).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", "CustomerAdmin");
@@ -73,7 +83,7 @@ namespace shopping_online.Controllers.Marketing
         public ActionResult LockAccount(int Id)
         {
             Account account = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
-            account.Account_status = false;
+            account.account_status = false;
             db.Entry(account).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", "CustomerAdmin");

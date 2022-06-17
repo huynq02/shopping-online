@@ -146,12 +146,6 @@
     <Compile Include="Context\Color.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\Feedback.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\Image_product.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
-    </Compile>
     <Compile Include="Context\OnlineShop.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -173,31 +167,28 @@
     <Compile Include="Context\Order_Details.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\Product.cs">
+    <Compile Include="Context\Order_status.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\Product_size.cs">
+    <Compile Include="Context\product.cs">
+      <DependentUpon>OnlineShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\productsize.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Role.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\Shipping.cs">
+    <Compile Include="Context\shipping.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\Size.cs">
+    <Compile Include="Context\size.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Slide.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\Status_order.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\Status_product.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\sysdiagram.cs">
+    <Compile Include="Context\status_product.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BlogController.cs" />

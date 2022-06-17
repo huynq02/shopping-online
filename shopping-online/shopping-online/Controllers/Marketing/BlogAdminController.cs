@@ -22,6 +22,7 @@ namespace shopping_online.Controllers.Marketing
             }
             BlogModel bg = new BlogModel();
             bg.blog = blog;
+            bg.search = search;
             return View(bg);
         }
     }

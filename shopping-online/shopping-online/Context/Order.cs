@@ -20,18 +20,18 @@ namespace shopping_online.Context
             this.Order_Details = new HashSet<Order_Details>();
         }
     
-        public int id { get; set; }
+        public int Order_id { get; set; }
         public Nullable<int> account_id { get; set; }
-        public string note { get; set; }
-        public int status_id { get; set; }
-        public double total_money { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public string Order_note { get; set; }
+        public int Order_status_id { get; set; }
+        public double Order_total_money { get; set; }
+        public Nullable<System.DateTime> Order_Date { get; set; }
         public int shipping_id { get; set; }
     
         public virtual Account Account { get; set; }
+        public virtual Order_status Order_status { get; set; }
+        public virtual shipping shipping { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Details> Order_Details { get; set; }
-        public virtual Shipping Shipping { get; set; }
-        public virtual Status_order Status_order { get; set; }
     }
 }
