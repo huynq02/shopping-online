@@ -1,0 +1,59 @@
+﻿@model shopping_online.Models.Order_Details
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/shippinglayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order_Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_Details_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_Details_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_Details_num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_Details_num)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_Details_total_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_Details_total_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order.Order_note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.Order_note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product.image_product)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product.image_product)
+        </dd>
+
+    </dl>
+</div>
+<p>
+ @*   @Html.ActionLink("Edit", "Edit", new { id = Model.Order_Details_id }) |*@
+    @Html.ActionLink("Back to List", "Orders")
+</p>

@@ -1,12 +1,12 @@
-﻿@model IEnumerable<shopping_online.Models.Order>
+﻿@*@model IEnumerable<shopping_online.Models.Order>*@
+@using shopping_online.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<shopping_online.Models.Order>
 
 @{
-    ViewBag.Title = "orderId";
+    ViewBag.Title = "Orders";
     Layout = null;
 }
-}
-
-
 
 <!DOCTYPE html>
 <html>
@@ -371,40 +371,50 @@
                                 List Order
 
                             </header>
+
                             <!-- <div class="box-header"> -->
                             <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
                             <!-- </div> -->
                             <div class="panel-body table-responsive">
-                                <div class="box-tools m-b-15">
-                                    <div class="input-group">
-                                        <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-default" style="height: 30px;"><i class="fa fa-search"></i></button>
+                                <p class="btn btn-success btn-sm pull-left">
+                                    @Html.ActionLink("Create New", "Create")
+                                </p>
+                                @using (Html.BeginForm("Orders", "Order", FormMethod.Get))
+                                {
+                                    <div class="box-tools m-b-15">
+                                        <div class="input-group">
+                                            <input type="text" name="table_search" value="@ViewBag.table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-sm btn-default" style="height: 30px;"><i class="fa fa-search"></i></button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                }
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.Order_note)
+                                                <p>User account</p>
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.Order_total_money)
+                                                <p>Total Money</p>
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.Order_Date)
+                                                <p>Order Date</p>
+                                            </th>
+
+                                            <th>
+                                                <p>Order Status</p>
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.Account.account_username)
+                                                <p>Ship</p>
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.Order_status.Order_status_status)
+                                                <p>Note</p>
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.shipping.shipping_name)
+                                                <p>Action</p>
                                             </th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -412,7 +422,7 @@
                                         {
                                             <tr>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.Order_note)
+                                                    @Html.DisplayFor(modelItem => item.Account.account_username)
                                                 </td>
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.Order_total_money)
@@ -420,9 +430,7 @@
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.Order_Date)
                                                 </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Account.account_username)
-                                                </td>
+
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.Order_status.Order_status_status)
                                                 </td>
@@ -430,40 +438,38 @@
                                                     @Html.DisplayFor(modelItem => item.shipping.shipping_name)
                                                 </td>
                                                 <td>
+                                                    @Html.DisplayFor(modelItem => item.Order_note)
+                                                </td>
+                                                <td>
                                                     <div class="pull-right hidden-phone">
-                                                    @Html.ActionLink("Detail", "Detail", new { id = item.Order_id })
-                                                     @Html.ActionLink("Edit", "Edit", new { id = item.Order_id }) 
-                                                     @Html.ActionLink("Delete", "Delete", new { id = item.Order_id })
+                                                        @Html.ActionLink("Details", "Details", new { id = item.Order_id })|
+                                                        @Html.ActionLink("Edit", "Edit", new { id = item.Order_id })|
+                                                        @Html.ActionLink("Delete", "Delete", new { id = item.Order_id })|
                                                     </div>
                                                 </td>
                                             </tr>
                                         }
                                     </tbody>
-
                                 </table>
                             </div><!-- /.box-body -->
                         </div><!-- /.box -->
                     </div>
                 </div>
                 <!--page-->
+                @*tao lien ket trang*@
+
                 <div>
+
                     <ul class="pagination pagination-sm pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">»</a></li>
+                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount
+                        @Html.PagedListPager(Model, page => Url.Action("Orders", new { page = page, @table_search = @ViewBag.table_search }))
                     </ul>
                 </div>
                 <!--page-->
                 <div class=" add-task-row">
                     @*  <a class="btn btn-success btn-sm pull-left" href="/AddProduct/Index">Ad new product</a>*@
 
-                    <p class="btn btn-success btn-sm pull-left">
-                        @Html.ActionLink("Create New", "Create")
-                    </p>
+                   
                     @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
                 </div>
 
@@ -567,7 +573,7 @@
             });
 
         });
-                            // Chart.defaults.global.responsive = true;
+                                        // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>
