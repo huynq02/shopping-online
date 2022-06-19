@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\MailHelper.cs" />
     <Compile Include="Context\Account.cs">
       <DependentUpon>OnlineShop.tt</DependentUpon>
     </Compile>
@@ -904,6 +905,8 @@
     <Content Include="Content\js\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Content\js\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\template\HtmlPage1.html" />
+    <Content Include="Content\template\notification.html" />
     <Content Include="Context\OnlineShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>OnlineShop.Context.cs</LastGenOutput>

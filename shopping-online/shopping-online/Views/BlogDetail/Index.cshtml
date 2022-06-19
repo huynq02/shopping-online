@@ -29,6 +29,14 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="~/Content/images/ico/apple-touch-icon-57-precomposed.png">
+    <style>
+        @@media only screen and (max-width: 2000px) {
+            .media-object {
+                width: 121px;
+                height: 86px;
+            }
+        }
+    </style>
 </head><!--/head-->
 
 <body>
@@ -164,124 +172,26 @@
                         <h2>Category</h2>
                         <div class="panel-group category-products" id="accordian">
                             <!--category-productsr-->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                            Sportswear
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="sportswear" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li><a href="">Nike </a></li>
-                                            <li><a href="">Under Armour </a></li>
-                                            <li><a href="">Adidas </a></li>
-                                            <li><a href="">Puma</a></li>
-                                            <li><a href="">ASICS </a></li>
-                                        </ul>
+                            @foreach (var item in Model.cate)
+                            {
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" style="text-align: center"><a href="#">@item.category_name</a></h4>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordian" href="#mens">
-                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                            Mens
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="mens" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li><a href="">Fendi</a></li>
-                                            <li><a href="">Guess</a></li>
-                                            <li><a href="">Valentino</a></li>
-                                            <li><a href="">Dior</a></li>
-                                            <li><a href="">Versace</a></li>
-                                            <li><a href="">Armani</a></li>
-                                            <li><a href="">Prada</a></li>
-                                            <li><a href="">Dolce and Gabbana</a></li>
-                                            <li><a href="">Chanel</a></li>
-                                            <li><a href="">Gucci</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordian" href="#womens">
-                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                            Womens
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="womens" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li><a href="">Fendi</a></li>
-                                            <li><a href="">Guess</a></li>
-                                            <li><a href="">Valentino</a></li>
-                                            <li><a href="">Dior</a></li>
-                                            <li><a href="">Versace</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Kids</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Fashion</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Households</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Interiors</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Clothing</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Bags</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Shoes</a></h4>
-                                </div>
-                            </div>
+                            }
                         </div><!--/category-products-->
 
                         <div class="brands_products">
                             <!--brands_products-->
-                            <h2>Brands</h2>
+                            <h2>Colors</h2>
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href=""> <span class="pull-right">(50)</span>Acne</a></li>
-                                    <li><a href=""> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-                                    <li><a href=""> <span class="pull-right">(27)</span>Albiro</a></li>
-                                    <li><a href=""> <span class="pull-right">(32)</span>Ronhill</a></li>
-                                    <li><a href=""> <span class="pull-right">(5)</span>Oddmolly</a></li>
-                                    <li><a href=""> <span class="pull-right">(9)</span>Boudestijn</a></li>
-                                    <li><a href=""> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+                                    @foreach (var item in Model.color)
+                                    {
+                                        <li><a href="" style="text-align: center"> <span class="pull-right"></span>@item.color_name</a></li>
+                                    }
+
                                 </ul>
                             </div>
                         </div><!--/brands_products-->
@@ -299,7 +209,10 @@
                                     <li><i class="fa fa-calendar"></i>@Model.bg.createdate</li>
                                 </ul>
                             </div>
-                            @Html.Raw(Model.bg.detail)
+                            <div>
+                                @Html.Raw(Model.bg.detail)
+                            </div>
+                           
                         </div>
                     </div><!--/blog-post-area-->
 
@@ -323,17 +236,17 @@
                         </ul>
                     </div><!--/rating-area-->
 
-                    <div class="socials-share">
+                    @*<div class="socials-share">
                         <a href=""><img src="~/Content/images/blog/socials.png" alt=""></a>
-                    </div><!--/socials-share-->
+                    </div>*@<!--/socials-share-->
 
                     <div class="media commnets">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="~/Content/images/blog/man-one.jpg" alt="">
+                        <a class="pull-left" href="/BlogDetail/Index?Id=@Model.relateBlog.id">
+                            <img class="media-object" src="~/Content/images/blog/@Model.relateBlog.images" alt="">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">Annie Davis</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <h4 class="media-heading">@Model.relateBlog.title</h4>
+                            <p>@Model.relateBlog.descriptions</p>
                             <div class="blog-socials">
                                 <ul>
                                     <li><a href=""><i class="fa fa-facebook"></i></a></li>
@@ -341,13 +254,13 @@
                                     <li><a href=""><i class="fa fa-dribbble"></i></a></li>
                                     <li><a href=""><i class="fa fa-google-plus"></i></a></li>
                                 </ul>
-                                <a class="btn btn-primary" href="">Other Posts</a>
+                                <a class="btn btn-primary" href="/Blog/Index">Other Posts</a>
                             </div>
                         </div>
                     </div><!--Comments-->
                     <div id="fb-root"></div>
                     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="dtQHWbl7"></script>
-                    <div class="fb-comments" data-href="@Model.bg.back_link" data-width="580" data-numposts="5"></div>
+                    <div class="fb-comments" data-href="@Model.bg.back_link" data-width="680" data-numposts="5"></div>
                 </div>
             </div>
         </div>
