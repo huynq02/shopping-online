@@ -24,8 +24,12 @@ namespace shopping_online.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
+            //Database.SetInitializer<demoEntities>(null);
+            //modelBuilder.Entity<Account>().ToTable("Accounts");
+            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
         }
-    
+
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Function> Functions { get; set; }
         public virtual DbSet<Role> Roles { get; set; }

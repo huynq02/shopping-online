@@ -1,45 +1,122 @@
-﻿using System;
+﻿
+using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Security.Cryptography;
 using shopping_online.Models;
 
 namespace shopping_online.Controllers
 {
     public class LoginController : Controller
     {
+        Project_SU22Entities db = new Project_SU22Entities();
         // GET: Login
-        [HttpGet]
+        public ActionResult Index()
+        {
+            if (Session["account_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+        //GET: Register
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        //POST: Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(Account acc)
+        {
+            if (ModelState.IsValid)
+            {
+                var check = db.Accounts.FirstOrDefault(s => s.account_email == acc.account_email);
+                if (check == null)
+                {
+                    acc.account_password = GetMD5(acc.account_password);
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    db.Accounts.Add(acc);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.error = "Email already exists";
+                    return View();
+                }
+
+
+            }
+            return View();
+
+        }
         public ActionResult Login()
         {
             return View();
         }
+
+
+
         [HttpPost]
-        public ActionResult Autherize(shopping_online.Models.Account accModel)
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string email, string password)
         {
-            using (Project_SU22Entities db = new Project_SU22Entities())
+            if (ModelState.IsValid)
             {
-                var accDetails = db.Account.Where(x => x.UserName == accModel.UserName && x.Password == accModel.Password).FirstOrDefault();
-                if (accDetails == null)
+
+
+                var account_password = GetMD5(password);
+                var data = db.Accounts.Where(s => s.account_email.Equals(email) && s.account_password.Equals(account_password)).ToList();
+                if (data.Count() > 0)
                 {
-                    accModel.LoginErrorMessage = "Wrong username or password.";
-                    return View("Index", accModel);
+                    //add session
+                    Session["FullName"] = data.FirstOrDefault().account_username + " " + data.FirstOrDefault().account_name;
+                    Session["account_email"] = data.FirstOrDefault().account_email;
+                    Session["account_id"] = data.FirstOrDefault().account_id;
+                    return RedirectToAction("Index");
                 }
                 else
                 {
-                    Session["account_id"] = accDetails.UserID;
-                    Session["account_username"] = accDetails.UserName;
-                    return RedirectToAction("Index", "Home");
+                    ViewBag.error = "Login failed";
+                    return RedirectToAction("Login");
                 }
             }
+            return View();
         }
 
-        public ActionResult LogOut()
+
+        //Logout
+        public ActionResult Logout()
         {
-            int userId = (int)Session["account_id"];
-            Session.Abandon();
-            return RedirectToAction("Index", "Login");
+            Session.Clear();//remove session
+            return RedirectToAction("Login");
         }
+
+
+        //create a string MD5
+        public static string GetMD5(string str)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] fromData = Encoding.UTF8.GetBytes(str);
+            byte[] targetData = md5.ComputeHash(fromData);
+            string byte2String = null;
+
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byte2String += targetData[i].ToString("x2");
+
+            }
+            return byte2String;
+        }
+
     }
 }

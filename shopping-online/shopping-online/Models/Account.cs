@@ -11,18 +11,27 @@ namespace shopping_online.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class Account
     {
+        [Key, Column(Order = 1)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int account_id { get; set; }
-        [DisplayName("User Name")]
-        [Required(ErrorMessage = "This field is required.")]
+        [Required]
+        [StringLength(50, MinimumLength = 3)]
         public string account_username { get; set; }
-        [DataType(DataType.Password)]
-        [Required(ErrorMessage = "This field is required.")]
+        [Required]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
         public string account_password { get; set; }
+
+
+        [Required]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}")]
         public string account_email { get; set; }
         public string account_name { get; set; }
         public string account_phone { get; set; }
@@ -32,6 +41,14 @@ namespace shopping_online.Models
         public Nullable<System.DateTime> account_DOB { get; set; }
     
         public virtual Role Role { get; set; }
-        public string LoginErrorMessage { get; internal set; }
+        [NotMapped]
+        [Required]
+        [System.ComponentModel.DataAnnotations.Compare("Password")]
+        public string ConfirmPassword { get; set; }
+        public string FullName()
+        {
+            return this.account_username + " " + this.account_name;
+        }
+
     }
 }
