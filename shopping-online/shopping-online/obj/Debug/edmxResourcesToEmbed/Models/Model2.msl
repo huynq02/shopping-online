@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Project_SU22ModelStoreContainer" CdmEntityContainer="Project_SU22Entities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="Project_SU22Model.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="account_username" ColumnName="account_username" />
+          <ScalarProperty Name="account_password" ColumnName="account_password" />
+          <ScalarProperty Name="account_email" ColumnName="account_email" />
+          <ScalarProperty Name="account_name" ColumnName="account_name" />
+          <ScalarProperty Name="account_phone" ColumnName="account_phone" />
+          <ScalarProperty Name="account_address" ColumnName="account_address" />
+          <ScalarProperty Name="account_role_id" ColumnName="account_role_id" />
+          <ScalarProperty Name="account_gender" ColumnName="account_gender" />
+          <ScalarProperty Name="account_DOB" ColumnName="account_DOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Functions">
+      <EntityTypeMapping TypeName="Project_SU22Model.Function">
+        <MappingFragment StoreEntitySet="Function">
+          <ScalarProperty Name="function_id" ColumnName="function_id" />
+          <ScalarProperty Name="function_name" ColumnName="function_name" />
+          <ScalarProperty Name="function_description" ColumnName="function_description" />
+          <ScalarProperty Name="function_ordernumber" ColumnName="function_ordernumber" />
+          <ScalarProperty Name="function_createday" ColumnName="function_createday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="Project_SU22Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+          <ScalarProperty Name="Role_name" ColumnName="Role_name" />
+          <ScalarProperty Name="Role_description" ColumnName="Role_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_function">
+      <EntityTypeMapping TypeName="Project_SU22Model.Role_function">
+        <MappingFragment StoreEntitySet="Role_function">
+          <ScalarProperty Name="Role_function_id" ColumnName="Role_function_id" />
+          <ScalarProperty Name="function_id" ColumnName="function_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="Role_function_view" ColumnName="Role_function_view" />
+          <ScalarProperty Name="Role_function_insert" ColumnName="Role_function_insert" />
+          <ScalarProperty Name="Role_function_update" ColumnName="Role_function_update" />
+          <ScalarProperty Name="Role_function_delete" ColumnName="Role_function_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
