@@ -439,8 +439,11 @@
                                                 @Html.DisplayFor(modelItem => item.product.product_name)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.product.image_product)
-                                              @*  <img src="@Url.Content("~/")" />*@
+                                              @*  @Html.DisplayFor(modelItem => item.product.image_product)*@
+                                                @*  <img src="@Url.Content("~/")" />*@
+
+                                                <img style="height:40px; width:40px" src="~/Content/images/ProductImages/@Html.DisplayFor(modelItem => item.product.image_product)" />
+                                               @* @Html.DisplayFor(modelItem => item.product.image_product)*@
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Order_Details_price)

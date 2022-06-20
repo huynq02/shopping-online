@@ -21,7 +21,10 @@ namespace shopping_online.Models
             this.Order_Details = new HashSet<Order_Details>();
             this.productsizes = new HashSet<productsize>();
         }
-    
+    //public product()
+    //    {
+    //        image_product = "~/Content/images/ProductImages";
+    //    }
         public int product_id { get; set; }
         public string image_product { get; set; }
         public string product_name { get; set; }
