@@ -391,6 +391,7 @@
                                             @Html.EditorFor(model => model.blog.modifyby, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
                                         <input type="hidden" name="Id" value="@Model.blog.id"/>
+                                        <input type="hidden" name="Back" value="@Model.blog.back_link"/>
                                         <button type="submit" class="btn btn-info">Save Blog</button>
                                     </form>
 

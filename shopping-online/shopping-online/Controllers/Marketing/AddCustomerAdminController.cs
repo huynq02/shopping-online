@@ -63,9 +63,11 @@ namespace shopping_online.Controllers.Marketing
             if (status == "Active")
             {
                 acc.account_status = true;
+                UnLockAccount(Id);
             } else
             {
                 acc.account_status = false;
+                LockAccount(Id);
             }
             acc.account_id = Id;
             db.Entry(acc).State = EntityState.Modified;

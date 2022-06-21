@@ -14,14 +14,19 @@ namespace shopping_online.Controllers.Marketing
     {
         Project_SU22Entities db = new Project_SU22Entities();
         // GET: SlideAdmin
-        public ActionResult Index(int page = 1, int pageSize = 5)
+        public ActionResult Index(string search, int page = 1, int pageSize = 5)
         {
             
             var slAc = db.Slides.OrderByDescending(x => x.createdate).Where(x => x.status_id == true).ToPagedList(page, pageSize);
             var slide = db.Slides.OrderByDescending(x => x.createdate).ToPagedList(page, pageSize);
+            if (search != null)
+            {
+                slide = db.Slides.Where(x => x.title.Contains(search)).OrderByDescending(x => x.createdate).ToPagedList(page, pageSize);
+            }
             SlideModel sl = new SlideModel();
             sl.slide = slide;
             sl.slActive = slAc;
+            sl.search = search;
             return View(sl);
         }
 

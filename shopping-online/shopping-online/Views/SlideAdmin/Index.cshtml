@@ -384,6 +384,13 @@
                             <header class="panel-heading">
                                 Slide list
                             </header>
+                            @using (Html.BeginForm("Index", "SlideAdmin", FormMethod.Get))
+                            {
+                                <div class="input-group">
+                                    <input type="text" name="search" value="@Model.search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                    <input type="submit" class="btn btn-primary" value="Search" />
+                                </div>
+                            }
                             <div class="panel-body">
 
                                 <div class="task-content">
