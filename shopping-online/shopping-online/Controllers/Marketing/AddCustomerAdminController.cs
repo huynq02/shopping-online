@@ -18,7 +18,14 @@ namespace shopping_online.Controllers.Marketing
         // GET: AddCustomerAdmin
         public ActionResult Index()
         {
-            return View();
+            var lstColor = db.Colors.ToList();
+            var lstCate = db.Categories.ToList();
+            var lstStatus = db.status_product.ToList();
+            Add_Product addProduct = new Add_Product();
+            addProduct.lstColor = lstColor;
+            addProduct.lstCategories = lstCate;
+            addProduct.lstStatus = lstStatus;
+            return View(addProduct);
         }
 
         public ActionResult Create (Account account, string gender)
@@ -122,7 +129,7 @@ namespace shopping_online.Controllers.Marketing
             //Truy cập địa chỉ https://mail.google.com/mail/#settings/fwdandpop
 
             new MailHelper().SendMail("tuananh462001@gmail.com", "Thông báo", content);
-            //new MailHelper().SendMail(toEmail, "Thông báo", content);
+            new MailHelper().SendMail(toEmail, "Thông báo", content);
             return RedirectToAction("Index", "CustomerAdmin");
         }
     }
