@@ -18,20 +18,20 @@ namespace shopping_online.Context
         public product()
         {
             this.Order_Details = new HashSet<Order_Details>();
-            //this.productsizes = new HashSet<productsize>();
+            this.productsizes = new HashSet<productsize>();
         }
     
         public int product_id { get; set; }
-        public string image_product { get; set; }
         public string product_name { get; set; }
-        public double product_price { get; set; }
+        public decimal product_price { get; set; }
         public Nullable<int> color_id { get; set; }
         public int product_quantity { get; set; }
+        public string product_image { get; set; }
         public Nullable<int> category_id { get; set; }
         public int status_product_id { get; set; }
         public string product_description { get; set; }
         public string product_code { get; set; }
-        public Nullable<System.DateTime> product_create_date { get; set; }
+        public System.DateTime product_create_date { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Color Color { get; set; }

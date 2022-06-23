@@ -136,61 +136,67 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\MailHelper.cs" />
     <Compile Include="Context\Account.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Blog.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Category.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Color.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\OnlineShop.Context.cs">
+    <Compile Include="Context\Function.cs">
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineShopping.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OnlineShop.Context.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\OnlineShop.cs">
+    <Compile Include="Context\OnlineShopping.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\OnlineShop.Designer.cs">
+    <Compile Include="Context\OnlineShopping.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OnlineShop.edmx</DependentUpon>
+      <DependentUpon>OnlineShopping.edmx</DependentUpon>
     </Compile>
     <Compile Include="Context\Order.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Order_Details.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Order_status.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\product.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\productsize.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Role.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Role_function.cs">
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\shipping.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\size.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Slide.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\status_product.cs">
-      <DependentUpon>OnlineShop.tt</DependentUpon>
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
@@ -941,16 +947,15 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\template\HtmlPage1.html" />
     <Content Include="Content\template\notification.html" />
-    <Content Include="Context\OnlineShop.Context.tt">
+    <Content Include="Context\OnlineShopping.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OnlineShop.Context.cs</LastGenOutput>
-      <DependentUpon>OnlineShop.edmx</DependentUpon>
+      <DependentUpon>OnlineShopping.edmx</DependentUpon>
+      <LastGenOutput>OnlineShopping.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Context\OnlineShop.edmx.sql" />
-    <Content Include="Context\OnlineShop.tt">
+    <Content Include="Context\OnlineShopping.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OnlineShop.edmx</DependentUpon>
-      <LastGenOutput>OnlineShop.cs</LastGenOutput>
+      <DependentUpon>OnlineShopping.edmx</DependentUpon>
+      <LastGenOutput>OnlineShopping.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -982,12 +987,12 @@
     <Content Include="Content\Blog\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Blog\fonts\FontAwesome.otf" />
     <Content Include="Content\Blog\fonts\glyphicons-halflings-regular.woff" />
-    <EntityDeploy Include="Context\OnlineShop.edmx">
+    <EntityDeploy Include="Context\OnlineShopping.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OnlineShop.Designer.cs</LastGenOutput>
+      <LastGenOutput>OnlineShopping.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Context\OnlineShop.edmx.diagram">
-      <DependentUpon>OnlineShop.edmx</DependentUpon>
+    <Content Include="Context\OnlineShopping.edmx.diagram">
+      <DependentUpon>OnlineShopping.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

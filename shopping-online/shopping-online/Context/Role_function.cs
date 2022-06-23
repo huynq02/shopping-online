@@ -12,16 +12,17 @@ namespace shopping_online.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Slide
+    public partial class Role_function
     {
-        public int slide_id { get; set; }
-        public string slide_title { get; set; }
-        public System.DateTime slide_createdate { get; set; }
-        public string slide_createby { get; set; }
-        public Nullable<System.DateTime> slide_modifydate { get; set; }
-        public string slide_modifyby { get; set; }
-        public string slide_imageslide { get; set; }
-        public string slide_descriptions { get; set; }
-        public bool slide_status_id { get; set; }
+        public int Role_function_id { get; set; }
+        public Nullable<int> function_id { get; set; }
+        public Nullable<int> role_id { get; set; }
+        public int Role_function_view { get; set; }
+        public int Role_function_insert { get; set; }
+        public int Role_function_update { get; set; }
+        public int Role_function_delete { get; set; }
+    
+        public virtual Function Function { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

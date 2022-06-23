@@ -14,16 +14,16 @@ namespace shopping_online.Context
     
     public partial class Blog
     {
-        public int id { get; set; }
-        public string title { get; set; }
-        public string author { get; set; }
-        public string descriptions { get; set; }
-        public System.DateTime createdate { get; set; }
-        public string createby { get; set; }
-        public string images { get; set; }
-        public Nullable<System.DateTime> modifydate { get; set; }
-        public string modifyby { get; set; }
-        public string detail { get; set; }
-        public string back_link { get; set; }
+        public int blog_id { get; set; }
+        public string blog_title { get; set; }
+        public string blog_author { get; set; }
+        public string blog_descriptions { get; set; }
+        public System.DateTime blog_createdate { get; set; }
+        public string blog_createby { get; set; }
+        public string blog_images { get; set; }
+        public Nullable<System.DateTime> blog_modifydate { get; set; }
+        public string blog_modifyby { get; set; }
+        public string blog_detail { get; set; }
+        public string blog_back_link { get; set; }
     }
 }

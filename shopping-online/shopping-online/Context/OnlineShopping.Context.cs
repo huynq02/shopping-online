@@ -13,10 +13,10 @@ namespace shopping_online.Context
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Project_SU22Entities : DbContext
+    public partial class DBContext : DbContext
     {
-        public Project_SU22Entities()
-            : base("name=Project_SU22Entities")
+        public DBContext()
+            : base("name=DBContext")
         {
         }
     
@@ -29,17 +29,17 @@ namespace shopping_online.Context
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
+        public virtual DbSet<Function> Functions { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Order_Details> Order_Details { get; set; }
         public virtual DbSet<Order_status> Order_status { get; set; }
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Role_function> Role_function { get; set; }
         public virtual DbSet<shipping> shippings { get; set; }
         public virtual DbSet<size> sizes { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
         public virtual DbSet<status_product> status_product { get; set; }
         public virtual DbSet<productsize> productsizes { get; set; }
-
-        public System.Data.Entity.DbSet<shopping_online.Models.AddBlog> AddBlogs { get; set; }
     }
 }

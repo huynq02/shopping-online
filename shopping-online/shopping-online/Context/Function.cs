@@ -12,21 +12,20 @@ namespace shopping_online.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Function
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public Function()
         {
-            this.Accounts = new HashSet<Account>();
             this.Role_function = new HashSet<Role_function>();
         }
     
-        public int Role_id { get; set; }
-        public string Role_name { get; set; }
-        public string Role_description { get; set; }
+        public int function_id { get; set; }
+        public string function_name { get; set; }
+        public string function_description { get; set; }
+        public int function_ordernumber { get; set; }
+        public System.DateTime function_createday { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Role_function> Role_function { get; set; }
     }
