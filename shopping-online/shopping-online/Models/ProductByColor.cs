@@ -5,9 +5,9 @@ using System.Web;
 
 namespace shopping_online.Models
 {
-    public class ProductByCategory
+    public class ProductByColor
     {
-        public List<Product> listProductByCate { get; set; }
+        public List<Product> ListProductByColor { get; set; }
         public List<Product> listP { get; set; }
         public List<Category> listC { get; set; }
         public List<Color> listColor { get; set; }

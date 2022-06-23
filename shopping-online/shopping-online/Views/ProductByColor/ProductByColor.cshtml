@@ -1,4 +1,5 @@
-﻿@model SWP_Project.Models.ListHome
+﻿
+@model SWP_Project.Models.ProductByColor
 
 @using PagedList.Mvc
 <!DOCTYPE html>
@@ -156,66 +157,7 @@
     <section id="slider">
         <!--slider-->
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#slider-carousel" data-slide-to="1"></li>
-                            <li data-target="#slider-carousel" data-slide-to="2"></li>
-                        </ol>
 
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free E-Commerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/content/images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                    <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>100% Responsive Design</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/content/images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                    <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free Ecommerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/content/images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                    <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
         </div>
     </section><!--/slider-->
 
@@ -226,20 +168,20 @@
                     <div class="left-sidebar">
                         <h2>Category</h2>
                         <div class="panel-group category-products" id="accordian">
-                            <!--category-productsr-->
-                            @foreach (var item in Model.listCategory)
+
+                            @foreach (var item in Model.listC)
                             {
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            @*<a href="#">@item.category_name</a>*@
-                            @*<p> @Html.ActionLink(item.category_name, "Index", "Category", new { Id = item.category_id }, null)</p>*@
                             <p> <a href="/Category/Index?Id=@item.category_id"> @item.category_name</a> </p>
+
                         </h4>
                     </div>
                 </div>}
 
                         </div><!--/category-products-->
+
 
                         <div class="brands_products">
                             <!--brands_products-->
@@ -253,9 +195,18 @@
                     </ul>}
 
                             </div>
-                        </div><!--/brands_products-->
+                        </div>
 
-
+                        <!--/brands_products-->
+                        <!--div class="price-range">-->
+                        <!--price-range-->
+                        <!--<h2>Price Range</h2>
+                            <div class="well text-center">
+                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
+                                <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                            </div>
+                        </div>-->
+                        <!--/price-range-->
 
                         <div class="shipping text-center">
                             <!--shipping-->
@@ -269,21 +220,25 @@
                     <div class="features_items">
                         <!--features_items-->
                         <h2 class="title text-center">Features Items</h2>
-                        @foreach (var item in Model.listProduct)
+
+
+                        @foreach (var item in Model.ListProductByColor.Take(9))
                         {
             <div class="col-sm-4">
+
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
                             <img src="~/Content/images/Picture/@item.image_product" />
                             <h2>@item.product_price</h2>
-                            <p><a>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</a></p>
+                            <p>  <a>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</a></p>
+                            @*<h3>@Html.ActionLink(listProduct.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>*@
                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
                         <div class="product-overlay">
                             <div class="overlay-content">
                                 <h2>@item.product_price</h2>
-                                <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
+                                <p>  <a>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</a></p>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
                         </div>
@@ -296,7 +251,8 @@
                     </div>
                 </div>
             </div>}
-                        @Html.PagedListPager(Model.listProduct, page => Url.Action("Index", new { page }))
+
+                        @*@Html.PagedListPager(Model.listProductByCate, page => Url.Action("Index", new { page }))*@
 
 
 
@@ -306,26 +262,24 @@
                         <!--category-tab-->
                         <div class="col-sm-12">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tshirt" data-toggle="tab">Ban Chay</a></li>
-                                <li><a href="#blazers" data-toggle="tab">Khuyen Mai</a></li>
-                                <li><a href="#sunglass" data-toggle="tab">Sunglass</a></li>
-                                <li><a href="#kids" data-toggle="tab">Kids</a></li>
-                                <li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>
+                                <li class="active"><a href="#tshirt" data-toggle="tab">Khuyến Mãi</a></li>
+                                <li><a href="#blazers" data-toggle="tab">Bán Chạy</a></li>
+                                @*<li><a href="#sunglass" data-toggle="tab">Sunglass</a></li>
+                                    <li><a href="#kids" data-toggle="tab">Kids</a></li>
+                                    <li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>*@
                             </ul>
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="tshirt">
-                                @foreach (var item in Model.listProduct.Where(n => n.color_id == 1).Take(4))
+                                @foreach (var item in Model.listP.Take(4))
                                 {
-
-
                     <div class="col-sm-3">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
                                     <img src="~/Content/images/Picture/@item.image_product" />
-                                    <h2>@item.product_price $</h2>
-                                    <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null) </p>
+                                    <h2>@item.product_price</h2>
+                                    <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h2>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
 
@@ -335,16 +289,17 @@
                             </div>
 
                             <div class="tab-pane fade" id="blazers">
-                                @foreach (var item in Model.listProduct.Where(n => n.color_id == 1).Take(4))
+                                @foreach (var item in Model.listP.Where(n => n.status_id == 2).Take(4))
                                 {
+
+
                     <div class="col-sm-3">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
                                     <img src="~/Content/images/Picture/@item.image_product" />
-                                    @*<img src="~/Content/images/home/Converse Chuck Taylor II.jpg" alt="" />*@
-                                    <h2>@item.product_price $</h2>
-                                    <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null) </p>
+                                    <h2>@item.product_price</h2>
+                                    <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h2>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
 
@@ -359,59 +314,59 @@
 
                     <div class="recommended_items">
                         <!--recommended_items-->
-
-
                         <h2 class="title text-center">recommended items</h2>
 
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    @foreach (var item in Model.listProduct.Take(3))
+                                    @foreach (var item in Model.listP.Where(n => n.status_id == 3).Take(3))
                                     {
-
-
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="~/Content/images/Picture/@item.image_product" />
-                                        @*<img src="~/Content/images/home/Converse Chuck Taylor II.jpg" alt="" />*@
-                                        <h2>@item.product_price $</h2>
-                                        <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
-                                        <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                        <h2>@item.product_price</h2>
+                                        <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h2>
+
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>}
                                 </div>
                                 <div class="item">
-                                    @foreach (var item in Model.listProduct.Where(n => n.status_id == 2).Take(3))
+                                    @foreach (var item in Model.listP.Where(n => n.status_id == 2).Take(3))
                                     {
-
-
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="~/Content/images/home/Converse Chuck Taylor II.jpg" alt="" />
-                                        <h2>@item.product_price $</h2>
-                                        <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
-                                        <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                        <img src="~/Content/images/Picture/@item.image_product" />
+                                        <h2>@item.product_price</h2>
+                                        <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h2>
+
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>}
                                 </div>
-
                             </div>
+                            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         </div>
+                    </div><!--/recommended_items-->
 
-                    </div>
-                </div><!--/recommended_items-->
-
+                </div>
             </div>
         </div>
-
     </section>
 
     <footer id="footer">
@@ -421,8 +376,8 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="companyinfo">
-                            <h2><span>FU</span>-shopper</h2>
-                            <p>NO1</p>
+                            <h2><span>e</span>-shopper</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
                         </div>
                     </div>
                     <div class="col-sm-7">
@@ -575,6 +530,9 @@
         </div>
 
     </footer><!--/Footer-->
+
+
+
     <script src="~/Content/js/jquery.js"></script>
     <script src="~/Content/js/bootstrap.min.js"></script>
     <script src="~/Content/js/jquery.scrollUp.min.js"></script>
