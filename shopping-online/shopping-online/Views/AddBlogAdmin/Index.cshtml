@@ -350,11 +350,10 @@
                             </header>
                             @using (Html.BeginForm("Create", "AddBlogAdmin", FormMethod.Post))
                             {
+                                @Html.AntiForgeryToken()
                                 <div class="panel-body">
                                     <form role="form">
-                                        @Html.AntiForgeryToken()
-                                        @*@Html.ValidationSummary(false, "", new { @class = "text-danger" })*@
-                                        @Html.ValidationSummary(true)
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Title</label>
                                             @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
@@ -363,6 +362,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Author</label>
                                             @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Descriptions</label>
@@ -496,5 +496,8 @@
             });
         }
     </script>
+    @section scripts {
+        @Scripts.Render("~/bundles/jqueryval");
+    }
 </body>
 </html>

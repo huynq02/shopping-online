@@ -18,17 +18,10 @@ namespace shopping_online.Controllers.Marketing
         // GET: AddCustomerAdmin
         public ActionResult Index()
         {
-            var lstColor = db.Colors.ToList();
-            var lstCate = db.Categories.ToList();
-            var lstStatus = db.status_product.ToList();
-            Add_Product addProduct = new Add_Product();
-            addProduct.lstColor = lstColor;
-            addProduct.lstCategories = lstCate;
-            addProduct.lstStatus = lstStatus;
-            return View(addProduct);
+            return View();
         }
 
-        public ActionResult Create (Account account, string gender)
+        public ActionResult Create (Account account, string gender, string createDate, string password)
         {
             if (gender == "Male")
             {
@@ -36,6 +29,8 @@ namespace shopping_online.Controllers.Marketing
             }
             account.account_status= true;
             account.account_role = 1;
+            account.account_password = password;
+            account.account_createdate = DateTime.ParseExact(createDate, "yyyy-MM-dd", null);
             db.Accounts.Add(account);
             db.SaveChanges();
             return RedirectToAction("Index", "CustomerAdmin");

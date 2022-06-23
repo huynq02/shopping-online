@@ -10,8 +10,10 @@ namespace shopping_online.Models
     public class ProductModel
     {
         public string search { get; set; }
+        public product product { get; set; }
         public IPagedList<product> lstProduct { get; set; }
         public List<Color> color { get; set; }
         public List<status_product> stapro { get; set; }
+        public List<Category> lstCategories { get; set; }
     }
 }
