@@ -11,7 +11,7 @@ namespace shopping_online.Controllers.Marketing
 {
     public class AddSlideAdminController : Controller
     {
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         // GET: AddSlideAdmin
         public ActionResult Index()
         {
@@ -26,7 +26,7 @@ namespace shopping_online.Controllers.Marketing
         }
         public ActionResult SlideNeedEdit(int Id)
         {
-            var slide = db.Slides.Where(x => x.id == Id).FirstOrDefault();
+            var slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
             SlideModel sl = new SlideModel();
             sl.sl = slide;
             return View(sl);
@@ -35,17 +35,17 @@ namespace shopping_online.Controllers.Marketing
         [HttpPost]
         public ActionResult Edit(Slide sl, int Id, string img, string Status_id)
         {
-            if (sl.imageslide == null)
+            if (sl.slide_imageslide == null)
             {
-                sl.imageslide = img;
+                sl.slide_imageslide = img;
             }
-            sl.id = Id;
+            sl.slide_id = Id;
             if (Status_id.ToLower() == "value")
             {
-                sl.status_id = true;
+                sl.slide_status_id = true;
             } else
             {
-                sl.status_id = false;
+                sl.slide_status_id = false;
             }
             db.Entry(sl).State = EntityState.Modified;
             db.SaveChanges();
@@ -54,7 +54,7 @@ namespace shopping_online.Controllers.Marketing
 
         public ActionResult Delete(int Id)
         {
-            Slide slide = db.Slides.Where(x => x.id == Id).FirstOrDefault();
+            Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
             db.Slides.Remove(slide);
             db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");

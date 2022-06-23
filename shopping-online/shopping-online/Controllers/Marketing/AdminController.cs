@@ -11,20 +11,20 @@ namespace shopping_online.Controllers.Marketing
 {
     public class AdminController : Controller
     {
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         // GET: Admin
         public ActionResult Index()
         {
             var lstProduct = db.products.ToList();
-            var cus = db.Roles.Where(x => x.role_name == "Customer").FirstOrDefault();
-            var lstCustomer = db.Accounts.Where(x => x.account_role == cus.id).ToList();
+            var cus = db.Roles.Where(x => x.Role_name == "Customer").FirstOrDefault();
+            var lstCustomer = db.Accounts.Where(x => x.account_role_id == cus.Role_id).ToList();
             var lstBlog = db.Blogs.ToList();
             var order = db.Orders.ToList();
             
-            var blog = db.Blogs.Where(x => EntityFunctions.TruncateTime(x.createdate) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
+            var blog = db.Blogs.Where(x => EntityFunctions.TruncateTime(x.blog_createdate) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
             var proCreate = db.products.Where(x => EntityFunctions.TruncateTime(x.product_create_date) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
             var cusCreate = db.Accounts.Where(x => EntityFunctions.TruncateTime(x.account_createdate) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
-            var slideCreate = db.Slides.Where(x => EntityFunctions.TruncateTime(x.createdate) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
+            var slideCreate = db.Slides.Where(x => EntityFunctions.TruncateTime(x.slide_createdate) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
             double sum = 0;
             foreach (var item in order)
             {

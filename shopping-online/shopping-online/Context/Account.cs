@@ -29,7 +29,6 @@ namespace shopping_online.Context
         public string account_address { get; set; }
         public int account_role_id { get; set; }
         public Nullable<bool> account_gender { get; set; }
-        public Nullable<System.DateTime> account_DOB { get; set; }
         public bool account_status { get; set; }
         public Nullable<System.DateTime> account_createdate { get; set; }
     

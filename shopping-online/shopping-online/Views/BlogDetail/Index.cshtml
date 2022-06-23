@@ -204,13 +204,13 @@
                             <h3>@Model.bg.title</h3>
                             <div class="post-meta">
                                 <ul>
-                                    <li><i class="fa fa-user"></i>@Model.bg.author</li>
+                                    <li><i class="fa fa-user"></i>@Model.bg.blog_author</li>
                                     <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                    <li><i class="fa fa-calendar"></i>@Model.bg.createdate</li>
+                                    <li><i class="fa fa-calendar"></i>@Model.bg.blog_createdate</li>
                                 </ul>
                             </div>
                             <div>
-                                @Html.Raw(Model.bg.detail)
+                                @Html.Raw(Model.bg.blog_detail)
                             </div>
                            
                         </div>

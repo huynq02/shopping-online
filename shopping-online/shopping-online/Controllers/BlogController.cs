@@ -11,11 +11,11 @@ namespace shopping_online.Controllers
 {
     public class BlogController : Controller
     {
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         // GET: Blog
         public ActionResult Index(int page = 1, int pageSize = 1)
         {
-            var blog = db.Blogs.OrderByDescending(x => x.createdate).ToPagedList(page, pageSize);
+            var blog = db.Blogs.OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
             var cate = db.Categories.ToList();
             var color = db.Colors.ToList();
             BlogModel bg = new BlogModel();

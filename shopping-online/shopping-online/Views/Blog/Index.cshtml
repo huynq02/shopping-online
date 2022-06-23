@@ -200,19 +200,19 @@
                         @foreach (var blog in Model.blog)
                         {
                             <div class="single-blog-post">
-                                <h3>@blog.title</h3>
+                                <h3>@blog.blog_title</h3>
                                 <div class="post-meta">
                                     <ul>
-                                        <li><i class="fa fa-user"></i>@blog.author</li>
-                                        <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                        <li><i class="fa fa-calendar"></i>@blog.createdate</li>
+                                        <li><i class="fa fa-user"></i>@blog.blog_author</li>
+                                        @*<li><i class="fa fa-clock-o"></i> 1:33 pm</li>*@
+                                        <li><i class="fa fa-calendar"></i>@blog.blog_createdate</li>
                                     </ul>
                                 </div>
                                 <a href="">
-                                    <img src="~/Content/images/blog/@blog.images" alt="">
+                                    <img src="~/Content/images/blog/@blog.blog_images" alt="">
                                 </a>
-                                <p>@blog.descriptions</p>
-                                <a class="btn btn-primary" href="/BlogDetail/Index?Id=@blog.id">Read More</a>
+                                <p>@blog.blog_descriptions</p>
+                                <a class="btn btn-primary" href="/BlogDetail/Index?Id=@blog.blog_id">Read More</a>
                             </div>
                         }
                     </div>

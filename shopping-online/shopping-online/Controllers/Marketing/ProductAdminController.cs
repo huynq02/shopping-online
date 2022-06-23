@@ -12,7 +12,7 @@ namespace shopping_online.Controllers.Marketing
     public class ProductAdminController : Controller
     {
         // GET: ProductAdmin
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         public ActionResult Index(string search, int page=1, int pageSize=5)
         {
             var lstProduct = db.products.OrderByDescending(x => x.product_create_date).ToPagedList(page, pageSize);

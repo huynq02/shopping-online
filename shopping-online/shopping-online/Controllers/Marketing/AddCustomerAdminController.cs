@@ -28,7 +28,7 @@ namespace shopping_online.Controllers.Marketing
                 account.account_gender = true;
             }
             account.account_status= true;
-            account.account_role = 1;
+            account.account_role_id = 1;
             account.account_password = password;
             account.account_createdate = DateTime.ParseExact(createDate, "yyyy-MM-dd", null);
             db.Accounts.Add(account);

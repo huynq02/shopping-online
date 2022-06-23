@@ -10,7 +10,7 @@ namespace shopping_online.Controllers.Marketing
 {
     public class AddProductController : Controller
     {
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         // GET: AddProduct
         public ActionResult Index()
         {
@@ -23,13 +23,13 @@ namespace shopping_online.Controllers.Marketing
             addPro.lstStatus = lstStatus;
             return View(addPro);
         }
-        public ActionResult Create(product pro, string code, string name, double price, int quantity, string image, int color, int category, int status, string createDate)
+        public ActionResult Create(product pro, string code, string name, Decimal price, int quantity, string image, int color, int category, int status, string createDate)
         {
             pro.product_code = code;
             pro.product_name = name;
             pro.product_price = price;
             pro.product_quantity = quantity;
-            pro.image_product = image;
+            pro.product_image = image;
             pro.color_id = color;
             pro.category_id = category;
             pro.status_product_id = status;

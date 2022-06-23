@@ -23,7 +23,6 @@ namespace shopping_online.Context
     
         public int Role_id { get; set; }
         public string Role_name { get; set; }
-        public string Role_description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }

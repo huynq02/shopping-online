@@ -11,10 +11,10 @@ namespace shopping_online.Controllers
     public class SlideController : Controller
     {
         // GET: Slide
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         public ActionResult Index()
         {
-            var slide = db.Slides.Where(x => x.status_id == true).ToList();
+            var slide = db.Slides.Where(x => x.slide_status_id == true).ToList();
             SlideModel sl = new SlideModel();
             sl.slDis = slide;
             return View(sl);

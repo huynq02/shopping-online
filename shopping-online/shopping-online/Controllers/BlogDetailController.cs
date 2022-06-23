@@ -10,15 +10,15 @@ namespace shopping_online.Controllers
 {
     public class BlogDetailController : Controller
     {
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         // GET: BlogDetail
         public ActionResult Index(int Id)
         {
-            var blog = db.Blogs.Where(x => x.id == Id).FirstOrDefault();
-            var relateBlog = db.Blogs.Where(x => x.id == Id - 1).FirstOrDefault();
+            var blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
+            var relateBlog = db.Blogs.Where(x => x.blog_id == Id - 1).FirstOrDefault();
             if (Id == 1)
             {
-                relateBlog = db.Blogs.Where(x => x.id == Id + 1).FirstOrDefault();
+                relateBlog = db.Blogs.Where(x => x.blog_id == Id + 1).FirstOrDefault();
             }
             var cate = db.Categories.ToList();
             var color = db.Colors.ToList();
