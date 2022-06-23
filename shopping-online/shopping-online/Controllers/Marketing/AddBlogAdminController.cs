@@ -10,7 +10,7 @@ namespace shopping_online.Controllers.Marketing
     //Add blog
     public class AddBlogAdminController : Controller
     {
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         // GET: AddBlogAdmin
         public ActionResult Index()
         {
@@ -43,11 +43,11 @@ namespace shopping_online.Controllers.Marketing
         [ValidateInput(false)]
         public ActionResult Create(Blog entity)
         {
-            if (String.IsNullOrEmpty(entity.title))
+            if (String.IsNullOrEmpty(entity.blog_title))
             {
                 ModelState.AddModelError("Title", "Title is not Empty");
                 return View("Index");
-            } else if (entity.title.Length < 10 || entity.title.Length> 150)
+            } else if (entity.blog_title.Length < 10 || entity.blog_title.Length> 150)
             {
                 ModelState.AddModelError("Title", "Length between 10 to 150");
                 return View("Index");

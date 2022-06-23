@@ -14,7 +14,7 @@ namespace shopping_online.Controllers.Marketing
 {
     public class AddCustomerAdminController : Controller
     {
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         // GET: AddCustomerAdmin
         public ActionResult Index()
         {

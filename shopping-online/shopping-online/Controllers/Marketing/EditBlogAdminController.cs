@@ -11,11 +11,11 @@ namespace shopping_online.Controllers.Marketing
 {
     public class EditBlogAdminController : Controller
     {
-        Project_SU22Entities db = new Project_SU22Entities();
+        DBContext db = new DBContext();
         // GET: EditBlogAdmin
         public ActionResult Index(int Id)
         {
-            var blog = db.Blogs.Where(x => x.id == Id).FirstOrDefault();
+            var blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
             EditBlog bg = new EditBlog();
             bg.blog = blog;
             return View(bg);
@@ -47,12 +47,12 @@ namespace shopping_online.Controllers.Marketing
         [ValidateInput(false)]
         public ActionResult Edit(Blog blog, int Id, string img, string Back)
         {
-            if (blog.images == null)
+            if (blog.blog_images == null)
             {
-                blog.images = img;
+                blog.blog_images = img;
             }
-            blog.back_link = Back;
-            blog.id = Id;
+            blog.blog_back_link = Back;
+            blog.blog_id = Id;
             db.Entry(blog).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", "BlogAdmin");
@@ -60,7 +60,7 @@ namespace shopping_online.Controllers.Marketing
 
         public ActionResult Delete(int Id)
         {
-            Blog blog = db.Blogs.Where(x => x.id == Id).FirstOrDefault();
+            Blog blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
             db.Blogs.Remove(blog);
             db.SaveChanges();
             return RedirectToAction("Index", "BlogAdmin");
