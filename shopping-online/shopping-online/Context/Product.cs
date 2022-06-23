@@ -18,7 +18,7 @@ namespace shopping_online.Context
         public product()
         {
             this.Order_Details = new HashSet<Order_Details>();
-            this.productsizes = new HashSet<productsize>();
+            //this.productsizes = new HashSet<productsize>();
         }
     
         public int product_id { get; set; }

@@ -43,17 +43,21 @@ namespace shopping_online.Controllers.Marketing
         [ValidateInput(false)]
         public ActionResult Create(Blog entity)
         {
-            if (entity.title == null || entity.descriptions == null || entity.author == null || entity.createdate == null
-                || entity.createby == null || entity.detail == null || entity.images == null 
-                || entity.modifyby == null || entity.modifydate == null)
+            if (String.IsNullOrEmpty(entity.title))
             {
-                ModelState.AddModelError("", "Không thể Add Blog");
-                return RedirectToAction("Index", "AddBlogAdmin");
+                ModelState.AddModelError("Title", "Title is not Empty");
+                return View("Index");
+            } else if (entity.title.Length < 10 || entity.title.Length> 150)
+            {
+                ModelState.AddModelError("Title", "Length between 10 to 150");
+                return View("Index");
             }
-            db.Blogs.Add(entity);
-            db.SaveChanges();
-            return RedirectToAction("Index", "BlogAdmin");
-
+            else
+            {
+                db.Blogs.Add(entity);
+                db.SaveChanges();
+                return RedirectToAction("Index", "BlogAdmin");
+            }
         }
     }
 }

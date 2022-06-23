@@ -2,7 +2,8 @@
 @{
     Layout = null;
 }
-
+@model shopping_online.Models.ProductModel
+@using PagedList.Mvc
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,6 +47,14 @@
       <![endif]-->
 
     <style type="text/css">
+    </style>
+    <style>
+        @@media only screen and (max-width: 2000px) {
+            .media-object {
+                width: 100px;
+                height: 86px;
+            }
+        }
     </style>
 </head>
 <body class="skin-black">
@@ -351,6 +360,13 @@
                             <header class="panel-heading">
                                 List Product
                             </header>
+                            @using (Html.BeginForm("Index", "ProductAdmin", FormMethod.Get))
+                            {
+                                <div class="input-group">
+                                    <input type="text" name="search" value="@Model.search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                    <input type="submit" class="btn btn-primary" value="Search" />
+                                </div>
+                            }
                             <div class="panel-body table-responsive">
                                 <table class="table table-hover">
                                     <thead>
@@ -365,41 +381,41 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Facebook</td>
-                                            <td>Mark</td>
-                                            <!-- <td>Steve</td> -->
-                                            <td>10/10/2014</td>
-                                            <!-- <td>$1500</td> -->
-                                            <td><span class="label label-danger">in progress</span></td>
-                                            <td>
-                                                <div class="pull-right hidden-phone">
-                                                    @*<button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>*@
-                                                    <a href=""><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Twitter</td>
-                                            <td>Evan</td>
-                                            <!-- <td>Darren</td> -->
-                                            <td>10/8/2014</td>
-                                            <!-- <td>$1500</td> -->
-                                            <td><span class="label label-success">completed</span></td>
-                                            <td>
-                                                <div class="pull-right hidden-phone">
-                                                    @*<button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>*@
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                    <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach (var item in Model.lstProduct)
+                                        {
+                                            <tr>
+                                                <td>@item.product_id</td>
+                                                <td><img class="media-object" src="~/Content/images/product-details/product/@item.image_product" /></td>
+                                                <td style="padding-top:40px">@item.product_name</td>
+                                                @foreach (var j in Model.color)
+                                                {
+                                                    if (item.color_id == j.color_id)
+                                                    {
+                                                        <td>@j.color_name</td>
+                                                    }
+                                                }
+                                                <td>@item.product_price$</td>
+                                                @foreach (var k in Model.stapro)
+                                                {
+                                                    if (item.status_product_id == k.status_product_id)
+                                                    {
+                                                        <td>@k.status_product_status</td>
+                                                    }
+                                                }
+
+                                                <td>
+                                                    <div class="pull-right hidden-phone">
+                                                        @*<button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>*@
+                                                        <a href="/ProductAdmin/Edit/Id=@item.product_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                        <a href="/ProductAdmin/Delete?Id=@item.product_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                </td>
+                                            </tr>
+                                        }
+
                                     </tbody>
                                 </table>
                             </div>
+                            @Html.PagedListPager(Model.lstProduct, page => Url.Action("Index", new { page }))
                         </section>
                         <div class=" add-task-row">
                             <a class="btn btn-success btn-sm pull-left" href="/AddProduct/Index">Add New Product</a>
@@ -506,7 +522,7 @@
             });
 
         });
-                    // Chart.defaults.global.responsive = true;
+                                            // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

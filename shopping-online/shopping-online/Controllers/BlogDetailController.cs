@@ -15,8 +15,18 @@ namespace shopping_online.Controllers
         public ActionResult Index(int Id)
         {
             var blog = db.Blogs.Where(x => x.id == Id).FirstOrDefault();
+            var relateBlog = db.Blogs.Where(x => x.id == Id - 1).FirstOrDefault();
+            if (Id == 1)
+            {
+                relateBlog = db.Blogs.Where(x => x.id == Id + 1).FirstOrDefault();
+            }
+            var cate = db.Categories.ToList();
+            var color = db.Colors.ToList();
             BlogModel bg = new BlogModel();
             bg.bg = blog;
+            bg.relateBlog = relateBlog;
+            bg.cate = cate;
+            bg.color = color;
             return View(bg);
         }
     }

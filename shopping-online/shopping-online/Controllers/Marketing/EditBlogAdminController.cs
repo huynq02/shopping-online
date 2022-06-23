@@ -45,12 +45,13 @@ namespace shopping_online.Controllers.Marketing
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(Blog blog, int Id, string img)
+        public ActionResult Edit(Blog blog, int Id, string img, string Back)
         {
             if (blog.images == null)
             {
                 blog.images = img;
             }
+            blog.back_link = Back;
             blog.id = Id;
             db.Entry(blog).State = EntityState.Modified;
             db.SaveChanges();
