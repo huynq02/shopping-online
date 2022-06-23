@@ -1,4 +1,4 @@
-﻿CREATE DATABASE Project_SU22
+CREATE DATABASE Project_SU22
 GO
 USE Project_SU22
 GO
@@ -102,27 +102,6 @@ create table productsize(
 )
 GO
 
-create table feedback(
-	feetback_id int identity (1,1) NOT NULL primary key,
-	feetback_content nvarchar (2000) NULL,
-	feetback_ratting float NOT NULL,
-	product_id int foreign key references product(product_id),
-	account_id int foreign key references Account(account_id)
-)
-GO
---Bảng slide chưa hoàn thành cái note và status
-create table slide(
-	slide_id int identity(1,1) NOT NULL primary key,
-	slide_title nvarchar (50) NOT NULL,
-	slide_createdate Date NOT NULL,
-	slide_createby nvarchar (50) NOT NULL,
-	slide_modifydate Date NOT NULL,
-	slide_modifyby nvarchar(50) NOT NULL,
-	slide_images nvarchar(50) NOT NULL,
-	slide_descriptions nvarchar(200) NULL,
-	slide_status_id bit NOT NULL,
-)
-GO
 
 SET ANSI_NULLS ON
 GO
@@ -197,18 +176,70 @@ create table Order_Details (
 )
 GO
 
-create table blog(
-	blog_id int primary key NOT NULL,
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create table Blog(
+	blog_id int identity(1,1) NOT NULL,
 	blog_title nvarchar (200) NOT NULL,
 	blog_author nvarchar (100) NOT NULL,
-	blog_descriptions nvarchar (500) NOT NULL,
+	blog_descriptions nvarchar (500) NULL,
 	blog_createdate Datetime NOT NULL,
 	blog_createby nvarchar (100) NOT NULL,
 	blog_images nvarchar (100) NOT NULL,
-	blog_modifydate Datetime NOT NULL,
-	blog_modifyby nvarchar (100) NOT NULL,
-	blog_detail nvarchar (2000) NOT NULL,
-)
+	blog_modifydate Datetime NULL,
+	blog_modifyby nvarchar (100) NULL,
+	blog_detail nvarchar (max) NOT NULL,
+	blog_back_link nvarchar(1000) null
+CONSTRAINT [PK_Blog] PRIMARY KEY CLUSTERED 
+(
+	[blog_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+create table Slide(
+	slide_id int identity(1,1) NOT NULL,
+	slide_title nvarchar (500) NOT NULL,
+	slide_createdate Date NOT NULL,
+	slide_createby nvarchar (50) NOT NULL,
+	slide_modifydate Date NULL,
+	slide_modifyby nvarchar(50) NULL,
+	slide_imageslide nvarchar(50) NOT NULL,
+	slide_descriptions nvarchar(500) NULL,
+	slide_status_id bit NOT NULL,
+CONSTRAINT [PK_Slide] PRIMARY KEY CLUSTERED 
+(
+	[slide_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+INSERT INTO [dbo].[Blog] ([blog_title],[blog_author],[blog_descriptions],[blog_createdate],[blog_createby],[blog_images],[blog_modifydate],[blog_modifyby],[blog_detail],[blog_back_link]) 
+VALUES (N'10 điều thú vị có thể bạn chưa biết về thương hiệu Goyard (Phần 1)', N'Tuan Anh', N'Tất cả các thương hiệu xa xỉ đều rao giảng về sự quý hiếm và độc quyền của họ, nhưng rất ít trong số họ có đủ can đảm để trở nên khó nắm bắt và kín đáo theo bất kỳ cách nào tron...', '2022-05-02', N'Tuan Anh', 'Blog2.png', '2022-05-05', N'Tuan Anh', N'<p>Tất cả các thương hiệu xa xỉ đều rao giảng về sự quý hiếm và độc quyền của họ, nhưng rất ít trong số họ có đủ can đảm để trở nên khó nắm bắt và kín đáo theo bất kỳ cách nào trong vô số cách mà Goyard đã có trong nhiều thế kỷ. Thương hiệu không quảng cáo, niêm yết sản phẩm trên trang web của mình hoặc nói chuyện với giới truyền thông, và bạn sẽ không bao giờ thấy một buổi tiệc ra mắt sản phẩm hay tuần lễ thời trang của Goyard lộng lẫy. Goyard không muốn thực hiện hành động cân bằng cực kỳ phổ biến trong ngành thời trang khi tuyên bố các sản phẩm của mình là quý hiếm và vẫn cố gắng bán các chủ thẻ trị giá 300 đô la cho mỗi người trên Trái đất; thương hiệu chỉ đơn giản là không bán các khách hàng bình thường.</p>', 
+					     N'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftuananh462001%2Fposts%2F822954654996908&amp;show_text=true&amp;width=500&quot; width=&quot;500&quot; height=&quot;202&quot; style=&quot;border:none;overflow:hidden&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot;
+                         allowfullscreen=&quot;true&quot; allow=&quot;autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share')
+
+INSERT INTO [dbo].[Slide] ([slide_title], [slide_createdate], [slide_createby], [slide_modifydate], [slide_modifyby], [slide_imageslide], [slide_descriptions], [slide_status_id]) 
+VALUES (N'Bách hoá giữa năm sale đậm nửa giá', '2022-06-06', 'Tuan Anh', '2022-06-06', 'Tuan Anh', 'girl1.jpg', 'Săn deal quốc tế ngập tràn deal ngon', 1)
+INSERT INTO [dbo].[Slide] ([slide_title], [slide_createdate], [slide_createby], [slide_modifydate], [slide_modifyby], [slide_imageslide], [slide_descriptions], [slide_status_id]) 
+VALUES (N'ABCD', '2022-05-06', 'Tuan Anh', '2022-05-06', 'Tuan Anh', 'girl1.jpg', 'Săn deal quốc tế ngập tràn deal ngon', 0)
+
+SET IDENTITY_INSERT [dbo].[Category] ON 
+
+INSERT [dbo].[Category] ([category_id], [category_name]) VALUES (1, N'Nike')
+INSERT [dbo].[Category] ([category_id], [category_name]) VALUES (2, N'Adidas')
+INSERT [dbo].[Category] ([category_id], [category_name]) VALUES (3, N'Reebook')
+INSERT [dbo].[Category] ([category_id], [category_name]) VALUES (4, N'MLB')
+INSERT [dbo].[Category] ([category_id], [category_name]) VALUES (5, N'Gucci')
+INSERT [dbo].[Category] ([category_id], [category_name]) VALUES (6, N'Vans')
+INSERT [dbo].[Category] ([category_id], [category_name]) VALUES (7, N'Converse')
+INSERT [dbo].[Category] ([category_id], [category_name]) VALUES (8, N'Other')
+SET IDENTITY_INSERT [dbo].[Category] OFF
 GO
 
 SET IDENTITY_INSERT [dbo].[Category] ON 
