@@ -212,6 +212,11 @@
     <Compile Include="Controllers\Marketing\ProductAdminController.cs" />
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
+    <Compile Include="Controllers\ViewPage\ListHomeController.cs" />
+    <Compile Include="Controllers\ViewPage\PageProductController.cs" />
+    <Compile Include="Controllers\ViewPage\ProductByCategoryController.cs" />
+    <Compile Include="Controllers\ViewPage\ProductByColorController.cs" />
+    <Compile Include="Controllers\ViewPage\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +228,11 @@
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\EditBlog.cs" />
     <Compile Include="Models\HomeAdmin.cs" />
+    <Compile Include="Models\ListHome.cs" />
+    <Compile Include="Models\PageProduct.cs" />
+    <Compile Include="Models\ProductByCategory.cs" />
+    <Compile Include="Models\ProductByColor.cs" />
+    <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\SlideModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1035,6 +1045,11 @@
     <Content Include="Views\AddCustomerAdmin\Index.cshtml" />
     <Content Include="Views\Slide\Index.cshtml" />
     <Content Include="Views\AddBlogAdmin\Example.cshtml" />
+    <Content Include="Views\ListHome\Index.cshtml" />
+    <Content Include="Views\ProductByCategory\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\ProductByColor\Index.cshtml" />
+    <Content Include="Views\PageProduct\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\shopping-online",
+    "\\shopping-online\\shopping-online"
   ],
-  "SelectedNode": "\\shopping-online.sln",
+  "SelectedNode": "\\shopping-online\\shopping-online",
   "PreviewInSolutionExplorer": false
 }
