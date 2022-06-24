@@ -27,7 +27,14 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/content/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="~/content/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
-
+<style>
+    @@media only screen and (max-width: 2000px) {
+        .media-object {
+            width: 225px;
+            height: 250px;
+        }
+    }
+</style>
 <body>
     <header id="header">
         <!--header-->
@@ -64,7 +71,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="@Url.Action("Index","Home")"><img src="~/content/images/home/logo.png" alt="" /></a>
+                            <a href="@Url.Action("Index","ListHome")"><img src="~/content/images/home/logo.png" alt="" /></a>
 
                         </div>
                         <div class="btn-group pull-right">
@@ -121,7 +128,7 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="@Url.Action("Index","Home")" class="active">Home</a></li>
+                                <li><a href="@Url.Action("Index","ListHome")" class="active">Home</a></li>
                                 <li class="dropdown">
                                     <a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
@@ -233,13 +240,12 @@
                         <h4 class="panel-title">
                             @*<a href="#">@item.category_name</a>*@
                             @*<p> @Html.ActionLink(item.category_name, "Index", "Category", new { Id = item.category_id }, null)</p>*@
-                            <p> <a href="/Category/Index?Id=@item.category_id"> @item.category_name</a> </p>
+                            <p> <a href="/ProductByCategory/Index?Id=@item.category_id"> @item.category_name</a> </p>
                         </h4>
                     </div>
                 </div>}
 
                         </div><!--/category-products-->
-
 
                         <div class="brands_products">
                             <!--brands_products-->
@@ -254,15 +260,8 @@
 
                             </div>
                         </div><!--/brands_products-->
-                        <!--div class="price-range">-->
-                        <!--price-range-->
-                        <!--<h2>Price Range</h2>
-                            <div class="well text-center">
-                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
-                                <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
-                            </div>
-                        </div>-->
-                        <!--/price-range-->
+
+
 
                         <div class="shipping text-center">
                             <!--shipping-->
@@ -282,7 +281,7 @@
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <img src="~/Content/images/Picture/@item.product_image" />
+                            <img class="media-object" src="~/Content/images/Picture/@item.product_image" />
                             <h2>@item.product_price</h2>
                             <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h2>
                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -330,7 +329,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="~/Content/images/Picture/@item.product_image" />
+                                    <img class="media-object" src="~/Content/images/Picture/@item.product_image" />
                                     <h2>@item.product_price</h2>
                                     <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -348,7 +347,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="~/Content/images/Picture/@item.product_image" />
+                                    <img class="media-object" src="~/Content/images/Picture/@item.product_image" />
                                     <h2>@item.product_price</h2>
                                     <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -379,7 +378,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="~/Content/images/Picture/@item.product_image" />
+                                        <img class="media-object" src="~/Content/images/Picture/@item.product_image" />
                                         <h2>@item.product_price</h2>
                                         <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
 
@@ -397,7 +396,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="~/Content/images/Picture/@item.product_image" />
+                                        <img class="media-object" src="~/Content/images/Picture/@item.product_image" />
                                         <h2>@item.product_price</h2>
                                         <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
 

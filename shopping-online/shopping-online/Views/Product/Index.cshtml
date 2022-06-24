@@ -28,7 +28,14 @@
     <link rel="apple-touch-icon-precomposed" href="~/content/images/ico/apple-touch-icon-57-precomposed.png">
 
 </head><!--/head-->
-
+<style>
+    @@media only screen and (max-width: 2000px) {
+        .media-object {
+            width: 225px;
+            height: 250px;
+        }
+    }
+</style>
 <body>
     <header id="header">
         <!--header-->
@@ -65,7 +72,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="@Url.Action("Index","Home")"><img src="~/content/images/home/logo.png" alt="" /></a>
+                            <a href="@Url.Action("Index","ListHome")"><img src="~/content/images/home/logo.png" alt="" /></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -121,7 +128,7 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                <li><a href="@Url.Action("Index","ListHome")">Home</a></li>
                                 <li class="dropdown">
                                     <a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
@@ -164,15 +171,16 @@
                             <!--category-productsr-->
                             @foreach (var item in Model.lstCategory)
                             {
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            @*<a href="#">@item.category_name</a>*@
-                                            @*<p> @Html.ActionLink(item.category_name, "Index", "Category", new { Id = item.category_id }, null)</p>*@
-                                            <p> <a href="/Category/Index?Id=@item.category_id"> @item.category_name</a> </p>
-                                        </h4>
-                                    </div>
-                                </div>}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            @*<a href="#">@item.category_name</a>*@
+                            @*<p> @Html.ActionLink(item.category_name, "Index", "Category", new { Id = item.category_id }, null)</p>*@
+                            <p> <a href="/ProductByCategory/Index?Id=@item.category_id"> @item.category_name</a> </p>
+                        </h4>
+                    </div>
+                </div>}
+
                         </div><!--/category-products-->
 
                         <div class="brands_products">
@@ -181,39 +189,15 @@
                             <div class="brands-name">
                                 @foreach (var item in Model.lstColor)
                                 {
-                                    <ul class="nav nav-pills nav-stacked">
-                                        <li> <p> <a href="/ProductByColor/Index?Id=@item.color_id"> @item.color_name</a> </p></li>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li> <p> <a href="/ProductByColor/Index?Id=@item.color_id"> @item.color_name</a> </p></li>
 
-                                    </ul>}
+                    </ul>}
 
                             </div>
-                        </div>
-                        <!--/category-products-->
-                        <!--<div class="brands_products">-->
-                        <!--brands_products-->
-                        <!--<h2>Brands</h2>
-                            <div class="brands-name">
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href=""> <span class="pull-right">(50)</span>Acne</a></li>
-                                    <li><a href=""> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-                                    <li><a href=""> <span class="pull-right">(27)</span>Albiro</a></li>
-                                    <li><a href=""> <span class="pull-right">(32)</span>Ronhill</a></li>
-                                    <li><a href=""> <span class="pull-right">(5)</span>Oddmolly</a></li>
-                                    <li><a href=""> <span class="pull-right">(9)</span>Boudestijn</a></li>
-                                    <li><a href=""> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
-                                </ul>
-                            </div>
-                        </div>-->
-                        <!--/brands_products-->
-                        <!--<div class="price-range">-->
-                        <!--price-range-->
-                        <!--<h2>Price Range</h2>
-                            <div class="well">
-                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
-                                <b>$ 0</b> <b class="pull-right">$ 600</b>
-                            </div>
-                        </div>-->
-                        <!--/price-range-->
+                        </div><!--/brands_products-->
+
+
 
                         <div class="shipping text-center">
                             <!--shipping-->
@@ -229,7 +213,7 @@
                         <div class="col-sm-5">
                             <div class="view-product">
 
-                                <img src="~/Content/images/Picture/@Model.objProduct.image_product" alt="" />
+                                <img  src="~/Content/images/Picture/@Model.objProduct.product_image" alt="" />
                                 <h3>ZOOM</h3>
                             </div>
                             <!--<div id="similar-product" class="carousel slide" data-ride="carousel">-->
@@ -277,15 +261,15 @@
                                     <label>Quantity:</label>
                                     <input type="text" value="3" />
 
-                                    <p>
+                                    @*<p>
                                         <select class="form-select">
                                             <option selected>Open this select menu</option>
-                                            @foreach (var item in Model.lstSize)
+                                            @foreach (var item in Model.)
                                             {
                                                 <option value="@item.id">@item.names</option>
                                             }
                                         </select>
-                                    </p>
+                                    </p>*@
 
 
 
@@ -314,13 +298,13 @@
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade" id="details">
-                                @foreach (var item in Model.lstProduct.Where(n => n.status_id == 2).Take(4))
+                                @foreach (var item in Model.lstProduct.Where(n => n.status_product_id == 2).Take(4))
                                 {
                                     <div class="col-sm-3">
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img width="220" height="200" src="~/Content/images/Picture/@item.image_product" />
+                                                    <img class="media-object" src="~/Content/images/Picture/@item.product_image" />
                                                     <h2>@item.product_price $</h2>
                                                     <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -332,7 +316,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="companyprofile">
-                                @foreach (var item in Model.lstProduct.Where(n => n.status_id == 3).Take(4))
+                                @foreach (var item in Model.lstProduct.Where(n => n.status_product_id == 3).Take(4))
                                 {
 
 
@@ -340,7 +324,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img width="220" height="200" src="~/Content/images/Picture/@item.image_product" alt="" />
+                                                    <img class="media-object" src="~/Content/images/Picture/@item.product_image" alt="" />
                                                     <h2>@item.product_price $</h2>
                                                     <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -437,7 +421,7 @@
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    @foreach (var item in Model.lstProduct.Where(n => n.status_id == 1).Take(3))
+                                    @foreach (var item in Model.lstProduct.Where(n => n.status_product_id == 1).Take(3))
                                     {
 
 
@@ -445,7 +429,7 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img width="220" height="200" src="~/Content/images/Picture/@item.image_product" alt="" />
+                                                        <img class="media-object" src="~/Content/images/Picture/@item.product_image" alt="" />
                                                         <h2>@item.product_price $</h2>
                                                         <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
                                                         <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -456,7 +440,7 @@
                                     }
                                 </div>
                                 <div class="item">
-                                    @foreach (var item in Model.lstProduct.Where(n => n.status_id == 2).Take(3))
+                                    @foreach (var item in Model.lstProduct.Where(n => n.status_product_id == 2).Take(3))
                                     {
 
 
@@ -464,7 +448,7 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img src="~/Content/images/Picture/@item.image_product" alt="" />
+                                                        <img class="media-object" src="~/Content/images/Picture/@item.product_image" alt="" />
                                                         <h2>@item.product_price $</h2>
                                                         <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
                                                         <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
