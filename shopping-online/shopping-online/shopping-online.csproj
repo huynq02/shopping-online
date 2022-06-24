@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
+    <Compile Include="Controllers\Cart\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Marketing\AddBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\AddCustomerAdminController.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Models\AddCustomer.cs" />
     <Compile Include="Models\AddSlide.cs" />
     <Compile Include="Models\BlogModel.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\EditBlog.cs" />
     <Compile Include="Models\HomeAdmin.cs" />
@@ -995,6 +997,7 @@
       <DependentUpon>OnlineShopping.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Controllers\cartControllers.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -1035,6 +1038,10 @@
     <Content Include="Views\AddCustomerAdmin\Index.cshtml" />
     <Content Include="Views\Slide\Index.cshtml" />
     <Content Include="Views\AddBlogAdmin\Example.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\Success.cshtml" />
+    <Content Include="Views\Cart\Unsuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
