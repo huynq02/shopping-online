@@ -1,0 +1,58 @@
+﻿@model shopping_online.Context.shipping
+
+@{
+    Layout = "~/Views/Shared/shipsCUD.cshtml";
+}
+
+<header class="panel-heading">
+    Update ship
+</header>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>shipping</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.shipping_id)
+
+        <div class="form-group">
+            <p class="control-label col-md-2"> Name</p>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.shipping_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.shipping_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-2">Email</p>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.shipping_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.shipping_email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-2">Phone Number</p>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.shipping_phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.shipping_phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class=" add-task-row">
+    <p class="btn btn-success btn-sm pull-left">
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+
+

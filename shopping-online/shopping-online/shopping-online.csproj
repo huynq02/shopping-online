@@ -212,6 +212,9 @@
     <Compile Include="Controllers\Marketing\EditBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\ProductAdminController.cs" />
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
+    <Compile Include="Controllers\Sale\OrdersController.cs" />
+    <Compile Include="Controllers\Sale\Order_statusController.cs" />
+    <Compile Include="Controllers\Sale\shippingsController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1042,6 +1045,25 @@
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Success.cshtml" />
     <Content Include="Views\Cart\Unsuccess.cshtml" />
+    <Content Include="Views\shippings\Create.cshtml" />
+    <Content Include="Views\shippings\Delete.cshtml" />
+    <Content Include="Views\shippings\Details.cshtml" />
+    <Content Include="Views\shippings\Edit.cshtml" />
+    <Content Include="Views\shippings\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Order_status\Create.cshtml" />
+    <Content Include="Views\Order_status\Delete.cshtml" />
+    <Content Include="Views\Order_status\Details.cshtml" />
+    <Content Include="Views\Order_status\Edit.cshtml" />
+    <Content Include="Views\Order_status\Index.cshtml" />
+    <Content Include="Views\Shared\ship.cshtml" />
+    <Content Include="Views\Shared\Order.cshtml" />
+    <Content Include="Views\Shared\OrderStatus.cshtml" />
+    <Content Include="Views\Shared\shipsCUD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
