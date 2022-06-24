@@ -31,7 +31,7 @@ namespace shopping_online.Controllers.Sale
             ViewBag.table_search = table_search;
             return View(pts);
         }
-     
+
 
         // GET: shippings/Create
         public ActionResult Create()
@@ -46,6 +46,7 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "shipping_id,shipping_name,shipping_email,shipping_phone")] shipping shipping)
         {
+
             if (ModelState.IsValid)
             {
                 db.shippings.Add(shipping);
@@ -53,7 +54,10 @@ namespace shopping_online.Controllers.Sale
                 return RedirectToAction("Index");
             }
 
+
+
             return View(shipping);
+
         }
 
         // GET: shippings/Edit/5
@@ -107,12 +111,25 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            shipping shipping = db.shippings.Find(id);
-            db.shippings.Remove(shipping);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+            try
+            {
+                shipping shipping = db.shippings.Find(id);
+                db.shippings.Remove(shipping);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return RedirectToAction("Delete");
+            }
+        }
+        [HttpPost]
+        public JsonResult ShipIsDeliver(int id)
+        {
+            return Json(!db.Orders.Any(x => x.shipping_id == id), JsonRequestBehavior.AllowGet);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
