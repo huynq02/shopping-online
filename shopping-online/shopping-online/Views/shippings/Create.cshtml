@@ -15,43 +15,46 @@
     <div class="panel-body">
         <form role="form">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-12">
                 <label for="exampleInputEmail1">Name</label>
-                
-                    @Html.EditorFor(model => model.shipping_name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.shipping_name, "", new { @class = "text-danger" })
-                
+
+                @Html.EditorFor(model => model.shipping_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.shipping_name, "", new { @class = "text-danger" })
+
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-12">
                 <label for="exampleInputEmail1">
                     Email
                 </label>
-                <div class="col-md-8">
-                    @Html.EditorFor(model => model.shipping_email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.shipping_email, "", new { @class = "text-danger" })
-                </div>
+
+                @Html.EditorFor(model => model.shipping_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.shipping_email, "", new { @class = "text-danger" })
+
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-12">
                 <label for="exampleInputEmail1">
-                    Phone number</label>
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.shipping_phone, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.shipping_phone, "", new { @class = "text-danger" })
-                    </div>
-</div>
+                    Phone number
+                </label>
+                @Html.EditorFor(model => model.shipping_phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.shipping_phone, "", new { @class = "text-danger" })
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
             </div>
+
+
+
+            <div class="form-actions no-color col text-center">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+
+            <hr />
+            <div class=" add-task-row col-md-12">
+                <button type="submit" class="btn btn-info">
+                    @Html.ActionLink("Back to List", "Index")
+                    </button>
+</div>
+        </form>
     </div>
 }
 
-<div class=" add-task-row">
-    <p class="btn btn-success btn-sm pull-left">
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</div>

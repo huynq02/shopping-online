@@ -1047,7 +1047,6 @@
     <Content Include="Views\Cart\Unsuccess.cshtml" />
     <Content Include="Views\shippings\Create.cshtml" />
     <Content Include="Views\shippings\Delete.cshtml" />
-    <Content Include="Views\shippings\Details.cshtml" />
     <Content Include="Views\shippings\Edit.cshtml" />
     <Content Include="Views\shippings\Index.cshtml" />
     <Content Include="Views\Orders\Create.cshtml" />
@@ -1064,6 +1063,7 @@
     <Content Include="Views\Shared\Order.cshtml" />
     <Content Include="Views\Shared\OrderStatus.cshtml" />
     <Content Include="Views\Shared\shipsCUD.cshtml" />
+    <Content Include="Views\Shared\OrderCUD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

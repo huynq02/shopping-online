@@ -60,14 +60,15 @@
                         </td>
                     </tr>
                 }
-                </table>
-                <div>
+            </table>
+            <hr />
+            <div>
 
-                    <ul class="pagination pagination-sm pull-right">
-                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, @table_search = @ViewBag.table_search }))
-                    </ul>
-                </div>
+                <ul class="pagination pagination-sm pull-right">
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, @table_search = @ViewBag.table_search }))
+                </ul>
+            </div>
 
         </div>
     </div>
