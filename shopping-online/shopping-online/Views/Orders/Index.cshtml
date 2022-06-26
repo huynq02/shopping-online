@@ -1,71 +1,109 @@
-﻿@model IEnumerable<shopping_online.Context.Order>
-
+﻿@*@model IEnumerable<shopping_online.Context.Order>*@
+@using shopping_online.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<shopping_online.Context.Order>
 @{
     Layout = "~/Views/Shared/Order.cshtml";
 }
 
-<!DOCTYPE html>
+<div class="col-xs-12">
+    <div class="panel">
+        <header class="panel-heading">
+            List Order
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Order_note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order_total_money)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order_Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Account.account_username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order_status.Order_status_status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.shipping.shipping_name)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order_note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order_total_money)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Account.account_username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order_status.Order_status_status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.shipping.shipping_name)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Order_id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Order_id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Order_id })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+        </header>
+
+
+        <div class="panel-body table-responsive">
+            <div class=" add-task-row">
+                <p class="btn btn-success btn-sm pull-left">
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+            </div>
+            @using (Html.BeginForm("Orders", "Index", FormMethod.Get))
+            {
+                <div class="box-tools m-b-15">
+                    <div class="input-group">
+                        <input type="text" name="table_search" value="@ViewBag.table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default" style="height: 30px;"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            }
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <p>User account</p>
+                        </th>
+                        <th>
+                            <p>Total Money</p>
+                        </th>
+                        <th>
+                            <p>Order Date</p>
+                        </th>
+
+                        <th>
+                            <p>Order Status</p>
+                        </th>
+                        <th>
+                            <p>Ship</p>
+                        </th>
+                        <th>
+                            <p>Note</p>
+                        </th>
+                        <th>
+                            <p>Action</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Account.account_username)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order_total_money)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order_Date)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order_status.Order_status_status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.shipping.shipping_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order_note)
+                            </td>
+                            <td>
+                                <a href="~/Orders/Edit/@item.Order_id"><button class="btn btn-default btn-xs"><box-icon name='edit-alt'></box-icon></button></a>
+                                <a href="~/Orders/Details/@item.Order_id"><button class="btn btn-default btn-xs"><box-icon name='detail'></box-icon></button></a>
+                                <a href="~/Orders/Delete/@item.Order_id"><button class="btn btn-default btn-xs"><box-icon name='trash'></box-icon></button></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</div>
+             
+<!--page-->
+@*tao lien ket trang*@
+
+
+@if (Model.PageCount > 1)
+{
+    <div>
+        <ul class="pagination pagination-sm pull-right">
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber )/@Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Orders", new { page = page, @table_search = @ViewBag.table_search }))
+        </ul>
+    </div>
+}

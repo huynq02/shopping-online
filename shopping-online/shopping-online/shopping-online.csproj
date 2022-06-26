@@ -198,6 +198,7 @@
     <Compile Include="Context\status_product.cs">
       <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Account\LoginController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\Cart\CartController.cs" />
@@ -950,6 +951,26 @@
     <Content Include="Content\js\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\js\price-range.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\ProductImages\Adidas EQT Bask ADV.jpg" />
+    <Content Include="Content\ProductImages\Adidas Stan Smith All Black.jpg" />
+    <Content Include="Content\ProductImages\Adidas Superstar.jpg" />
+    <Content Include="Content\ProductImages\Converse 1970s Sunflower.jpg" />
+    <Content Include="Content\ProductImages\Converse Chuck Taylor All Star.jpg" />
+    <Content Include="Content\ProductImages\Converse Chuck Taylor II.jpg" />
+    <Content Include="Content\ProductImages\Converse run star hike.jpg" />
+    <Content Include="Content\ProductImages\Gucci Rhyton mickey mouse.jpg" />
+    <Content Include="Content\ProductImages\Gucci Tennis 1977.jpg" />
+    <Content Include="Content\ProductImages\MLB Big Ball Chunky.jpg" />
+    <Content Include="Content\ProductImages\MLB LA DODGERS.jpg" />
+    <Content Include="Content\ProductImages\Nike Air Force 1 Love Letter.jpg" />
+    <Content Include="Content\ProductImages\Nike Air Force 1 LV8.png" />
+    <Content Include="Content\ProductImages\Nike Air Force 1 Pixel.jpg" />
+    <Content Include="Content\ProductImages\Reebok Kung Fu Panda Pump Fury.jpg" />
+    <Content Include="Content\ProductImages\Reebok PRINT HER 3.0.jpg" />
+    <Content Include="Content\ProductImages\Reebok Pump Fury Phoenix Suns.jpg" />
+    <Content Include="Content\ProductImages\Vans Old Skool Style 36.jpg" />
+    <Content Include="Content\ProductImages\Vans Old Skool.jpg" />
+    <Content Include="Content\ProductImages\VANS VAULT X SARAH ANDELMAN KID%27S OG AUTHENTIC LX %28Kids%29%28Green%29%28Vans%29.jpg" />
     <Content Include="Content\template\HtmlPage1.html" />
     <Content Include="Content\template\notification.html" />
     <Content Include="Context\OnlineShopping.Context.tt">
@@ -1064,6 +1085,7 @@
     <Content Include="Views\Shared\OrderStatus.cshtml" />
     <Content Include="Views\Shared\shipsCUD.cshtml" />
     <Content Include="Views\Shared\OrderCUD.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

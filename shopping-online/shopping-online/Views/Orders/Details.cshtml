@@ -1,74 +1,122 @@
 ﻿@model shopping_online.Context.Order
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/Order.cshtml";
 }
 
-<!DOCTYPE html>
+<div class="panel-body">
+    <form class="form-horizontal tasi-form">
+        <div class="form-group">
+            <label class="col-sm-2 col-sm-2 control-label">User account:</label>
+            <div class="col-sm-10">
+                @Html.DisplayFor(model => model.Account.account_username, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-sm-2 control-label">User Phone:</label>
+            <div class="col-sm-10">
+                @Html.DisplayFor(model => model.Account.account_phone, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-sm-2 control-label">Note:</label>
+            <div class="col-sm-10">
+                @Html.DisplayFor(model => model.Order_note, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-sm-2 control-label">Total Money:</label>
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Order_total_money, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-sm-2 control-label">Order date:</label>
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-sm-2 control-label">Status</label>
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Order_status.Order_status_status, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-sm-2 control-label">Ship</label>
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.shipping.shipping_name, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+    </form>
+</div>
+<header class="panel-heading">
+    Product details
+</header>
+<div class="panel-body table-responsive">
+    <table class="table table-hover">
+        <tr>
+            <th>
+                <p>Product Name</p>
+            </th>
+            <th>
+                <p>Product Image</p>
+            </th>
+            <th>
+                <p> Details price </p>
+            </th>
+            <th>
+                <p>Quannlity</p>
+            </th>
+            <th>
+                <p>Total product</p>
+            </th>
+        </tr>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div>
-        <h4>Order</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Order_note)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Order_note)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Order_total_money)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Order_total_money)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Order_Date)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Order_Date)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Account.account_username)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Account.account_username)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Order_status.Order_status_status)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Order_status.Order_status_status)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.shipping.shipping_name)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.shipping.shipping_name)
-            </dd>
-    
-        </dl>
+        @foreach (var item in Model.Order_Details)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.product.product_name)
+                </td>
+                <td>
+
+                    <img style="height:50px; width:50px" src="~/Content/ProductImages/@Html.DisplayFor(modelItem => item.product.product_image)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order_Details_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order_Details_num)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order_Details_total_number)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    <div class="center-block">
+        <div class="form-actions no-color col text-center">
+            <div class="center-block">
+                <div class="form-actions no-color col text-center">
+                    <button type="submit" class="btn btn-file">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Order_id })
+                        </button>
+                </div>
+            </div>
+            <hr/>
+            
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Order_id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
-</html>
+    <div class="form-group col-md-12">
+        <div class=" add-task-row">
+            <button type="submit" class="btn btn-info">
+                @Html.ActionLink("Back to List", "Index")
+            </button>
+        </div>
+    </div>
+</p>
+

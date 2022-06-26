@@ -21,13 +21,13 @@ namespace shopping_online.Controllers.Marketing
             return View();
         }
 
-        public ActionResult Create (Account account, string gender, string createDate, string password)
+        public ActionResult Create(Account account, string gender, string createDate, string password)
         {
             if (gender == "Male")
             {
                 account.account_gender = true;
             }
-            account.account_status= true;
+            account.account_status = true;
             account.account_role_id = 1;
             account.account_password = password;
             account.account_createdate = DateTime.ParseExact(createDate, "yyyy-MM-dd", null);
@@ -58,7 +58,8 @@ namespace shopping_online.Controllers.Marketing
             if (gender == "Male")
             {
                 acc.account_gender = true;
-            } else
+            }
+            else
             {
                 acc.account_gender = false;
             }
@@ -66,7 +67,8 @@ namespace shopping_online.Controllers.Marketing
             {
                 acc.account_status = true;
                 UnLockAccount(Id);
-            } else
+            }
+            else
             {
                 acc.account_status = false;
                 LockAccount(Id);
