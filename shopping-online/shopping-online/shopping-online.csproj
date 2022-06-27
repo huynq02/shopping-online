@@ -198,10 +198,8 @@
     <Compile Include="Context\status_product.cs">
       <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Accounts\LoginController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
-    <Compile Include="Controllers\Cart\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Marketing\AddBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\AddCustomerAdminController.cs" />
@@ -213,10 +211,12 @@
     <Compile Include="Controllers\Marketing\EditBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\ProductAdminController.cs" />
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
-    <Compile Include="Controllers\Sale\OrdersController.cs" />
-    <Compile Include="Controllers\Sale\Order_statusController.cs" />
-    <Compile Include="Controllers\Sale\shippingsController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
+    <Compile Include="Controllers\ViewPage\ListHomeController.cs" />
+    <Compile Include="Controllers\ViewPage\PageProductController.cs" />
+    <Compile Include="Controllers\ViewPage\ProductByCategoryController.cs" />
+    <Compile Include="Controllers\ViewPage\ProductByColorController.cs" />
+    <Compile Include="Controllers\ViewPage\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,10 +225,14 @@
     <Compile Include="Models\AddCustomer.cs" />
     <Compile Include="Models\AddSlide.cs" />
     <Compile Include="Models\BlogModel.cs" />
-    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\EditBlog.cs" />
     <Compile Include="Models\HomeAdmin.cs" />
+    <Compile Include="Models\ListHome.cs" />
+    <Compile Include="Models\PageProduct.cs" />
+    <Compile Include="Models\ProductByCategory.cs" />
+    <Compile Include="Models\ProductByColor.cs" />
+    <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\SlideModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -951,26 +955,6 @@
     <Content Include="Content\js\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\js\price-range.js" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\ProductImages\Adidas EQT Bask ADV.jpg" />
-    <Content Include="Content\ProductImages\Adidas Stan Smith All Black.jpg" />
-    <Content Include="Content\ProductImages\Adidas Superstar.jpg" />
-    <Content Include="Content\ProductImages\Converse 1970s Sunflower.jpg" />
-    <Content Include="Content\ProductImages\Converse Chuck Taylor All Star.jpg" />
-    <Content Include="Content\ProductImages\Converse Chuck Taylor II.jpg" />
-    <Content Include="Content\ProductImages\Converse run star hike.jpg" />
-    <Content Include="Content\ProductImages\Gucci Rhyton mickey mouse.jpg" />
-    <Content Include="Content\ProductImages\Gucci Tennis 1977.jpg" />
-    <Content Include="Content\ProductImages\MLB Big Ball Chunky.jpg" />
-    <Content Include="Content\ProductImages\MLB LA DODGERS.jpg" />
-    <Content Include="Content\ProductImages\Nike Air Force 1 Love Letter.jpg" />
-    <Content Include="Content\ProductImages\Nike Air Force 1 LV8.png" />
-    <Content Include="Content\ProductImages\Nike Air Force 1 Pixel.jpg" />
-    <Content Include="Content\ProductImages\Reebok Kung Fu Panda Pump Fury.jpg" />
-    <Content Include="Content\ProductImages\Reebok PRINT HER 3.0.jpg" />
-    <Content Include="Content\ProductImages\Reebok Pump Fury Phoenix Suns.jpg" />
-    <Content Include="Content\ProductImages\Vans Old Skool Style 36.jpg" />
-    <Content Include="Content\ProductImages\Vans Old Skool.jpg" />
-    <Content Include="Content\ProductImages\VANS VAULT X SARAH ANDELMAN KID%27S OG AUTHENTIC LX %28Kids%29%28Green%29%28Vans%29.jpg" />
     <Content Include="Content\template\HtmlPage1.html" />
     <Content Include="Content\template\notification.html" />
     <Content Include="Context\OnlineShopping.Context.tt">
@@ -1021,7 +1005,6 @@
       <DependentUpon>OnlineShopping.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\Controllers\cartControllers.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -1062,30 +1045,11 @@
     <Content Include="Views\AddCustomerAdmin\Index.cshtml" />
     <Content Include="Views\Slide\Index.cshtml" />
     <Content Include="Views\AddBlogAdmin\Example.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Cart\Payment.cshtml" />
-    <Content Include="Views\Cart\Success.cshtml" />
-    <Content Include="Views\Cart\Unsuccess.cshtml" />
-    <Content Include="Views\shippings\Create.cshtml" />
-    <Content Include="Views\shippings\Delete.cshtml" />
-    <Content Include="Views\shippings\Edit.cshtml" />
-    <Content Include="Views\shippings\Index.cshtml" />
-    <Content Include="Views\Orders\Create.cshtml" />
-    <Content Include="Views\Orders\Delete.cshtml" />
-    <Content Include="Views\Orders\Details.cshtml" />
-    <Content Include="Views\Orders\Edit.cshtml" />
-    <Content Include="Views\Orders\Index.cshtml" />
-    <Content Include="Views\Order_status\Create.cshtml" />
-    <Content Include="Views\Order_status\Delete.cshtml" />
-    <Content Include="Views\Order_status\Details.cshtml" />
-    <Content Include="Views\Order_status\Edit.cshtml" />
-    <Content Include="Views\Order_status\Index.cshtml" />
-    <Content Include="Views\Shared\ship.cshtml" />
-    <Content Include="Views\Shared\Order.cshtml" />
-    <Content Include="Views\Shared\OrderStatus.cshtml" />
-    <Content Include="Views\Shared\shipsCUD.cshtml" />
-    <Content Include="Views\Shared\OrderCUD.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\ListHome\Index.cshtml" />
+    <Content Include="Views\ProductByCategory\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\ProductByColor\Index.cshtml" />
+    <Content Include="Views\PageProduct\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
