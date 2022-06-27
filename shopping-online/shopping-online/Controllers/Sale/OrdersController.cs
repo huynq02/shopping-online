@@ -25,7 +25,7 @@ namespace shopping_online.Controllers.Sale
                 List<Order> orders = db.Orders.ToList();
                 IQueryable<Order> od = db.Orders;
                 IQueryable<Order_Details> ords = db.Order_Details;
-                IQueryable<Account> accounts = db.Accounts;
+                IQueryable<Account> accounts = (IQueryable<Account>)db.Accounts;
 
                 if (!string.IsNullOrEmpty(table_search))
                 {
