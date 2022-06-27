@@ -11,7 +11,9 @@ namespace shopping_online.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class shipping
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,12 +21,21 @@ namespace shopping_online.Context
         {
             this.Orders = new HashSet<Order>();
         }
-    
+
         public int shipping_id { get; set; }
+        [Required(ErrorMessage = "Name is Required")]
+        [DisplayName("Name")]
         public string shipping_name { get; set; }
+        [Required(ErrorMessage = "Email is Required")]
+        [DisplayName("Email")]
+
+        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", ErrorMessage = "Please enter a valid email address")]
         public string shipping_email { get; set; }
+        [DisplayName("Phone Number")]
+        [Required(ErrorMessage = "Phone Number is Required")]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Please Enter a valid Phone Number")]
         public string shipping_phone { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
