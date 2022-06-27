@@ -355,14 +355,21 @@
         </aside>
 
         <aside class="right-side">
-
-            <!-- Main content -->
             <section class="content">
 
                 <!-- Main row -->
-               
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- Main content -->
+                        <section class="panel tasks-widget">
+
+                            <!-- Main row -->
+
                             @RenderBody()
-                       
+
+                        </section>
+                    </div>
+                </div>
             </section>
         </aside>
     </div>
@@ -470,7 +477,7 @@
             });
 
         });
-                                                            // Chart.defaults.global.responsive = true;
+                                                                // Chart.defaults.global.responsive = true;
     </script>
 
 </body>

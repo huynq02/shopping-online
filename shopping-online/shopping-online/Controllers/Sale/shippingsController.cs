@@ -18,25 +18,40 @@ namespace shopping_online.Controllers.Sale
         // GET: shippings
         public ActionResult Index(string table_search, int? page)
         {
-            int padeNum = (page ?? 1);
-            int pageSize = 10;
-            List<shipping> ship = db.shippings.ToList();
-            IQueryable<shipping> pt = db.shippings;
-
-            if (!string.IsNullOrEmpty(table_search))
+            try
             {
-                pt = pt.Where(x => x.shipping_name.Contains(table_search) || x.shipping_email.Contains(table_search) || x.shipping_phone.Contains(table_search));
+                int padeNum = (page ?? 1);
+                int pageSize = 10;
+                List<shipping> ship = db.shippings.ToList();
+                IQueryable<shipping> pt = db.shippings;
+
+                if (!string.IsNullOrEmpty(table_search))
+                {
+                    pt = pt.Where(x => x.shipping_name.Contains(table_search) || x.shipping_email.Contains(table_search) || x.shipping_phone.Contains(table_search));
+                }
+                var pts = pt.OrderBy(x => x.shipping_id).ToPagedList(padeNum, pageSize);
+                ViewBag.table_search = table_search;
+                return View(pts);
             }
-            var pts = pt.OrderBy(x => x.shipping_id).ToPagedList(padeNum, pageSize);
-            ViewBag.table_search = table_search;
-            return View(pts);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
-     
+
 
         // GET: shippings/Create
         public ActionResult Create()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         // POST: shippings/Create
@@ -46,29 +61,48 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "shipping_id,shipping_name,shipping_email,shipping_phone")] shipping shipping)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.shippings.Add(shipping);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.shippings.Add(shipping);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(shipping);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
 
-            return View(shipping);
+
+
+
+
         }
 
         // GET: shippings/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                shipping shipping = db.shippings.Find(id);
+                if (shipping == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(shipping);
             }
-            shipping shipping = db.shippings.Find(id);
-            if (shipping == null)
+            catch (Exception ex)
             {
-                return HttpNotFound();
+                throw new Exception(ex.Message);
             }
-            return View(shipping);
+
         }
 
         // POST: shippings/Edit/5
@@ -78,28 +112,40 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "shipping_id,shipping_name,shipping_email,shipping_phone")] shipping shipping)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(shipping).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(shipping).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(shipping);
             }
-            return View(shipping);
+            catch (Exception ex) { throw new Exception(ex.Message); }
         }
 
         // GET: shippings/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                shipping shipping = db.shippings.Find(id);
+                if (shipping == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(shipping);
             }
-            shipping shipping = db.shippings.Find(id);
-            if (shipping == null)
+            catch (Exception ex)
             {
-                return HttpNotFound();
+                throw new Exception(ex.Message);
             }
-            return View(shipping);
+
         }
 
         // POST: shippings/Delete/5
@@ -107,12 +153,27 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            shipping shipping = db.shippings.Find(id);
-            db.shippings.Remove(shipping);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+            try
+            {
+                shipping shipping = db.shippings.Find(id);
+                db.shippings.Remove(shipping);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+                //Console.WriteLine(ex.Message);
+
+            }
+            return RedirectToAction("Delete");
+        }
+        [HttpPost]
+        public JsonResult ShipIsDeliver(int id)
+        {
+            return Json(!db.Orders.Any(x => x.shipping_id == id), JsonRequestBehavior.AllowGet);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
