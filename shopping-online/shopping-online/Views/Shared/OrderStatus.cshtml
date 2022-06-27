@@ -2,12 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ship | Dashboard</title>
+    <title>Order Status | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Developed By M Abdur Rokib Promy">
     <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
     <!-- bootstrap 3.0.2 -->
     @*<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
     <!-- font Awesome -->
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -311,7 +313,7 @@
                     </li>
                     <li class="active">
                         <a href="/Order_status/Index">
-                            <i class="fa fa-globe"></i> <span>Status</span>
+                            <i class="fa fa-globe"></i> <span>Order Status</span>
                         </a>
                     </li>
                     <li >
@@ -361,7 +363,7 @@
                 <!-- Main row -->
                 <div class="row">
 
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <section class="panel">
                             @RenderBody()
                         </section>
