@@ -8,7 +8,6 @@ namespace shopping_online.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
         public ActionResult Index()
         {
             Project_SU22Entities obj = new Project_SU22Entities();
@@ -24,6 +23,20 @@ namespace shopping_online.Controllers
                 List.listCategory = listCategory;
                 return View(List);
             }
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
         }
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="23ec13c563ae4123b574a6acaa4ef072" Name="Diagram1">
+        <EntityTypeShape EntityType="Project_SU22Model.Account" Width="1.5" PointX="0.75" PointY="14.375" />
+        <EntityTypeShape EntityType="Project_SU22Model.Blog" Width="1.5" PointX="5.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Project_SU22Model.Category" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Project_SU22Model.Color" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="Project_SU22Model.Function" Width="1.5" PointX="1.5" PointY="25" />
+        <EntityTypeShape EntityType="Project_SU22Model.Order" Width="1.5" PointX="3" PointY="14.375" />
+        <EntityTypeShape EntityType="Project_SU22Model.Order_Details" Width="1.5" PointX="5.25" PointY="3.5" />
+        <EntityTypeShape EntityType="Project_SU22Model.Order_status" Width="1.5" PointX="0.75" PointY="22.625" />
+        <EntityTypeShape EntityType="Project_SU22Model.product" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="Project_SU22Model.Role" Width="1.5" PointX="1.5" PointY="19.25" />
+        <EntityTypeShape EntityType="Project_SU22Model.Role_function" Width="1.5" PointX="3.75" PointY="18.75" />
+        <EntityTypeShape EntityType="Project_SU22Model.shipping" Width="1.5" PointX="0.75" PointY="11.625" />
+        <EntityTypeShape EntityType="Project_SU22Model.size" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="Project_SU22Model.Slide" Width="1.5" PointX="7.75" PointY="1.75" />
+        <EntityTypeShape EntityType="Project_SU22Model.status_product" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="Project_SU22Model.productsize" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="Project_SU22Model.FK__Account__account__1273C1CD" />
+        <AssociationConnector Association="Project_SU22Model.FK__Order__account_i__2C3393D0" />
+        <AssociationConnector Association="Project_SU22Model.FK__product__categor__1BFD2C07" />
+        <AssociationConnector Association="Project_SU22Model.FK__product__color_i__1B0907CE" />
+        <AssociationConnector Association="Project_SU22Model.FK__Role_func__funct__0CBAE877" />
+        <AssociationConnector Association="Project_SU22Model.FK__Order__Order_sta__35BCFE0A" />
+        <AssociationConnector Association="Project_SU22Model.FK__Order__shipping___30F848ED" />
+        <AssociationConnector Association="Project_SU22Model.FK__Order_Det__Order__3A81B327" />
+        <AssociationConnector Association="Project_SU22Model.FK__Order_Det__produ__3B75D760" />
+        <AssociationConnector Association="Project_SU22Model.FK__product__status___276EDEB3" />
+        <AssociationConnector Association="Project_SU22Model.FK__productsi__produ__21B6055D" />
+        <AssociationConnector Association="Project_SU22Model.FK__Role_func__role___0DAF0CB0" />
+        <AssociationConnector Association="Project_SU22Model.FK__productsi__size___22AA2996" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
