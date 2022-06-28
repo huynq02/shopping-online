@@ -23,10 +23,15 @@ namespace shopping_online.Context
         }
     
         public int Order_status_id { get; set; }
+
+
+
+
         [DisplayName("Order status")]
         [Required(ErrorMessage = "Order status is Required")]
         [StringLength(30, MinimumLength = 4,
                   ErrorMessage = "Order status should be between 4 and 50 characters")]
+        [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$")]
         public string Order_status_status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

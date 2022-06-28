@@ -30,7 +30,14 @@ namespace shopping_online.Context
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Note should be between 2 and 50 characters")]
         public string Order_note { get; set; }
         public int Order_status_id { get; set; }
+
+        
         public double Order_total_money { get; set; }
+
+
+
+
+
         [DisplayName("Order Date")]
         [Required(ErrorMessage = "Order Date is Required")]
         [DateRange("01/01/2022", ErrorMessage = "Date of Birth Must be between 01-01-2022 and Current Date")]
