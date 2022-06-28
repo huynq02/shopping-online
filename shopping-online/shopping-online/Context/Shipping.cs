@@ -9,6 +9,7 @@
 
 namespace shopping_online.Context
 {
+    using shopping_online.Common;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -17,10 +18,17 @@ namespace shopping_online.Context
     public partial class shipping
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //[MetadataType(typeof(ShipMetadata))]
         public shipping()
         {
             this.Orders = new HashSet<Order>();
         }
+        //public class ShipMetadata
+        //{
+        //    [removeShip("IsShipuse", "shipping",
+        //        ErrorMessage = "UserName already in use")]
+        //    public string shipId { get; set; }
+        //}
 
         public int shipping_id { get; set; }
         [Required(ErrorMessage = "Name is Required")]
@@ -29,7 +37,7 @@ namespace shopping_online.Context
         [Required(ErrorMessage = "Email is Required")]
         [DisplayName("Email")]
 
-        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", ErrorMessage = "Please enter a valid email address")]
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Please enter a valid email address")]
         public string shipping_email { get; set; }
         [DisplayName("Phone Number")]
         [Required(ErrorMessage = "Phone Number is Required")]

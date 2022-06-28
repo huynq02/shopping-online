@@ -103,16 +103,33 @@ namespace shopping_online.Controllers.Sale
             }
             return View(shipping);
         }
-
+        [HttpPost]
+        public JsonResult IsShipuse(int shipId)
+        {
+            return Json(!db.Orders.Any(x => x.shipping_id == shipId),
+                                                 JsonRequestBehavior.AllowGet);
+        }
         // POST: shipping/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed([Bind(Include = "shipping_id,shipping_name,shipping_email,shipping_phone")] shipping shipping)
         {
-            shipping shipping = db.shippings.Find(id);
-            db.shippings.Remove(shipping);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (db.Orders.Any(x => x.shipping_id == shipping.shipping_id))
+            {
+                ModelState.AddModelError("shipping_id", "Ship already in use");
+            }
+            //shipping shipping = db.shippings.Find(id);
+            //db.shippings.Remove(shipping);
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                db.Entry(shipping).State = EntityState.Modified;
+                db.shippings.Remove(shipping);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(shipping);
         }
 
         protected override void Dispose(bool disposing)
