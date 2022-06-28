@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.git",
+    "\\Local settings (.vs)",
+    "\\Local settings (.vs)\\online-shopping",
+    "\\Local settings (.vs)\\online-shopping\\config",
+    "\\Local settings (.vs)\\online-shopping\\v16",
+    "\\shopping-online"
   ],
-  "SelectedNode": "\\shopping-online.sln",
   "PreviewInSolutionExplorer": false
 }

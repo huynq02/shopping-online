@@ -11,7 +11,9 @@ namespace shopping_online.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class shipping
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +23,17 @@ namespace shopping_online.Context
         }
     
         public int shipping_id { get; set; }
+        [DisplayName("Name")]
+        [Required(ErrorMessage = "Name of ship is Required")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Note should be between 2 and 50 characters")]
         public string shipping_name { get; set; }
+        [DisplayName("Email")]
+        [Required(ErrorMessage = "Email of ship is Required")]
+        [StringLength(50, MinimumLength = 10, ErrorMessage = "Email should be between 10 and 50 characters")]
         public string shipping_email { get; set; }
+        [DisplayName("Phone")]
+        [Required(ErrorMessage = "Phone of ship is Required")]
+        [StringLength(11, MinimumLength = 10, ErrorMessage = "Phone should be between 10 and 11 numbers")]
         public string shipping_phone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

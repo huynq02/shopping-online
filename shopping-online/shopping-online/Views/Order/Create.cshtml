@@ -2,11 +2,14 @@
 
 @{
     Layout = "~/Views/Shared/Order.cshtml";
+
 }
 
+
 <header class="panel-heading">
-    Edit Order
+    Create Order
 </header>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -18,13 +21,10 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group col-md-12">
                     <label for="exampleInputEmail1">Account Name</label>
-                    @Html.HiddenFor(model => model.Order_id)
-
-
                     @Html.DropDownList("account_id", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.account_id, "", new { @class = "text-danger" })
-
                 </div>
+
 
                 <div class="form-group col-md-12">
                     <label for="exampleInputEmail1"> Note </label>
@@ -45,23 +45,24 @@
                     @Html.EditorFor(model => model.Order_total_money, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Order_total_money, "", new { @class = "text-danger" })
                 </div>
+
+
                 <div class="form-group col-md-12">
                     <label for="exampleInputEmail1">Order Date </label>
-                    @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class = "form-control",  Type = "date" } })
-                    @Html.ValidationMessageFor(model => model.Order_Date, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class = "form-control",Type ="date" } })
+                    @Html.ValidationMessageFor(model => model.Order_Date, "", new { @class = "text-danger " })
                 </div>
 
 
                 <div class="form-group col-md-12">
                     <label for="exampleInputEmail1">Ship </label>
-
                     @Html.DropDownList("shipping_id", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.shipping_id, "", new { @class = "text-danger" })
                 </div>
 
 
                 <div class="form-actions no-color col text-center">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="Create" class="btn btn-default" />
                 </div>
                 <hr />
                 <div class=" add-task-row col-md-12">
@@ -72,6 +73,7 @@
             </form>
         </div>
     </div>
+
 }
 
 
