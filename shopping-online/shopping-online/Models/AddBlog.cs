@@ -11,21 +11,22 @@ namespace shopping_online.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Title")]
-        [StringLength(maximumLength:150, MinimumLength =10, ErrorMessage ="Length must be between 10 to 150")]
+        [StringLength(150, MinimumLength = 10, ErrorMessage = "Use 10-150 characters")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Author")]
-        [StringLength(maximumLength:100, MinimumLength =5, ErrorMessage ="Length must be between 5 to 100")]
+        [StringLength(100, MinimumLength = 10, ErrorMessage = "Use 10-100 characters")]
         public string Author { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Description")]
-        [StringLength(maximumLength: 300, MinimumLength = 5, ErrorMessage = "Length must be between 5 to 300")]
+        [StringLength(300, MinimumLength = 10, ErrorMessage = "Use 10-300 characters")]
         public string Descriptions { get; set; }
-        [Required(ErrorMessage = "Mời nhập Create Date")]
+
+        //[Required(ErrorMessage = "Mời nhập Create Date")]
         public DateTime CreateDate { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Create By")]
-        [StringLength(maximumLength: 100, MinimumLength = 5, ErrorMessage = "Length must be between 5 to 100")]
+        [StringLength(100, MinimumLength = 10, ErrorMessage = "Use 10-100 characters")]
         public string CreateBy { get; set; }
 
         [Required(ErrorMessage = "Thêm ảnh")]
@@ -33,11 +34,13 @@ namespace shopping_online.Models
         public DateTime ModifyDate { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Modify By")]
-        [StringLength(maximumLength: 100, MinimumLength = 5, ErrorMessage = "Length must be between 5 to 100")]
+        [StringLength(100, MinimumLength = 10, ErrorMessage = "Use 10-100 characters")]
         public string ModifyBy { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Detail")]
         public string Detail { get; set; }
+
+        [Required(ErrorMessage = "Mời nhập Back-Link")]
         public string Back_Link { get; set; }
     }
 }

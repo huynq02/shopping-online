@@ -18,21 +18,6 @@ namespace shopping_online
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
-               name: "Ship",
-               url: "{controller}/{action}/{id}",
-               defaults: new { controller = "shipping", action = "Index", id = UrlParameter.Optional }
-           );
-            routes.MapRoute(
-               name: "Orderss",
-               url: "{controller}/{action}/{id}",
-               defaults: new { controller = "Orders", action = "Index", id = UrlParameter.Optional }
-           );
-            routes.MapRoute(
-               name: "Order_Status",
-               url: "{controller}/{action}/{id}",
-               defaults: new { controller = "Order_status", action = "Index", id = UrlParameter.Optional }
-           );
         }
     }
 }

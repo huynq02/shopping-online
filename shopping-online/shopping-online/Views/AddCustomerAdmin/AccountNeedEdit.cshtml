@@ -361,6 +361,10 @@
                                             @Html.EditorFor(model => model.acc.account_email, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
                                         <div class="form-group">
+                                            <label for="exampleInputPassword1">UserName</label>
+                                            @Html.EditorFor(model => model.acc.account_username, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
                                             <label for="exampleInputPassword1">PassWord</label>
                                             @Html.EditorFor(model => model.acc.account_password, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
@@ -397,6 +401,10 @@
                                                 <input type="radio" name="status" value="Active" /><b>Active</b>
                                                 <input type="radio" name="status" value="Deactive" checked /><b>De-Active</b>
                                             }
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Create Date</label> <br />
+                                            @Html.EditorFor(model => model.acc.account_createdate, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
                                         <input type="hidden" name="Id" value="@Model.acc.account_id" />
                                         <button type="submit" class="btn btn-info">Save</button>

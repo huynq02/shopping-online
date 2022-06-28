@@ -9,11 +9,9 @@
 
 namespace shopping_online.Context
 {
-    using shopping_online.Common;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,14 +19,12 @@ namespace shopping_online.Context
         {
             this.Order_Details = new HashSet<Order_Details>();
         }
-
+    
         public int Order_id { get; set; }
         public Nullable<int> account_id { get; set; }
         public string Order_note { get; set; }
         public int Order_status_id { get; set; }
         public double Order_total_money { get; set; }
-        [DateRange("01/01/2021", ErrorMessage = "Date of Order must be between 01-01-2021 and Current Date")]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Order_Date { get; set; }
         public int shipping_id { get; set; }
     

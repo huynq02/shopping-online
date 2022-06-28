@@ -21,16 +21,16 @@ namespace shopping_online.Controllers.Marketing
             return View();
         }
 
-        public ActionResult Create(Account account, string gender, string createDate, string password)
+        public ActionResult Create (Account account, string gender, string CreateDate, string Account_password)
         {
             if (gender == "Male")
             {
                 account.account_gender = true;
             }
-            account.account_status = true;
+            account.account_status= true;
             account.account_role_id = 1;
-            account.account_password = password;
-            account.account_createdate = DateTime.ParseExact(createDate, "yyyy-MM-dd", null);
+            account.account_password = Account_password;
+            account.account_createdate = DateTime.ParseExact(CreateDate, "yyyy-MM-dd", null);
             db.Accounts.Add(account);
             db.SaveChanges();
             return RedirectToAction("Index", "CustomerAdmin");
@@ -55,11 +55,12 @@ namespace shopping_online.Controllers.Marketing
 
         public ActionResult Edit(Account acc, int Id, string gender, string status)
         {
+            var role = db.Roles.Where(x => x.Role_name == "Customer").FirstOrDefault();
+            var accold = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
             if (gender == "Male")
             {
                 acc.account_gender = true;
-            }
-            else
+            } else
             {
                 acc.account_gender = false;
             }
@@ -67,14 +68,15 @@ namespace shopping_online.Controllers.Marketing
             {
                 acc.account_status = true;
                 UnLockAccount(Id);
-            }
-            else
+            } else
             {
                 acc.account_status = false;
                 LockAccount(Id);
             }
             acc.account_id = Id;
-            db.Entry(acc).State = EntityState.Modified;
+            acc.account_role_id = role.Role_id;
+            //db.Entry(acc).State = EntityState.Modified;
+            db.Entry(accold).CurrentValues.SetValues(acc);
             db.SaveChanges();
             return RedirectToAction("Index", "CustomerAdmin");
         }
