@@ -42,9 +42,6 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->
-
-    <style type="text/css">
-    </style>
 </head>
 <body class="skin-black">
     <!-- header logo: style can be found in header.less -->
@@ -384,7 +381,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">ModifyDate(yyyy-MM-dd)</label>
-                                            @Html.EditorFor(model => model.blog.blog_modifydate, new { htmlAttributes = new { @class = "form-control" } });
+                                            @Html.EditorFor(model => model.blog.blog_modifydate, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">ModifyBy</label>
