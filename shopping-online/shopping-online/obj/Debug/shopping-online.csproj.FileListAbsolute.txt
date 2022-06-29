@@ -167,7 +167,6 @@ D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\System.W
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\Newtonsoft.Json.xml
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.pdb
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
