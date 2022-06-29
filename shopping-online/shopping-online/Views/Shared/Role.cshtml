@@ -2,14 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Order Status | Dashboard</title>
+    <title>Account | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Developed By M Abdur Rokib Promy">
     <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
     <!-- bootstrap 3.0.2 -->
-    @*<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
-
+    @*<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
     <!-- font Awesome -->
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -227,22 +226,22 @@
                             <li class="dropdown-header text-center">Account</li>
 
                             @*<li>
-                                <a href="#">
-                                    <i class="fa fa-clock-o fa-fw pull-right"></i>
-                                    <span class="badge badge-success pull-right">10</span> Updates
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-envelope-o fa-fw pull-right"></i>
-                                    <span class="badge badge-danger pull-right">5</span> Messages
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-magnet fa-fw pull-right"></i>
-                                    <span class="badge badge-info pull-right">3</span> Subscriptions
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
-                                </a>
-                            </li>*@
+                                    <a href="#">
+                                        <i class="fa fa-clock-o fa-fw pull-right"></i>
+                                        <span class="badge badge-success pull-right">10</span> Updates
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-envelope-o fa-fw pull-right"></i>
+                                        <span class="badge badge-danger pull-right">5</span> Messages
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-magnet fa-fw pull-right"></i>
+                                        <span class="badge badge-info pull-right">3</span> Subscriptions
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
+                                    </a>
+                                </li>*@
 
                             <li class="divider"></li>
 
@@ -306,7 +305,7 @@
                             <i class="fa fa-user"></i> <span>Account</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/Roles/Index">
                             <i class="fa fa-user"></i> <span>Role</span>
                         </a>
@@ -321,7 +320,7 @@
                             <i class="fa fa-globe"></i> <span>Order</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/Order_status/Index">
                             <i class="fa fa-globe"></i> <span>Order Status</span>
                         </a>
@@ -372,9 +371,9 @@
 
                 <!-- Main row -->
                 <div class="row">
-
-                    <div class="col-md-6">
-                        <section class="panel">
+                    <div class="col-md-12">
+                        <!-- Main content -->
+                        <section class="panel tasks-widget">
                             @RenderBody()
                         </section>
                     </div>
@@ -486,8 +485,9 @@
             });
 
         });
-                                                                    // Chart.defaults.global.responsive = true;
+                                                                // Chart.defaults.global.responsive = true;
     </script>
 
 </body>
 </html>
+

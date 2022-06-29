@@ -171,3 +171,4 @@ D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\sh
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
+D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache

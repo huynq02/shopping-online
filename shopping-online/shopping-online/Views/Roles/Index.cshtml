@@ -5,30 +5,46 @@
     Layout = "~/Views/Shared/Order.cshtml";
 }
 
-<h2>Index</h2>
+<div class="col-xs-12">
+    <div class="panel">
+        <header class="panel-heading">
+            List Order
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Role_name)
-        </th>
-        <th></th>
-    </tr>
+        </header>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Role_name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Role_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Role_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Role_id })
-        </td>
-    </tr>
-}
 
-</table>
+        <div class="panel-body table-responsive">
+            <div class=" add-task-row">
+                <p class="btn btn-success btn-sm pull-left">
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <p>
+                                @Html.DisplayNameFor(model => model.Role_name)
+                            </p>
+                        </th>
+                        <th><p>Action</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Role_name)
+                            </td>
+                            <td>
+                                <a href="~/Controllers/Admin/Roles/Edit/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                <a href="~/Roles/Delete/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
