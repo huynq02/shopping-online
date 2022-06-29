@@ -213,6 +213,7 @@
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
     <Compile Include="Controllers\Sale\OrderController.cs" />
     <Compile Include="Controllers\Sale\Order_statusController.cs" />
+    <Compile Include="Controllers\Sale\SaleController.cs" />
     <Compile Include="Controllers\Sale\shippingsController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Global.asax.cs">
@@ -227,6 +228,7 @@
     <Compile Include="Models\EditBlog.cs" />
     <Compile Include="Models\HomeAdmin.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\SaleDashboard.cs" />
     <Compile Include="Models\SlideModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1079,6 +1081,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Sale\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
