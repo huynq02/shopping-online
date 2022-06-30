@@ -15,34 +15,34 @@ namespace shopping_onlineTests1
     public class UnitTest1
     {
 
-        [TestMethod()]
-        public void createorder()
-        {
-            var obj = new Order_statusController();
-            var expect = "Index";
-            RedirectToRouteResult result = obj.Create(new Order_status()
-            {
-               
-                Order_status_status = "D1"
+        //[TestMethod()]
+        //public void createorder()
+        //{
+        //    var obj = new Order_statusController();
+        //    var expect = "Index";
+        //    RedirectToRouteResult result = obj.Create(new Order_status()
+        //    {
 
-            }) as RedirectToRouteResult;
-            NUnit.Framework.Assert.That(result.RouteValues["action"], Is.EqualTo(expect));
+        //        Order_status_status = "D1"
+
+        //    }) as RedirectToRouteResult;
+        //    NUnit.Framework.Assert.That(result.RouteValues["action"], Is.EqualTo(expect));
 
 
-        }
-        [TestMethod()]
-        public void TestDepartmentCreateErrorView()
-        {
-            var obj = new Order_statusController();
-            var expect = "Index";
-            ViewResult result = obj.Create(new Order_status()
-            {
-               
-                Order_status_status = ""
-            }) as ViewResult;
+        //}
+        //[TestMethod()]
+        //public void TestDepartmentCreateErrorView()
+        //{
+        //    var obj = new Order_statusController();
+        //    var expect = "Index";
+        //    ViewResult result = obj.Create(new Order_status()
+        //    {
 
-            NUnit.Framework.Assert.That(result.ViewName, Is.EqualTo("Create"));
-        }
+        //        Order_status_status = ""
+        //    }) as ViewResult;
+
+        //    NUnit.Framework.Assert.That(result.ViewName, Is.EqualTo("Create"));
+        //}
         [TestMethod()]
         public void IndexOrder()
         {
@@ -68,7 +68,7 @@ namespace shopping_onlineTests1
         {
             shippingsController obj = new shippingsController();
 
-            var actResult = obj.Index("a",1) as ViewResult;
+            var actResult = obj.Index("a", 1) as ViewResult;
 
             NUnit.Framework.Assert.IsNotNull(actResult);
 
@@ -85,11 +85,11 @@ namespace shopping_onlineTests1
         }
         [TestMethod()]
         public void correct_Index_Order_status()
-        { 
+        {
             Order_statusController obj = new Order_statusController();
-            
+
             var expect = "Index";
-           
+
 
             var actResult = obj.Index() as ViewResult;
             var a = actResult.ViewName;
@@ -222,17 +222,17 @@ namespace shopping_onlineTests1
 
             }
         }
-
+      
         [TestMethod()]
-        public void verifyclassattributes_ship()
+        public void verifyclassattributes_ship_create()
         {
             CheckPropertyValidation cpv = new CheckPropertyValidation();
             var ship = new shipping
             {
-                
+
                 shipping_name = "Krishna",
                 shipping_email = "krishna@gmail.com",
-               shipping_phone ="0123456789"
+                shipping_phone = "0123456789"
 
             };
             var errorcount = cpv.myValidation(ship).Count();
@@ -241,7 +241,7 @@ namespace shopping_onlineTests1
 
         }
         [TestMethod()]
-        public void verify_wrong_classattributes_ship()
+        public void verify_wrong_classattributes_ship_create()
         {
             CheckPropertyValidation cpv = new CheckPropertyValidation();
             var ship = new shipping
@@ -258,7 +258,7 @@ namespace shopping_onlineTests1
 
         }
         [TestMethod()]
-        public void verifyclassattributes_order_status()
+        public void verifyclassattributes_order_status_create()
         {
             CheckPropertyValidation cpv = new CheckPropertyValidation();
             var ship = new Order_status
@@ -273,13 +273,13 @@ namespace shopping_onlineTests1
 
         }
         [TestMethod()]
-        public void verify_wrong_classattributes_order_status()
+        public void verify_wrong_classattributes_order_status_create()
         {
             CheckPropertyValidation cpv = new CheckPropertyValidation();
             var ship = new Order_status
             {
 
-               Order_status_status = ""
+                Order_status_status = ""
 
 
             };
@@ -290,7 +290,7 @@ namespace shopping_onlineTests1
         }
 
         [TestMethod()]
-        public void verify_wrong_classattributes_order()
+        public void verify_wrong_classattributes_order_create()
         {
             CheckPropertyValidation cpv = new CheckPropertyValidation();
             var ship = new Order
@@ -301,7 +301,7 @@ namespace shopping_onlineTests1
                 account_id = 1,
                 Order_note = "",
                 Order_total_money = 15550,
-               
+
 
             };
             var errorcount = cpv.myValidation(ship).Count();
@@ -310,7 +310,7 @@ namespace shopping_onlineTests1
 
         }
 
-    }
-  
+        
 
-}
+    }
+    }
