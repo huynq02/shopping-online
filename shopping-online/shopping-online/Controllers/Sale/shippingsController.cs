@@ -29,15 +29,15 @@ namespace shopping_online.Controllers.Sale
             }
             var pts = pt.OrderBy(x => x.shipping_id).ToPagedList(padeNum, pageSize);
             ViewBag.table_search = table_search;
-            return View(pts);
+            return View("Index", pts);
         }
 
-      
+
 
         // GET: shippings/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         // POST: shippings/Create
@@ -69,7 +69,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return HttpNotFound();
             }
-            return View(shipping);
+            return View("Edit", shipping);
         }
 
         // POST: shippings/Edit/5

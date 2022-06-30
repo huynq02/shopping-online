@@ -32,7 +32,7 @@ namespace shopping_online.Controllers.Sale
             var list_Order_today = db.Orders.Where(x => EntityFunctions.TruncateTime(x.Order_Date) == EntityFunctions.TruncateTime(DateTime.Today)).ToList();
             var list_Order_on_mounth = db.Orders.Where(x => EntityFunctions.TruncateTime(x.Order_Date) == EntityFunctions.TruncateTime(DateTime.Today)).ToList();
             var list_Product = db.products.ToList();
-            
+
 
 
             double sum = 0;
@@ -42,13 +42,13 @@ namespace shopping_online.Controllers.Sale
             {
                 sum += item.Order_total_money;
             }
-         
+
             SaleDashboard sale = new SaleDashboard();
             sale.cus_order = lsOrder;
             sale.acc_order = list_customer;
-            
-            return View(sale);
+
+            return View("Index", sale);
         }
     }
-    
+
 }
