@@ -1,6 +1,8 @@
 ﻿using shopping_online.Context;
+using shopping_online.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -41,23 +43,26 @@ namespace shopping_online.Controllers.Marketing
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Blog entity)
+        public ActionResult Create(Blog entity, string createdate, string modifydate, string images, 
+                                    string Title, string Author, string Descriptions, string CreateBy, string Detail, string ModifyBy, string Back_Link)
         {
-            if (String.IsNullOrEmpty(entity.blog_title))
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("Title", "Title is not Empty");
-                return View("Index");
-            } else if (entity.blog_title.Length < 10 || entity.blog_title.Length> 150)
-            {
-                ModelState.AddModelError("Title", "Length between 10 to 150");
-                return View("Index");
-            }
-            else
-            {
+                entity.blog_title = Title;
+                entity.blog_author = Author;
+                entity.blog_descriptions = Descriptions;
+                entity.blog_createby = CreateBy;
+                entity.blog_detail = Detail;
+                entity.blog_modifyby = ModifyBy;
+                entity.blog_back_link = Back_Link;
+                entity.blog_createdate = DateTime.ParseExact(createdate, "yyyy-MM-dd", null);
+                entity.blog_modifydate = DateTime.ParseExact(modifydate, "yyyy-MM-dd", null);
+                entity.blog_images = images;
                 db.Blogs.Add(entity);
                 db.SaveChanges();
                 return RedirectToAction("Index", "BlogAdmin");
             }
+            return View("Index");
         }
     }
 }

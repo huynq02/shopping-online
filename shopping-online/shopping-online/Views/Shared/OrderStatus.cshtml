@@ -2,12 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ship | Dashboard</title>
+    <title>Order Status | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Developed By M Abdur Rokib Promy">
     <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
     <!-- bootstrap 3.0.2 -->
     @*<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
     <!-- font Awesome -->
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -224,7 +226,7 @@
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
 
-                            <li>
+                            @*<li>
                                 <a href="#">
                                     <i class="fa fa-clock-o fa-fw pull-right"></i>
                                     <span class="badge badge-success pull-right">10</span> Updates
@@ -240,7 +242,7 @@
                                 <a href="#">
                                     <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
                                 </a>
-                            </li>
+                            </li>*@
 
                             <li class="divider"></li>
 
@@ -300,21 +302,31 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/Accounts/Index">
+                            <i class="fa fa-user"></i> <span>Account</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Roles/Index">
+                            <i class="fa fa-user"></i> <span>Role</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="/ProductAdmin/loadProduct">
                             <i class="fa fa-gavel"></i> <span>Product</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/Orders/Index">
+                        <a href="/Order/Index">
                             <i class="fa fa-globe"></i> <span>Order</span>
                         </a>
                     </li>
                     <li class="active">
                         <a href="/Order_status/Index">
-                            <i class="fa fa-globe"></i> <span>Status</span>
+                            <i class="fa fa-globe"></i> <span>Order Status</span>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="/shippings/Index">
                             <i class="fa fa-globe"></i> <span>Ship</span>
                         </a>
@@ -361,7 +373,7 @@
                 <!-- Main row -->
                 <div class="row">
 
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <section class="panel">
                             @RenderBody()
                         </section>
@@ -474,7 +486,7 @@
             });
 
         });
-                                                                // Chart.defaults.global.responsive = true;
+                                                                    // Chart.defaults.global.responsive = true;
     </script>
 
 </body>

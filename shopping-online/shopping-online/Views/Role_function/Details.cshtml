@@ -1,0 +1,67 @@
+﻿@model shopping_online.Context.Role_function
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Order.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Role_function</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Role_function_view)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role_function_view)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role_function_insert)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role_function_insert)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role_function_update)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role_function_update)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role_function_delete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role_function_delete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Function.function_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Function.function_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.Role_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.Role_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Role_function_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
