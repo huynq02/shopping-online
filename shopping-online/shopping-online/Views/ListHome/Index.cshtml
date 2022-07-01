@@ -288,13 +288,13 @@
                             <img class="media-object" src="~/Content/images/Picture/@item.product_image" />
                             <h2>@item.product_price</h2>
                             <p><a>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</a></p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            <a href="/Cart/AddItem?productId=@item.product_id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
                         <div class="product-overlay">
                             <div class="overlay-content">
                                 <h2>@item.product_price</h2>
                                 <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                <a href="/Cart/AddItem?productId=@item.product_id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -334,7 +334,7 @@
                                     <img class="media-object" src="~/Content/images/Picture/@item.product_image" />
                                     <h2>@item.product_price $</h2>
                                     <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null) </p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href="/Cart/AddItem?productId=@item.product_id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
 
                             </div>
@@ -353,7 +353,7 @@
                                     @*<img src="~/Content/images/home/Converse Chuck Taylor II.jpg" alt="" />*@
                                     <h2>@item.product_price $</h2>
                                     <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null) </p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href="/Cart/AddItem?productId=@item.product_id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
 
                             </div>
@@ -386,7 +386,7 @@
                                         @*<img src="~/Content/images/home/Converse Chuck Taylor II.jpg" alt="" />*@
                                         <h2>@item.product_price $</h2>
                                         <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
-                                        <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                        <a href="/Cart/AddItem?productId=@item.product_id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
                                 </div>
                             </div>
