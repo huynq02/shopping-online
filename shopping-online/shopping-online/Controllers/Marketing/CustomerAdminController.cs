@@ -15,6 +15,7 @@ namespace shopping_online.Controllers.Marketing
         // GET: CustomerAdmin
         public ActionResult Index(string search, int page=1, int pageSize=5)
         {
+            //
             var role = db.Roles.Where(x => x.Role_name == "Customer").FirstOrDefault();
             var cus = db.Accounts.OrderByDescending(x => x.account_role_id == role.Role_id).ToPagedList(page, pageSize);
             if (search!= null)
