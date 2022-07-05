@@ -9,12 +9,9 @@
 
 namespace shopping_online.Context
 {
-    using shopping_online.Common;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,23 +22,9 @@ namespace shopping_online.Context
     
         public int Order_id { get; set; }
         public Nullable<int> account_id { get; set; }
-        [DisplayName("Note")]
-        [Required(ErrorMessage = "Note is Required")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Note should be between 2 and 50 characters")]
         public string Order_note { get; set; }
         public int Order_status_id { get; set; }
-
-        
         public double Order_total_money { get; set; }
-
-
-
-
-
-        [DisplayName("Order Date")]
-        [Required(ErrorMessage = "Order Date is Required")]
-        [DateRange("01/01/2022", ErrorMessage = "Date of Birth Must be between 01-01-2022 and Current Date")]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Order_Date { get; set; }
         public int shipping_id { get; set; }
     

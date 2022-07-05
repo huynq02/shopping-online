@@ -183,7 +183,7 @@
                     <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                         <li class="dropdown-header text-center">Account</li>
 
-                        <li>
+                        @*<li>
                             <a href="#">
                                 <i class="fa fa-clock-o fa-fw pull-right"></i>
                                 <span class="badge badge-success pull-right">10</span> Updates
@@ -201,7 +201,7 @@
                             </a>
                         </li>
 
-                        <li class="divider"></li>
+                        <li class="divider"></li>*@
 
                         <li>
                             <a href="#">
@@ -333,8 +333,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">Cover</label>
-                                        <input type="file" name="imageslide" />
-                                        @*<span class="field-validation-valid text-danger" data-valmsg-for="imageslide" data-valmsg-replace="true"></span>*@
+                                        <input type="file" name="Imageslide" class="single-line" data-val="true" data-val-required="ImageProduct is not empty"
+                                               id="Imageslide" value="" />
+                                        @Html.ValidationMessageFor(model => model.Imageslide, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">ModifyDate(yyyy-MM-dd)</label>

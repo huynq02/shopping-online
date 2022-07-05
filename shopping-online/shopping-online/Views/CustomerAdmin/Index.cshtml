@@ -229,7 +229,7 @@
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
 
-                            <li>
+                            @*<li>
                                 <a href="#">
                                     <i class="fa fa-clock-o fa-fw pull-right"></i>
                                     <span class="badge badge-success pull-right">10</span> Updates
@@ -247,7 +247,7 @@
                                 </a>
                             </li>
 
-                            <li class="divider"></li>
+                            <li class="divider"></li>*@
 
                             <li>
                                 <a href="#">
@@ -352,6 +352,13 @@
                             <header class="panel-heading">
                                 List Customer
                             </header>
+                            @using (Html.BeginForm("Index", "CustomerAdmin", FormMethod.Get))
+                            {
+                                <div class="input-group">
+                                    <input type="text" name="search" value="@Model.search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                    <input type="submit" class="btn btn-primary" value="Search" />
+                                </div>
+                            }
                             <div class="panel-body table-responsive">
                                 <table class="table table-hover">
                                     <thead>
@@ -368,29 +375,29 @@
                                     <tbody>
                                         @foreach (var item in Model.account)
                                         {
-                                        <tr>
-                                            <td>@item.account_id</td>
-                                            <td>@item.account_name</td>
-                                            @if (item.account_gender == true)
-                                            {
-                                                <td>Male</td>
-}
-                                            @if (item.account_gender == false)
-                                            {
-                                                <td>Female</td>
-}
-                                            <td>@item.account_address</td>
-                                            <td>@item.account_email</td>
-                                            <td>@item.account_phone</td>
-                                            <td>@item.account_status</td>
-                                            <td>
-                                                <div class="pull-right hidden-phone">
-                                                    <a href="/AddCustomerAdmin/UnLockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
-                                                    <a href="/AddCustomerAdmin/AccountNeedEdit?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                                    <a href="/AddCustomerAdmin/LockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td>@item.account_id</td>
+                                                <td>@item.account_name</td>
+                                                @if (item.account_gender == true)
+                                                {
+                                                    <td>Male</td>
+                                                }
+                                                @if (item.account_gender == false)
+                                                {
+                                                    <td>Female</td>
+                                                }
+                                                <td>@item.account_address</td>
+                                                <td>@item.account_email</td>
+                                                <td>@item.account_phone</td>
+                                                <td>@item.account_status</td>
+                                                <td>
+                                                    <div class="pull-right hidden-phone">
+                                                        <a href="/AddCustomerAdmin/UnLockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
+                                                        <a href="/AddCustomerAdmin/AccountNeedEdit?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                        <a href="/AddCustomerAdmin/LockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         }
                                     </tbody>
                                 </table>
