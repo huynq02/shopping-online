@@ -46,6 +46,7 @@ namespace shopping_online.Controllers.Marketing
         public ActionResult Create(Blog entity, string createdate, string modifydate, string images, 
                                     string Title, string Author, string Descriptions, string CreateBy, string Detail, string ModifyBy, string Back_Link)
         {
+            //
             if (ModelState.IsValid)
             {
                 entity.blog_title = Title;
