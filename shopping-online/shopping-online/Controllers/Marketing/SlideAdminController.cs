@@ -16,7 +16,7 @@ namespace shopping_online.Controllers.Marketing
         // GET: SlideAdmin
         public ActionResult Index(string search, int page = 1, int pageSize = 5)
         {
-            
+            //
             var slAc = db.Slides.OrderByDescending(x => x.slide_createdate).Where(x => x.slide_status_id == true).ToPagedList(page, pageSize);
             var slide = db.Slides.OrderByDescending(x => x.slide_createdate).ToPagedList(page, pageSize);
             if (search != null)
