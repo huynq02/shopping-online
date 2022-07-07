@@ -15,7 +15,7 @@ namespace shopping_online.Controllers.Marketing
         DBContext db = new DBContext();
         public ActionResult Index(string search, int page=1, int pageSize=5)
         {
-            //
+            
             var lstProduct = db.products.OrderByDescending(x => x.product_create_date).ToPagedList(page, pageSize);
             if (search != null)
             {
