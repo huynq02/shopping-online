@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\DateRangeAttribute.cs" />
     <Compile Include="Common\MailHelper.cs" />
     <Compile Include="Context\Account.cs">
       <DependentUpon>OnlineShopping.tt</DependentUpon>
@@ -198,6 +199,8 @@
     <Compile Include="Context\status_product.cs">
       <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Admin\AccountsController.cs" />
+    <Compile Include="Controllers\Admin\RolesController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\Marketing\AddBlogAdminController.cs" />
@@ -1077,6 +1080,16 @@
     <Content Include="Views\Shared\ship.cshtml" />
     <Content Include="Views\Shared\shipsCUD.cshtml" />
     <Content Include="Views\Sale\Index.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Accounts\Delete.cshtml" />
+    <Content Include="Views\Accounts\Edit.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Shared\Account.cshtml" />
+    <Content Include="Views\Shared\Role.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
