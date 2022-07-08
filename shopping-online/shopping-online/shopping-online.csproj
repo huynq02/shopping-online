@@ -210,7 +210,9 @@
     <Compile Include="Controllers\Marketing\EditBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\ProductAdminController.cs" />
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
+    <Compile Include="Controllers\Sale\OrderController.cs" />
     <Compile Include="Controllers\Sale\Order_statusController.cs" />
+    <Compile Include="Controllers\Sale\shippingsController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1040,6 +1042,18 @@
     <Content Include="Views\Order_status\Edit.cshtml" />
     <Content Include="Views\Order_status\Index.cshtml" />
     <Content Include="Views\Shared\OrderStatus.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Shared\Order.cshtml" />
+    <Content Include="Views\shippings\Create.cshtml" />
+    <Content Include="Views\shippings\Delete.cshtml" />
+    <Content Include="Views\shippings\Edit.cshtml" />
+    <Content Include="Views\shippings\Index.cshtml" />
+    <Content Include="Views\Shared\ship.cshtml" />
+    <Content Include="Views\Shared\shipsCUD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

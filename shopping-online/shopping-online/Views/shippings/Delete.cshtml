@@ -1,0 +1,58 @@
+﻿@model shopping_online.Context.shipping
+
+@{
+    Layout = "~/Views/Shared/shipsCUD.cshtml";
+}
+
+<header class="panel-heading">
+    <h3>Are you sure you want to delete this?</h3>
+</header>
+
+<div class="panel-body">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @Html.HiddenFor(model => model.shipping_id)
+
+    <div class="form-group col-md-12">
+        <label for="exampleInputEmail1">
+            Name
+        </label>
+        @Html.EditorFor(model => model.shipping_name, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.shipping_name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group col-md-12">
+        <label for="exampleInputEmail1">
+            Email
+        </label>
+        @Html.EditorFor(model => model.shipping_email, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.shipping_email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group col-md-12">
+        <label for="exampleInputEmail1">
+            Phone Number
+        </label>
+        @Html.EditorFor(model => model.shipping_phone, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.shipping_phone, "", new { @class = "text-danger" })
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color col text-center">
+            <input type="submit" value="Delete" class="btn btn-default" />
+
+        </div>
+        <hr />
+        <div class=" add-task-row">
+            <button class="btn btn-info">
+                @Html.ActionLink("Back to List", "Index")
+            </button>
+        </div>
+    }
+
+
+</div>
