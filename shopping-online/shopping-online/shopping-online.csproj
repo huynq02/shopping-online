@@ -210,6 +210,7 @@
     <Compile Include="Controllers\Marketing\EditBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\ProductAdminController.cs" />
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
+    <Compile Include="Controllers\Sale\Order_statusController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1034,6 +1035,11 @@
     <Content Include="Views\AddCustomerAdmin\Index.cshtml" />
     <Content Include="Views\Slide\Index.cshtml" />
     <Content Include="Views\AddBlogAdmin\AddBlog.cshtml" />
+    <Content Include="Views\Order_status\Create.cshtml" />
+    <Content Include="Views\Order_status\Delete.cshtml" />
+    <Content Include="Views\Order_status\Edit.cshtml" />
+    <Content Include="Views\Order_status\Index.cshtml" />
+    <Content Include="Views\Shared\OrderStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
