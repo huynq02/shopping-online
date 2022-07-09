@@ -21,14 +21,10 @@ namespace shopping_online.Context
         {
             this.Orders = new HashSet<Order>();
         }
-    
         public int shipping_id { get; set; }
-
-
         [DisplayName("Name")]
         [Required(ErrorMessage = "Name of ship is Required")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Note should be between 2 and 50 characters")]
-        [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Name of ship should be between 2 and 50 characters")]
         public string shipping_name { get; set; }
 
 
@@ -46,8 +42,9 @@ namespace shopping_online.Context
         [Required(ErrorMessage = "Phone of ship is Required")]
         [StringLength(11, MinimumLength = 10, ErrorMessage = "Phone should be between 10 and 11 numbers")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Please Enter a valid Phone Number")]
+        [RegularExpression(@"^[0-9\-\+]{9,15}$", ErrorMessage = "Please only number")]
         public string shipping_phone { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }

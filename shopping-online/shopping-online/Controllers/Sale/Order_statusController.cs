@@ -17,19 +17,23 @@ namespace shopping_online.Controllers.Sale
         // GET: Order_status
         public ActionResult Index()
         {
-            return View(db.Order_status.ToList());
-        }
+            var a = db.Order_status.ToList();
 
+
+            return View("Index", a);
+        }
+        //db.Order_status.ToList()
         // GET: Order_status/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Order_status_id,Order_status_status")] Order_status order_status)
         {
+
             if (ModelState.IsValid)
             {
                 db.Order_status.Add(order_status);
@@ -52,7 +56,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return HttpNotFound();
             }
-            return View(order_status);
+            return View("Edit", order_status);
         }
 
 
@@ -85,7 +89,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return HttpNotFound();
             }
-            return View(order_status);
+            return View("Delete", order_status);
         }
 
         // POST: Order_status/Delete/5

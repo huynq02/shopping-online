@@ -1,4 +1,3 @@
-D:\online-shopping\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
 D:\online-shopping\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
 D:\online-shopping\shopping-online\shopping-online\bin\shopping-online.dll.config
 D:\online-shopping\shopping-online\shopping-online\bin\shopping-online.dll
@@ -85,6 +84,7 @@ D:\online-shopping\shopping-online\shopping-online\bin\Microsoft.CodeDom.Provide
 D:\online-shopping\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\online-shopping\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 D:\online-shopping\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
+D:\online-shopping\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll.config
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\shopping-online.pdb
@@ -167,11 +167,11 @@ D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\System.W
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\Newtonsoft.Json.xml
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.pdb
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
+<<<<<<< HEAD
 D:\VSCode\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll.config
 D:\VSCode\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll
 D:\VSCode\shopping-online\shopping-online\shopping-online\bin\shopping-online.pdb
@@ -259,3 +259,6 @@ D:\VSCode\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-onl
 D:\VSCode\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\VSCode\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 D:\VSCode\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
+=======
+D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
+>>>>>>> 61a6926b6b5d9b363b33602f1e7ab134c8564c1f

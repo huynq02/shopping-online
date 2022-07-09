@@ -24,6 +24,7 @@ namespace shopping_online.Controllers.Marketing
         [HttpPost]
         public JsonResult uploadFile(HttpPostedFileBase uploadedFiles)
         {
+            
             string returnImagePath = string.Empty;
             string fileName;
             string Extension;

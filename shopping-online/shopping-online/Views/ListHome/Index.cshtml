@@ -26,7 +26,16 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/content/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/content/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="~/content/images/ico/apple-touch-icon-57-precomposed.png">
+    <style>
+        @@media only screen {
+            .media-object {
+                width: 200px;
+                height: 180px;
+            }
+        }
+    </style>
 </head><!--/head-->
+
 
 <body>
     <header id="header">
@@ -64,7 +73,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="@Url.Action("Index","Home")"><img src="~/content/images/home/logo.png" alt="" /></a>
+                            <a href="@Url.Action("Index","ListHome")"><img src="~/content/images/home/logo.png" alt="" /></a>
 
                         </div>
                         <div class="btn-group pull-right">
@@ -237,7 +246,7 @@
                         <h4 class="panel-title">
                             @*<a href="#">@item.category_name</a>*@
                             @*<p> @Html.ActionLink(item.category_name, "Index", "Category", new { Id = item.category_id }, null)</p>*@
-                            <p> <a href="/Category/Index?Id=@item.category_id"> @item.category_name</a> </p>
+                            <p> <a href="/ProductByCategory/Index?Id=@item.category_id"> @item.category_name</a> </p>
                         </h4>
                     </div>
                 </div>}
@@ -278,7 +287,7 @@
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <img width="225" height="200" src="~/Content/images/product-details/product/@item.product_image" />
+                            <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                             <h2>@item.product_price</h2>
                             <p><a>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</a></p>
                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -326,7 +335,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="~/Content/images/product-details/product/@item.product_image"/>
+                                    <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                                     <h2>@item.product_price $</h2>
                                     <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null) </p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -344,7 +353,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="~/Content/images/product-details/product/@item.product_image" />
+                                    <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                                     @*<img src="~/Content/images/home/Converse Chuck Taylor II.jpg" alt="" />*@
                                     <h2>@item.product_price $</h2>
                                     <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null) </p>
@@ -369,7 +378,7 @@
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    @foreach (var item in Model.listProduct.Where(x=>x.status_product_id==2).Take(3))
+                                    @foreach (var item in Model.listProduct.Where(x => x.status_product_id == 2).Take(3))
                                     {
 
 
@@ -377,7 +386,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="~/Content/images/product-details/product/@item.product_image" />
+                                        <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                                         @*<img src="~/Content/images/home/Converse Chuck Taylor II.jpg" alt="" />*@
                                         <h2>@item.product_price $</h2>
                                         <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
@@ -396,7 +405,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="~/Content/images/product-details/product/@item.product_image" alt="" />
+                                        <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" alt="" />
                                         <h2>@item.product_price $</h2>
                                         <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
                                         <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -429,69 +438,73 @@
                         </div>
                     </div>
                     <div class="col-sm-7">
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="~/Content/images/product-details/product/Gucci Tennis 1977.jpg" />
-                                      
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
+                        @foreach (var item in Model.listProduct.Take(4))
+                        {
+            <div class="col-sm-3">
 
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="~/Content/images/product-details/product/MLB LA DODGERS.jpg" />
-                                       
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
+                <div class="video-gallery text-center">
+                    <a href="#">
+                        <div class="iframe-img">
+                            <img src="~/Content/images/product-details/product/@item.product_image" />
 
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="~/Content/images/product-details/product/Nike Air Force 1 Pixel.jpg" />
-                                        
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
                         </div>
+                        <div class="overlay-icon">
+                            <i class="fa fa-play-circle-o"></i>
+                        </div>
+                    </a>
+                    <p>@item.product_name</p>
 
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="~/Content/images/product-details/product/Reebok Pump Fury Phoenix Suns.jpg" />
-                                       
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
+                </div>
+            </div>}
+
+
+                        @*<div class="col-sm-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                        <div class="iframe-img">
+                                            <img src="~/Content/images/product-details/product/MLB LA DODGERS.jpg" />
+
+                                        </div>
+                                        <div class="overlay-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                        </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                    <h2>24 DEC 2014</h2>
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="col-sm-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                        <div class="iframe-img">
+                                            <img src="~/Content/images/product-details/product/Nike Air Force 1 Pixel.jpg" />
+
+                                        </div>
+                                        <div class="overlay-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                        </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                    <h2>24 DEC 2014</h2>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                        <div class="iframe-img">
+                                            <img src="~/Content/images/product-details/product/Reebok Pump Fury Phoenix Suns.jpg" />
+
+                                        </div>
+                                        <div class="overlay-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                        </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                    <h2>24 DEC 2014</h2>
+                                </div>
+                            </div>*@
                     </div>
                     <div class="col-sm-3 ">
                         <div class="address">

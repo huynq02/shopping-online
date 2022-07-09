@@ -14,6 +14,7 @@ namespace shopping_online.Controllers.Marketing
         // GET: AddProduct
         public ActionResult Index()
         {
+            //
             var lstColor = db.Colors.ToList();
             var lstCategory = db.Categories.ToList();
             var lstStatus = db.status_product.ToList();

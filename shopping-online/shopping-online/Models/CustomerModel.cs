@@ -10,6 +10,7 @@ namespace shopping_online.Models
     public class CustomerModel
     {
         //New Comment
+        public string search { get; set; }
         public Account acc { get; set; }
         public List<Order_Details> lstOrderCus { get; set; }
         public List<product> product { get; set; }

@@ -10,7 +10,6 @@ namespace shopping_online.Models
     {
         [Required(ErrorMessage ="Username is not empty")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Use 5-50 characters")]
-
         public string Account_username { get; set; }
 
         [Required(ErrorMessage = "Email is not empty")]
@@ -24,7 +23,7 @@ namespace shopping_online.Models
         public string Account_password { get; set; }
 
         [Required(ErrorMessage = "FullName is not empty")]
-        [StringLength(150, MinimumLength = 5, ErrorMessage = "Use 5-150 characters")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Use 5-50 characters")]
         public string Account_name { get; set; }
 
         [Required(ErrorMessage = "Phone is not empty")]

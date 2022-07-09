@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Project_SU22ModelStoreContainer" CdmEntityContainer="DBContext">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="Project_SU22Model.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="account_username" ColumnName="account_username" />
+          <ScalarProperty Name="account_password" ColumnName="account_password" />
+          <ScalarProperty Name="account_email" ColumnName="account_email" />
+          <ScalarProperty Name="account_name" ColumnName="account_name" />
+          <ScalarProperty Name="account_phone" ColumnName="account_phone" />
+          <ScalarProperty Name="account_address" ColumnName="account_address" />
+          <ScalarProperty Name="account_role_id" ColumnName="account_role_id" />
+          <ScalarProperty Name="account_gender" ColumnName="account_gender" />
+          <ScalarProperty Name="account_status" ColumnName="account_status" />
+          <ScalarProperty Name="account_createdate" ColumnName="account_createdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="Project_SU22Model.Blog">
+        <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="blog_id" ColumnName="blog_id" />
+          <ScalarProperty Name="blog_title" ColumnName="blog_title" />
+          <ScalarProperty Name="blog_author" ColumnName="blog_author" />
+          <ScalarProperty Name="blog_descriptions" ColumnName="blog_descriptions" />
+          <ScalarProperty Name="blog_createdate" ColumnName="blog_createdate" />
+          <ScalarProperty Name="blog_createby" ColumnName="blog_createby" />
+          <ScalarProperty Name="blog_images" ColumnName="blog_images" />
+          <ScalarProperty Name="blog_modifydate" ColumnName="blog_modifydate" />
+          <ScalarProperty Name="blog_modifyby" ColumnName="blog_modifyby" />
+          <ScalarProperty Name="blog_detail" ColumnName="blog_detail" />
+          <ScalarProperty Name="blog_back_link" ColumnName="blog_back_link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Project_SU22Model.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="Project_SU22Model.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="color_id" ColumnName="color_id" />
+          <ScalarProperty Name="color_name" ColumnName="color_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Functions">
+      <EntityTypeMapping TypeName="Project_SU22Model.Function">
+        <MappingFragment StoreEntitySet="Function">
+          <ScalarProperty Name="function_id" ColumnName="function_id" />
+          <ScalarProperty Name="function_name" ColumnName="function_name" />
+          <ScalarProperty Name="function_description" ColumnName="function_description" />
+          <ScalarProperty Name="function_ordernumber" ColumnName="function_ordernumber" />
+          <ScalarProperty Name="function_createday" ColumnName="function_createday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Project_SU22Model.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Order_id" ColumnName="Order_id" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="Order_note" ColumnName="Order_note" />
+          <ScalarProperty Name="Order_status_id" ColumnName="Order_status_id" />
+          <ScalarProperty Name="Order_total_money" ColumnName="Order_total_money" />
+          <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+          <ScalarProperty Name="shipping_id" ColumnName="shipping_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Details">
+      <EntityTypeMapping TypeName="Project_SU22Model.Order_Details">
+        <MappingFragment StoreEntitySet="Order_Details">
+          <ScalarProperty Name="Order_Details_id" ColumnName="Order_Details_id" />
+          <ScalarProperty Name="Order_id" ColumnName="Order_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="Order_Details_price" ColumnName="Order_Details_price" />
+          <ScalarProperty Name="Order_Details_num" ColumnName="Order_Details_num" />
+          <ScalarProperty Name="Order_Details_total_number" ColumnName="Order_Details_total_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_status">
+      <EntityTypeMapping TypeName="Project_SU22Model.Order_status">
+        <MappingFragment StoreEntitySet="Order_status">
+          <ScalarProperty Name="Order_status_id" ColumnName="Order_status_id" />
+          <ScalarProperty Name="Order_status_status" ColumnName="Order_status_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="Project_SU22Model.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+          <ScalarProperty Name="color_id" ColumnName="color_id" />
+          <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
+          <ScalarProperty Name="product_image" ColumnName="product_image" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="status_product_id" ColumnName="status_product_id" />
+          <ScalarProperty Name="product_description" ColumnName="product_description" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="product_create_date" ColumnName="product_create_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="Project_SU22Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+          <ScalarProperty Name="Role_name" ColumnName="Role_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_function">
+      <EntityTypeMapping TypeName="Project_SU22Model.Role_function">
+        <MappingFragment StoreEntitySet="Role_function">
+          <ScalarProperty Name="Role_function_id" ColumnName="Role_function_id" />
+          <ScalarProperty Name="function_id" ColumnName="function_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="Role_function_view" ColumnName="Role_function_view" />
+          <ScalarProperty Name="Role_function_insert" ColumnName="Role_function_insert" />
+          <ScalarProperty Name="Role_function_update" ColumnName="Role_function_update" />
+          <ScalarProperty Name="Role_function_delete" ColumnName="Role_function_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shippings">
+      <EntityTypeMapping TypeName="Project_SU22Model.shipping">
+        <MappingFragment StoreEntitySet="shipping">
+          <ScalarProperty Name="shipping_id" ColumnName="shipping_id" />
+          <ScalarProperty Name="shipping_name" ColumnName="shipping_name" />
+          <ScalarProperty Name="shipping_email" ColumnName="shipping_email" />
+          <ScalarProperty Name="shipping_phone" ColumnName="shipping_phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sizes">
+      <EntityTypeMapping TypeName="Project_SU22Model.size">
+        <MappingFragment StoreEntitySet="size">
+          <ScalarProperty Name="size_id" ColumnName="size_id" />
+          <ScalarProperty Name="size_names" ColumnName="size_names" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slides">
+      <EntityTypeMapping TypeName="Project_SU22Model.Slide">
+        <MappingFragment StoreEntitySet="Slide">
+          <ScalarProperty Name="slide_id" ColumnName="slide_id" />
+          <ScalarProperty Name="slide_title" ColumnName="slide_title" />
+          <ScalarProperty Name="slide_createdate" ColumnName="slide_createdate" />
+          <ScalarProperty Name="slide_createby" ColumnName="slide_createby" />
+          <ScalarProperty Name="slide_modifydate" ColumnName="slide_modifydate" />
+          <ScalarProperty Name="slide_modifyby" ColumnName="slide_modifyby" />
+          <ScalarProperty Name="slide_imageslide" ColumnName="slide_imageslide" />
+          <ScalarProperty Name="slide_descriptions" ColumnName="slide_descriptions" />
+          <ScalarProperty Name="slide_status_id" ColumnName="slide_status_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status_product">
+      <EntityTypeMapping TypeName="Project_SU22Model.status_product">
+        <MappingFragment StoreEntitySet="status_product">
+          <ScalarProperty Name="status_product_id" ColumnName="status_product_id" />
+          <ScalarProperty Name="status_product_status" ColumnName="status_product_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productsizes">
+      <EntityTypeMapping TypeName="Project_SU22Model.productsize">
+        <MappingFragment StoreEntitySet="productsize">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="size_id" ColumnName="size_id" />
+          <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

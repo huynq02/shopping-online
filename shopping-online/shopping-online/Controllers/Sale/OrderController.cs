@@ -32,7 +32,7 @@ namespace shopping_online.Controllers.Sale
             }
             var pto = od.OrderBy(x => x.Order_Date).ToPagedList(padeNum, pageSize);
             ViewBag.table_search = table_search;
-            return View(pto);
+            return View("Index", pto);
         }
 
         // GET: Order/Details/5
@@ -56,7 +56,7 @@ namespace shopping_online.Controllers.Sale
             ViewBag.account_id = new SelectList(db.Accounts, "account_id", "account_username");
             ViewBag.Order_status_id = new SelectList(db.Order_status, "Order_status_id", "Order_status_status");
             ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name");
-            return View();
+            return View("Create");
         }
 
         // POST: Order/Create
@@ -94,7 +94,7 @@ namespace shopping_online.Controllers.Sale
             ViewBag.account_id = new SelectList(db.Accounts, "account_id", "account_username", order.account_id);
             ViewBag.Order_status_id = new SelectList(db.Order_status, "Order_status_id", "Order_status_status", order.Order_status_id);
             ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name", order.shipping_id);
-            return View(order);
+            return View("Edit", order);
         }
 
         // POST: Order/Edit/5
@@ -128,7 +128,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return HttpNotFound();
             }
-            return View(order);
+            return View("Delete", order);
         }
 
         // POST: Order/Delete/5

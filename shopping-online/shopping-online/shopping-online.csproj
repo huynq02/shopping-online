@@ -202,6 +202,10 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\HomePage\ListHomeController.cs" />
+    <Compile Include="Controllers\HomePage\PageProductController.cs" />
+    <Compile Include="Controllers\HomePage\ProductByCategoryController.cs" />
+    <Compile Include="Controllers\HomePage\ProductByColorController.cs" />
+    <Compile Include="Controllers\HomePage\ProductController.cs" />
     <Compile Include="Controllers\Marketing\AddBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\AddCustomerAdminController.cs" />
     <Compile Include="Controllers\Marketing\AddProductController.cs" />
@@ -228,6 +232,10 @@
     <Compile Include="Models\EditBlog.cs" />
     <Compile Include="Models\HomeAdmin.cs" />
     <Compile Include="Models\ListHome.cs" />
+    <Compile Include="Models\PageProduct.cs" />
+    <Compile Include="Models\ProductByCategory.cs" />
+    <Compile Include="Models\ProductByColor.cs" />
+    <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\SlideModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -536,7 +544,7 @@
     <Content Include="Content\images\product-details\product\Reebok Pump Fury Phoenix Suns.jpg" />
     <Content Include="Content\images\product-details\product\Vans Old Skool Style 36.jpg" />
     <Content Include="Content\images\product-details\product\Vans Old Skool.jpg" />
-    <Content Include="Content\images\product-details\product\VANS VAULT X SARAH ANDELMAN KID%27S OG AUTHENTIC LX %28Kids%29%28Green%29%28Vans%29.jpg" />
+    <Content Include="Content\images\product-details\product\VANS VAULT X SARAH ANDELMAN KID%27S OG AUTHENTIC LX.jpg" />
     <Content Include="Content\images\product-details\rating.png" />
     <Content Include="Content\images\product-details\share.png" />
     <Content Include="Content\images\product-details\similar1.jpg" />
@@ -1079,6 +1087,10 @@
     <Content Include="Views\Order_status\Edit.cshtml" />
     <Content Include="Views\Order_status\Index.cshtml" />
     <Content Include="Views\ListHome\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\PageProduct\Index.cshtml" />
+    <Content Include="Views\ProductByCategory\Index.cshtml" />
+    <Content Include="Views\ProductByColor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

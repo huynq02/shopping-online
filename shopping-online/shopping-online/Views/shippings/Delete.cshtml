@@ -9,9 +9,8 @@
 </header>
 
 <div class="panel-body">
-
-
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
     @Html.HiddenFor(model => model.shipping_id)
 
     <div class="form-group col-md-12">

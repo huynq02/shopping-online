@@ -20,6 +20,7 @@ namespace shopping_online.Controllers.Marketing
 
         public ActionResult Create(Slide slide)
         {
+            // 
             db.Slides.Add(slide);
             db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");
