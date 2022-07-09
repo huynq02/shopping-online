@@ -1,0 +1,29 @@
+﻿using shopping_online.Context;
+using shopping_online.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using PagedList;
+
+namespace shopping_online.Controllers.HomePage
+{
+    public class ListHomeController : Controller
+    {
+        private DBContext obj = new DBContext();
+        // GET: ListHome
+        public ActionResult Index(int page = 1, int pageSize = 9)
+        {
+            //var listProduct = obj.Products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
+            var listProduct = obj.products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
+            var listCategory = obj.Categories.ToList();
+            var listColor = obj.Colors.ToList();
+            ListHome List = new ListHome();
+            List.listColor = listColor;
+            List.listProduct = listProduct;
+            List.listCategory = listCategory;
+            return View(List);
+        }
+    }
+}
