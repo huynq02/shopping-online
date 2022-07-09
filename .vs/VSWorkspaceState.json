@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\shopping-online",
+    "\\shopping-online\\shopping-onlineTests1"
   ],
+  "SelectedNode": "\\shopping-online\\shopping-onlineTests1\\UnitTest1.cs",
   "PreviewInSolutionExplorer": false
 }
