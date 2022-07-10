@@ -242,6 +242,7 @@
     <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\SlideModel.cs" />
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1111,6 +1112,10 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\DashboardSale\Index.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\Accounts\Signup.cshtml" />
+    <Content Include="Views\Accounts\Logout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

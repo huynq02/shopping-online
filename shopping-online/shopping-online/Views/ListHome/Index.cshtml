@@ -108,7 +108,16 @@
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                 <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                              @*  <li><a href="@Url.Action("Login","Accounts")"><i class="fa fa-lock"></i> Login</a></li>*@
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li>@Html.ActionLink("Logout", "Logout", "Accounts")</li>
+                                    <li><a>Hello - @User.Identity.Name</a></li>
+                                }
+                                else
+                                {
+                                    <li>@Html.ActionLink("Login", "Login", "Accounts")</li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -138,7 +147,16 @@
                                         <li><a href="@Url.Action("Index","PageProduct")">Product Details</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
                                         <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="login.html">Login</a></li>
+                                       @* <li><a href="@Url.Action("Login","Accounts")">Login</a></li>*@
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li>@Html.ActionLink("Logout", "Logout", "Accounts")</li>
+                                            <li><a>Hello - @User.Identity.Name</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li>@Html.ActionLink("Login", "Login", "Accounts")</li>
+                                        }
                                     </ul>
                                 </li>
                                 <li class="dropdown">
@@ -158,7 +176,7 @@
         <div class="col-sm-3">
             <div class="search_box pull-right">
                 @Html.TextBox("search", ViewBag.CurrentFilter as string)
-                <input type="submit" value="search" placeholder="Search" />
+               @* <input type="submit" value="search" placeholder="Search" />*@
             </div>
         </div>}
                 </div>
