@@ -24,7 +24,10 @@ namespace shopping_online.Controllers
             var color = db.Colors.ToList();
             BlogModel bg = new BlogModel();
             bg.bg = blog;
-            bg.relateBlog = relateBlog;
+            if (relateBlog != null)
+            {
+                bg.relateBlog = relateBlog;
+            }
             bg.cate = cate;
             bg.color = color;
             return View(bg);
