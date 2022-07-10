@@ -122,9 +122,6 @@ D:\FPTU\SWP_Project - Copy\shopping-online\shopping-online\shopping-onlineTests1
 D:\FPTU\SWP_Project - Copy\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\System.Memory.xml
 D:\FPTU\SWP_Project - Copy\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\System.Numerics.Vectors.xml
 D:\FPTU\SWP_Project - Copy\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\System.Text.Encodings.Web.xml
-D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\app.config
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\shopping-onlineTests1.dll.config
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\shopping-onlineTests1.dll

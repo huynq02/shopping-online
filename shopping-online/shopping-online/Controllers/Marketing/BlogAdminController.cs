@@ -15,6 +15,8 @@ namespace shopping_online.Controllers.Marketing
         // GET: BlogAdmin
         public ActionResult Index(string search, int page = 1, int pageSize = 5)
         {
+
+            //
             var blog = db.Blogs.OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
             if (search != null)
             {

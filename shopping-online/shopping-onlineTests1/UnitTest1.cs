@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using NUnit.Framework;
 using shopping_online.Context;
 using shopping_online.Controllers;
@@ -309,8 +310,161 @@ namespace shopping_onlineTests1
 
 
         }
+        [TestMethod()]
+        public void correct_delete_ship()
+        {
+            shippingsController obj = new shippingsController();
 
+            var expect = "Delete";
+            ViewResult result = obj.Delete(3) as ViewResult;
+
+            NUnit.Framework.Assert.That(result.ViewName, Is.EqualTo(expect));
+
+        }
+
+        [TestMethod()]
+        public void deleteship()
+        {
+            shippingsController obj = new shippingsController();
+
+            var actResult = obj.Delete(3) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+        [TestMethod()]
+        public void deleteshipfail()
+        {
+            shippingsController obj = new shippingsController();
+
+            var actResult = obj.Delete(100) as ViewResult;
+
+            NUnit.Framework.Assert.IsNull(actResult);
+
+        }
+
+        [TestMethod()]
+        public void correct_delete_order()
+        {
+            OrderController obj = new OrderController();
+
+            var expect = "Delete";
+            ViewResult result = obj.Delete(2) as ViewResult;
+
+            NUnit.Framework.Assert.That(result.ViewName, Is.EqualTo(expect));
+
+        }
+        [TestMethod()]
+        public void fail_delete_ship()
+        {
+            shippingsController obj = new shippingsController();
+
+            //var expect = "Delete";
+            ViewResult result = obj.Delete(10000) as ViewResult;
+
+            NUnit.Framework.Assert.IsNull(result);
+
+        }
+
+        [TestMethod()]
+        public void fail_delete_orderStatus()
+        {
+            Order_statusController obj = new Order_statusController();
+
+            //var expect = "Delete";
+            ViewResult result = obj.Delete(10000) as ViewResult;
+
+            NUnit.Framework.Assert.IsNull(result);
+
+        }
+
+        [TestMethod()]
+        public void deleteorder()
+        {
+            OrderController obj = new OrderController();
+            var actResult = obj.Delete(2) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+
+        [TestMethod()]
+        public void correct_delete_order_status()
+        {
+            Order_statusController obj = new Order_statusController();
+
+            var expect = "Delete";
+            ViewResult result = obj.Delete(2) as ViewResult;
+
+            NUnit.Framework.Assert.That(result.ViewName, Is.EqualTo(expect));
+
+        }
+
+        [TestMethod()]
+        public void deleteorder_status()
+        {
+            Order_statusController obj = new Order_statusController();
+            var actResult = obj.Delete(2) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+
+
+        [TestMethod()]
+        public void CheckOrderExist()
+        {
+            var obj = new OrderAccess();
+
+            var Res = obj.checkOrder_exist(1);
+
+            NUnit.Framework.Assert.That(Res, Is.True);
+        }
+
+
+        [TestMethod()]
+        public void ChecOrderExistWithMoq()
+        {
+            //Create Fake Object
+            var fakeObject = new Mock<IOrderAccess>();
+            //Set the Mock Configuration
+            //The CheckDeptExist() method is call is set with the Integer parameter type
+            //The Configuration also defines the Return type from the method  
+            fakeObject.Setup(x => x.checkOrder_exist(It.IsAny<int>())).Returns(true);
+            //Call the methid
+            var Res = fakeObject.Object.checkOrder_exist(1);
+
+            NUnit.Framework.Assert.That(Res, Is.True);
+        }
         
+       
+
+            [TestMethod()]
+        public void CheckOrder_statusExist()
+        {
+            var obj = new OrderStatusAccess();
+
+            var Res = obj.checkOrder_exist_status(1);
+
+            NUnit.Framework.Assert.That(Res, Is.True);
+        }
+
+
+        [TestMethod()]
+        public void ChecOrder_satusExistWithMoq()
+        {
+            //Create Fake Object
+            var fakeObject = new Mock<IOrderStatusAccess>();
+            //Set the Mock Configuration
+            //The CheckDeptExist() method is call is set with the Integer parameter type
+            //The Configuration also defines the Return type from the method  
+            fakeObject.Setup(x => x.checkOrder_exist_status(It.IsAny<int>())).Returns(true);
+            //Call the methid
+            var Res = fakeObject.Object.checkOrder_exist_status(1);
+
+            NUnit.Framework.Assert.That(Res, Is.True);
+        }
+
 
     }
-    }
+}

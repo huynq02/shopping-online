@@ -89,7 +89,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return HttpNotFound();
             }
-            return View(order_status);
+            return View("Delete", order_status);
         }
 
         // POST: Order_status/Delete/5

@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\DateRangeAttribute.cs" />
     <Compile Include="Common\MailHelper.cs" />
     <Compile Include="Context\Account.cs">
       <DependentUpon>OnlineShopping.tt</DependentUpon>
@@ -200,8 +201,11 @@
     </Compile>
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
-    <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomePage\ListHomeController.cs" />
+    <Compile Include="Controllers\HomePage\PageProductController.cs" />
+    <Compile Include="Controllers\HomePage\ProductByCategoryController.cs" />
+    <Compile Include="Controllers\HomePage\ProductByColorController.cs" />
+    <Compile Include="Controllers\HomePage\ProductController.cs" />
     <Compile Include="Controllers\Marketing\AddBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\AddCustomerAdminController.cs" />
     <Compile Include="Controllers\Marketing\AddProductController.cs" />
@@ -212,12 +216,10 @@
     <Compile Include="Controllers\Marketing\EditBlogAdminController.cs" />
     <Compile Include="Controllers\Marketing\ProductAdminController.cs" />
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
+    <Compile Include="Controllers\Sale\OrderController.cs" />
+    <Compile Include="Controllers\Sale\Order_statusController.cs" />
+    <Compile Include="Controllers\Sale\shippingsController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
-    <Compile Include="Controllers\ViewPage\ListHomeController.cs" />
-    <Compile Include="Controllers\ViewPage\PageProductController.cs" />
-    <Compile Include="Controllers\ViewPage\ProductByCategoryController.cs" />
-    <Compile Include="Controllers\ViewPage\ProductByColorController.cs" />
-    <Compile Include="Controllers\ViewPage\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,7 +228,6 @@
     <Compile Include="Models\AddCustomer.cs" />
     <Compile Include="Models\AddSlide.cs" />
     <Compile Include="Models\BlogModel.cs" />
-    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\EditBlog.cs" />
     <Compile Include="Models\HomeAdmin.cs" />
@@ -543,7 +544,7 @@
     <Content Include="Content\images\product-details\product\Reebok Pump Fury Phoenix Suns.jpg" />
     <Content Include="Content\images\product-details\product\Vans Old Skool Style 36.jpg" />
     <Content Include="Content\images\product-details\product\Vans Old Skool.jpg" />
-    <Content Include="Content\images\product-details\product\VANS VAULT X SARAH ANDELMAN KID%27S OG AUTHENTIC LX %28Kids%29%28Green%29%28Vans%29.jpg" />
+    <Content Include="Content\images\product-details\product\VANS VAULT X SARAH ANDELMAN KID%27S OG AUTHENTIC LX.jpg" />
     <Content Include="Content\images\product-details\rating.png" />
     <Content Include="Content\images\product-details\share.png" />
     <Content Include="Content\images\product-details\similar1.jpg" />
@@ -589,6 +590,26 @@
     <Content Include="Content\img\loading.gif" />
     <Content Include="Content\img\locker.jpg" />
     <Content Include="Content\img\photo23.jpg" />
+    <Content Include="Content\img\ProImage\Adidas EQT Bask ADV.jpg" />
+    <Content Include="Content\img\ProImage\Adidas Stan Smith All Black.jpg" />
+    <Content Include="Content\img\ProImage\Adidas Superstar.jpg" />
+    <Content Include="Content\img\ProImage\Converse 1970s Sunflower.jpg" />
+    <Content Include="Content\img\ProImage\Converse Chuck Taylor All Star.jpg" />
+    <Content Include="Content\img\ProImage\Converse Chuck Taylor II.jpg" />
+    <Content Include="Content\img\ProImage\Converse run star hike.jpg" />
+    <Content Include="Content\img\ProImage\Gucci Rhyton mickey mouse.jpg" />
+    <Content Include="Content\img\ProImage\Gucci Tennis 1977.jpg" />
+    <Content Include="Content\img\ProImage\MLB Big Ball Chunky.jpg" />
+    <Content Include="Content\img\ProImage\MLB LA DODGERS.jpg" />
+    <Content Include="Content\img\ProImage\Nike Air Force 1 Love Letter.jpg" />
+    <Content Include="Content\img\ProImage\Nike Air Force 1 LV8.png" />
+    <Content Include="Content\img\ProImage\Nike Air Force 1 Pixel.jpg" />
+    <Content Include="Content\img\ProImage\Reebok Kung Fu Panda Pump Fury.jpg" />
+    <Content Include="Content\img\ProImage\Reebok PRINT HER 3.0.jpg" />
+    <Content Include="Content\img\ProImage\Reebok Pump Fury Phoenix Suns.jpg" />
+    <Content Include="Content\img\ProImage\Vans Old Skool Style 36.jpg" />
+    <Content Include="Content\img\ProImage\Vans Old Skool.jpg" />
+    <Content Include="Content\img\ProImage\VANS VAULT X SARAH ANDELMAN KID%27S OG AUTHENTIC LX %28Kids%29%28Green%29%28Vans%29.jpg" />
     <Content Include="Content\img\sprite-skin-flat.png" />
     <Content Include="Content\img\sprite-skin-nice.png" />
     <Content Include="Content\img\switch.png" />
@@ -1007,7 +1028,6 @@
       <DependentUpon>OnlineShopping.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\Controllers\cartController.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -1047,16 +1067,30 @@
     <Content Include="Views\AddCustomerAdmin\AccountNeedEdit.cshtml" />
     <Content Include="Views\AddCustomerAdmin\Index.cshtml" />
     <Content Include="Views\Slide\Index.cshtml" />
-    <Content Include="Views\AddBlogAdmin\Example.cshtml" />
+    <Content Include="Views\AddBlogAdmin\AddBlog.cshtml" />
+    <Content Include="Views\Shared\shipsCUD.cshtml" />
+    <Content Include="Views\Shared\ship.cshtml" />
+    <Content Include="Views\Shared\OrderStatus.cshtml" />
+    <Content Include="Views\Shared\Order.cshtml" />
+    <Content Include="Views\shippings\Create.cshtml" />
+    <Content Include="Views\shippings\Delete.cshtml" />
+    <Content Include="Views\shippings\Edit.cshtml" />
+    <Content Include="Views\shippings\Index.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order_status\Create.cshtml" />
+    <Content Include="Views\Order_status\Delete.cshtml" />
+    <Content Include="Views\Order_status\Details.cshtml" />
+    <Content Include="Views\Order_status\Edit.cshtml" />
+    <Content Include="Views\Order_status\Index.cshtml" />
     <Content Include="Views\ListHome\Index.cshtml" />
-    <Content Include="Views\ProductByCategory\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\ProductByColor\Index.cshtml" />
     <Content Include="Views\PageProduct\Index.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Cart\Payment.cshtml" />
-    <Content Include="Views\Cart\Success.cshtml" />
-    <Content Include="Views\Cart\Unsuccess.cshtml" />
+    <Content Include="Views\ProductByCategory\Index.cshtml" />
+    <Content Include="Views\ProductByColor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

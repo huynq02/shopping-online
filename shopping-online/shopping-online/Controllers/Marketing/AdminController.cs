@@ -15,6 +15,7 @@ namespace shopping_online.Controllers.Marketing
         // GET: Admin
         public ActionResult Index()
         {
+            //
             var lstProduct = db.products.ToList();
             var cus = db.Roles.Where(x => x.Role_name == "Customer").FirstOrDefault();
             var lstCustomer = db.Accounts.Where(x => x.account_role_id == cus.Role_id).ToList();

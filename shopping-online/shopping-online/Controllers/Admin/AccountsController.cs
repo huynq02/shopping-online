@@ -102,12 +102,12 @@ namespace shopping_online.Controllers.Admin
         {
             try
             {
- Account account = db.Accounts.Find(id);
-            db.Accounts.Remove(account);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+                Account account = db.Accounts.Find(id);
+                db.Accounts.Remove(account);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-           catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return RedirectToAction("Index");

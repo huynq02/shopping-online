@@ -28,7 +28,7 @@ namespace shopping_online.Models
         public string Imageslide { get; set; }
 
         [Required(ErrorMessage = "Descriptions is not empty")]
-        [StringLength(15000, MinimumLength = 5, ErrorMessage = "Use 5-15000+ characters")]
+        [StringLength(15000, MinimumLength = 5, ErrorMessage = "Use 5-15000 characters")]
         public string Descriptions { get; set; }
         public bool Status_Id { get; set; }
     }

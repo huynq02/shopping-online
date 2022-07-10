@@ -55,6 +55,7 @@ namespace shopping_online.Controllers.Marketing
 
         public ActionResult Edit(Account acc, int Id, string gender, string status)
         {
+            //
             var role = db.Roles.Where(x => x.Role_name == "Customer").FirstOrDefault();
             var accold = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
             if (gender == "Male")

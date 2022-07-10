@@ -31,7 +31,7 @@ namespace shopping_online.Context
         public string Order_note { get; set; }
         public int Order_status_id { get; set; }
 
-        
+
         public double Order_total_money { get; set; }
 
 

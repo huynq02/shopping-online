@@ -22,6 +22,7 @@ namespace shopping_online.Context
             this.Accounts = new HashSet<Account>();
             this.Role_function = new HashSet<Role_function>();
         }
+
         [DisplayName("Role")]
         public int Role_id { get; set; }
 
@@ -33,9 +34,6 @@ namespace shopping_online.Context
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Role should be between 5 and 50 characters")]
         public string Role_name { get; set; }
 
-
-
-    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

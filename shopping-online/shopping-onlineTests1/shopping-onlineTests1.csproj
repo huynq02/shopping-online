@@ -219,6 +219,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="OrderAccess.cs" />
+    <Compile Include="OrderStatusAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>

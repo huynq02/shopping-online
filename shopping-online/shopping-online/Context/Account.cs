@@ -24,9 +24,6 @@ namespace shopping_online.Context
         }
     
         public int account_id { get; set; }
-
-
-
         [DisplayName("Username")]
         [Required(ErrorMessage = "Username is Required")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Username should be between 2 and 50 characters")]

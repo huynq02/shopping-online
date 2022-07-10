@@ -15,7 +15,7 @@ namespace shopping_online.Models
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Author")]
-        [StringLength(100, MinimumLength = 10, ErrorMessage = "Use 10-100 characters")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Use 5-100 characters")]
         public string Author { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Description")]
@@ -26,7 +26,7 @@ namespace shopping_online.Models
         public DateTime CreateDate { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Create By")]
-        [StringLength(100, MinimumLength = 10, ErrorMessage = "Use 10-100 characters")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Use 5-100 characters")]
         public string CreateBy { get; set; }
 
         [Required(ErrorMessage = "Thêm ảnh")]
@@ -34,7 +34,7 @@ namespace shopping_online.Models
         public DateTime ModifyDate { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Modify By")]
-        [StringLength(100, MinimumLength = 10, ErrorMessage = "Use 10-100 characters")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Use 10-100 characters")]
         public string ModifyBy { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Detail")]

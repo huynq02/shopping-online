@@ -100,7 +100,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return HttpNotFound();
             }
-            return View(shipping);
+            return View("Delete", shipping);
         }
 
         // POST: shippings/Delete/5
