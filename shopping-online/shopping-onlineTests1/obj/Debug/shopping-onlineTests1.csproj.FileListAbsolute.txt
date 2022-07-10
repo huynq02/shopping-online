@@ -243,3 +243,7 @@ D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\obj\De
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.csproj.CopyComplete
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.dll
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.pdb
+D:\FPTU\Project\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.csproj.AssemblyReference.cache
+D:\FPTU\Project\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.csproj.CoreCompileInputs.cache
+D:\FPTU\Project\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.dll
+D:\FPTU\Project\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.pdb
