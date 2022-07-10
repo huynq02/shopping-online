@@ -1209,8 +1209,6 @@
     <Content Include="Views\Role_function\Edit.cshtml" />
     <Content Include="Views\Role_function\Index.cshtml" />
     <Content Include="Views\Shared\Login.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Accounts\Signup.cshtml" />
   </ItemGroup>
