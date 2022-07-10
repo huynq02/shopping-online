@@ -35,7 +35,6 @@ namespace shopping_online.Context
         [DisplayName("Password")]
         [Required(ErrorMessage = "Password is Required")]
         [StringLength(20, MinimumLength = 8, ErrorMessage = "Password should be between 8 and 20 characters")]
-        [DataType(DataType.Password)]
         public string account_password { get; set; }
 
 

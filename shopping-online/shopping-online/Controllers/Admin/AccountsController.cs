@@ -6,54 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using shopping_online.Context;
-using shopping_online.Models;
 
 namespace shopping_online.Controllers.Admin
 {
     public class AccountsController : Controller
     {
         private DBContext db = new DBContext();
-
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-
-        public ActionResult Login(AccountLogin account)
-        {
-                bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
-                           account.account_username.ToLower() && user.account_password == account.account_password);
-
-                if (IsValidUser)
-                {
-                    FormsAuthentication.SetAuthCookie(account.account_username, false);
-                    return RedirectToAction("Index", "shippings");
-                }
-
-                //ModelState.AddModelError("", "invalid Username or Password");
-                return View();
-          
-
-        }
-
-        public ActionResult Signup()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Signup(Account model)
-        {
-            using (DBContext context = new DBContext())
-            {
-                context.Accounts.Add(model);
-                context.SaveChanges();
-            }
-            return RedirectToAction("Login");
-        }
 
         // GET: Accounts
         public ActionResult Index()
