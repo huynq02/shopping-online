@@ -19,11 +19,18 @@ namespace shopping_online.Controllers.HomePage
             var listProduct = obj.products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
             var listCategory = obj.Categories.ToList();
             var listColor = obj.Colors.ToList();
+            var listSlide = obj.Slides.ToList();
             ListHome List = new ListHome();
             List.listColor = listColor;
             List.listProduct = listProduct;
             List.listCategory = listCategory;
+            List.listSlide = listSlide;
             return View(List);
+        }
+        public ActionResult Search(string search)
+        {
+            var lstProduct = obj.products.Where(n => n.product_name.Contains(search)).ToList();
+            return View(lstProduct);
         }
     }
 }

@@ -12,5 +12,6 @@ namespace shopping_online.Models
         public IPagedList<product> listProduct { get; set; }
         public List<Category> listCategory { get; set; }
         public List<Color> listColor { get; set; }
+        public List<Slide> listSlide { get; set; }
     }
 }

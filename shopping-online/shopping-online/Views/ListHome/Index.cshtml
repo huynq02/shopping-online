@@ -47,15 +47,15 @@
                     <div class="col-sm-6">
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
-                                <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i> +84 393 767 515</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> hoalac@domain.com</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="social-icons pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/batmann2112/"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
@@ -78,18 +78,15 @@
 
                         </div>
                         <div class="btn-group pull-right">
-                            <div class="btn-group">
+                            @*<div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
                                     USA
                                     <span class="caret"></span>
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Canada</a></li>
-                                    <li><a href="#">UK</a></li>
-                                </ul>
-                            </div>
+                               
+                            </div>*@
 
-                            <div class="btn-group">
+                            @*<div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
                                     DOLLAR
                                     <span class="caret"></span>
@@ -98,15 +95,14 @@
                                     <li><a href="#">Canadian Dollar</a></li>
                                     <li><a href="#">Pound</a></li>
                                 </ul>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                                <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                     
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
@@ -131,36 +127,41 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="@Url.Action("Index","Home")" class="active">Home</a></li>
+                                <li><a href="@Url.Action("Index","ListHome")" class="active">Home</a></li>
                                 <li class="dropdown">
                                     <a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="@Url.Action("Index","PageProduct")">Product Details</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
+                                       
                                         <li><a href="cart.html">Cart</a></li>
                                         <li><a href="login.html">Login</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
+                                    <a href="@Url.Action("Index","Blog")">Blog</a>
+                                    
                                 </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
+                                
                             </ul>
                         </div>
                     </div>
-                    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+
+                    @*@using (Html.BeginForm("Index", "Home", FormMethod.Get))
                     {
         <div class="col-sm-3">
             <div class="search_box pull-right">
                 @Html.TextBox("search", ViewBag.CurrentFilter as string)
                 <input type="submit" value="search" placeholder="Search" />
+
+                    @using (Html.BeginForm("Index", "PageProduct",FormMethod.Get))
+                    {
+        <div class="col-sm-3">
+            <div class="search_box pull-right">
+
+                @Html.TextBox("search",ViewBag.CurrentFilter as string) <input type="submit" value="Search" placeholder="Search" />
+
             </div>
-        </div>}
+        </div>}*@
                 </div>
             </div>
         </div><!--/header-bottom-->
@@ -180,44 +181,67 @@
 
                         <div class="carousel-inner">
                             <div class="item active">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free E-Commerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/content/images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                    <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>100% Responsive Design</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/content/images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                    <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
-                                </div>
-                            </div>
+                                @foreach (var item in Model.listSlide)
+                                {
+                                    <div class="col-sm-6">
+                                        <h1><span>E</span>-SHOPPER</h1>
+                                        <h2>@item.slide_title</h2>
+                                        <p>@item.slide_descriptions </p>
+                                        <button type="button" class="btn btn-default get">Get it now</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <img src="~/content/images/home/@item.slide_imageslide" class="girl img-responsive" alt="" />
+                                        <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
+                                    </div>
+                                    break;
+                                }
 
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free Ecommerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/content/images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                    <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
-                                </div>
-                            </div>
+                            </div> 
+                            @foreach (var item in Model.listSlide.Where(n=>n.slide_id > 1))
+                            {
+                        <div class="item ">
 
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>@item.slide_title</h2>
+                                <p>@item.slide_descriptions </p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="~/content/images/home/@item.slide_imageslide" class="girl img-responsive" alt="" />
+                                <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
+                            </div>
                         </div>
+                                    }
+
+                              
+                                @*<div class="item">
+                <div class="col-sm-6">
+                    <h1><span>E</span>-SHOPPER</h1>
+                    <h2>100% Responsive Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <button type="button" class="btn btn-default get">Get it now</button>
+                </div>
+                <div class="col-sm-6">
+                    <img src="~/content/images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                    <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="col-sm-6">
+                    <h1><span>E</span>-SHOPPER</h1>
+                    <h2>Free Ecommerce Template</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <button type="button" class="btn btn-default get">Get it now</button>
+                </div>
+                <div class="col-sm-6">
+                    <img src="~/content/images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                    <img src="~/content/images/home/pricing.png" class="pricing" alt="" />
+                </div>
+            </div>*@
+
+                            </div>
 
                         <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
                             <i class="fa fa-angle-left"></i>

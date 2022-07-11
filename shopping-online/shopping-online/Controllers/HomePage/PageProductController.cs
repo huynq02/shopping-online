@@ -23,5 +23,6 @@ namespace shopping_online.Controllers.HomePage
             productDetail.listProduct = listProduct;
             return View(productDetail);
         }
+       
     }
 }
