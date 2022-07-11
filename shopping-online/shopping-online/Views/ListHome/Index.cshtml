@@ -134,7 +134,7 @@
                                         <li><a href="@Url.Action("Index","PageProduct")">Product Details</a></li>
                                        
                                         <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="">Login</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
@@ -177,6 +177,7 @@
                             <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
                             <li data-target="#slider-carousel" data-slide-to="1"></li>
                             <li data-target="#slider-carousel" data-slide-to="2"></li>
+                            <li data-target="#slider-carousel" data-slide-to="3"></li>
                         </ol>
 
                         <div class="carousel-inner">
@@ -187,7 +188,7 @@
                                         <h1><span>E</span>-SHOPPER</h1>
                                         <h2>@item.slide_title</h2>
                                         <p>@item.slide_descriptions </p>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
+                                        <button type="button" class="btn btn-default get" style="background-color:#FE980F "><a href="@Url.Action("Index","PageProduct")">Get it now</a></button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="~/content/images/home/@item.slide_imageslide" class="girl img-responsive" alt="" />
@@ -205,7 +206,7 @@
                                 <h1><span>E</span>-SHOPPER</h1>
                                 <h2>@item.slide_title</h2>
                                 <p>@item.slide_descriptions </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                <button type="button" class="btn btn-default get" style="background-color:#FE980F "> Get it now</button>
                             </div>
                             <div class="col-sm-6">
                                 <img src="~/content/images/home/@item.slide_imageslide" class="girl img-responsive" alt="" />
