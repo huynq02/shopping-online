@@ -126,20 +126,20 @@ namespace shopping_onlineTests1
             NUnit.Framework.Assert.That(a, Is.EqualTo(expect));
 
         }
-        [TestMethod()]
-        public void correct_Index_Sale()
-        {
-            SaleController obj = new SaleController();
+        //[TestMethod()]
+        //public void correct_Index_Sale()
+        //{
+        //    SaleController obj = new SaleController();
 
-            var expect = "Index";
+        //    var expect = "Index";
 
 
-            var actResult = obj.Index() as ViewResult;
-            var a = actResult.ViewName;
+        //    var actResult = obj.Index() as ViewResult;
+        //    var a = actResult.ViewName;
 
-            NUnit.Framework.Assert.That(a, Is.EqualTo(expect));
+        //    NUnit.Framework.Assert.That(a, Is.EqualTo(expect));
 
-        }
+        //}
 
         [TestMethod()]
         public void correct_create_Order()

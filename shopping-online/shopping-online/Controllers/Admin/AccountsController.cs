@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using shopping_online.Context;
+using shopping_online.Models;
 
 namespace shopping_online.Controllers.Admin
 {
@@ -14,6 +16,56 @@ namespace shopping_online.Controllers.Admin
     {
         private DBContext db = new DBContext();
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(UserLogin model)
+        {
+            
+                bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
+                     model.account_username.ToLower() && user.account_password == model.account_password);
+                if (IsValidUser)
+                {
+                    FormsAuthentication.SetAuthCookie(model.account_username, false);
+                    return RedirectToAction("Index", "PageProduct");
+                }
+                ModelState.AddModelError("", "invalid Username or Password");
+                return View();
+          
+        }
+
+        public ActionResult Signup()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Signup(Account model)
+        {
+           
+            bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
+                     model.account_username.ToLower());
+            if (IsValidUser == false)
+            {
+                List<Role> roles = db.Roles.ToList();
+
+                model.account_role_id = 2;
+                db.Accounts.Add(model);
+                db.SaveChanges();
+
+                return RedirectToAction("Login");
+            }
+            ModelState.AddModelError("", "invalid Username or Password");
+            return View();
+
+           
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+        }
         // GET: Accounts
         public ActionResult Index()
         {

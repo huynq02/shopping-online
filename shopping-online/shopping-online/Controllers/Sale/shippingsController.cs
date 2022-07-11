@@ -11,6 +11,7 @@ using shopping_online.Context;
 
 namespace shopping_online.Controllers.Sale
 {
+    [Authorize]
     public class shippingsController : Controller
     {
         private DBContext db = new DBContext();
