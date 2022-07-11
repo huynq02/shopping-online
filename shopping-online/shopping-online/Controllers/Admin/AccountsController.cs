@@ -48,9 +48,8 @@ namespace shopping_online.Controllers.Admin
                      model.account_username.ToLower());
             if (IsValidUser == false)
             {
-                List<Role> roles = db.Roles.ToList();
-
                 model.account_role_id = 2;
+                model.account_status = true;
                 db.Accounts.Add(model);
                 db.SaveChanges();
 
