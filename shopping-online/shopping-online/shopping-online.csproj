@@ -222,6 +222,7 @@
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
     <Compile Include="Controllers\Sale\DashboardSaleController.cs" />
     <Compile Include="Controllers\Sale\OrderController.cs" />
+    <Compile Include="Controllers\Sale\Order_DetailsController.cs" />
     <Compile Include="Controllers\Sale\Order_statusController.cs" />
     <Compile Include="Controllers\Sale\shippingsController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="Models\EditBlog.cs" />
     <Compile Include="Models\HomeAdmin.cs" />
     <Compile Include="Models\ListHome.cs" />
+    <Compile Include="Models\OrderSale.cs" />
     <Compile Include="Models\PageProduct.cs" />
     <Compile Include="Models\ProductByCategory.cs" />
     <Compile Include="Models\ProductByColor.cs" />
@@ -1122,6 +1124,12 @@
     <Content Include="Views\Cart\payment.cshtml" />
     <Content Include="Views\Cart\success.cshtml" />
     <Content Include="Views\Cart\unsuccess.cshtml" />
+    <Content Include="Views\Order\Create_order_detail.cshtml" />
+    <Content Include="Views\Order_Details\Create.cshtml" />
+    <Content Include="Views\Order_Details\Delete.cshtml" />
+    <Content Include="Views\Order_Details\Details.cshtml" />
+    <Content Include="Views\Order_Details\Edit.cshtml" />
+    <Content Include="Views\Order_Details\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

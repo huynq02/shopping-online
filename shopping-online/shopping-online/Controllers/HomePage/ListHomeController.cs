@@ -23,7 +23,7 @@ namespace shopping_online.Controllers.HomePage
             List.listColor = listColor;
             List.listProduct = listProduct;
             List.listCategory = listCategory;
-            return View(List);
+            return View("Index", List);
         }
     }
 }

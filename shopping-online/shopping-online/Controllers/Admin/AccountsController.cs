@@ -23,17 +23,24 @@ namespace shopping_online.Controllers.Admin
         [HttpPost]
         public ActionResult Login(UserLogin model)
         {
-            
-                bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
-                     model.account_username.ToLower() && user.account_password == model.account_password);
-                if (IsValidUser)
-                {
+
+            bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
+                 model.account_username.ToLower() && user.account_password == model.account_password);
+            var acc = db.Accounts.Where(user => user.account_username.ToLower() ==
+                     model.account_username.ToLower() && user.account_password == model.account_password).ToList();
+            List<Account> accounts = new List<Account>();
+            //int a = (from a in accounts select a).Any(a => a.account_role_id == 1);
+           
+
+            if (IsValidUser)
+            {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "PageProduct");
-                }
-                ModelState.AddModelError("", "invalid Username or Password");
-                return View();
-          
+                    //return RedirectToAction("Index", "PageProduct");
+                    return RedirectToAction("Index", "shippings");
+            }
+            ModelState.AddModelError("", "invalid Username or Password");
+            return View();
+
         }
 
         public ActionResult Signup()
@@ -43,7 +50,7 @@ namespace shopping_online.Controllers.Admin
         [HttpPost]
         public ActionResult Signup(Account model)
         {
-           
+
             bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
                      model.account_username.ToLower());
             if (IsValidUser == false)
@@ -58,7 +65,7 @@ namespace shopping_online.Controllers.Admin
             ModelState.AddModelError("", "invalid Username or Password");
             return View();
 
-           
+
         }
         public ActionResult Logout()
         {
@@ -74,6 +81,7 @@ namespace shopping_online.Controllers.Admin
 
 
         // GET: Accounts/Create
+        //[Authorize(Role = "Admin, Sale")]
         public ActionResult Create()
         {
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name");

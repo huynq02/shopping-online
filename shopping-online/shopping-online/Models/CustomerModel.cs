@@ -16,7 +16,7 @@ namespace shopping_online.Models
         public List<product> product { get; set; }
         public IPagedList<Account> account { get; set; }
         public Role role { get; set; }
-        public List<Order> lstOrder { get; set; }
+        public List<OrderSale> lstOrder { get; set; }
         public List<Order_status> lstOrderStatus { get; set; }
     }
 }

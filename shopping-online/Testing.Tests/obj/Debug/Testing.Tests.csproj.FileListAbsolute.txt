@@ -146,7 +146,6 @@ D:\FPTU\Project\shopping-online\shopping-online\Testing.Tests\bin\Debug\System.W
 D:\FPTU\Project\shopping-online\shopping-online\Testing.Tests\bin\Debug\System.Web.Optimization.xml
 D:\FPTU\Project\shopping-online\shopping-online\Testing.Tests\bin\Debug\PagedList.xml
 D:\FPTU\Project\shopping-online\shopping-online\Testing.Tests\bin\Debug\Antlr3.Runtime.pdb
-D:\FPTU\Project\shopping-online\shopping-online\Testing.Tests\obj\Debug\Testing.Tests.csproj.AssemblyReference.cache
 D:\FPTU\Project\shopping-online\shopping-online\Testing.Tests\obj\Debug\Testing.Tests.csproj.CoreCompileInputs.cache
 D:\FPTU\Project\shopping-online\shopping-online\Testing.Tests\obj\Debug\Testing.Tests.csproj.CopyComplete
 D:\FPTU\Project\shopping-online\shopping-online\Testing.Tests\obj\Debug\Testing.Tests.dll
