@@ -324,13 +324,6 @@
                             <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
                         </a>
                     </li>
-
-                    <li>
-                        <a href="simple.html">
-                            <i class="glyphicon glyphicon-book"></i> <span>FeedBack</span>
-                        </a>
-                    </li>
-
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -434,33 +427,36 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var i in Model.product)
+                                        @if (Model.lstOrderCus != null)
                                         {
-                                            foreach (var j in Model.lstOrderCus)
+                                            foreach (var i in Model.product)
                                             {
-                                                if (i.product_id == j.product_id)
+                                                foreach (var j in Model.lstOrderCus)
                                                 {
-                                                    <tr>
-                                                        <td>@i.product_name</td>
-                                                        <td>@j.Order_Details_num</td>
-                                                        <td>@j.Order_Details_price</td>
-                                                        @foreach (var k in Model.lstOrder)
-                                                        {
-                                                            if (k.Order_id == j.Order_id)
+                                                    if (i.product_id == j.product_id)
+                                                    {
+                                                        <tr>
+                                                            <td>@i.product_name</td>
+                                                            <td>@j.Order_Details_num</td>
+                                                            <td>@j.Order_Details_price</td>
+                                                            @foreach (var k in Model.lstOrder)
                                                             {
-                                                                <td>@k.Order_Date</td>
-                                                                foreach (var l in Model.lstOrderStatus)
+                                                                if (k.Order_id == j.Order_id)
                                                                 {
-                                                                    if (l.Order_status_id == k.Order_status_id)
+                                                                    <td>@k.Order_Date</td>
+                                                                    foreach (var l in Model.lstOrderStatus)
                                                                     {
-                                                                        <td>@l.Order_status_status</td>
+                                                                        if (l.Order_status_id == k.Order_status_id)
+                                                                        {
+                                                                            <td>@l.Order_status_status</td>
+                                                                        }
                                                                     }
+
                                                                 }
-
                                                             }
-                                                        }
 
-                                                    </tr>
+                                                        </tr>
+                                                    }
                                                 }
                                             }
                                         }

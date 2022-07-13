@@ -43,7 +43,7 @@ namespace shopping_online.Controllers.Marketing
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Blog entity, string createdate, string modifydate, string images, 
+        public ActionResult Create(Blog entity, string CreateDate, string ModifyDate, string Image, 
                                     string Title, string Author, string Descriptions, string CreateBy, string Detail, string ModifyBy, string Back_Link)
         {
             //
@@ -56,9 +56,9 @@ namespace shopping_online.Controllers.Marketing
                 entity.blog_detail = Detail;
                 entity.blog_modifyby = ModifyBy;
                 entity.blog_back_link = Back_Link;
-                entity.blog_createdate = DateTime.ParseExact(createdate, "yyyy-MM-dd", null);
-                entity.blog_modifydate = DateTime.ParseExact(modifydate, "yyyy-MM-dd", null);
-                entity.blog_images = images;
+                entity.blog_createdate = DateTime.ParseExact(CreateDate, "yyyy-MM-dd", null);
+                entity.blog_modifydate = DateTime.ParseExact(ModifyDate, "yyyy-MM-dd", null);
+                entity.blog_images = Image;
                 db.Blogs.Add(entity);
                 db.SaveChanges();
                 return RedirectToAction("Index", "BlogAdmin");

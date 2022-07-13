@@ -24,17 +24,21 @@ namespace shopping_online.Controllers.Marketing
             addPro.lstStatus = lstStatus;
             return View(addPro);
         }
-        public ActionResult Create(product pro, string code, string name, Decimal price, int quantity, string image, int color, int category, int status, string createDate)
+
+        [HttpPost]
+        public ActionResult Create(product pro, string ProductCode, string ProductName, Decimal ProductPrice, int ProductQuanity, string Description,
+                                   string ImageProduct, int ColorID, int CategoryID, int StatusID, string CreateDate)
         {
-            pro.product_code = code;
-            pro.product_name = name;
-            pro.product_price = price;
-            pro.product_quantity = quantity;
-            pro.product_image = image;
-            pro.color_id = color;
-            pro.category_id = category;
-            pro.status_product_id = status;
-            pro.product_create_date = DateTime.ParseExact(createDate, "yyyy-MM-dd", null);
+            pro.product_code = ProductCode;
+            pro.product_name = ProductName;
+            pro.product_description = Description;
+            pro.product_price = ProductPrice;
+            pro.product_quantity = ProductQuanity;
+            pro.product_image = ImageProduct;
+            pro.color_id = ColorID;
+            pro.category_id = CategoryID;
+            pro.status_product_id = StatusID;
+            pro.product_create_date = DateTime.ParseExact(CreateDate, "yyyy-MM-dd", null);
             db.products.Add(pro);
             db.SaveChanges();
             return RedirectToAction("Index", "ProductAdmin");
