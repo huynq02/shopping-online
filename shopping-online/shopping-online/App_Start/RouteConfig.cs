@@ -28,6 +28,11 @@ namespace shopping_online
                url: "{controller}/{action}/{id}",
                defaults: new { controller = "shippings", action = "Index", id = UrlParameter.Optional }
            );
+            routes.MapRoute(
+              name: "Create New",
+              url: "{controller}/{action}/{id}",
+              defaults: new { controller = "Order_Details", action = "Create", id = UrlParameter.Optional }
+          );
         }
     }
 }

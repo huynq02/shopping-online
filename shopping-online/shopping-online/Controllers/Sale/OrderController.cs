@@ -56,7 +56,7 @@ namespace shopping_online.Controllers.Sale
             ViewBag.account_id = new SelectList(db.Accounts, "account_id", "account_username");
             ViewBag.Order_status_id = new SelectList(db.Order_status, "Order_status_id", "Order_status_status");
             ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name");
-            return View("Create");
+            return View();
         }
 
         // POST: Order/Create
@@ -78,6 +78,37 @@ namespace shopping_online.Controllers.Sale
             ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name", order.shipping_id);
             return View(order);
         }
+
+        public ActionResult Create_order_detail()
+        {
+            ViewBag.Order_id = new SelectList(db.Orders, "Order_id", "Order_note");
+            ViewBag.product_id = new SelectList(db.products, "product_id", "product_name");
+            return View();
+        }
+
+        // POST: Order_Details/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create_order_detail([Bind(Include = "Order_Details_id,Order_id,product_id,Order_Details_price,Order_Details_num,Order_Details_total_number")] Order_Details order_Details)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Order_Details.Add(order_Details);
+                db.SaveChanges();
+                return RedirectToAction("Create");
+            }
+
+            ViewBag.Order_id = new SelectList(db.Orders, "Order_id", "Order_note", order_Details.Order_id);
+            ViewBag.product_id = new SelectList(db.products, "product_id", "product_name", order_Details.product_id);
+            return View(order_Details);
+        }
+
+
+
+
+
 
         // GET: Order/Edit/5
         public ActionResult Edit(int? id)

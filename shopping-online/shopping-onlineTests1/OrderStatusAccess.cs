@@ -13,6 +13,7 @@ namespace shopping_onlineTests1
         List<Order_status> GetOrder_Status();
         Order_status GetOrder_status(int id);
         void create_Oder_status(Order_status order_Status);
+        void delete_Oder_status(int id);
         bool checkOrder_exist_status(int id);
     }
     public class OrderStatusAccess : IOrderStatusAccess
@@ -37,7 +38,7 @@ namespace shopping_onlineTests1
 
         public bool checkOrder_exist_status(int id)
         {
-            var order = DB.Orders.Find(id);
+            var order = DB.Order_status.Find(id);
             if (order != null)
             {
                 return true;
@@ -51,6 +52,13 @@ namespace shopping_onlineTests1
         public void create_Oder_status(Order_status order_Status)
         {
             DB.Order_status.Add(order_Status);
+            DB.SaveChanges();
+        }
+
+        public void delete_Oder_status(int id)
+        {
+            var order = DB.Order_status.Find(id);
+            DB.Order_status.Add(order);
             DB.SaveChanges();
         }
     }

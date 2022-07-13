@@ -3,7 +3,6 @@ using NUnit.Framework;
 using shopping_online.Context;
 using System;
 using System.Collections.Generic;
-using shopping_online.Context;
 using System.Linq;
 
 namespace shopping_onlineTests1
@@ -13,6 +12,7 @@ namespace shopping_onlineTests1
         List<Order> GetOrder();
         Order GetOrder(int id);
         void create_Oder(Order order);
+        void delete_Oder(int id);
         bool checkOrder_exist(int id);
     }
     public class OrderAccess: IOrderAccess
@@ -42,6 +42,7 @@ namespace shopping_onlineTests1
             DB.Orders.Add(order);
             DB.SaveChanges();
         }
+       
 
         public bool checkOrder_exist(int id)
         {
@@ -54,6 +55,13 @@ namespace shopping_onlineTests1
             {
                 return false;
             }
+        }
+
+        public void delete_Oder(int id)
+        {
+            Order order = DB.Orders.Find(id);
+            DB.Orders.Remove(order);
+            DB.SaveChanges();
         }
     }
 }
