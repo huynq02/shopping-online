@@ -14,7 +14,9 @@ namespace shopping_online.Controllers.HomePage
         private DBContext obj = new DBContext();
         // GET: ListHome
         public ActionResult Index(int page = 1, int pageSize = 9)
-        {
+        { 
+
+
             //var listProduct = obj.Products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
             var listProduct = obj.products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
             var listCategory = obj.Categories.ToList();
@@ -25,12 +27,8 @@ namespace shopping_online.Controllers.HomePage
             List.listProduct = listProduct;
             List.listCategory = listCategory;
             List.listSlide = listSlide;
-            return View(List);
+            return View("Index", List);
         }
-        public ActionResult Search(string search)
-        {
-            var lstProduct = obj.products.Where(n => n.product_name.Contains(search)).ToList();
-            return View(lstProduct);
-        }
+       
     }
 }

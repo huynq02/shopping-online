@@ -3,6 +3,7 @@ using Moq;
 using NUnit.Framework;
 using shopping_online.Context;
 using shopping_online.Controllers;
+using shopping_online.Controllers.HomePage;
 using shopping_online.Controllers.Sale;
 using System;
 using System.Collections.Generic;
@@ -54,16 +55,16 @@ namespace shopping_onlineTests1
             NUnit.Framework.Assert.IsNotNull(actResult);
 
         }
-        [TestMethod()]
-        public void IndexSale()
-        {
-            SaleController obj = new SaleController();
+        //[TestMethod()]
+        //public void IndexSale()
+        //{
+        //    SaleController obj = new SaleController();
 
-            var actResult = obj.Index() as ViewResult;
+        //    var actResult = obj.Index() as ViewResult;
 
-            NUnit.Framework.Assert.IsNotNull(actResult);
+        //    NUnit.Framework.Assert.IsNotNull(actResult);
 
-        }
+        //}
         [TestMethod()]
         public void IndexShip()
         {
@@ -465,6 +466,61 @@ namespace shopping_onlineTests1
             NUnit.Framework.Assert.That(Res, Is.True);
         }
 
+        [TestMethod()]
+        public void Indexlisthome()
+        {
+            ListHomeController obj = new ListHomeController();
 
+            var actResult = obj.Index(1, 9) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+
+        [TestMethod()]
+        public void IndexlistPage()
+        {
+            PageProductController obj = new PageProductController();
+
+            var actResult = obj.Index((int)1, (int)9) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+        [TestMethod()]
+        public void IndexlistProductByCategory()
+        {
+            ProductByCategoryController obj = new ProductByCategoryController();
+
+            var actResult = obj.Index(1) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+
+
+        [TestMethod()]
+        public void IndexlistProductByColor()
+        {
+            ProductByColorController obj = new ProductByColorController();
+
+            var actResult = obj.Index(1) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+
+
+        [TestMethod()]
+        public void IndexlistProduct()
+        {
+            ProductController obj = new ProductController();
+
+            var actResult = obj.Index(1) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+            
+        }
     }
 }
