@@ -7,6 +7,7 @@ using System.Web;
 
 namespace shopping_online.Models
 {
+    //
     public class Add_Product
     {
         [Required(ErrorMessage ="Product Name is not empty")]
