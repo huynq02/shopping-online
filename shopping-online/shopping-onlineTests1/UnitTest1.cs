@@ -519,7 +519,6 @@ namespace shopping_onlineTests1
             var actResult = obj.Index(1) as ViewResult;
 
             NUnit.Framework.Assert.IsNotNull(actResult);
-
             
         }
     }
