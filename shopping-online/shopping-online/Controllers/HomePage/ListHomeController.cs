@@ -29,6 +29,6 @@ namespace shopping_online.Controllers.HomePage
             List.listSlide = listSlide;
             return View("Index", List);
         }
-       
+      
     }
 }
