@@ -77,7 +77,7 @@
                         <div class="logo pull-left">
                             <a href="index.html"><img src="~/Content/images/home/logo.png" alt="" /></a>
                         </div>
-                        <div class="btn-group pull-right">
+                        @*<div class="btn-group pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
                                     USA
@@ -99,14 +99,13 @@
                                     <li><a href="">Pound</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href=""><i class="fa fa-user"></i> Account</a></li>
-                                <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
@@ -137,20 +136,16 @@
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
                                         <li><a href="product-details.html">Product Details</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
+                                    
                                         <li><a href="cart.html">Cart</a></li>
                                         <li><a href="login.html">Login</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="active">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-                                        <li><a href="blog-single.html" class="active">Blog Single</a></li>
-                                    </ul>
+                                    <a href="@Url.Action("Index","Blog")" class="active">Blog</a>
+                                    
                                 </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
+                               
                             </ul>
                         </div>
                     </div>
@@ -176,25 +171,37 @@
                             {
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title" style="text-align: center"><a href="#">@item.category_name</a></h4>
+                                        <h4 class="panel-title">
+                                            @*<a href="#">@item.category_name</a>*@
+                                            @*<p> @Html.ActionLink(item.category_name, "Index", "Category", new { Id = item.category_id }, null)</p>*@
+                                            <p> <a href="/ProductByCategory/Index?Id=@item.category_id"> @item.category_name</a> </p>
+                                        </h4>
                                     </div>
-                                </div>
-                            }
+                                </div>}
+
                         </div><!--/category-products-->
 
                         <div class="brands_products">
                             <!--brands_products-->
-                            <h2>Colors</h2>
+                            <h2>Brands</h2>
                             <div class="brands-name">
-                                <ul class="nav nav-pills nav-stacked">
-                                    @foreach (var item in Model.color)
-                                    {
-                                        <li><a href="" style="text-align: center"> <span class="pull-right"></span>@item.color_name</a></li>
-                                    }
+                                @foreach (var item in Model.color)
+                                {
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li> <p> <a href="/ProductByColor/Index?Id=@item.color_id"> @item.color_name</a> </p></li>
 
-                                </ul>
+                                    </ul>}
+
                             </div>
                         </div><!--/brands_products-->
+
+
+
+                        <div class="shipping text-center">
+                            <!--shipping-->
+                            <img src="~/content/images/home/shipping.jpg" alt="" />
+                        </div><!--/shipping-->
+
                     </div>
                 </div>
                 <div class="col-sm-9">
