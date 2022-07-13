@@ -132,39 +132,28 @@
                                     <a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="@Url.Action("Index","PageProduct")">Product Details</a></li>
-                                       
+
                                         <li><a href="cart.html">Cart</a></li>
                                         <li><a href="">Login</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
                                     <a href="@Url.Action("Index","Blog")">Blog</a>
-                                    
+
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </div>
 
-                    @*@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                    @using (Html.BeginForm("Index","ListHome",FormMethod.Get))
                     {
-        <div class="col-sm-3">
-            <div class="search_box pull-right">
-                @Html.TextBox("search", ViewBag.CurrentFilter as string)
-                <input type="submit" value="search" placeholder="Search" />
+                        <p>
+                             @Html.TextBox("search") <input type="submit" value="Tìm kiếm" />
+                        </p>
+                    }
 
-                    @using (Html.BeginForm("Index", "PageProduct",FormMethod.Get))
-                    {
-        <div class="col-sm-3">
-            <div class="search_box pull-right">
-
-                @Html.TextBox("search",ViewBag.CurrentFilter as string) <input type="submit" value="Search" placeholder="Search" />
-
-            </div>
-        </div>}*@
-                </div>
-            </div>
-        </div><!--/header-bottom-->
+                </div><!--/header-bottom-->
     </header><!--/header-->
 
     <section id="slider">
