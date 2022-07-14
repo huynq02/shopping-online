@@ -1,8 +1,7 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
-@model shopping_online.Models.BlogModel
+@model shopping_online.Models.SearchModel
 @using PagedList.Mvc
 <!DOCTYPE html>
 <html lang="en">
@@ -45,11 +44,31 @@
             pointer-events: none;
             color: #aaa;
         }
+
+        @@media only screen and (max-width: 760px) {
+            img {
+                width: 100%;
+            }
+
+            .hea a:hover {
+                text-decoration: none;
+            }
+
+            .hea a h3:hover {
+                color: orangered;
+            }
+        }
+
+        @@media only screen and (max-width: 990px) {
+            .he2 img {
+                width: 100%;
+            }
+        }
     </style>
 </head><!--/head-->
 
 <body>
-  <header id="header">
+    <header id="header">
         <!--header-->
         <div class="header_top">
             <!--header_top-->
@@ -84,36 +103,36 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            
+
                             <a href="@Url.Action("Index","ListHome")"><img src="~/content/images/home/logo.png" alt="" /></a>
 
                         </div>
                         <div class="btn-group pull-right">
                             @*<div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    USA
-                                    <span class="caret"></span>
-                                </button>
-                               
-                            </div>*@
+                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                        USA
+                                        <span class="caret"></span>
+                                    </button>
+
+                                </div>*@
 
                             @*<div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    DOLLAR
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Canadian Dollar</a></li>
-                                    <li><a href="#">Pound</a></li>
-                                </ul>
-                            </div>*@
+                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                        DOLLAR
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Canadian Dollar</a></li>
+                                        <li><a href="#">Pound</a></li>
+                                    </ul>
+                                </div>*@
                         </div>
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                  
+
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
@@ -163,96 +182,26 @@
                             </div>
                         </div>
                     }
-                        @*@using (Html.BeginForm("Index", "Home", FormMethod.Get))
-                        {
-            <div class="col-sm-3">
-                <div class="search_box pull-right">
-                    @Html.TextBox("search", ViewBag.CurrentFilter as string)
-                    <input type="submit" value="search" placeholder="Search" />
-
-                        @using (Html.BeginForm("Index", "PageProduct",FormMethod.Get))
-                        {
-            <div class="col-sm-3">
-                <div class="search_box pull-right">
-
-                    @Html.TextBox("search",ViewBag.CurrentFilter as string) <input type="submit" value="Search" placeholder="Search" />
-
-                </div>
-            </div>}
-                    </div>
-                </div>*@
-                    </div><!--/header-bottom-->
+                </div><!--/header-bottom-->
     </header><!--/header-->
 
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-sm-3">
-                    <div class="left-sidebar">
-                        <h2>Category</h2>
-                        <div class="panel-group category-products" id="accordian">
-                            <!--category-productsr-->
-                            @foreach (var item in Model.cate)
-                            {
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            @*<a href="#">@item.category_name</a>*@
-                                            @*<p> @Html.ActionLink(item.category_name, "Index", "Category", new { Id = item.category_id }, null)</p>*@
-                                            <p> <a href="/ProductByCategory/Index?Id=@item.category_id"> @item.category_name</a> </p>
-                                        </h4> 
-                                    </div>
-                                </div>}
-
-                        </div><!--/category-products-->
-
-                        <div class="brands_products">
-                            <!--brands_products-->
-                            <h2>Brands</h2>
-                            <div class="brands-name">
-                                @foreach (var item in Model.color)
-                                {
-                                    <ul class="nav nav-pills nav-stacked">
-                                        <li> <p> <a href="/ProductByColor/Index?Id=@item.color_id"> @item.color_name</a> </p></li>
-
-                                    </ul>}
-
-                            </div>
-                        </div><!--/brands_products-->
-
-
-
-                        <div class="shipping text-center">
-                            <!--shipping-->
-                            <img src="~/content/images/home/shipping.jpg" alt="" />
-                        </div><!--/shipping-->
-
-                    </div>
-                </div>
-                <div class="col-sm-9" style="margin-bottom:20px">
-                    <div class="blog-post-area">
-                        <h2 class="title text-center">TIN TỨC SNEAKERS</h2>
-                        @foreach (var blog in Model.blog)
-                        {
-                            <div class="single-blog-post">
-                                <h3>@blog.blog_title</h3>
-                                <div class="post-meta">
-                                    <ul>
-                                        <li><i class="fa fa-user"></i>@blog.blog_author</li>
-                                        @*<li><i class="fa fa-clock-o"></i> 1:33 pm</li>*@
-                                        <li><i class="fa fa-calendar"></i>@blog.blog_createdate</li>
-                                    </ul>
-                                </div>
-                                <a href="">
-                                    <img src="~/Content/images/blog/@blog.blog_images" alt="">
-                                </a>
-                                <p>@blog.blog_descriptions</p>
-                                <a class="btn btn-primary" href="/BlogDetail/Index?Id=@blog.blog_id">Read More</a>
-                            </div>
-                        }
-                    </div>
-                </div>
-                @Html.PagedListPager(Model.blog, page => Url.Action("Index", new { page }))
+                @if (Model.lstBlog.Count != 0)
+                {
+                    foreach (var item in Model.lstBlog)
+                    {
+                        <div class="col-md-4 col-sm-6 col-xs-12 ">
+                            <a href="">
+                                <input type="hidden" name="id" value="">
+                                <img src="~/Content/images/blog/@item.blog_images" class="img-responsive" />
+                                <h3 class="right1">@item.blog_title</h3>
+                            </a>
+                        </div>
+                    }
+                }
+                @Html.PagedListPager(Model.lstBlog, page => Url.Action("Index", new { page }))
             </div>
         </div>
     </section>

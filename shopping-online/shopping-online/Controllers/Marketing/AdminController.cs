@@ -21,11 +21,42 @@ namespace shopping_online.Controllers.Marketing
             var lstCustomer = db.Accounts.Where(x => x.account_role_id == cus.Role_id).ToList();
             var lstBlog = db.Blogs.ToList();
             var order = db.Orders.ToList();
-            
+
             var blog = db.Blogs.Where(x => EntityFunctions.TruncateTime(x.blog_createdate) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
             var proCreate = db.products.Where(x => EntityFunctions.TruncateTime(x.product_create_date) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
             var cusCreate = db.Accounts.Where(x => EntityFunctions.TruncateTime(x.account_createdate) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
             var slideCreate = db.Slides.Where(x => EntityFunctions.TruncateTime(x.slide_createdate) == EntityFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
+            //Take the product have the same datetime.nox to show the notification
+            var orderDate = db.Orders.Where(x => EntityFunctions.TruncateTime(x.Order_Date) == EntityFunctions.TruncateTime(DateTime.Now)).ToList();
+            var orderDetail = db.Order_Details.ToList();
+            List<Order_Details> orderDe = new List<Order_Details>();
+            foreach (var i in orderDate)
+            {
+                foreach (var j in orderDetail)
+                {
+                    if (i.Order_id == j.Order_id)
+                    {
+                        orderDe.Add(j);
+                    }
+                }
+            }
+            List<product> lstProOder = new List<product>();
+            foreach (var i in orderDe)
+            {
+                foreach (var j in lstProduct)
+                {
+                    if (i.product_id == j.product_id)
+                    {
+                        lstProOder.Add(j);
+                    }
+                }
+            }
+            //Product out of stock
+            var lstProOut = db.products.Where(x => x.product_quantity == 0).ToList();
+
+            // Take a Slide, Product, Slide edit
+            //Take a Blog, Product, Slide delete
+
             double sum = 0;
             foreach (var item in order)
             {
@@ -39,6 +70,9 @@ namespace shopping_online.Controllers.Marketing
             homeadmin.cusCreate = cusCreate;
             homeadmin.proCreate = proCreate;
             homeadmin.slideCreate = slideCreate;
+            homeadmin.lstProOder = lstProOder;
+            homeadmin.lstProOut = lstProOut;
+            //homeadmin.editSlide = editSliede;
             homeadmin.sum = sum;
             return View(homeadmin);
         }

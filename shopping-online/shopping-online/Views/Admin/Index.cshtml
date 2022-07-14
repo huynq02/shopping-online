@@ -229,22 +229,22 @@
                             <li class="dropdown-header text-center">Account</li>
 
                             @*<li>
-                                <a href="#">
-                                    <i class="fa fa-clock-o fa-fw pull-right"></i>
-                                    <span class="badge badge-success pull-right">10</span> Updates
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-envelope-o fa-fw pull-right"></i>
-                                    <span class="badge badge-danger pull-right">5</span> Messages
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-magnet fa-fw pull-right"></i>
-                                    <span class="badge badge-info pull-right">3</span> Subscriptions
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
-                                </a>
-                            </li>*@
+                                    <a href="#">
+                                        <i class="fa fa-clock-o fa-fw pull-right"></i>
+                                        <span class="badge badge-success pull-right">10</span> Updates
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-envelope-o fa-fw pull-right"></i>
+                                        <span class="badge badge-danger pull-right">5</span> Messages
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-magnet fa-fw pull-right"></i>
+                                        <span class="badge badge-info pull-right">3</span> Subscriptions
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
+                                    </a>
+                                </li>*@
 
                             @*<li class="divider"></li>*@
 
@@ -466,19 +466,26 @@
                                         <strong>Well done!</strong> You successfully add new slide.
                                     </div>
                                 }
-                                <div class="alert alert-info">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-                                </div>
-                                <div class="alert alert-warning">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Warning!</strong> Best check yo self, you're not looking too good.
-                                </div>
 
+                                @foreach (var item in Model.lstProOder)
+                                {
+                                    <div class="alert alert-info">
+                                        <button data-dismiss="alert" class="close close-sm" type="button">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        <strong>Heads up!</strong> @item.product_name has just been purchased
+                                    </div>
+                                }
+
+                                @foreach (var item in Model.lstProOut)
+                                {
+                                    <div class="alert alert-warning">
+                                        <button data-dismiss="alert" class="close close-sm" type="button">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        <strong>Warning!</strong> @item.product_name is out of stock
+                                    </div>
+                                }
 
                                 <div class="alert alert-block alert-danger">
                                     <button data-dismiss="alert" class="close close-sm" type="button">
@@ -504,13 +511,8 @@
                                     </button>
                                     <strong>Warning!</strong> Best check yo self, you're not looking too good.
                                 </div>
-
-
-
                             </div>
                         </section>
-
-
 
                     </div>
 
@@ -617,7 +619,7 @@
             });
 
         });
-                                // Chart.defaults.global.responsive = true;
+                                                // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>
