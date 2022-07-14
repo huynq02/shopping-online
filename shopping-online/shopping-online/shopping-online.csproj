@@ -247,6 +247,7 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\SlideModel.cs" />
     <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\UsersRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -39,16 +39,16 @@ namespace shopping_onlineTests1
         }
 
 
-        [TestMethod()]
-        public void Indexlisthome()
-        {
-            ListHomeController obj = new ListHomeController();
+        //[TestMethod()]
+        //public void Indexlisthome()
+        //{
+        //    ListHomeController obj = new ListHomeController();
 
-            var actResult = obj.Index() as ViewResult;
+        //    var actResult = obj.Index() as ViewResult;
 
-            NUnit.Framework.Assert.IsNotNull(actResult);
+        //    NUnit.Framework.Assert.IsNotNull(actResult);
 
-        }
+        //}
 
 
         [TestMethod()]

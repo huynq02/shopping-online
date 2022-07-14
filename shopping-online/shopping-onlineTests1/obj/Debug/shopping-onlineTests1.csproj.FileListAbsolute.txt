@@ -373,3 +373,6 @@ D:\VSCode\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\Antlr3
 D:\VSCode\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.csproj.CopyComplete
 D:\VSCode\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.dll
 D:\VSCode\shopping-online\shopping-online\shopping-onlineTests1\obj\Debug\shopping-onlineTests1.pdb
+D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-onlineTests1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll

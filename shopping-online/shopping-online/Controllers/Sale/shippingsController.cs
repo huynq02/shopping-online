@@ -11,12 +11,13 @@ using shopping_online.Context;
 
 namespace shopping_online.Controllers.Sale
 {
-    [Authorize]
+    
     public class shippingsController : Controller
     {
         private DBContext db = new DBContext();
 
         // GET: shippings
+        [Authorize(Roles = "Admin, Sale, Marketing")]
         public ActionResult Index(string table_search, int? page)
         {
             int padeNum = (page ?? 1);
@@ -36,6 +37,7 @@ namespace shopping_online.Controllers.Sale
 
 
         // GET: shippings/Create
+        [Authorize(Roles =  "Sale")]
         public ActionResult Create()
         {
             return View("Create");
@@ -59,6 +61,7 @@ namespace shopping_online.Controllers.Sale
         }
 
         // GET: shippings/Edit/5
+        [Authorize(Roles = "Sale")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +93,7 @@ namespace shopping_online.Controllers.Sale
         }
 
         // GET: shippings/Delete/5
+        [Authorize(Roles = "Sale")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
