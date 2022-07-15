@@ -341,6 +341,72 @@ namespace shopping_onlineTests1
             var Res = fakeObject.Object.check_ship_exist_status(1);
             NUnit.Framework.Assert.That(Res, Is.True);
         }
+        [TestMethod()]
+        public void Indexlisthome()
+        {
+            ListHomeController obj = new ListHomeController();
+
+            var actResult = obj.Index("a", 1, 9) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+        [TestMethod()]
+        public void IndexlisthomebySearchNumber()
+        {
+            ListHomeController obj = new ListHomeController();
+
+            var actResult1 = obj.Index("9", 1, 9) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult1);
+
+        }
+
+        [TestMethod()]
+        public void IndexlistPage()
+        {
+            PageProductController obj = new PageProductController();
+
+            var actResult = obj.Index(1, 9) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+        [TestMethod()]
+        public void IndexlistProductByCategory()
+        {
+            ProductByCategoryController obj = new ProductByCategoryController();
+
+            var actResult = obj.Index(1) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+
+
+        [TestMethod()]
+        public void IndexlistProductByColor()
+        {
+            ProductByColorController obj = new ProductByColorController();
+
+            var actResult = obj.Index(1) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+
+
+        [TestMethod()]
+        public void IndexlistProduct()
+        {
+            ProductController obj = new ProductController();
+
+            var actResult = obj.Index(1) as ViewResult;
+
+            NUnit.Framework.Assert.IsNotNull(actResult);
+
+        }
+
 
         [TestMethod()]
         public void Chec_ships_delete_WithMoq()
@@ -359,7 +425,7 @@ namespace shopping_onlineTests1
             NUnit.Framework.Assert.That(Res, Is.False);
         }
 
-
+       
 
     }
 }
