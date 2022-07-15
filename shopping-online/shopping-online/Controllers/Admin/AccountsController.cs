@@ -12,6 +12,7 @@ using shopping_online.Models;
 
 namespace shopping_online.Controllers.Admin
 {
+    [Authorize]
     public class AccountsController : Controller
     {
         private DBContext db = new DBContext();
@@ -23,26 +24,46 @@ namespace shopping_online.Controllers.Admin
         [HttpPost]
         public ActionResult Login(UserLogin model)
         {
-
             bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
                  model.account_username.ToLower() && user.account_password == model.account_password);
-            var acc = db.Accounts.Where(user => user.account_username.ToLower() ==
-                     model.account_username.ToLower() && user.account_password == model.account_password).ToList();
-            List<Account> accounts = new List<Account>();
-            //int a = (from a in accounts select a).Any(a => a.account_role_id == 1);
-           
-
+            int count = GetRole(model.account_username.ToLower());
             if (IsValidUser)
             {
+                if (count == 1)
+                {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    //return RedirectToAction("Index", "PageProduct");
+                    return RedirectToAction("Index", "ListHome");
+                }
+                else if (count == 2)
+                {
+                    FormsAuthentication.SetAuthCookie(model.account_username, false);
+                    return RedirectToAction("Index", "Accounts");
+                }
+                else if (count == 3)
+                {
+                    FormsAuthentication.SetAuthCookie(model.account_username, false);
                     return RedirectToAction("Index", "shippings");
+                }
+                else
+                {
+                    FormsAuthentication.SetAuthCookie(model.account_username, false);
+                    return RedirectToAction("Index", "Blog");
+                }
+
             }
             ModelState.AddModelError("", "invalid Username or Password");
             return View();
 
         }
-
+        private int GetRole(string username)
+        {
+            int role = (from user in db.Accounts
+                             join roles in db.Roles
+                             on user.account_role_id equals roles.Role_id
+                             where user.account_username.ToLower() == username.ToLower()
+                             select roles.Role_id).SingleOrDefault();
+            return role;
+        }
         public ActionResult Signup()
         {
             return View();
@@ -81,7 +102,7 @@ namespace shopping_online.Controllers.Admin
 
 
         // GET: Accounts/Create
-        //[Authorize(Role = "Admin, Sale")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name");
@@ -107,6 +128,7 @@ namespace shopping_online.Controllers.Admin
         }
 
         // GET: Accounts/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -140,6 +162,7 @@ namespace shopping_online.Controllers.Admin
         }
 
         // GET: Accounts/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

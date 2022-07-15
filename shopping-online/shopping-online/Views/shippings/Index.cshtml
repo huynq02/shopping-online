@@ -17,6 +17,21 @@
                     @Html.ActionLink("Create New", "Create")
                 </p>
             </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li>@Html.ActionLink("Get List", "Index", "shippings")</li>
+                if (User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("Create", "Create", "shippings")</li>
+                }
+                <li><a>Hello - @User.Identity.Name</a></li>
+                <li>@Html.ActionLink("Logout", "Logout", "Accounts")</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Login", "Login", "Accounts")</li>
+            }
+
             @using (Html.BeginForm("Shipping", "shipping", FormMethod.Get))
             {
                 <div class="box-tools m-b-15">

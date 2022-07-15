@@ -28,6 +28,24 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="~/Content/images/ico/apple-touch-icon-57-precomposed.png">
+
+    <style>
+        .has-search .form-control {
+            padding-left: 2.375rem;
+        }
+
+        .has-search .form-control-feedback {
+            position: absolute;
+            z-index: 2;
+            display: block;
+            width: 2.375rem;
+            height: 2.375rem;
+            line-height: 2.375rem;
+            text-align: center;
+            pointer-events: none;
+            color: #aaa;
+        }
+    </style>
 </head><!--/head-->
 
 <body>
@@ -132,32 +150,38 @@
                                 </li>
                                 <li class="dropdown">
                                     <a href="@Url.Action("Index","Blog")">Blog</a>
-                                    
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </div>
-
-                    @*@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                    @using (Html.BeginForm("Index", "Search", FormMethod.Get))
                     {
-        <div class="col-sm-3">
-            <div class="search_box pull-right">
-                @Html.TextBox("search", ViewBag.CurrentFilter as string)
-                <input type="submit" value="search" placeholder="Search" />
+                        <div class="col-sm-3">
+                            <div class="search_box pull-right">
+                                <input type="search" name="search" placeholder="Search" onchange="myFunction(this.value)" />
+                            </div>
+                        </div>
+                    }
+                        @*@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                        {
+            <div class="col-sm-3">
+                <div class="search_box pull-right">
+                    @Html.TextBox("search", ViewBag.CurrentFilter as string)
+                    <input type="submit" value="search" placeholder="Search" />
 
-                    @using (Html.BeginForm("Index", "PageProduct",FormMethod.Get))
-                    {
-        <div class="col-sm-3">
-            <div class="search_box pull-right">
+                        @using (Html.BeginForm("Index", "PageProduct",FormMethod.Get))
+                        {
+            <div class="col-sm-3">
+                <div class="search_box pull-right">
 
-                @Html.TextBox("search",ViewBag.CurrentFilter as string) <input type="submit" value="Search" placeholder="Search" />
+                    @Html.TextBox("search",ViewBag.CurrentFilter as string) <input type="submit" value="Search" placeholder="Search" />
 
-            </div>
-        </div>}
                 </div>
-            </div>*@
-        </div><!--/header-bottom-->
+            </div>}
+                    </div>
+                </div>*@
+                    </div><!--/header-bottom-->
     </header><!--/header-->
 
     <section>

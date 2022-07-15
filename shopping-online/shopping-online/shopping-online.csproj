@@ -225,6 +225,7 @@
     <Compile Include="Controllers\Sale\Order_DetailsController.cs" />
     <Compile Include="Controllers\Sale\Order_statusController.cs" />
     <Compile Include="Controllers\Sale\shippingsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,8 +246,10 @@
     <Compile Include="Models\ProductByColor.cs" />
     <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\SlideModel.cs" />
     <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\UsersRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1130,6 +1133,7 @@
     <Content Include="Views\Order_Details\Details.cshtml" />
     <Content Include="Views\Order_Details\Edit.cshtml" />
     <Content Include="Views\Order_Details\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

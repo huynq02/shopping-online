@@ -184,24 +184,24 @@
                         <li class="dropdown-header text-center">Account</li>
 
                         @*<li>
-                            <a href="#">
-                                <i class="fa fa-clock-o fa-fw pull-right"></i>
-                                <span class="badge badge-success pull-right">10</span> Updates
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-envelope-o fa-fw pull-right"></i>
-                                <span class="badge badge-danger pull-right">5</span> Messages
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-magnet fa-fw pull-right"></i>
-                                <span class="badge badge-info pull-right">3</span> Subscriptions
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
-                            </a>
-                        </li>
+                                <a href="#">
+                                    <i class="fa fa-clock-o fa-fw pull-right"></i>
+                                    <span class="badge badge-success pull-right">10</span> Updates
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-envelope-o fa-fw pull-right"></i>
+                                    <span class="badge badge-danger pull-right">5</span> Messages
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-magnet fa-fw pull-right"></i>
+                                    <span class="badge badge-info pull-right">3</span> Subscriptions
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
+                                </a>
+                            </li>
 
-                        <li class="divider"></li>*@
+                            <li class="divider"></li>*@
 
                         <li>
                             <a href="#">
@@ -269,7 +269,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/ProductAdmin/loadProduct">
+                    <a href="/ProductAdmin/Index">
                         <i class="fa fa-gavel"></i> <span>Product</span>
                     </a>
                 </li>
@@ -283,14 +283,9 @@
                         <i class="fa fa-globe"></i> <span>Order Status</span>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="/shippings/Index">
                         <i class="fa fa-globe"></i> <span>Ship</span>
-                    </a>
-                </li>
-                <li class="#">
-                    <a href="/ProductAdmin/Index">
-                        <i class="fa fa-globe"></i> <span>Product</span>
                     </a>
                 </li>
                 <li>
@@ -298,25 +293,16 @@
                         <i class="fa fa-globe"></i> <span>Blog</span>
                     </a>
                 </li>
-
-                <li>
+                <li class="active">
                     <a href="/SlideAdmin/Index">
                         <i class="fa fa-glass"></i> <span>Slide</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="/CustomerAdmin/Index">
                         <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="simple.html">
-                        <i class="glyphicon glyphicon-book"></i> <span>FeedBack</span>
-                    </a>
-                </li>
-
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -352,7 +338,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">CreateDate(yyyy-MM-dd)</label>
-                                        @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*@Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })*@
+                                        <input type="date" name="CreateDate" class="form-control single-line" data-val="true"
+                                               data-val-required="CreateDate is not empty" id="CreateDate" value="" />
                                         @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
@@ -368,7 +357,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">ModifyDate(yyyy-MM-dd)</label>
-                                        @Html.EditorFor(model => model.ModifyDate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*@Html.EditorFor(model => model.ModifyDate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.ModifyDate, "", new { @class = "text-danger" })*@
+                                        <input type="date" name="ModifyDate" class="form-control single-line" data-val="true"
+                                               data-val-required="ModifyDate is not empty" id="CreateDate" value="" />
                                         @Html.ValidationMessageFor(model => model.ModifyDate, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">

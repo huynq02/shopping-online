@@ -21,13 +21,13 @@ namespace shopping_online.Controllers.Marketing
             return View();
         }
 
-        public ActionResult Create (Account account, string gender, string CreateDate, string Account_password)
+        public ActionResult Create(Account account, string gender, string CreateDate, string Account_password)
         {
             if (gender == "Male")
             {
                 account.account_gender = true;
             }
-            account.account_status= true;
+            account.account_status = true;
             account.account_role_id = 1;
             account.account_password = Account_password;
             account.account_createdate = DateTime.ParseExact(CreateDate, "yyyy-MM-dd", null);
@@ -41,7 +41,11 @@ namespace shopping_online.Controllers.Marketing
             var customer = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
             var orderCustomer = db.Orders.Where(x => x.account_id == Id).ToList();
             var orderCus = db.Orders.Where(x => x.account_id == Id).FirstOrDefault();
-            var orderDetailCus = db.Order_Details.Where(x => x.Order_id == orderCus.Order_id).ToList();
+            List<Order_Details> orderDetailCus = null;
+            if (orderCus != null)
+            {
+                orderDetailCus = db.Order_Details.Where(x => x.Order_id == orderCus.Order_id).ToList();
+            }
             var product = db.products.ToList();
             var orderSta = db.Order_status.ToList();
             CustomerModel cus = new CustomerModel();
@@ -61,7 +65,8 @@ namespace shopping_online.Controllers.Marketing
             if (gender == "Male")
             {
                 acc.account_gender = true;
-            } else
+            }
+            else
             {
                 acc.account_gender = false;
             }
@@ -69,7 +74,8 @@ namespace shopping_online.Controllers.Marketing
             {
                 acc.account_status = true;
                 UnLockAccount(Id);
-            } else
+            }
+            else
             {
                 acc.account_status = false;
                 LockAccount(Id);

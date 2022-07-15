@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta content="1230730321091573" property="fb:app_id"/>
-    <meta content="A2bRexp9mTVEIAL_slgqE7-" property="fb:admins"/>
+    <meta content="1230730321091573" property="fb:app_id" />
+    <meta content="A2bRexp9mTVEIAL_slgqE7-" property="fb:admins" />
     <title>Blog Single | E-Shopper</title>
     <link href="~/Content/Blog/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/Blog/css/font-awesome.min.css" rel="stylesheet">
@@ -78,34 +78,34 @@
                             <a href="index.html"><img src="~/Content/images/home/logo.png" alt="" /></a>
                         </div>
                         @*<div class="btn-group pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    USA
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canada</a></li>
-                                    <li><a href="">UK</a></li>
-                                </ul>
-                            </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                        USA
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Canada</a></li>
+                                        <li><a href="">UK</a></li>
+                                    </ul>
+                                </div>
 
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    DOLLAR
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canadian Dollar</a></li>
-                                    <li><a href="">Pound</a></li>
-                                </ul>
-                            </div>
-                        </div>*@
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                        DOLLAR
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Canadian Dollar</a></li>
+                                        <li><a href="">Pound</a></li>
+                                    </ul>
+                                </div>
+                            </div>*@
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href=""><i class="fa fa-user"></i> Account</a></li>
-                                
+
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
@@ -136,16 +136,16 @@
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
                                         <li><a href="product-details.html">Product Details</a></li>
-                                    
+
                                         <li><a href="cart.html">Cart</a></li>
                                         <li><a href="login.html">Login</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
                                     <a href="@Url.Action("Index","Blog")" class="active">Blog</a>
-                                    
+
                                 </li>
-                               
+
                             </ul>
                         </div>
                     </div>
@@ -208,7 +208,7 @@
                     <div class="blog-post-area">
                         <h2 class="title text-center">Blog Detail</h2>
                         <div class="single-blog-post">
-                            <h3>@Model.bg.title</h3>
+                            <h3>@Model.bg.blog_title</h3>
                             <div class="post-meta">
                                 <ul>
                                     <li><i class="fa fa-user"></i>@Model.bg.blog_author</li>
@@ -219,7 +219,7 @@
                             <div>
                                 @Html.Raw(Model.bg.blog_detail)
                             </div>
-                           
+
                         </div>
                     </div><!--/blog-post-area-->
 
@@ -242,32 +242,34 @@
                             <li><a class="color" href="">Girls</a></li>
                         </ul>
                     </div><!--/rating-area-->
-
                     @*<div class="socials-share">
-                        <a href=""><img src="~/Content/images/blog/socials.png" alt=""></a>
-                    </div>*@<!--/socials-share-->
-
-                    <div class="media commnets">
-                        <a class="pull-left" href="/BlogDetail/Index?Id=@Model.relateBlog.id">
-                            <img class="media-object" src="~/Content/images/blog/@Model.relateBlog.images" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">@Model.relateBlog.title</h4>
-                            <p>@Model.relateBlog.descriptions</p>
-                            <div class="blog-socials">
-                                <ul>
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                                </ul>
-                                <a class="btn btn-primary" href="/Blog/Index">Other Posts</a>
+                            <a href=""><img src="~/Content/images/blog/socials.png" alt=""></a>
+                        </div>*@<!--/socials-share-->
+                    @if (Model.relateBlog != null)
+                    {
+                        <div class="media commnets">
+                            <a class="pull-left" href="/BlogDetail/Index?Id=@Model.relateBlog.blog_id">
+                                <img class="media-object" src="~/Content/images/blog/@Model.relateBlog.blog_images" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">@Model.relateBlog.blog_title</h4>
+                                <p>@Model.relateBlog.blog_descriptions</p>
+                                <div class="blog-socials">
+                                    <ul>
+                                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                                    </ul>
+                                    <a class="btn btn-primary" href="/Blog/Index">Other Posts</a>
+                                </div>
                             </div>
                         </div>
-                    </div><!--Comments-->
+                    }
+                    <!--Comments-->
                     <div id="fb-root"></div>
                     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="dtQHWbl7"></script>
-                    <div class="fb-comments" data-href="@Model.bg.back_link" data-width="680" data-numposts="5"></div>
+                    <div class="fb-comments" data-href="@Model.bg.blog_back_link" data-width="680" data-numposts="5"></div>
                 </div>
             </div>
         </div>

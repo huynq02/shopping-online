@@ -19,5 +19,8 @@ namespace shopping_online.Models
         public List<Account> lstCustomer { get; set; }
         public List<Blog> lstBlog { get; set; }
         public List<product> lstProduct { get; set; }
+        public List<product> lstProOder { get; set; }
+        public List<product> lstProOut { get; set; }
+        public Slide editSlide { get; set; }
     }
 }
