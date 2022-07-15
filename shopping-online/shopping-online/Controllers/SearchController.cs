@@ -11,16 +11,37 @@ namespace shopping_online.Controllers
 {
     public class SearchController : Controller
     {
+
         DBContext db = new DBContext();
         // GET: Search
-        public ActionResult Index(string search, int page = 1, int pageSize = 1)
+        private int id = 0;
+        public ActionResult Index(string search, string result = "product", int page = 1, int pageSize = 3)
         {
-            var lstBlog = db.Blogs.Where(x => x.blog_title.Contains("A")).OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
-            var lstPro = db.products.Where(x => x.product_name.Contains("A")).OrderByDescending(x => x.product_name).ToPagedList(page, pageSize);
+            //if (id == 0)
+            //{
+            //    result = "product";
+            //} else
+            //{
+            //}
+            //id++;
+            //IPagedList<product> lstPro = null;
+            //IPagedList<Blog> lstBlog = null;
+            //if (result == "product")
+            //{
+            //    lstPro = db.products.Where(x => x.product_name.Contains(search)).OrderByDescending(x => x.product_name).ToPagedList(page, pageSize);
+            //}
+            //if (result == "blog")
+            //{
+            //    lstBlog = db.Blogs.Where(x => x.blog_title.Contains(search)).OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
+            //}
+            var lstPro = db.products.Where(x => x.product_name.Contains(search)).OrderByDescending(x => x.product_name).ToPagedList(page, pageSize);
+            var lstBlog = db.Blogs.Where(x => x.blog_title.Contains(search)).OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
             SearchModel searchs = new SearchModel();
             searchs.lstBlog = lstBlog;
             searchs.lstPro = lstPro;
-            return View(search);
+            searchs.search = search;
+            searchs.result = result;
+            return View(searchs);
         }
     }
 }
