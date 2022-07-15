@@ -31,6 +31,19 @@ namespace shopping_online.Controllers.Marketing
             return View(product);
         }
 
+        public ActionResult Edit(int Id)
+        {
+            var product = db.products.Where(x => x.product_id == Id).FirstOrDefault();
+            var color = db.Colors.ToList();
+            var stapro = db.status_product.ToList();
+            var cate = db.Categories.ToList();
+            ProductModel pro = new ProductModel();
+            pro.product = product;
+            pro.color = color;
+            pro.stapro = stapro;
+            pro.lstCategories = cate;
+            return View(pro);
+        }
         public ActionResult Delete(int Id)
         {
             product pro = db.products.Where(x => x.product_id == Id).FirstOrDefault();

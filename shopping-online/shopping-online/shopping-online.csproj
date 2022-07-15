@@ -1134,6 +1134,7 @@
     <Content Include="Views\Order_Details\Edit.cshtml" />
     <Content Include="Views\Order_Details\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\ProductAdmin\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
