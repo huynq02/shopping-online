@@ -25,7 +25,7 @@ namespace shopping_online.Controllers.HomePage
             //p2.listI = listImage;
             p2.ListProductByColor = listProductByColor;
             p2.listP = listP;
-            return View(p2);
+            return View("Index",p2);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace shopping_online.Controllers.HomePage
             productDetail.lstColor = listColor;
             productDetail.lstProduct = listProduct;
             productDetail.lstSize = listSize;
-            return View(productDetail);
+            return View("Index",productDetail);
         }
     }
 }
