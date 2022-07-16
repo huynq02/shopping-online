@@ -178,31 +178,83 @@
                     {
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
-                                <input type="search" name="search" placeholder="Search" onchange="myFunction(this.value)" />
+                                <input type="search" name="search" value="@Model.search" placeholder="Search" onchange="myFunction(this.value)" />
                             </div>
                         </div>
                     }
                 </div><!--/header-bottom-->
     </header><!--/header-->
-
+    <div class="container">
+        <div class="row">
+            @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+            {
+                <div style="text-align: center">
+                    <h3>Tìm thấy cho kết quả </h3>
+                    <input type="hidden" name="search" value="@Model.search" />
+                    <input type="radio" onchange="this.form.submit()" name="result" value="product" @(Model.result.Contains("product") ? "checked" : "") /><label style="margin-right: 10px; font-size: 20px; font-family:">Products</label>
+                    <input type="radio" onchange="this.form.submit()" name="result" value="blog" @(Model.result.Contains("blog") ? "checked" : "") /><label style="margin-right: 10px; font-size: 20px; font-family:">Blogs</label>
+                </div>
+            }
+        </div>
+    </div>
     <section>
         <div class="container">
             <div class="row">
-                @if (Model.lstBlog.Count != 0)
+                @if (Model.result == "product")
                 {
-                    foreach (var item in Model.lstBlog)
+                    if (Model.lstBlog != null)
                     {
-                        <div class="col-md-4 col-sm-6 col-xs-12 ">
-                            <a href="">
-                                <input type="hidden" name="id" value="">
-                                <img src="~/Content/images/blog/@item.blog_images" class="img-responsive" />
-                                <h3 class="right1">@item.blog_title</h3>
-                            </a>
-                        </div>
+                        foreach (var item in Model.lstPro)
+                        {
+                            <div class="col-md-4 col-sm-6 col-xs-12 ">
+                                <a href="/Product/Index?Id=@item.product_id">
+                                    <input type="hidden" name="id" value="">
+                                    <img src="~/Content/images/product-details/product/@item.product_image" class="img-responsive" />
+                                    <h3 class="right1" style="color: orange">@item.product_name</h3>
+                                </a>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <h3>Không có sản phẩm nào được tìm thấy.</h3>
                     }
                 }
-                @Html.PagedListPager(Model.lstBlog, page => Url.Action("Index", new { page }))
+                @if (Model.result == "blog")
+                {
+                    if (Model.lstBlog != null)
+                    {
+                        foreach (var item in Model.lstBlog)
+                        {
+                            <div class="col-md-4 col-sm-6 col-xs-12 ">
+                                <a href="/BlogDetail/Index?Id=@item.blog_id">
+                                    <input type="hidden" name="id" value="">
+                                    <img src="~/Content/images/blog/@item.blog_images" class="img-responsive" />
+                                    <h3 class="right1" style="color: orange">@item.blog_title</h3>
+                                </a>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <h3>Không có blog nào được tìm thấy.</h3>
+                    }
+                }
             </div>
+            @if (Model.result == "blog")
+            {
+                if (Model.lstBlog != null)
+                {
+                    @Html.PagedListPager(Model.lstBlog, page => Url.Action("Index", new { Model.search, Model.result, page }))
+                }
+            }
+            @if (Model.result == "product")
+            {
+                if (Model.lstPro != null)
+                {
+                    @Html.PagedListPager(Model.lstPro, page => Url.Action("Index", new { Model.search, Model.result, page }))
+                }
+            }
         </div>
     </section>
 
