@@ -20,6 +20,8 @@
           <Property Name="account_gender" Type="bit" />
           <Property Name="account_status" Type="bit" Nullable="false" />
           <Property Name="account_createdate" Type="date" />
+          <Property Name="account_image" Type="nvarchar" MaxLength="200" />
+          <Property Name="account_DOB" Type="date" />
         </EntityType>
         <EntityType Name="Blog">
           <Key>
@@ -173,7 +175,17 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
           <Property Name="status_product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="status_product_status" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <Association Name="FK__Account__account__1273C1CD">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Account__account__2E1BDC42">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -185,7 +197,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__account_i__2C3393D0">
+        <Association Name="FK__Order__account_i__3E52440B">
           <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -197,7 +209,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__Order_sta__35BCFE0A">
+        <Association Name="FK__Order__Order_sta__440B1D61">
           <End Role="Order_status" Type="Self.Order_status" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -209,7 +221,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__shipping___30F848ED">
+        <Association Name="FK__Order__shipping___412EB0B6">
           <End Role="shipping" Type="Self.shipping" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -221,7 +233,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order_Det__Order__3A81B327">
+        <Association Name="FK__Order_Det__Order__46E78A0C">
           <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
           <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
           <ReferentialConstraint>
@@ -233,7 +245,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order_Det__produ__3B75D760">
+        <Association Name="FK__Order_Det__produ__47DBAE45">
           <End Role="product" Type="Self.product" Multiplicity="0..1" />
           <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
           <ReferentialConstraint>
@@ -245,7 +257,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__product__categor__1BFD2C07">
+        <Association Name="FK__product__categor__33D4B598">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="product" Type="Self.product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -257,7 +269,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__product__color_i__1B0907CE">
+        <Association Name="FK__product__color_i__32E0915F">
           <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
           <End Role="product" Type="Self.product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -269,7 +281,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__product__status___276EDEB3">
+        <Association Name="FK__product__status___3B75D760">
           <End Role="status_product" Type="Self.status_product" Multiplicity="1" />
           <End Role="product" Type="Self.product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -281,7 +293,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__productsi__produ__21B6055D">
+        <Association Name="FK__productsi__produ__37A5467C">
           <End Role="product" Type="Self.product" Multiplicity="0..1" />
           <End Role="productsize" Type="Self.productsize" Multiplicity="*" />
           <ReferentialConstraint>
@@ -293,7 +305,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__productsi__size___22AA2996">
+        <Association Name="FK__productsi__size___38996AB5">
           <End Role="size" Type="Self.size" Multiplicity="0..1" />
           <End Role="productsize" Type="Self.productsize" Multiplicity="*" />
           <ReferentialConstraint>
@@ -305,7 +317,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Role_func__funct__0CBAE877">
+        <Association Name="FK__Role_func__funct__2A4B4B5E">
           <End Role="Function" Type="Self.Function" Multiplicity="0..1" />
           <End Role="Role_function" Type="Self.Role_function" Multiplicity="*" />
           <ReferentialConstraint>
@@ -317,7 +329,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Role_func__role___0DAF0CB0">
+        <Association Name="FK__Role_func__role___2B3F6F97">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="Role_function" Type="Self.Role_function" Multiplicity="*" />
           <ReferentialConstraint>
@@ -345,6 +357,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
           <EntitySet Name="size" EntityType="Self.size" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slide" EntityType="Self.Slide" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="status_product" EntityType="Self.status_product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="productsize" EntityType="Self.productsize" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [productsize].[product_id] AS [product_id], 
@@ -352,55 +365,55 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
     [productsize].[product_quantity] AS [product_quantity]
     FROM [dbo].[productsize] AS [productsize]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Account__account__1273C1CD" Association="Self.FK__Account__account__1273C1CD">
+          <AssociationSet Name="FK__Account__account__2E1BDC42" Association="Self.FK__Account__account__2E1BDC42">
             <End Role="Role" EntitySet="Role" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__account_i__2C3393D0" Association="Self.FK__Order__account_i__2C3393D0">
+          <AssociationSet Name="FK__Order__account_i__3E52440B" Association="Self.FK__Order__account_i__3E52440B">
             <End Role="Account" EntitySet="Account" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__Order_sta__35BCFE0A" Association="Self.FK__Order__Order_sta__35BCFE0A">
+          <AssociationSet Name="FK__Order__Order_sta__440B1D61" Association="Self.FK__Order__Order_sta__440B1D61">
             <End Role="Order_status" EntitySet="Order_status" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__shipping___30F848ED" Association="Self.FK__Order__shipping___30F848ED">
+          <AssociationSet Name="FK__Order__shipping___412EB0B6" Association="Self.FK__Order__shipping___412EB0B6">
             <End Role="shipping" EntitySet="shipping" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order_Det__Order__3A81B327" Association="Self.FK__Order_Det__Order__3A81B327">
+          <AssociationSet Name="FK__Order_Det__Order__46E78A0C" Association="Self.FK__Order_Det__Order__46E78A0C">
             <End Role="Order" EntitySet="Order" />
             <End Role="Order_Details" EntitySet="Order_Details" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order_Det__produ__3B75D760" Association="Self.FK__Order_Det__produ__3B75D760">
+          <AssociationSet Name="FK__Order_Det__produ__47DBAE45" Association="Self.FK__Order_Det__produ__47DBAE45">
             <End Role="product" EntitySet="product" />
             <End Role="Order_Details" EntitySet="Order_Details" />
           </AssociationSet>
-          <AssociationSet Name="FK__product__categor__1BFD2C07" Association="Self.FK__product__categor__1BFD2C07">
+          <AssociationSet Name="FK__product__categor__33D4B598" Association="Self.FK__product__categor__33D4B598">
             <End Role="Category" EntitySet="Category" />
             <End Role="product" EntitySet="product" />
           </AssociationSet>
-          <AssociationSet Name="FK__product__color_i__1B0907CE" Association="Self.FK__product__color_i__1B0907CE">
+          <AssociationSet Name="FK__product__color_i__32E0915F" Association="Self.FK__product__color_i__32E0915F">
             <End Role="Color" EntitySet="Color" />
             <End Role="product" EntitySet="product" />
           </AssociationSet>
-          <AssociationSet Name="FK__product__status___276EDEB3" Association="Self.FK__product__status___276EDEB3">
+          <AssociationSet Name="FK__product__status___3B75D760" Association="Self.FK__product__status___3B75D760">
             <End Role="status_product" EntitySet="status_product" />
             <End Role="product" EntitySet="product" />
           </AssociationSet>
-          <AssociationSet Name="FK__productsi__produ__21B6055D" Association="Self.FK__productsi__produ__21B6055D">
+          <AssociationSet Name="FK__productsi__produ__37A5467C" Association="Self.FK__productsi__produ__37A5467C">
             <End Role="product" EntitySet="product" />
             <End Role="productsize" EntitySet="productsize" />
           </AssociationSet>
-          <AssociationSet Name="FK__productsi__size___22AA2996" Association="Self.FK__productsi__size___22AA2996">
+          <AssociationSet Name="FK__productsi__size___38996AB5" Association="Self.FK__productsi__size___38996AB5">
             <End Role="size" EntitySet="size" />
             <End Role="productsize" EntitySet="productsize" />
           </AssociationSet>
-          <AssociationSet Name="FK__Role_func__funct__0CBAE877" Association="Self.FK__Role_func__funct__0CBAE877">
+          <AssociationSet Name="FK__Role_func__funct__2A4B4B5E" Association="Self.FK__Role_func__funct__2A4B4B5E">
             <End Role="Function" EntitySet="Function" />
             <End Role="Role_function" EntitySet="Role_function" />
           </AssociationSet>
-          <AssociationSet Name="FK__Role_func__role___0DAF0CB0" Association="Self.FK__Role_func__role___0DAF0CB0">
+          <AssociationSet Name="FK__Role_func__role___2B3F6F97" Association="Self.FK__Role_func__role___2B3F6F97">
             <End Role="Role" EntitySet="Role" />
             <End Role="Role_function" EntitySet="Role_function" />
           </AssociationSet>
@@ -478,6 +491,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             <End Role="size" EntitySet="sizes" />
             <End Role="productsize" EntitySet="productsizes" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="Project_SU22Model.sysdiagram" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -496,6 +510,8 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
           <Property Name="account_createdate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Role" Relationship="Project_SU22Model.FK__Account__account__1273C1CD" FromRole="Account" ToRole="Role" />
           <NavigationProperty Name="Orders" Relationship="Project_SU22Model.FK__Order__account_i__2C3393D0" FromRole="Account" ToRole="Order" />
+          <Property Name="account_image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="account_DOB" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Blog">
           <Key>
@@ -827,6 +843,16 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -836,6 +862,8 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="Project_SU22Model.Account">
               <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="account_DOB" ColumnName="account_DOB" />
+                <ScalarProperty Name="account_image" ColumnName="account_image" />
                 <ScalarProperty Name="account_createdate" ColumnName="account_createdate" />
                 <ScalarProperty Name="account_status" ColumnName="account_status" />
                 <ScalarProperty Name="account_gender" ColumnName="account_gender" />
@@ -1012,6 +1040,17 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
                 <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
                 <ScalarProperty Name="size_id" ColumnName="size_id" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Project_SU22Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

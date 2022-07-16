@@ -199,8 +199,12 @@
     <Compile Include="Context\status_product.cs">
       <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\sysdiagram.cs">
+      <DependentUpon>OnlineShopping.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\Admin\AccountsController.cs" />
     <Compile Include="Controllers\Admin\FunctionsController.cs" />
+    <Compile Include="Controllers\Admin\LoginController.cs" />
     <Compile Include="Controllers\Admin\RolesController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
@@ -246,6 +250,7 @@
     <Compile Include="Models\ProductByColor.cs" />
     <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\SlideModel.cs" />
     <Compile Include="Models\UserLogin.cs" />
@@ -1120,9 +1125,7 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\DashboardSale\Index.cshtml" />
-    <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Shared\Login.cshtml" />
-    <Content Include="Views\Accounts\Signup.cshtml" />
     <Content Include="Views\Cart\index.cshtml" />
     <Content Include="Views\Cart\payment.cshtml" />
     <Content Include="Views\Cart\success.cshtml" />
@@ -1134,7 +1137,11 @@
     <Content Include="Views\Order_Details\Edit.cshtml" />
     <Content Include="Views\Order_Details\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\ProductAdmin\Edit.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\Profile.cshtml" />
+    <Content Include="Views\Login\Signup.cshtml" />
+    <Content Include="Views\Login\ProfileAdmin.cshtml" />
+    <Content Include="Views\Login\ProfileUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

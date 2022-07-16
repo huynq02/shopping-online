@@ -9,6 +9,7 @@ using PagedList;
 
 namespace shopping_online.Controllers.HomePage
 {
+   
     public class ListHomeController : Controller
     {
         private DBContext obj = new DBContext();
