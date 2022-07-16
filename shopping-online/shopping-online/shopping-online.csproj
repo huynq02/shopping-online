@@ -209,6 +209,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\Cart\cartController.cs" />
+    <Compile Include="Controllers\HomePage\AboutUsController.cs" />
     <Compile Include="Controllers\HomePage\ListHomeController.cs" />
     <Compile Include="Controllers\HomePage\PageProductController.cs" />
     <Compile Include="Controllers\HomePage\ProductByCategoryController.cs" />
@@ -1142,6 +1143,7 @@
     <Content Include="Views\Login\Signup.cshtml" />
     <Content Include="Views\Login\ProfileAdmin.cshtml" />
     <Content Include="Views\Login\ProfileUser.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
