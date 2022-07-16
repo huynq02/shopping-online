@@ -69,6 +69,7 @@
       <End Role="size" EntitySet="sizes" />
       <End Role="productsize" EntitySet="productsizes" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="Project_SU22Model.sysdiagram" />
   </EntityContainer>
   <EntityType Name="Account">
     <Key>
@@ -87,6 +88,8 @@
     <Property Name="account_createdate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Role" Relationship="Project_SU22Model.FK__Account__account__1273C1CD" FromRole="Account" ToRole="Role" />
     <NavigationProperty Name="Orders" Relationship="Project_SU22Model.FK__Order__account_i__2C3393D0" FromRole="Account" ToRole="Order" />
+    <Property Name="account_image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="account_DOB" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="Blog">
     <Key>
@@ -418,4 +421,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>

@@ -34,6 +34,7 @@
         <AssociationConnector Association="Project_SU22Model.FK__productsi__produ__21B6055D" />
         <AssociationConnector Association="Project_SU22Model.FK__Role_func__role___0DAF0CB0" />
         <AssociationConnector Association="Project_SU22Model.FK__productsi__size___22AA2996" />
+        <EntityTypeShape EntityType="Project_SU22Model.sysdiagram" Width="1.5" PointX="8.5" PointY="5.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

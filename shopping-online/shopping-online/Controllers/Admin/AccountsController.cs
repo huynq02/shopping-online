@@ -7,100 +7,38 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using PagedList;
 using shopping_online.Context;
 using shopping_online.Models;
 
 namespace shopping_online.Controllers.Admin
 {
-    [Authorize]
+   
     public class AccountsController : Controller
     {
         private DBContext db = new DBContext();
-
-        public ActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Login(UserLogin model)
-        {
-            bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
-                 model.account_username.ToLower() && user.account_password == model.account_password);
-            int count = GetRole(model.account_username.ToLower());
-            if (IsValidUser)
-            {
-                if (count == 1)
-                {
-                    FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "ListHome");
-                }
-                else if (count == 2)
-                {
-                    FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "Accounts");
-                }
-                else if (count == 3)
-                {
-                    FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "shippings");
-                }
-                else
-                {
-                    FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "Blog");
-                }
-
-            }
-            ModelState.AddModelError("", "invalid Username or Password");
-            return View();
-
-        }
-        private int GetRole(string username)
-        {
-            int role = (from user in db.Accounts
-                             join roles in db.Roles
-                             on user.account_role_id equals roles.Role_id
-                             where user.account_username.ToLower() == username.ToLower()
-                             select roles.Role_id).SingleOrDefault();
-            return role;
-        }
-        public ActionResult Signup()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Signup(Account model)
-        {
-
-            bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
-                     model.account_username.ToLower());
-            if (IsValidUser == false)
-            {
-                model.account_role_id = 2;
-                model.account_status = true;
-                db.Accounts.Add(model);
-                db.SaveChanges();
-
-                return RedirectToAction("Login");
-            }
-            ModelState.AddModelError("", "invalid Username or Password");
-            return View();
-
-
-        }
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Login");
-        }
         // GET: Accounts
-        public ActionResult Index()
+        [Authorize(Roles = "Admin")]
+        public ActionResult Index(string table_search, int? page)
         {
-            var accounts = db.Accounts.Include(a => a.Role);
-            return View(accounts.ToList());
+            int padeNum = (page ?? 1);
+            int pageSize = 20;
+
+            List<Account> accounts = db.Accounts.ToList(); 
+            IQueryable<Account> acc = db.Accounts;
+            IQueryable<Role> roles = db.Roles;
+            if (!string.IsNullOrEmpty(table_search))
+            {
+                acc = acc.Where(x => x.account_name.Contains(table_search) || x.account_username.Contains(table_search) 
+                || x.account_email.Contains(table_search)||x.account_phone.Contains(table_search));
+                roles = roles.Where(x => x.Role_name.Contains(table_search));
+            }
+            var pto = acc.OrderBy(x => x.account_createdate).ToPagedList(padeNum, pageSize);
+            ViewBag.table_search = table_search;
+            return View("Index", pto);
         }
 
-
+     
         // GET: Accounts/Create
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
@@ -114,6 +52,7 @@ namespace shopping_online.Controllers.Admin
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account)
         {
             if (ModelState.IsValid)
@@ -143,7 +82,7 @@ namespace shopping_online.Controllers.Admin
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
             return View(account);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: Accounts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -176,7 +115,7 @@ namespace shopping_online.Controllers.Admin
             }
             return View(account);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: Accounts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -195,7 +134,69 @@ namespace shopping_online.Controllers.Admin
                 return RedirectToAction("Index");
             }
         }
+        public ActionResult ProfileAdmin(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Account account = db.Accounts.Find(id);
+            if (account == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
+            return View(account);
+        }
 
+        // POST: Accounts/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ProfileAdmin([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                db.Entry(account).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
+            return View(account);
+        }
+        public ActionResult ProfileUser( int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Account account = db.Accounts.Find(id);
+            if (account == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
+            return View(account);
+        }
+
+        // POST: Accounts/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ProfileUser([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(account).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
+            return View(account);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

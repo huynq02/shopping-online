@@ -11,9 +11,7 @@ namespace shopping_online.Context
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Order_status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,14 +19,10 @@ namespace shopping_online.Context
         {
             this.Orders = new HashSet<Order>();
         }
-
+    
         public int Order_status_id { get; set; }
-        [DisplayName("Order status")]
-        [Required(ErrorMessage = "Order status is Required")]
-        [StringLength(30, MinimumLength = 4,
-                   ErrorMessage = "Order status should be between 4 and 50 characters")]
         public string Order_status_status { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
