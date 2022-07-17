@@ -32,6 +32,7 @@ namespace shopping_online.Context
         public string product_description { get; set; }
         public string product_code { get; set; }
         public System.DateTime product_create_date { get; set; }
+        public string product_backlink { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Color Color { get; set; }

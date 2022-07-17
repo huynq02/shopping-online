@@ -13,15 +13,9 @@
         </header>
         <div class="panel-body table-responsive">
             <div class=" add-task-row">
-                @if (User.IsInRole("Sale"))
-                {
-                    <p class="btn btn-success btn-sm pull-left">
-
-                        @Html.ActionLink("Create New", "Create")
-
-                        @*@Html.ActionLink("Create New", "Create")*@
-                    </p>
-                }
+                <p class="btn btn-success btn-sm pull-left">
+                    @Html.ActionLink("Create New", "Create")
+                </p>
             </div>
             @using (Html.BeginForm("Shipping", "shipping", FormMethod.Get))
             {
@@ -61,13 +55,8 @@
                             @Html.DisplayFor(modelItem => item.shipping_phone)
                         </td>
                         <td>
-                            @if (User.IsInRole("Sale"))
-                            {
-                                <a href="~/shippings/Edit/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                <a href="~/shippings/Delete/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                            }
-                            @*<a href="~/shippings/Edit/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                <a href="~/shippings/Delete/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>*@
+                            <a href="~/shippings/Edit/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                            <a href="~/shippings/Delete/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
                         </td>
                     </tr>
                 }

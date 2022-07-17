@@ -13,8 +13,6 @@ namespace shopping_online.Controllers.Marketing
     {
         DBContext db = new DBContext();
         // GET: EditBlogAdmin
-        [Authorize(Roles = "Admin, Sale, Marketing")]
-
         public ActionResult Index(int Id)
         {
             var blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
@@ -22,7 +20,6 @@ namespace shopping_online.Controllers.Marketing
             bg.blog = blog;
             return View(bg);
         }
-        [Authorize(Roles = "Marketing")]
 
         [HttpPost]
         public JsonResult uploadFile(HttpPostedFileBase uploadedFiles)
@@ -46,7 +43,6 @@ namespace shopping_online.Controllers.Marketing
             }
             return Json(Convert.ToString(returnImagePath), JsonRequestBehavior.AllowGet);
         }
-        [Authorize(Roles = "Marketing")]
 
         [HttpPost]
         [ValidateInput(false)]
@@ -62,7 +58,6 @@ namespace shopping_online.Controllers.Marketing
             db.SaveChanges();
             return RedirectToAction("Index", "BlogAdmin");
         }
-        [Authorize(Roles = "Marketing")]
 
         public ActionResult Delete(int Id)
         {

@@ -14,8 +14,6 @@ namespace shopping_online.Controllers.Marketing
     {
         DBContext db = new DBContext();
         // GET: SlideAdmin
-        [Authorize(Roles = "Admin, Sale, Marketing")]
-
         public ActionResult Index(string search, int page = 1, int pageSize = 5)
         {
             //
@@ -31,7 +29,7 @@ namespace shopping_online.Controllers.Marketing
             sl.search = search;
             return View(sl);
         }
-        [Authorize(Roles = "Marketing")]
+
         public ActionResult InsertActive(int Id)
         {
             Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
@@ -40,7 +38,7 @@ namespace shopping_online.Controllers.Marketing
             db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");
         }
-        [Authorize(Roles = "Marketing")]
+
         public ActionResult DeleteSlideActive(int Id)
         {
             Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();

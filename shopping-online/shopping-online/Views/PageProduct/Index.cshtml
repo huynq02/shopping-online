@@ -102,16 +102,17 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                @*<li><a href="#"><i class="fa fa-user"></i> Account</a></li>*@
+                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                                    <li><a href="@Url.Action("Logout","Login")"><i class="fa fa-lock"></i>Logout</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i>@User.Identity.Name</a></li>
+                                    <li><i class="fa fa-user-md"></i>@Html.ActionLink("Logout", "Logout", "Login")</li>
                                 }
                                 else
                                 {
-                                    <li><a href="@Url.Action("Login","Login")"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li>  <i class="fa fa-lock"></i>@Html.ActionLink("Login", "Login", "Login")</li>
                                 }
                             </ul>
                         </div>
@@ -135,11 +136,10 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="@Url.Action("Index","ListHome")">Home</a></li>
+                                <li><a href="@Url.Action("Index","ListHome")" >Home</a></li>
                                 <li><a href="@Url.Action("Index","PageProduct")" class="active">Product All</a></li>
                                 <li> <a href="@Url.Action("Index","Blog")">Blog</a></li>
-                                <li><a href="@Url.Action("Index","AboutUs")">About Us</a></li>
-                            </ul>
+</ul>
                         </div>
                     </div>
                     @using (Html.BeginForm("Index", "Search", FormMethod.Get))
@@ -296,13 +296,13 @@
                         <div class="productinfo text-center">
                             <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                             <h2>@item.product_price</h2>
-                            <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                            <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h2>
                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
                         <div class="product-overlay">
                             <div class="overlay-content">
                                 <h2>@item.product_name</h2>
-                                <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                                <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h2>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
                         </div>
@@ -344,7 +344,7 @@
                                 <div class="productinfo text-center">
                                     <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                                     <h2>@item.product_price</h2>
-                                    <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                                    <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
 
@@ -362,7 +362,7 @@
                                 <div class="productinfo text-center">
                                     <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                                     <h2>@item.product_price</h2>
-                                    <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                                    <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
 
@@ -393,7 +393,7 @@
                                     <div class="productinfo text-center">
                                         <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                                         <h2>@item.product_price</h2>
-                                        <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                                        <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
 
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
@@ -411,7 +411,7 @@
                                     <div class="productinfo text-center">
                                         <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                                         <h2>@item.product_price</h2>
-                                        <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                                        <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
 
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>

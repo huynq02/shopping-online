@@ -1,6 +1,4 @@
-﻿using shopping_online.Context;
-using shopping_online.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,14 +8,10 @@ namespace shopping_online.Controllers.HomePage
 {
     public class AboutUsController : Controller
     {
-        private DBContext obj = new DBContext();
         // GET: AboutUs
         public ActionResult Index()
         {
-            var product = obj.products.ToList();
-            BlogModel bg = new BlogModel();
-            bg.ListProducts = product;
-            return View(bg);
+            return View();
         }
     }
 }
