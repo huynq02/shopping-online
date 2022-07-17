@@ -227,6 +227,7 @@
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
     <Compile Include="Controllers\Sale\DashboardSaleController.cs" />
     <Compile Include="Controllers\Sale\OrderController.cs" />
+    <Compile Include="Controllers\Sale\Order_DetailsController.cs" />
     <Compile Include="Controllers\Sale\Order_statusController.cs" />
     <Compile Include="Controllers\Sale\shippingsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -1132,6 +1133,12 @@
     <Content Include="Views\Login\ProfileAdmin.cshtml" />
     <Content Include="Views\Login\ProfileUser.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\Login\View.cshtml" />
+    <Content Include="Views\Order_Details\Create.cshtml" />
+    <Content Include="Views\Order_Details\Delete.cshtml" />
+    <Content Include="Views\Order_Details\Details.cshtml" />
+    <Content Include="Views\Order_Details\Edit.cshtml" />
+    <Content Include="Views\Order_Details\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
