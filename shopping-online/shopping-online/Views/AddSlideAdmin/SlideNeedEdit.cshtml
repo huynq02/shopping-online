@@ -259,73 +259,53 @@
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
-                @if (User.IsInRole("Admin"))
-                {
-                    <li>
-                        <a href="/Accounts/Index">
-                            <i class="fa fa-user"></i> <span>Account</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Roles/Index">
-                            <i class="fa fa-user"></i> <span>Role</span>
-                        </a>
-                    </li>
-                }
+                <li>
+                    <a href="/Accounts/Index">
+                        <i class="fa fa-user"></i> <span>Account</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Roles/Index">
+                        <i class="fa fa-user"></i> <span>Role</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/ProductAdmin/Index">
+                        <i class="fa fa-gavel"></i> <span>Product</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Order/Index">
+                        <i class="fa fa-globe"></i> <span>Order</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Order_status/Index">
+                        <i class="fa fa-globe"></i> <span>Order Status</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/shippings/Index">
+                        <i class="fa fa-globe"></i> <span>Ship</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/BlogAdmin/Index">
+                        <i class="fa fa-globe"></i> <span>Blog</span>
+                    </a>
+                </li>
 
+                <li class="active">
+                    <a href="/SlideAdmin/Index">
+                        <i class="fa fa-glass"></i> <span>Slide</span>
+                    </a>
+                </li>
 
-
-                @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
-                {
-                    <li>
-                        <a href="/Order/Index">
-                            <i class="fa fa-globe"></i> <span>Order</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Order_status/Index">
-                            <i class="fa fa-globe"></i> <span>Order Status</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="/shippings/Index">
-                            <i class="fa fa-globe"></i> <span>Ship</span>
-                        </a>
-                    </li>
-                }
-                @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
-                {
-                    <li>
-                        <a href="/ProductAdmin/loadProduct">
-                            <i class="fa fa-gavel"></i> <span>Product</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/BlogAdmin/Index">
-                            <i class="fa fa-globe"></i> <span>Blog</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/SlideAdmin/Index">
-                            <i class="fa fa-glass"></i> <span>Slide</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/CustomerAdmin/Index">
-                            <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="simple.html">
-                            <i class="glyphicon glyphicon-book"></i> <span>FeedBack</span>
-                        </a>
-                    </li>
-
-                }
-
+                <li>
+                    <a href="/CustomerAdmin/Index">
+                        <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
+                    </a>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -352,18 +332,22 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Title</label>
                                         @Html.EditorFor(model => model.sl.slide_title, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_title, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Descriptions</label>
                                         @Html.EditorFor(model => model.sl.slide_descriptions, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_descriptions, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">CreateDate(yyyy-MM-dd)</label>
                                         @Html.EditorFor(model => model.sl.slide_createdate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_createdate, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">CreateBy</label>
                                         @Html.EditorFor(model => model.sl.slide_createby, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_createby, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">Cover</label>
@@ -374,10 +358,12 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">ModifyDate(yyyy-MM-dd)</label>
                                         @Html.EditorFor(model => model.sl.slide_modifydate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_modifydate, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">ModifyBy</label>
                                         @Html.EditorFor(model => model.sl.slide_modifyby, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_modifyby, "", new { @class = "text-danger" })
                                     </div>
                                     <input type="hidden" name="Id" value="@Model.sl.slide_id" />
                                     <input type="hidden" name="Status_id" value="@Model.sl.slide_status_id" />

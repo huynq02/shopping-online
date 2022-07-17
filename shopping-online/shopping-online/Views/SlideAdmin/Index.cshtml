@@ -222,16 +222,16 @@
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-
-
                         @if (User.Identity.IsAuthenticated)
                         {
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-user"></i>
                                 <span>@User.Identity.Name <i class="caret"></i></span>
-                            </a>}
+                            </a>
+                        }
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
+
                             <li class="divider"></li>
 
                             <li>
@@ -246,9 +246,9 @@
                             </li>
 
                             <li class="divider"></li>
+
                             @if (User.Identity.IsAuthenticated)
                             {
-
                                 <li>
                                     <a href="@Url.Action("Logout", "Login")"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                                 </li>
@@ -273,95 +273,91 @@
                     {
                         <div class="pull-left info">
                             <p>Hello, @User.Identity.Name</p>
+                            <div class="pull-left info">
+                                <p>Hello, Jane</p>
 
-                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                        </div>}
+                                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- search form -->
+                    <form action="#" method="get" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search..." />
+                            <span class="input-group-btn">
+                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="/Admin/Index">
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a href="/Accounts/Index">
+                                    <i class="fa fa-user"></i> <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Roles/Index">
+                                    <i class="fa fa-user"></i> <span>Role</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a href="/Order/Index">
+                                    <i class="fa fa-globe"></i> <span>Order</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Order_status/Index">
+                                    <i class="fa fa-globe"></i> <span>Order Status</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shippings/Index">
+                                    <i class="fa fa-globe"></i> <span>Ship</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a href="/ProductAdmin/Index">
+                                    <i class="fa fa-globe"></i> <span>Product</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/BlogAdmin/Index">
+                                    <i class="fa fa-globe"></i> <span>Blog</span>
+                                </a>
+                            </li>
+
+                            <li class="active">
+                                <a href="/SlideAdmin/Index">
+                                    <i class="fa fa-glass"></i> <span>Slide</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/CustomerAdmin/Index">
+                                    <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
+                                </a>
+                            </li>
+
+                        }
+                    </ul>
                 </div>
-                <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search..." />
-                        <span class="input-group-btn">
-                            <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div>
-                </form>
-                <!-- /.search form -->
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu">
-                    <li>
-                        <a href="/Admin/Index">
-                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                        </a>
-                    </li>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <li>
-                            <a href="/Accounts/Index">
-                                <i class="fa fa-user"></i> <span>Account</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Roles/Index">
-                                <i class="fa fa-user"></i> <span>Role</span>
-                            </a>
-                        </li>
-                    }
 
-
-
-                    @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
-                    {
-                        <li>
-                            <a href="/Order/Index">
-                                <i class="fa fa-globe"></i> <span>Order</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Order_status/Index">
-                                <i class="fa fa-globe"></i> <span>Order Status</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="/shippings/Index">
-                                <i class="fa fa-globe"></i> <span>Ship</span>
-                            </a>
-                        </li>
-                    }
-                    @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
-                    {
-                        <li>
-                            <a href="/ProductAdmin/loadProduct">
-                                <i class="fa fa-gavel"></i> <span>Product</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/BlogAdmin/Index">
-                                <i class="fa fa-globe"></i> <span>Blog</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="/SlideAdmin/Index">
-                                <i class="fa fa-glass"></i> <span>Slide</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="/CustomerAdmin/Index">
-                                <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="simple.html">
-                                <i class="glyphicon glyphicon-book"></i> <span>FeedBack</span>
-                            </a>
-                        </li>
-
-                    }
-
-                </ul>
             </section>
             <!-- /.sidebar -->
         </aside>
@@ -395,9 +391,11 @@
                                                     <span class="task-title-sp">@slide.slide_title</span>
                                                     <span class="label label-success">@slide.slide_createdate</span>
                                                     <div class="pull-right hidden-phone">
-                                                        @*<button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                            <a href="/EditBlogAdmin/Index?Id="><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>*@
-                                                        <a href="/SlideAdmin/DeleteSlideActive?Id=@slide.slide_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                        @if (User.IsInRole("Marketing"))
+                                                        {
+                                                            <a href="/SlideAdmin/DeleteSlideActive?Id=@slide.slide_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                        }
+
                                                     </div>
                                                 </div>
                                             </li>
@@ -440,28 +438,19 @@
                                                             <a href="/SlideAdmin/InsertActive?Id=@slide.slide_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
                                                             <a href="/AddSlideAdmin/SlideNeedEdit?Id=@slide.slide_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
                                                             <a href="/AddSlideAdmin/Delete?Id=@slide.slide_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                                                        </div>
-                                                    }
-                                                    @*<div class="pull-right hidden-phone">
-                                                            <a href="/SlideAdmin/InsertActive?Id=@slide.slide_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
-                                                            <a href="/AddSlideAdmin/SlideNeedEdit?Id=@slide.slide_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                                            <a href="/AddSlideAdmin/Delete?Id=@slide.slide_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                                                        </div>*@
+                                                        </div>}
                                                 </div>
                                             </li>
                                         }
                                         @Html.PagedListPager(Model.slide, page => Url.Action("Index", new { page }))
                                     </ul>
                                 </div>
+
                                 @if (User.IsInRole("Marketing"))
                                 {
                                     <div class=" add-task-row">
                                         <a class="btn btn-success btn-sm pull-left" href="/AddSlideAdmin/Index">Add New Slide</a>
-                                    </div>
-                                }
-                                @*<div class=" add-task-row">
-                                        <a class="btn btn-success btn-sm pull-left" href="/AddSlideAdmin/Index">Add New Slide</a>
-                                    </div>*@
+                                    </div>}
                             </div>
                         </section>
                     </div>
@@ -565,7 +554,7 @@
             });
 
         });
-                                            // Chart.defaults.global.responsive = true;
+                                                                        // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

@@ -15,7 +15,7 @@ namespace shopping_online.Models
         public DateTime CreateDate { get; set; }
 
         [Required(ErrorMessage = "CreateBy is not empty")]
-        [StringLength(70, MinimumLength = 5, ErrorMessage = "Use 5-70 characters")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Use 5-50 characters")]
         public string CreateBy { get; set; }
 
         [Required(ErrorMessage = "ModifyDate is not empty")]

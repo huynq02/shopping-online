@@ -18,14 +18,14 @@ namespace shopping_online.Models
         public string ImageProduct { get; set; }
 
         [Required(ErrorMessage = "ProductPrice is not empty")]
-        [RegularExpression("^[0-9.]{1-100}$", ErrorMessage = "ProductPrice is a number")]
+        [RegularExpression("^[0-9.,]{1,100}$", ErrorMessage = "ProductPrice is a number")]
         public double ProductPrice { get; set; }
 
         [Required(ErrorMessage = "Color is not empty")]
         public int ColorID { get; set; }
 
         [Required(ErrorMessage = "ProductQuanity is not empty")]
-        [RegularExpression("^[0-9.]{1-100}$", ErrorMessage = "ProductQuanity is a number")]
+        [RegularExpression("^[0-9.]{1,100}$", ErrorMessage = "ProductQuanity is a number")]
         public int ProductQuanity { get; set; }
 
         [Required(ErrorMessage = "Category is not empty")]
@@ -44,6 +44,9 @@ namespace shopping_online.Models
 
         [Required(ErrorMessage = "CreateDate is not empty")]
         public DateTime CreateDate { get; set; }
+
+        [Required(ErrorMessage = "Back_Link is not empty")]
+        public string Back_Link { get; set; }
         public List<Color> lstColor { get; set; }
         public List<Category> lstCategories { get; set; }
         public List<status_product> lstStatus { get; set; }

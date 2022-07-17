@@ -16,21 +16,12 @@
 
         <div class="panel-body table-responsive">
             <div class=" add-task-row">
-                @if (User.IsInRole("Sale"))
-                {
                 <p class="btn btn-success btn-sm pull-left">
-
+                   
                     <a href="~/Order_Details/Create">
                         Create
                     </a>
                 </p>
-                }
-                @*<p class="btn btn-success btn-sm pull-left">
-
-                    <a href="~/Order_Details/Create">
-                        Create
-                    </a>
-                </p>*@
             </div>
             @using (Html.BeginForm("Orders", "Index", FormMethod.Get))
             {
@@ -73,40 +64,32 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Account.account_username)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Order_total_money)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Order_Date)
-                        </td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Account.account_username)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order_total_money)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order_Date)
+                            </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Order_status.Order_status_status)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.shipping.shipping_name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Order_note)
-                        </td>
-                        @if (User.IsInRole("Sale"))
-                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order_status.Order_status_status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.shipping.shipping_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order_note)
+                            </td>
                             <td>
                                 <a href="~/Order/Edit/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
                                 <a href="~/Order/Details/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-outdent"></i></button></a>
                                 <a href="~/Order/Delete/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
                             </td>
-                        }
-                        @*<td>
-                            <a href="~/Order/Edit/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                            <a href="~/Order/Details/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-outdent"></i></button></a>
-                            <a href="~/Order/Delete/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                        </td>*@
-                    </tr>
+                        </tr>
                     }
                 </tbody>
             </table>

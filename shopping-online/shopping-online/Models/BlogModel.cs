@@ -15,6 +15,5 @@ namespace shopping_online.Models
         public Blog relateBlog { get; set; }
         public List<Category> cate { get; set; }
         public List<Color> color { get; set; }
-        public List<product> ListProducts { get; set; }
     }
 }

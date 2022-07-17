@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using shopping_online.Models;
+using System.Data.Entity;
+using System.Globalization;
 
 namespace shopping_online.Controllers.Marketing
 {
@@ -13,8 +15,6 @@ namespace shopping_online.Controllers.Marketing
     {
         // GET: ProductAdmin
         DBContext db = new DBContext();
-        [Authorize(Roles = "Admin, Sale, Marketing")]
-
         public ActionResult Index(string search, int page=1, int pageSize=5)
         {
             
@@ -32,7 +32,6 @@ namespace shopping_online.Controllers.Marketing
             product.search = search;
             return View(product);
         }
-        [Authorize(Roles = " Marketing")]
 
         public ActionResult Edit(int Id)
         {
@@ -47,8 +46,27 @@ namespace shopping_online.Controllers.Marketing
             pro.lstCategories = cate;
             return View(pro);
         }
-        [Authorize(Roles = "Marketing")]
 
+        public ActionResult SaveEdit(product product, int Id, string Img, int ColorID, int CategoryID, int StatusID)
+        {
+            var pro = db.products.Where(x => x.product_id == Id).FirstOrDefault();
+            //Console.WriteLine(pro);
+            pro.product_code = product.product_code;
+            pro.product_name = product.product_name;
+            pro.product_description = product.product_description;
+            pro.product_image = Img;
+            pro.status_product_id = StatusID;
+            pro.category_id = CategoryID;
+            pro.color_id = ColorID;
+            pro.product_quantity = product.product_quantity;
+            pro.product_price = product.product_price;
+            pro.product_backlink = product.product_backlink;
+            pro.product_create_date = product.product_create_date;
+            //db.Entry(pro).State = EntityState.Modified;
+            db.Entry<product>(pro).State = EntityState.Modified;           
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         public ActionResult Delete(int Id)
         {
             product pro = db.products.Where(x => x.product_id == Id).FirstOrDefault();

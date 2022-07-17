@@ -3,8 +3,6 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Role.cshtml";
-
-
 }
 
 <div class="col-xs-12">
@@ -17,47 +15,43 @@
 
         <div class="panel-body table-responsive">
             <div class=" add-task-row">
-                @if (User.IsInRole("Admin"))
+                @if (User.IsInRole("Sale"))
                 {
                     <p class="btn btn-success btn-sm pull-left">
                         @Html.ActionLink("Create New", "Create")
                     </p>
-                }
-
-            </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>
-                            <p>
-                                @Html.DisplayNameFor(model => model.Role_name)
-                            </p>
-                        </th>
-                        <th><p>Action</p></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Role_name)
-                            </td>
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <td>
-                                    <a href="~/Controllers/Admin/Roles/Edit/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                    <a href="~/Roles/Delete/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                                </td>
-                            }
-                            @*<td>
-                                    <a href="~/Controllers/Admin/Roles/Edit/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                    <a href="~/Roles/Delete/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                                </td>*@
-                        </tr>
                     }
-                </tbody>
-            </table>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>
+                                    @Html.DisplayNameFor(model => model.Role_name)
+                                </p>
+                            </th>
+                            <th><p>Action</p></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Role_name)
+                                </td>
+
+                                <td>
+                                    @if (User.IsInRole("Sale"))
+                                    {
+                                        <a href="~/Controllers/Admin/Roles/Edit/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                        <a href="~/Roles/Delete/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>

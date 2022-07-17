@@ -15,8 +15,6 @@ namespace shopping_online.Controllers.Sale
         private DBContext db = new DBContext();
 
         // GET: Order_status
-        [Authorize(Roles = "Admin, Sale, Marketing")]
-
         public ActionResult Index()
         {
             var a = db.Order_status.ToList();
@@ -26,13 +24,10 @@ namespace shopping_online.Controllers.Sale
         }
         //db.Order_status.ToList()
         // GET: Order_status/Create
-        [Authorize(Roles = "Sale")]
-
         public ActionResult Create()
         {
             return View("Create");
         }
-        [Authorize(Roles = "Sale")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -48,7 +43,6 @@ namespace shopping_online.Controllers.Sale
 
             return View(order_status);
         }
-        [Authorize(Roles = "Sale")]
 
         // GET: Order_status/Edit/5
         public ActionResult Edit(int? id)
@@ -65,7 +59,6 @@ namespace shopping_online.Controllers.Sale
             return View("Edit", order_status);
         }
 
-        [Authorize(Roles = "Sale")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -83,8 +76,6 @@ namespace shopping_online.Controllers.Sale
 
 
         }
-        [Authorize(Roles = "Sale")]
-
 
         // GET: Order_status/Delete/5
         public ActionResult Delete(int? id)
@@ -100,7 +91,6 @@ namespace shopping_online.Controllers.Sale
             }
             return View("Delete", order_status);
         }
-        [Authorize(Roles = "Sale")]
 
         // POST: Order_status/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -112,7 +102,6 @@ namespace shopping_online.Controllers.Sale
             db.SaveChanges();
             return RedirectToAction("Index", "Order_status");
         }
-       
 
         protected override void Dispose(bool disposing)
         {
