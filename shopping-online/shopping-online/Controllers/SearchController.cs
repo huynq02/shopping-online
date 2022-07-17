@@ -36,13 +36,11 @@ namespace shopping_online.Controllers
             //}
             var lstPro = db.products.Where(x => x.product_name.Contains(search)).OrderByDescending(x => x.product_name).ToPagedList(page, pageSize);
             var lstBlog = db.Blogs.Where(x => x.blog_title.Contains(search)).OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
-            var product = db.products.ToList();
             SearchModel searchs = new SearchModel();
             searchs.lstBlog = lstBlog;
             searchs.lstPro = lstPro;
             searchs.search = search;
             searchs.result = result;
-            searchs.ListProduct = product;
             return View(searchs);
         }
     }

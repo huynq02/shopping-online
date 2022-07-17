@@ -359,20 +359,22 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">CreateDate(yyyy-MM-dd)</label>
                                         @Html.EditorFor(model => model.blog.blog_createdate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.blog.blog_createdate, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">CreateBy</label>
                                         @Html.EditorFor(model => model.blog.blog_createby, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.blog.blog_createby, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">Cover</label>
                                         <input type="file" name="images" />
                                         <input type="hidden" name="img" value="@Model.blog.blog_images" />
-                                        @*<p class="help-block">Example block-level help text here.</p>*@
                                     </div>
                                     <div>
                                         <label for="exampleInputFile">Content</label>
                                         @Html.TextAreaFor(model => model.blog.blog_detail, new { @class = "form-control summernote" })
+                                        @Html.ValidationMessageFor(model => model.blog.blog_detail, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">ModifyDate(yyyy-MM-dd)</label>
@@ -381,6 +383,12 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">ModifyBy</label>
                                         @Html.EditorFor(model => model.blog.blog_modifyby, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.blog.blog_modifyby, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Back_Link</label>
+                                        @Html.EditorFor(model => model.blog.blog_back_link, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.blog.blog_back_link, "", new { @class = "text-danger" })
                                     </div>
                                     <input type="hidden" name="Id" value="@Model.blog.blog_id" />
                                     <input type="hidden" name="Back" value="@Model.blog.blog_back_link" />

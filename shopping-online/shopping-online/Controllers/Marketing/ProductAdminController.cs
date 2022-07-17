@@ -47,23 +47,23 @@ namespace shopping_online.Controllers.Marketing
             return View(pro);
         }
 
-        public ActionResult SaveEdit(product product, int Id, string ProductCode, string ProductName, Decimal ProductPrice, int ProductQuanity, string Description,
-                                   string Img, int ColorID, int CategoryID, int StatusID, string CreateDate, string Back_Link)
+        public ActionResult SaveEdit(product product, int Id, string Img, int ColorID, int CategoryID, int StatusID)
         {
             var pro = db.products.Where(x => x.product_id == Id).FirstOrDefault();
-            pro.product_code = ProductCode;
-            pro.product_code = ProductCode;
-            pro.product_name = ProductName;
-            pro.product_description = Description;
-            pro.product_price = ProductPrice;
-            pro.product_quantity = ProductQuanity;
+            //Console.WriteLine(pro);
+            pro.product_code = product.product_code;
+            pro.product_name = product.product_name;
+            pro.product_description = product.product_description;
             pro.product_image = Img;
-            pro.color_id = ColorID;
-            pro.category_id = CategoryID;
             pro.status_product_id = StatusID;
-            pro.product_backlink = Back_Link;
-            pro.product_create_date = DateTime.ParseExact(CreateDate, "yyyy-MM-dd", null);
-            db.Entry(pro).State = EntityState.Modified;
+            pro.category_id = CategoryID;
+            pro.color_id = ColorID;
+            pro.product_quantity = product.product_quantity;
+            pro.product_price = product.product_price;
+            pro.product_backlink = product.product_backlink;
+            pro.product_create_date = product.product_create_date;
+            //db.Entry(pro).State = EntityState.Modified;
+            db.Entry<product>(pro).State = EntityState.Modified;           
             db.SaveChanges();
             return RedirectToAction("Index");
         }

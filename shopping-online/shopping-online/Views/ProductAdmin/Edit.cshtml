@@ -338,28 +338,28 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Product Code</label>
                                         <input type="hidden" name="Id" value="@Model.product.product_id"/>
-                                        @*@Html.EditorFor(model => model.ProductCode, new { htmlAttributes = new { @class = "form-control" } })*@
-                                        <input type="text" name="ProductCode" class="form-control text-box single-line" data-val="true"
+                                        @Html.EditorFor(model => model.product.product_code, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*<input type="text" name="ProductCode" class="form-control text-box single-line" data-val="true"
                                                data-val-length="Use 2-6 characters" data-val-length-max="6" data-val-length-min="2" data-val-required="ProductCode is not empty"
-                                               id="ProductCode" placeholder="ProductCode" value="@Model.product.product_code" />
+                                               id="ProductCode" placeholder="ProductCode" value="@Model.product.product_code" />*@
                                         @Html.ValidationMessageFor(model => model.product.product_code, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Product Name</label>
-                                        @*@Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })*@
-                                        <input type="text" name="ProductName" class="form-control text-box single-line" data-val="true"
+                                        @Html.EditorFor(model => model.product.product_name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*<input type="text" name="ProductName" class="form-control text-box single-line" data-val="true"
                                                data-val-length="Use 5-50 characters" data-val-length-max="50" data-val-length-min="5"
                                                data-val-required="ProductName is not empty"
-                                               id="ProductName" placeholder="ProductName" value="@Model.product.product_name" />
+                                               id="ProductName" placeholder="ProductName" value="@Model.product.product_name" />*@
                                         @Html.ValidationMessageFor(model => model.product.product_name, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Description Product</label>
-                                        @*@Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })*@
-                                        <input type="text" name="Description" class="form-control text-box single-line" data-val="true"
+                                        @Html.EditorFor(model => model.product.product_description, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*<input type="text" name="Description" class="form-control text-box single-line" data-val="true"
                                                data-val-length="Use 5-100 characters" data-val-length-max="100" data-val-length-min="5"
                                                data-val-required="Descriptions is not empty"
-                                               id="Description" placeholder="Description" value="@Model.product.product_description" />
+                                               id="Description" placeholder="Description" value="@Model.product.product_description" />*@
                                         @Html.ValidationMessageFor(model => model.product.product_description, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
@@ -371,20 +371,20 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Price</label>
-                                        @*@Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })*@
-                                        <input type="text" name="ProductPrice" class="form-control text-box single-line" data-val="true"
+                                        @Html.EditorFor(model => model.product.product_price, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*<input type="text" name="ProductPrice" class="form-control text-box single-line" data-val="true"
                                                data-val-regex="ProductPrice is a number"
                                                data-val-regex-pattern="^[0-9.]+$"
-                                               data-val-required="ProductPrice is not empty" id="ProductPrice" placeholder="Price" value="@Model.product.product_price" />
+                                               data-val-required="ProductPrice is not empty" id="ProductPrice" placeholder="Price" value="@Model.product.product_price" />*@
                                         @Html.ValidationMessageFor(model => model.product.product_price, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Quantity</label>
-                                        @*@Html.EditorFor(model => model.ProductQuanity, new { htmlAttributes = new { @class = "form-control" } })*@
-                                        <input type="text" name="ProductQuanity" class="form-control text-box single-line" data-val="true"
+                                        @Html.EditorFor(model => model.product.product_quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*<input type="text" name="ProductQuanity" class="form-control text-box single-line" data-val="true"
                                                data-val-regex="ProductQuanity is a number"
                                                data-val-regex-pattern="^[0-9.]+$"
-                                               data-val-required="ProductQuanity is not empty" id="ProductQuanity" placeholder="Quantity" value="@Model.product.product_quantity" />
+                                               data-val-required="ProductQuanity is not empty" id="ProductQuanity" placeholder="Quantity" value="@Model.product.product_quantity" />*@
                                         @Html.ValidationMessageFor(model => model.product.product_quantity, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
@@ -443,16 +443,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Create Date</label>
-                                        @*@Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })*@
-                                        <input type="text" name="CreateDate" class="form-control single-line" data-val="true"
-                                               data-val-required="CreateDate is not empty" id="CreateDate" value="@Model.product.product_create_date" />
+                                        @Html.EditorFor(model => model.product.product_create_date, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*<input type="text" name="CreateDate" class="form-control single-line" data-val="true"
+                                               data-val-required="CreateDate is not empty" id="CreateDate" value="@Model.product.product_create_date" />*@
                                         @Html.ValidationMessageFor(model => model.product.product_create_date, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Back_Link</label>
-                                        
-                                        <input type="text" name="Back_Link" class="form-control single-line" data-val="true"
-                                               data-val-required="Back_Link is not empty" id="Back_Link" value="@Model.product.product_backlink" />
+                                        @Html.EditorFor(model => model.product.product_backlink, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*<input type="text" name="Back_Link" class="form-control single-line" data-val="true"
+        data-val-required="Back_Link is not empty" id="Back_Link" value="@Model.product.product_backlink" />*@
                                         @Html.ValidationMessageFor(model => model.product.product_backlink, "", new { @class = "text-danger" })
                                     </div>
                                     <button type="submit" class="btn btn-info">Save Product</button>

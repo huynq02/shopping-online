@@ -349,6 +349,8 @@
                                         <input type="password" name="Account_password" id="Account_password"
                                                class="form-control text-box single-line input-validation-error"
                                                data-val="true" data-val-required="PassWord is not empty"
+                                               data-val-length="Use 8-100 characters"
+                                               data-val-length-max="100" data-val-length-min="8"
                                                aria-describedby="Account_password-error"/>
                                         @Html.ValidationMessageFor(model => model.Account_password, "", new { @class = "text-danger" })
                                     </div>
