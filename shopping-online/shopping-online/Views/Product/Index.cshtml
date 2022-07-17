@@ -138,14 +138,14 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="@Url.Action("Index","ListHome")">Home</a></li>
-                               
-                                        <li><a href="@Url.Action("Index","PageProduct")">Product All</a></li>
 
-                                <li class="dropdown">
+                                <li><a href="@Url.Action("Index","PageProduct")">Product All</a></li>
+
+                                <li >
                                     <a href="@Url.Action("Index","Blog")">Blog</a>
 
                                 </li>
-
+                                <li><a href="@Url.Action("Index","AboutUs")">About Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -341,7 +341,7 @@
                                                 <div class="productinfo text-center">
                                                     <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
                                                     <h2>@item.product_price $</h2>
-                                                    <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
+                                                    <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
                                                 </div>
                                             </div>
@@ -361,7 +361,7 @@
                                                 <div class="productinfo text-center">
                                                     <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" alt="" />
                                                     <h2>@item.product_price $</h2>
-                                                    <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
+                                                    <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
                                                 </div>
                                             </div>
@@ -466,7 +466,7 @@
                                                     <div class="productinfo text-center">
                                                         <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" alt="" />
                                                         <h2>@item.product_price $</h2>
-                                                        <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
+                                                        <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
                                                         <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
                                                     </div>
                                                 </div>
@@ -485,7 +485,7 @@
                                                     <div class="productinfo text-center">
                                                         <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" alt="" />
                                                         <h2>@item.product_price $</h2>
-                                                        <p>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</p>
+                                                        <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
                                                         <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
                                                     </div>
                                                 </div>
