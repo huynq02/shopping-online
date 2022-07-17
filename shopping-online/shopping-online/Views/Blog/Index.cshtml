@@ -112,10 +112,17 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-
+                                @*<li><a href="#"><i class="fa fa-user"></i> Account</a></li>*@
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                                    <li><a href="@Url.Action("Logout","Login")"><i class="fa fa-lock"></i>Logout</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Login","Login")"><i class="fa fa-lock"></i> Login</a></li>
+                                }
                             </ul>
                         </div>
                     </div>
