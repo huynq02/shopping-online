@@ -9,6 +9,8 @@ namespace shopping_online.Controllers.Sale
     public class DashboardSaleController : Controller
     {
         // GET: DashboardSale
+        [Authorize(Roles = "Sale")]
+
         public ActionResult Index()
         {
             return View();

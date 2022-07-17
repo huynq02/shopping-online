@@ -43,13 +43,15 @@ namespace shopping_online.Controllers.Admin
                 else if (count == 3)
                 {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "shippings");
+                    return RedirectToAction("Index", "Admin");
                 }
-                else
+                else if(count == 4)
                 {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "Blog");
+                    return RedirectToAction("Index", "shippings");
                 }
+                else { return View(); }
+
 
             }
             ModelState.AddModelError("", "invalid Username or Password");

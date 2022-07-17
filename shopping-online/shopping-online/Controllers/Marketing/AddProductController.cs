@@ -12,6 +12,8 @@ namespace shopping_online.Controllers.Marketing
     {
         DBContext db = new DBContext();
         // GET: AddProduct
+        [Authorize(Roles = "Admin, Sale, Marketing")]
+
         public ActionResult Index()
         {
             //
@@ -26,6 +28,8 @@ namespace shopping_online.Controllers.Marketing
         }
 
         [HttpPost]
+        [Authorize(Roles = "Marketing")]
+
         public ActionResult Create(product pro, string ProductCode, string ProductName, Decimal ProductPrice, int ProductQuanity, string Description,
                                    string ImageProduct, int ColorID, int CategoryID, int StatusID, string CreateDate)
         {

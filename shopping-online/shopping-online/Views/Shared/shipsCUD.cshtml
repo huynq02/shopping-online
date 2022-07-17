@@ -217,33 +217,39 @@
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-user"></i>
-                            <span>Jane Doe <i class="caret"></i></span>
+
+                       
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <span>@User.Identity.Name <i class="caret"></i></span>
+                            </a>}
+                <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                    <li class="dropdown-header text-center">Account</li>
+                    <li class="divider"></li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-user fa-fw pull-right"></i>
+                            Profile
                         </a>
-                        <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                            <li class="dropdown-header text-center">Account</li>
-                            <li class="divider"></li>
+                        <a data-toggle="modal" href="#modal-user-settings">
+                            <i class="fa fa-cog fa-fw pull-right"></i>
+                            Settings
+                        </a>
+                    </li>
 
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-user fa-fw pull-right"></i>
-                                    Profile
-                                </a>
-                                <a data-toggle="modal" href="#modal-user-settings">
-                                    <i class="fa fa-cog fa-fw pull-right"></i>
-                                    Settings
-                                </a>
-                            </li>
+                    <li class="divider"></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
 
-                            <li class="divider"></li>
-
-                            <li>
-                                <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                        <li>
+                            <a href="@Url.Action("Logout", "Login")"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                        </li>}
+                    </ul>
                             </li>
                         </ul>
-                    </li>
-                </ul>
             </div>
         </nav>
     </header>
@@ -257,12 +263,14 @@
                     <div class="pull-left image">
                         <img src="~/Content/img/26115.jpg" class="img-circle" alt="User Image" />
                     </div>
-                    <div class="pull-left info">
-                        <p>Hello, Jane</p>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="pull-left info">
+                            <p>Hello, @User.Identity.Name</p>
 
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>}
                     </div>
-                </div>
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
                     <div class="input-group">
@@ -367,9 +375,9 @@
         </aside> /.right-side
         </div> ./wrapper*@
     <!-- jQuery 2.0.2 -->
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)*@
 
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>

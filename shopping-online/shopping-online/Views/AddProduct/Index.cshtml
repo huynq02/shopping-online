@@ -177,32 +177,17 @@
                 </li>
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user"></i>
-                        <span>Jane Doe <i class="caret"></i></span>
-                    </a>
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                            <span>@User.Identity.Name <i class="caret"></i></span>
+                        </a>}
                     <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                         <li class="dropdown-header text-center">Account</li>
-
-                        @*<li>
-                            <a href="#">
-                                <i class="fa fa-clock-o fa-fw pull-right"></i>
-                                <span class="badge badge-success pull-right">10</span> Updates
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-envelope-o fa-fw pull-right"></i>
-                                <span class="badge badge-danger pull-right">5</span> Messages
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-magnet fa-fw pull-right"></i>
-                                <span class="badge badge-info pull-right">3</span> Subscriptions
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
-                            </a>
-                        </li>*@
-
-                        @*<li class="divider"></li>*@
+                        <li class="divider"></li>
 
                         <li>
                             <a href="#">
@@ -216,10 +201,13 @@
                         </li>
 
                         <li class="divider"></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
 
-                        <li>
-                            <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                        </li>
+                            <li>
+                                <a href="@Url.Action("Logout", "Login")"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                            </li>
+}
                     </ul>
                 </li>
             </ul>
@@ -236,11 +224,13 @@
                 <div class="pull-left image">
                     <img src="~/Content/img/26115.jpg" class="img-circle" alt="User Image" />
                 </div>
-                <div class="pull-left info">
-                    <p>Hello, Jane</p>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="pull-left info">
+                        <p>Hello, @User.Identity.Name</p>
 
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>}
             </div>
             <!-- search form -->
             <form action="#" method="get" class="sidebar-form">
@@ -370,52 +360,58 @@
                                         <label for="exampleInputPassword1">Price</label>
                                         @*@Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })*@
                                         <input type="text" name="ProductPrice" class="form-control text-box single-line" data-val="true"
-                                               data-val-regex="ProductPrice is a number" 
+                                               data-val-regex="ProductPrice is a number"
                                                data-val-regex-pattern="^[0-9.]+$"
-                                               data-val-required="ProductPrice is not empty" id="ProductPrice" placeholder="Price" value=""/>
+                                               data-val-required="ProductPrice is not empty" id="ProductPrice" placeholder="Price" value="" />
                                         @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Quantity</label>
                                         @*@Html.EditorFor(model => model.ProductQuanity, new { htmlAttributes = new { @class = "form-control" } })*@
-                                        <input type="text" name="ProductQuanity" class="form-control text-box single-line" data-val="true" 
-                                               data-val-regex="ProductQuanity is a number" 
+                                        <input type="text" name="ProductQuanity" class="form-control text-box single-line" data-val="true"
+                                               data-val-regex="ProductQuanity is a number"
                                                data-val-regex-pattern="^[0-9.]+$"
-                                               data-val-required="ProductQuanity is not empty" id="ProductQuanity" placeholder="Quantity" value=""/>
+                                               data-val-required="ProductQuanity is not empty" id="ProductQuanity" placeholder="Quantity" value="" />
                                         @Html.ValidationMessageFor(model => model.ProductQuanity, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Color</label> <br />
                                         @foreach (var item in Model.lstColor)
                                         {
-                                            <div style="display: inline-block; margin-right: 20px"><input type="radio" name="ColorID" value="@item.color_id" class="single-line" data-val="true" 
-                                                                                                          data-val-required="Color is not empty" id="ColorID" value=""/>@item.color_name</div>
-                                        }
+                                            <div style="display: inline-block; margin-right: 20px">
+                                                <input type="radio" name="ColorID" value="@item.color_id" class="single-line" data-val="true"
+                                                       data-val-required="Color is not empty" id="ColorID" value="" />@item.color_name
+                                                </div>
+                                            }
                                         @Html.ValidationMessageFor(model => model.ColorID, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Category</label> <br />
                                         @foreach (var item in Model.lstCategories)
                                         {
-                                            <div style="display: inline-block; margin-right: 20px"><input type="radio" name="CategoryID" value="@item.category_id" class="single-line" data-val="true" 
-                                                                                                          data-val-required="Category is not empty" id="CategoryID" value=""/>@item.category_name</div>
-                                        }
+                                            <div style="display: inline-block; margin-right: 20px">
+                                                <input type="radio" name="CategoryID" value="@item.category_id" class="single-line" data-val="true"
+                                                       data-val-required="Category is not empty" id="CategoryID" value="" />@item.category_name
+                                                </div>
+                                            }
                                         @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Status</label> <br />
                                         @foreach (var item in Model.lstStatus)
                                         {
-                                            <div style="display: inline-block; margin-right: 20px"><input type="radio" name="StatusID" value="@item.status_product_id" class="single-line" data-val="true" 
-                                                                                                          data-val-required="Status is not empty" id="StatusID" value=""/>@item.status_product_status</div>
-                                        }
+                                            <div style="display: inline-block; margin-right: 20px">
+                                                <input type="radio" name="StatusID" value="@item.status_product_id" class="single-line" data-val="true"
+                                                       data-val-required="Status is not empty" id="StatusID" value="" />@item.status_product_status
+                                                </div>
+                                            }
                                         @Html.ValidationMessageFor(model => model.StatusID, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Create Date</label>
                                         @*@Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })*@
-                                        <input type="date" name="CreateDate" class="form-control single-line" data-val="true" 
-                                               data-val-required="CreateDate is not empty" id="CreateDate" value=""/>
+                                        <input type="date" name="CreateDate" class="form-control single-line" data-val="true"
+                                               data-val-required="CreateDate is not empty" id="CreateDate" value="" />
                                         @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
                                     </div>
                                     <button type="submit" class="btn btn-info">Add Product</button>
@@ -442,9 +438,9 @@
     data-val-length="Use 10-150 characters" data-val-length-max="150" data-val-length-min="10"
     data-val-required="Mời nhập Title" id="Title" name="Title" placeholder="Title" type="text" value="">*@
 
-@*<input class="form-control text-box single-line" data-val="true" 
-    data-val-email="The email address is not valid" 
-    data-val-regex="E-mail is not valid orUse letters, numbers &amp; preriods or Must be between 5-32 character or Not special character " 
-    data-val-regex-pattern="^[a-z][a-z0-9_.]{5,32}@[a-z0-9]{2,}(.[a-z0-9]{2,4}){1,2}$" 
+@*<input class="form-control text-box single-line" data-val="true"
+    data-val-email="The email address is not valid"
+    data-val-regex="E-mail is not valid orUse letters, numbers &amp; preriods or Must be between 5-32 character or Not special character "
+    data-val-regex-pattern="^[a-z][a-z0-9_.]{5,32}@[a-z0-9]{2,}(.[a-z0-9]{2,4}){1,2}$"
     data-val-required="Email is not empty" id="Account_email" name="Account_email" type="email" value="">*@
 

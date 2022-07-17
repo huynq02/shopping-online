@@ -16,10 +16,13 @@ namespace shopping_online.Controllers.Marketing
     {
         DBContext db = new DBContext();
         // GET: AddCustomerAdmin
+        [Authorize(Roles = "Admin, Sale, Marketing")]
+
         public ActionResult Index()
         {
             return View();
         }
+        [Authorize(Roles = "Marketing")]
 
         public ActionResult Create(Account account, string gender, string CreateDate, string Account_password)
         {
@@ -35,6 +38,7 @@ namespace shopping_online.Controllers.Marketing
             db.SaveChanges();
             return RedirectToAction("Index", "CustomerAdmin");
         }
+        [Authorize(Roles = "Marketing")]
 
         public ActionResult AccountNeedEdit(int Id, int page = 1, int pageSize = 5)
         {
@@ -56,6 +60,7 @@ namespace shopping_online.Controllers.Marketing
             cus.lstOrderStatus = orderSta;
             return View(cus);
         }
+        [Authorize(Roles = "Marketing")]
 
         public ActionResult Edit(Account acc, int Id, string gender, string status)
         {
@@ -87,6 +92,7 @@ namespace shopping_online.Controllers.Marketing
             db.SaveChanges();
             return RedirectToAction("Index", "CustomerAdmin");
         }
+        [Authorize(Roles = "Marketing")]
 
         public ActionResult UnLockAccount(int Id)
         {
@@ -112,6 +118,7 @@ namespace shopping_online.Controllers.Marketing
             new MailHelper().SendMail("tuananh462001@gmail.com", "Thông báo", content);
             return RedirectToAction("Index", "CustomerAdmin");
         }
+        [Authorize(Roles = "Marketing")]
 
         public ActionResult LockAccount(int Id)
         {

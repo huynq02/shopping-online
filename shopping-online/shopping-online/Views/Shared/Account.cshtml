@@ -218,11 +218,18 @@
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-user"></i>
-                            <span>Jane Doe <i class="caret"></i></span>
-                        </a>
+
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <span>@User.Identity.Name <i class="caret"></i></span>
+                            </a>}
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                            <li class="dropdown-header text-center">Account</li>
+                            <li class="divider"></li>
+
                             <li>
                                 <a href="#">
                                     <i class="fa fa-user fa-fw pull-right"></i>
@@ -235,10 +242,13 @@
                             </li>
 
                             <li class="divider"></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
 
-                            <li>
-                                <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                            </li>
+                                <li>
+                                    <a href="@Url.Action("Logout", "Login")"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                </li>
+}
                         </ul>
                     </li>
                 </ul>
@@ -255,11 +265,13 @@
                     <div class="pull-left image">
                         <img src="~/Content/img/26115.jpg" class="img-circle" alt="User Image" />
                     </div>
-                    <div class="pull-left info">
-                        <p>Hello, Jane</p>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="pull-left info">
+                            <p>Hello, @User.Identity.Name</p>
 
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                    </div>
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>}
                 </div>
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
@@ -367,9 +379,9 @@
         </aside> /.right-side
         </div> ./wrapper*@
     <!-- jQuery 2.0.2 -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
@@ -463,7 +475,7 @@
             });
 
         });
-                                                                // Chart.defaults.global.responsive = true;
+                                                                    // Chart.defaults.global.responsive = true;
     </script>
 
 </body>

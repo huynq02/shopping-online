@@ -15,12 +15,14 @@ namespace shopping_online.Controllers.Admin
         private DBContext db = new DBContext();
 
         // GET: Roles
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Roles.ToList());
         }
 
         // GET: Roles/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +38,7 @@ namespace shopping_online.Controllers.Admin
         }
 
         // GET: Roles/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -44,6 +47,7 @@ namespace shopping_online.Controllers.Admin
         // POST: Roles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Role_id,Role_name")] Role role)
@@ -59,6 +63,7 @@ namespace shopping_online.Controllers.Admin
         }
 
         // GET: Roles/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,6 +81,7 @@ namespace shopping_online.Controllers.Admin
         // POST: Roles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Role_id,Role_name")] Role role)
@@ -90,6 +96,7 @@ namespace shopping_online.Controllers.Admin
         }
 
         // GET: Roles/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,6 +112,7 @@ namespace shopping_online.Controllers.Admin
         }
 
         // POST: Roles/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
