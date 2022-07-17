@@ -11,9 +11,7 @@ namespace shopping_online.Context
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class shipping
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,31 +19,10 @@ namespace shopping_online.Context
         {
             this.Orders = new HashSet<Order>();
         }
-
+    
         public int shipping_id { get; set; }
-        [DisplayName("Name")]
-        [Required(ErrorMessage = "Name of ship is Required")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Name of ship should be between 2 and 50 characters")]
         public string shipping_name { get; set; }
-
-
-
-        [DisplayName("Email")]
-        [Required(ErrorMessage = "Email of ship is Required")]
-        [StringLength(50, MinimumLength = 10, ErrorMessage = "Email should be between 10 and 50 characters")]
-        [RegularExpression("^[a-z][a-z0-9_.]{5,32}@[a-z0-9]{2,}(.[a-z0-9]{2,4}){1,2}$", ErrorMessage = "E-mail is not valid or" +
-            "Use letters, numbers & preriods or Must be between 5-32 character or Not special character ")]
-        //[DataType(DataType.EmailAddress, ErrorMessage = "Please Enter a valid Email")]
         public string shipping_email { get; set; }
-
-
-
-
-        [DisplayName("Phone")]
-        [Required(ErrorMessage = "Phone of ship is Required")]
-        [StringLength(11, MinimumLength = 10, ErrorMessage = "Phone should be between 10 and 11 numbers")]
-        [DataType(DataType.PhoneNumber, ErrorMessage = "Please Enter a valid Phone Number")]
-        [RegularExpression(@"^[0-9\-\+]{9,15}$", ErrorMessage = "Please only number")]
         public string shipping_phone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

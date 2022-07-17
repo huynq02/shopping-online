@@ -199,9 +199,6 @@
     <Compile Include="Context\status_product.cs">
       <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\sysdiagram.cs">
-      <DependentUpon>OnlineShopping.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\Admin\AccountsController.cs" />
     <Compile Include="Controllers\Admin\FunctionsController.cs" />
     <Compile Include="Controllers\Admin\LoginController.cs" />

@@ -27,9 +27,13 @@ namespace shopping_online.Controllers.Admin
         {
             bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
                  model.account_username.ToLower() && user.account_password == model.account_password);
-            int count = GetRole(model.account_username.ToLower());
+            bool IsValidUserActive = db.Accounts.Any(user => user.account_username.ToLower() ==
+                 model.account_username.ToLower() && user.account_password == model.account_password && user.account_status == true);
+
             if (IsValidUser)
             {
+                if (IsValidUserActive) {
+                int count = GetRole(model.account_username.ToLower());
                 if (count == 1)
                 {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
@@ -50,7 +54,12 @@ namespace shopping_online.Controllers.Admin
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
                     return RedirectToAction("Index", "Blog");
                 }
-
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Your account has been ban");
+                    return View();
+                }
             }
             ModelState.AddModelError("", "invalid Username or Password");
             return View();

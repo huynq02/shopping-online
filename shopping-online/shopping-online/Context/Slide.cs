@@ -11,35 +11,16 @@ namespace shopping_online.Context
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Slide
     {
         public int slide_id { get; set; }
-
-        [Required(ErrorMessage = "Title is not empty")]
-        [StringLength(150, MinimumLength = 10, ErrorMessage = "Use 10-150 characters")]
         public string slide_title { get; set; }
-
-        [Required(ErrorMessage = "CreateDate is not empty")]
         public System.DateTime slide_createdate { get; set; }
-
-        [Required(ErrorMessage = "CreateBy is not empty")]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Use 5-50 characters")]
         public string slide_createby { get; set; }
-
-        [Required(ErrorMessage = "ModifyDate is not empty")]
         public Nullable<System.DateTime> slide_modifydate { get; set; }
-
-        [Required(ErrorMessage = "ModifyBy is not empty")]
-        [StringLength(70, MinimumLength = 5, ErrorMessage = "Use 5-70 characters")]
         public string slide_modifyby { get; set; }
-
-        [Required(ErrorMessage = "Imageslide is not empty")]
         public string slide_imageslide { get; set; }
-
-        [Required(ErrorMessage = "Descriptions is not empty")]
-        [StringLength(15000, MinimumLength = 5, ErrorMessage = "Use 5-15000 characters")]
         public string slide_descriptions { get; set; }
         public bool slide_status_id { get; set; }
     }

@@ -11,44 +11,19 @@ namespace shopping_online.Context
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Blog
     {
         public int blog_id { get; set; }
-
-        [Required(ErrorMessage = "Title is not empty")]
-        [StringLength(150, MinimumLength = 10, ErrorMessage = "Use 10-150 characters")]
         public string blog_title { get; set; }
-
-        [Required(ErrorMessage = "Author is not empty")]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Use 5-50 characters")]
         public string blog_author { get; set; }
-
-        [Required(ErrorMessage = "Description is not empty")]
-        [StringLength(300, MinimumLength = 10, ErrorMessage = "Use 10-300 characters")]
         public string blog_descriptions { get; set; }
-
-
         public System.DateTime blog_createdate { get; set; }
-
-        [Required(ErrorMessage = "Create By is not empty")]
-        [StringLength(100, MinimumLength = 5, ErrorMessage = "Use 5-100 characters")]
         public string blog_createby { get; set; }
-
-        [Required(ErrorMessage = "Image is not empty")]
         public string blog_images { get; set; }
-
         public Nullable<System.DateTime> blog_modifydate { get; set; }
-
-        [Required(ErrorMessage = "Modify By is not empty")]
-        [StringLength(100, MinimumLength = 5, ErrorMessage = "Use 10-100 characters")]
         public string blog_modifyby { get; set; }
-
-        [Required(ErrorMessage = "Detail is not empty")]
         public string blog_detail { get; set; }
-
-        [Required(ErrorMessage = "Back-Link is not empty")]
         public string blog_back_link { get; set; }
     }
 }

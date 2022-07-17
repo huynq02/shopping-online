@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Account | Dashboard</title>
+    <title>Ship | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Developed By M Abdur Rokib Promy">
     <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
@@ -314,7 +314,7 @@
                     </li>
                     @if (User.IsInRole("Admin"))
                     {
-                        <li class="active">
+                        <li>
                             <a href="/Accounts/Index">
                                 <i class="fa fa-user"></i> <span>Account</span>
                             </a>
@@ -327,7 +327,7 @@
                     }
                     @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
                     {
-                        <li >
+                        <li>
                             <a href="/Order/Index">
                                 <i class="fa fa-globe"></i> <span>Order</span>
                             </a>
@@ -337,7 +337,7 @@
                                 <i class="fa fa-globe"></i> <span>Order Status</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="/shippings/Index">
                                 <i class="fa fa-globe"></i> <span>Ship</span>
                             </a>
@@ -380,7 +380,7 @@
 
                 <!-- Main row -->
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <!-- Main content -->
                         <section class="panel tasks-widget">
 
@@ -480,7 +480,7 @@
             });
 
         });
-                                                                                                                // Chart.defaults.global.responsive = true;
+                                                                                                    // Chart.defaults.global.responsive = true;
     </script>
 
 </body>

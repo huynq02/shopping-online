@@ -84,7 +84,6 @@ D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\sh
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
-D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
 D:\VSCode\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll.config
 D:\VSCode\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll
 D:\VSCode\shopping-online\shopping-online\shopping-online\bin\shopping-online.pdb
@@ -259,3 +258,4 @@ D:\online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreC
 D:\online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 D:\online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
+D:\FPTU\SWP_Project\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
