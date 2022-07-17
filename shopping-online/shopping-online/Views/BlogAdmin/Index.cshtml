@@ -294,53 +294,72 @@
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="/Accounts/Index">
-                            <i class="fa fa-user"></i> <span>Account</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Roles/Index">
-                            <i class="fa fa-user"></i> <span>Role</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ProductAdmin/Index">
-                            <i class="fa fa-gavel"></i> <span>Product</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Order/Index">
-                            <i class="fa fa-globe"></i> <span>Order</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Order_status/Index">
-                            <i class="fa fa-globe"></i> <span>Order Status</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/shippings/Index">
-                            <i class="fa fa-globe"></i> <span>Ship</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="/BlogAdmin/Index">
-                            <i class="fa fa-globe"></i> <span>Blog</span>
-                        </a>
-                    </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/Accounts/Index">
+                                <i class="fa fa-user"></i> <span>Account</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Roles/Index">
+                                <i class="fa fa-user"></i> <span>Role</span>
+                            </a>
+                        </li>
+                    }
 
-                    <li>
-                        <a href="/SlideAdmin/Index">
-                            <i class="fa fa-glass"></i> <span>Slide</span>
-                        </a>
-                    </li>
 
-                    <li>
-                        <a href="/CustomerAdmin/Index">
-                            <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
-                        </a>
-                    </li>
+
+                    @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/Order/Index">
+                                <i class="fa fa-globe"></i> <span>Order</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Order_status/Index">
+                                <i class="fa fa-globe"></i> <span>Order Status</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/shippings/Index">
+                                <i class="fa fa-globe"></i> <span>Ship</span>
+                            </a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/ProductAdmin/loadProduct">
+                                <i class="fa fa-gavel"></i> <span>Product</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BlogAdmin/Index">
+                                <i class="fa fa-globe"></i> <span>Blog</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/SlideAdmin/Index">
+                                <i class="fa fa-glass"></i> <span>Slide</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/CustomerAdmin/Index">
+                                <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="simple.html">
+                                <i class="glyphicon glyphicon-book"></i> <span>FeedBack</span>
+                            </a>
+                        </li>
+
+                    }
 
                 </ul>
             </section>
@@ -366,38 +385,45 @@
                                     <input type="submit" class="btn btn-primary" value="Search" />
                                 </div>
                             }
-                            <div class="panel-body">
+                        <div class="panel-body">
 
-                                <div class="task-content">
+                            <div class="task-content">
 
-                                    <ul class="task-list">
-                                        @foreach (var blog in Model.blog)
-                                        {
-                                            <li>
-                                                <!--<div class="task-checkbox">-->
-                                                <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                                <!--<input type="checkbox" class="flat-grey list-child" />-->
-                                                <!-- <input type="checkbox" class="square-grey"/> -->
-                                                <!--</div>-->
-                                                <div class="task-title">
-                                                    <span class="task-title-sp">@blog.blog_title</span>
-                                                    <span class="label label-success">@blog.blog_createdate</span>
-                                                    <div class="pull-right hidden-phone">
+                                <ul class="task-list">
+                                    @foreach (var blog in Model.blog)
+                                    {
+                                        <li>
+                                            <!--<div class="task-checkbox">-->
+                                            <!-- <input type="checkbox" class="list-child" value=""  /> -->
+                                            <!--<input type="checkbox" class="flat-grey list-child" />-->
+                                            <!-- <input type="checkbox" class="square-grey"/> -->
+                                            <!--</div>-->
+                                            <div class="task-title">
+                                                <span class="task-title-sp">@blog.blog_title</span>
+                                                <span class="label label-success">@blog.blog_createdate</span>
+                                                <div class="pull-right hidden-phone">
+                                                    @if (User.IsInRole("Marketing"))
+                                                    {
                                                         <a href="#"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
                                                         <a href="/EditBlogAdmin/Index?Id=@blog.blog_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
                                                         <a href="/EditBlogAdmin/Delete?Id=@blog.blog_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                                                    </div>
+                                                    }
+                                                    
                                                 </div>
-                                            </li>
-                                        }
-                                        @Html.PagedListPager(Model.blog, page => Url.Action("Index", new { page }))
-                                    </ul>
-                                </div>
-
+                                            </div>
+                                        </li>
+                                    }
+                                    @Html.PagedListPager(Model.blog, page => Url.Action("Index", new { page }))
+                                </ul>
+                            </div>
+                            @if (User.IsInRole("Marketing"))
+                            {
                                 <div class=" add-task-row">
                                     <a class="btn btn-success btn-sm pull-left" href="/AddBlogAdmin/Index">Add New Blog</a>
                                 </div>
-                            </div>
+                            }
+
+                        </div>
                         </section>
                     </div>
                 </div>

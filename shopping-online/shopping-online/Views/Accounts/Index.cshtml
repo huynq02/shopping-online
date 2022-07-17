@@ -6,6 +6,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Account.cshtml";
+
+
 }
 
 <div class="row">
@@ -16,9 +18,15 @@
         </header>
         <div class="panel-body table-responsive">
             <div class=" add-task-row">
-                <p class="btn btn-success btn-sm pull-left">
-                    @Html.ActionLink("Create New", "Create")
-                </p>
+                @if (User.IsInRole("Admin"))
+                {
+                    <p class="btn btn-success btn-sm pull-left">
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                }
+                @*<p class="btn btn-success btn-sm pull-left">
+                        @Html.ActionLink("Create New", "Create")
+                    </p>*@
             </div>
             @using (Html.BeginForm("Accounts", "Index", FormMethod.Get))
             {
@@ -115,10 +123,19 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Role.Role_name)
                             </td>
-                            <td>
-                                <a href="~/Accounts/Edit/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                <a href="~/Accounts/Delete/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                            </td>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <td>
+
+                                    <a href="~/Accounts/Edit/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                    <a href="~/Accounts/Delete/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                </td>
+                            }
+                            @*<td>
+
+                                    <a href="~/Accounts/Edit/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                    <a href="~/Accounts/Delete/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                </td>*@
                         </tr>
                     }
                 </tbody>

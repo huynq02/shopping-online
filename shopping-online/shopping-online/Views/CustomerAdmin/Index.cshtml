@@ -252,7 +252,7 @@
                                 <li>
                                     <a href="@Url.Action("Logout", "Login")"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                                 </li>
-}
+                            }
                         </ul>
                     </li>
                 </ul>
@@ -294,53 +294,73 @@
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="/Accounts/Index">
-                            <i class="fa fa-user"></i> <span>Account</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Roles/Index">
-                            <i class="fa fa-user"></i> <span>Role</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ProductAdmin/Index">
-                            <i class="fa fa-gavel"></i> <span>Product</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Order/Index">
-                            <i class="fa fa-globe"></i> <span>Order</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Order_status/Index">
-                            <i class="fa fa-globe"></i> <span>Order Status</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/shippings/Index">
-                            <i class="fa fa-globe"></i> <span>Ship</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/BlogAdmin/Index">
-                            <i class="fa fa-globe"></i> <span>Blog</span>
-                        </a>
-                    </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/Accounts/Index">
+                                <i class="fa fa-user"></i> <span>Account</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Roles/Index">
+                                <i class="fa fa-user"></i> <span>Role</span>
+                            </a>
+                        </li>
+                    }
 
-                    <li>
-                        <a href="/SlideAdmin/Index">
-                            <i class="fa fa-glass"></i> <span>Slide</span>
-                        </a>
-                    </li>
 
-                    <li class="active">
-                        <a href="/CustomerAdmin/Index">
-                            <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
-                        </a>
-                    </li>
+
+                    @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/Order/Index">
+                                <i class="fa fa-globe"></i> <span>Order</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Order_status/Index">
+                                <i class="fa fa-globe"></i> <span>Order Status</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/shippings/Index">
+                                <i class="fa fa-globe"></i> <span>Ship</span>
+                            </a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/ProductAdmin/loadProduct">
+                                <i class="fa fa-gavel"></i> <span>Product</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BlogAdmin/Index">
+                                <i class="fa fa-globe"></i> <span>Blog</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/SlideAdmin/Index">
+                                <i class="fa fa-glass"></i> <span>Slide</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/CustomerAdmin/Index">
+                                <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="simple.html">
+                                <i class="glyphicon glyphicon-book"></i> <span>FeedBack</span>
+                            </a>
+                        </li>
+
+                    }
+
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -398,11 +418,19 @@
                                                 <td>@item.account_phone</td>
                                                 <td>@item.account_status</td>
                                                 <td>
-                                                    <div class="pull-right hidden-phone">
-                                                        <a href="/AddCustomerAdmin/UnLockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
-                                                        <a href="/AddCustomerAdmin/AccountNeedEdit?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                                        <a href="/AddCustomerAdmin/LockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                                                    </div>
+                                                    @if (User.IsInRole("Marketing"))
+                                                    {
+                                                        <div class="pull-right hidden-phone">
+                                                            <a href="/AddCustomerAdmin/UnLockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
+                                                            <a href="/AddCustomerAdmin/AccountNeedEdit?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                            <a href="/AddCustomerAdmin/LockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                        </div>
+                                                    }
+                                                    @*<div class="pull-right hidden-phone">
+                                                            <a href="/AddCustomerAdmin/UnLockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
+                                                            <a href="/AddCustomerAdmin/AccountNeedEdit?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                            <a href="/AddCustomerAdmin/LockAccount?Id=@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                                        </div>*@
                                                 </td>
                                             </tr>
                                         }
@@ -411,10 +439,17 @@
                                 @Html.PagedListPager(Model.account, page => Url.Action("Index", new { page }))
                             </div>
                         </section>
-                        <div class=" add-task-row">
-                            <a class="btn btn-success btn-sm pull-left" href="/AddCustomerAdmin/Index">Add New Customer</a>
-                            @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
-                        </div>
+                        @if (User.IsInRole("Marketing"))
+                        {
+                            <div class=" add-task-row">
+                                <a class="btn btn-success btn-sm pull-left" href="/AddCustomerAdmin/Index">Add New Customer</a>
+                                @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
+                            </div>
+                        }
+                        <!--<div class=" add-task-row">
+                            <a class="btn btn-success btn-sm pull-left" href="/AddCustomerAdmin/Index">Add New Customer</a>-->
+                        @*<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>*@
+                        <!--</div>-->
                     </div><!--end col-6 -->
                 </div>
                 <!-- row end -->
@@ -516,7 +551,7 @@
             });
 
         });
-                                // Chart.defaults.global.responsive = true;
+                                    // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

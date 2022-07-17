@@ -248,7 +248,7 @@
                                 <li>
                                     <a href="@Url.Action("Logout", "Login")"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                                 </li>
-}
+                            }
                         </ul>
                     </li>
                 </ul>
@@ -272,6 +272,8 @@
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>}
+
+
                 </div>
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
@@ -290,64 +292,72 @@
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="/Accounts/Index">
-                            <i class="fa fa-user"></i> <span>Account</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Roles/Index">
-                            <i class="fa fa-user"></i> <span>Role</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ProductAdmin/loadProduct">
-                            <i class="fa fa-gavel"></i> <span>Product</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Order/Index">
-                            <i class="fa fa-globe"></i> <span>Order</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Order_status/Index">
-                            <i class="fa fa-globe"></i> <span>Order Status</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="/shippings/Index">
-                            <i class="fa fa-globe"></i> <span>Ship</span>
-                        </a>
-                    </li>
-                    <li class="#">
-                        <a href="/ProductAdmin/Index">
-                            <i class="fa fa-globe"></i> <span>Product</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/BlogAdmin/Index">
-                            <i class="fa fa-globe"></i> <span>Blog</span>
-                        </a>
-                    </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/Accounts/Index">
+                                <i class="fa fa-user"></i> <span>Account</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Roles/Index">
+                                <i class="fa fa-user"></i> <span>Role</span>
+                            </a>
+                        </li>
+                    }
 
-                    <li>
-                        <a href="/SlideAdmin/Index">
-                            <i class="fa fa-glass"></i> <span>Slide</span>
-                        </a>
-                    </li>
 
-                    <li>
-                        <a href="/CustomerAdmin/Index">
-                            <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
-                        </a>
-                    </li>
 
-                    <li>
-                        <a href="simple.html">
-                            <i class="glyphicon glyphicon-book"></i> <span>FeedBack</span>
-                        </a>
-                    </li>
+                    @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/Order/Index">
+                                <i class="fa fa-globe"></i> <span>Order</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Order_status/Index">
+                                <i class="fa fa-globe"></i> <span>Order Status</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/shippings/Index">
+                                <i class="fa fa-globe"></i> <span>Ship</span>
+                            </a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/ProductAdmin/loadProduct">
+                                <i class="fa fa-gavel"></i> <span>Product</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BlogAdmin/Index">
+                                <i class="fa fa-globe"></i> <span>Blog</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/SlideAdmin/Index">
+                                <i class="fa fa-glass"></i> <span>Slide</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/CustomerAdmin/Index">
+                                <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="simple.html">
+                                <i class="glyphicon glyphicon-book"></i> <span>FeedBack</span>
+                            </a>
+                        </li>
+
+                    }
 
                 </ul>
             </section>
@@ -475,7 +485,7 @@
             });
 
         });
-                                                                    // Chart.defaults.global.responsive = true;
+                                                                                    // Chart.defaults.global.responsive = true;
     </script>
 
 </body>

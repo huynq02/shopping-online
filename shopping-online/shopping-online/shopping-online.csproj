@@ -227,7 +227,6 @@
     <Compile Include="Controllers\Marketing\SlideAdminController.cs" />
     <Compile Include="Controllers\Sale\DashboardSaleController.cs" />
     <Compile Include="Controllers\Sale\OrderController.cs" />
-    <Compile Include="Controllers\Sale\Order_DetailsController.cs" />
     <Compile Include="Controllers\Sale\Order_statusController.cs" />
     <Compile Include="Controllers\Sale\shippingsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -1102,7 +1101,6 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order_status\Create.cshtml" />
     <Content Include="Views\Order_status\Delete.cshtml" />
-    <Content Include="Views\Order_status\Details.cshtml" />
     <Content Include="Views\Order_status\Edit.cshtml" />
     <Content Include="Views\Order_status\Index.cshtml" />
     <Content Include="Views\ListHome\Index.cshtml" />
@@ -1115,11 +1113,6 @@
     <Content Include="Views\Accounts\Delete.cshtml" />
     <Content Include="Views\Accounts\Edit.cshtml" />
     <Content Include="Views\Accounts\Index.cshtml" />
-    <Content Include="Views\Functions\Create.cshtml" />
-    <Content Include="Views\Functions\Delete.cshtml" />
-    <Content Include="Views\Functions\Details.cshtml" />
-    <Content Include="Views\Functions\Edit.cshtml" />
-    <Content Include="Views\Functions\Index.cshtml" />
     <Content Include="Views\Shared\Role.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
@@ -1132,11 +1125,6 @@
     <Content Include="Views\Cart\success.cshtml" />
     <Content Include="Views\Cart\unsuccess.cshtml" />
     <Content Include="Views\Order\Create_order_detail.cshtml" />
-    <Content Include="Views\Order_Details\Create.cshtml" />
-    <Content Include="Views\Order_Details\Delete.cshtml" />
-    <Content Include="Views\Order_Details\Details.cshtml" />
-    <Content Include="Views\Order_Details\Edit.cshtml" />
-    <Content Include="Views\Order_Details\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\Profile.cshtml" />
