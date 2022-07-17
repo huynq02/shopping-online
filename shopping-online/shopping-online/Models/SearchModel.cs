@@ -13,5 +13,6 @@ namespace shopping_online.Models
         public string result { get; set; }
         public IPagedList<Blog> lstBlog { get; set; }
         public IPagedList<product> lstPro { get; set; }
+        public List<product> ListProduct { get; set; }
     }
 }
