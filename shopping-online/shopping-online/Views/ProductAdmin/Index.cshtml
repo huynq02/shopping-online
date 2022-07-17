@@ -348,11 +348,46 @@
                         </a>
                     </li>
 
+<<<<<<< HEAD
                     <li>
                         <a href="/SlideAdmin/Index">
                             <i class="fa fa-glass"></i> <span>Slide</span>
                         </a>
                     </li>
+=======
+
+
+                    @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="/Order/Index">
+                                <i class="fa fa-globe"></i> <span>Order</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Order_status/Index">
+                                <i class="fa fa-globe"></i> <span>Order Status</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/shippings/Index">
+                                <i class="fa fa-globe"></i> <span>Ship</span>
+                            </a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
+                    {
+                        <li class="active">
+                            <a href="/ProductAdmin/Index">
+                                <i class="fa fa-gavel"></i> <span>Product</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BlogAdmin/Index">
+                                <i class="fa fa-globe"></i> <span>Blog</span>
+                            </a>
+                        </li>
+>>>>>>> parent of 18c0b3c (update)
 
                     <li>
                         <a href="/CustomerAdmin/Index">

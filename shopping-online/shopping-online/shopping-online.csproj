@@ -1088,7 +1088,6 @@
     <Content Include="Views\AddCustomerAdmin\Index.cshtml" />
     <Content Include="Views\Slide\Index.cshtml" />
     <Content Include="Views\AddBlogAdmin\AddBlog.cshtml" />
-    <Content Include="Views\Shared\shipsCUD.cshtml" />
     <Content Include="Views\Shared\ship.cshtml" />
     <Content Include="Views\Shared\OrderStatus.cshtml" />
     <Content Include="Views\Shared\Order.cshtml" />
