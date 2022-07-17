@@ -103,6 +103,7 @@
     <Property Name="product_description" Type="nvarchar" MaxLength="2000" />
     <Property Name="product_code" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="product_create_date" Type="datetime" Nullable="false" />
+    <Property Name="product_backlink" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->

@@ -108,6 +108,7 @@
           <Property Name="product_description" Type="nvarchar" MaxLength="2000" />
           <Property Name="product_code" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="product_create_date" Type="datetime" Nullable="false" />
+          <Property Name="product_backlink" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -613,6 +614,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
           <NavigationProperty Name="Order_Details" Relationship="Project_SU22Model.FK__Order_Det__produ__3B75D760" FromRole="product" ToRole="Order_Details" />
           <NavigationProperty Name="status_product" Relationship="Project_SU22Model.FK__product__status___276EDEB3" FromRole="product" ToRole="status_product" />
           <NavigationProperty Name="productsizes" Relationship="Project_SU22Model.FK__productsi__produ__21B6055D" FromRole="product" ToRole="productsize" />
+          <Property Name="product_backlink" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -958,6 +960,7 @@ warning 6002: The table/view 'Project_SU22.dbo.productsize' does not have a prim
           <EntitySetMapping Name="products">
             <EntityTypeMapping TypeName="Project_SU22Model.product">
               <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="product_backlink" ColumnName="product_backlink" />
                 <ScalarProperty Name="product_create_date" ColumnName="product_create_date" />
                 <ScalarProperty Name="product_code" ColumnName="product_code" />
                 <ScalarProperty Name="product_description" ColumnName="product_description" />

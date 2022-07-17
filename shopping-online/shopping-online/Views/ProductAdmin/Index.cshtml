@@ -330,7 +330,7 @@
                                 <i class="fa fa-globe"></i> <span>Order Status</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="/shippings/Index">
                                 <i class="fa fa-globe"></i> <span>Ship</span>
                             </a>
@@ -338,8 +338,8 @@
                     }
                     @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
                     {
-                        <li>
-                            <a href="/ProductAdmin/loadProduct">
+                        <li class="active">
+                            <a href="/ProductAdmin/Index">
                                 <i class="fa fa-gavel"></i> <span>Product</span>
                             </a>
                         </li>

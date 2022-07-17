@@ -172,6 +172,7 @@ D:\VSCode\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-onl
 D:\VSCode\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\VSCode\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 D:\VSCode\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
+D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\EntityFramework.xml
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll.config
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\shopping-online.dll
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\shopping-online.pdb
@@ -240,7 +241,6 @@ D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\Syst
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.dll
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\System.Web.WebPages.Razor.dll
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\WebGrease.dll
-D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\EntityFramework.xml
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\EntityFramework.SqlServer.xml
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\PagedList.xml
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\PagedList.Mvc.xml
@@ -254,7 +254,6 @@ D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\Syst
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\Newtonsoft.Json.xml
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\Antlr3.Runtime.pdb
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\FPTU\shopping-online\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll

@@ -4,95 +4,8 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/Login.cshtml";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Login | E-Shopper</title>
-    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet">
-    <link href="~/Content/css/prettyPhoto.css" rel="stylesheet">
-    <link href="~/Content/css/price-range.css" rel="stylesheet">
-    <link href="~/Content/css/animate.css" rel="stylesheet">
-    <link href="~/Content/css/main.css" rel="stylesheet">
-    <link href="~/Content/css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="~/Content/images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
 
-<body>
-    <header id="header">
-        <!--header-->
-        <div class="header_top">
-            <!--header_top-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="contactinfo">
-                            <ul class="nav nav-pills">
-                                <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="social-icons pull-right">
-                            <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/header_top-->
-
-        <div class="header-middle">
-            <!--header-middle-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="logo pull-left">
-                            <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-                        </div>
-
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="shop-menu pull-right">
-                            <ul class="nav navbar-nav">
-
-                                @* <li><a href="login.html" class="active"><i class="fa fa-lock"></i> Login</a></li>*@
-                                @Html.ActionLink("HomePage", "Index", "ListHome")
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/header-middle-->
-    </header><!--/header-->
-
-    <section class="vh-100">
-        <div class="container-fluid h-custom">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                         class="img-fluid" alt="Sample image">
-                </div>
-                <div class="col-md-12 col-lg-8 col-xl-8 offset-xl-1">
-                    <div class="col-sm-6 col-sm-offset-4">
+                
                         <div class="login-form">
                             <h2>Login</h2>
                             @using (Html.BeginForm())
@@ -127,60 +40,6 @@
                             <div>
                                 @Html.ActionLink("Click here to Signup", "Signup")
                             </div>
-                            /div>
+                          
                         </div>
-                    </div>
-                </div>
-    </section>
-
-    <footer id="footer">
-      
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="companyinfo">
-                            <h2><span>FU</span>-shopper</h2>
-                            <p>NO1</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-7">
-                        @*@foreach (var item in Model.product.Take(4))
-                        {
-                            <div class="col-sm-3">
-
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                        <div class="iframe-img">
-                                            <img src="~/Content/images/product-details/product/@item.product_image" />
-
-                                        </div>
-                                        <div class="overlay-icon">
-                                            <i class="fa fa-play-circle-o"></i>
-                                        </div>
-                                    </a>
-                                    <p>@item.product_name</p>
-
-                                </div>
-                            </div>}*@
-
-                    </div>
-                    <div class="col-sm-3 ">
-                        <div class="address">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4855345740843!2d105.52487561493238!3d21.013249986006773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345b465a4e65fb%3A0xaae6040cfabe8fe!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBGUFQ!5e0!3m2!1svi!2s!4v1646752313959!5m2!1svi!2s"
-                                    width="240" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </footer>
-
-    <script src="~/Content/js/jquery.js"></script>
-    <script src="~/Content/js/price-range.js"></script>
-    <script src="~/Content/js/jquery.scrollUp.min.js"></script>
-    <script src="~/Content/js/bootstrap.min.js"></script>
-    <script src="~/Content/js/jquery.prettyPhoto.js"></script>
-    <script src="~/Content/js/main.js"></script>
-</body>
-</html>
+                    

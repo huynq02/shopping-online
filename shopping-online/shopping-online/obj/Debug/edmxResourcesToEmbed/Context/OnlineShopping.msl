@@ -100,6 +100,7 @@
     <EntitySetMapping Name="products">
       <EntityTypeMapping TypeName="Project_SU22Model.product">
         <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="product_backlink" ColumnName="product_backlink" />
           <ScalarProperty Name="product_create_date" ColumnName="product_create_date" />
           <ScalarProperty Name="product_code" ColumnName="product_code" />
           <ScalarProperty Name="product_description" ColumnName="product_description" />

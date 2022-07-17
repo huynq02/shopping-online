@@ -23,7 +23,5 @@ namespace shopping_online.Models
         [Required(ErrorMessage = "Password is Required")]
         [StringLength(20, MinimumLength = 8, ErrorMessage = "Password should be between 8 and 20 characters")]
         public string account_password { get; set; }
-
-        public List<product> listProduct { get; set; }
     }
 }

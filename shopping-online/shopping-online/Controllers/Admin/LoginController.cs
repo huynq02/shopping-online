@@ -29,9 +29,10 @@ namespace shopping_online.Controllers.Admin
 
             bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
                  model.account_username.ToLower() && user.account_password == model.account_password);
-            int count = GetRole(model.account_username.ToLower());
+           
             if (IsValidUser)
             {
+                int count = GetRole(model.account_username.ToLower());
                 if (count == 1)
                 {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
