@@ -105,8 +105,9 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-
-                            <a href="@Url.Action("Index","ListHome")"><img src="~/content/images/home/logo.png" alt="" /></a>
+                            <a href="@Url.Action("Index","ListHome")">
+                                <img src="~/Content/images/home/logo.png" style="background-color:white" />
+                            </a>
 
                         </div>
                         <div class="btn-group pull-right">
@@ -133,10 +134,17 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-
+                                @*<li><a href="#"><i class="fa fa-user"></i> Account</a></li>*@
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                                    <li><a href="@Url.Action("Logout","Login")"><i class="fa fa-lock"></i>Logout</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Login","Login")"><i class="fa fa-lock"></i> Login</a></li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -160,19 +168,17 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="@Url.Action("Index","ListHome")" class="active">Home</a></li>
-                                <li class="dropdown">
-                                    <a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="@Url.Action("Index","PageProduct")">Product Details</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="@Url.Action("Index","Blog")">Blog</a>
-                                </li>
 
+                                <li><a href="@Url.Action("Index","PageProduct")">Product All</a></li>
+
+
+
+
+                                <li>
+                                    <a href="@Url.Action("Index","Blog")">Blog</a>
+
+                                </li>
+                                <li><a href="@Url.Action("Index","AboutUs")">About Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -180,10 +186,22 @@
                     {
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
-                                <input type="search" name="search" value="@Model.search" placeholder="Search" onchange="myFunction(this.value)" />
+                                <input type="search" name="search" placeholder="Search" onchange="myFunction(this.value)" />
                             </div>
                         </div>
                     }
+
+                    @*@using (Html.BeginForm("Index", "ListHome", FormMethod.Get))
+                        {
+                            <div class="col-sm-3">
+                                <div class="search_box pull-right">
+                                    @Html.TextBox("search",null,(new { @placeholder = "Search" }))
+                                </div>
+                            </div>
+
+
+                        }*@
+
                 </div><!--/header-bottom-->
     </header><!--/header-->
     <div class="container">
