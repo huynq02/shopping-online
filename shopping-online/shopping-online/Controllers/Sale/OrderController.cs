@@ -16,7 +16,6 @@ namespace shopping_online.Controllers.Sale
         private DBContext db = new DBContext();
 
         // GET: Order
-        [Authorize(Roles = "Admin, Sale, Marketing")]
         public ActionResult Index(string table_search, int? page)
         {
             int padeNum = (page ?? 1);
@@ -37,7 +36,6 @@ namespace shopping_online.Controllers.Sale
         }
 
         // GET: Order/Details/5
-        [Authorize(Roles = "Admin, Sale, Marketing")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -53,7 +51,6 @@ namespace shopping_online.Controllers.Sale
         }
 
         // GET: Order/Create
-        [Authorize(Roles = "Sale")]
         public ActionResult Create()
         {
             ViewBag.account_id = new SelectList(db.Accounts, "account_id", "account_username");
@@ -61,7 +58,6 @@ namespace shopping_online.Controllers.Sale
             ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name");
             return View();
         }
-        [Authorize(Roles = "Sale")]
 
         // POST: Order/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -82,7 +78,6 @@ namespace shopping_online.Controllers.Sale
             ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name", order.shipping_id);
             return View(order);
         }
-        [Authorize(Roles = "Sale")]
 
         public ActionResult Create_order_detail()
         {
@@ -96,8 +91,6 @@ namespace shopping_online.Controllers.Sale
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Sale")]
-
         public ActionResult Create_order_detail([Bind(Include = "Order_Details_id,Order_id,product_id,Order_Details_price,Order_Details_num,Order_Details_total_number")] Order_Details order_Details)
         {
             if (ModelState.IsValid)
@@ -116,7 +109,6 @@ namespace shopping_online.Controllers.Sale
 
 
 
-        [Authorize(Roles = "Sale")]
 
         // GET: Order/Edit/5
         public ActionResult Edit(int? id)
@@ -141,8 +133,6 @@ namespace shopping_online.Controllers.Sale
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Sale")]
-
         public ActionResult Edit([Bind(Include = "Order_id,account_id,Order_note,Order_status_id,Order_total_money,Order_Date,shipping_id")] Order order)
         {
             if (ModelState.IsValid)
@@ -158,8 +148,6 @@ namespace shopping_online.Controllers.Sale
         }
 
         // GET: Order/Delete/5
-        [Authorize(Roles = "Sale")]
-
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -173,7 +161,6 @@ namespace shopping_online.Controllers.Sale
             }
             return View("Delete", order);
         }
-        [Authorize(Roles = "Sale")]
 
         // POST: Order/Delete/5
         [HttpPost, ActionName("Delete")]

@@ -25,14 +25,11 @@ namespace shopping_online.Controllers.Admin
         [HttpPost]
         public ActionResult Login(UserLogin model)
         {
-            var listProduct = db.products.OrderByDescending(x => x.product_id).ToList();
-
             bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
                  model.account_username.ToLower() && user.account_password == model.account_password);
-           
+            int count = GetRole(model.account_username.ToLower());
             if (IsValidUser)
             {
-                int count = GetRole(model.account_username.ToLower());
                 if (count == 1)
                 {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
@@ -46,15 +43,13 @@ namespace shopping_online.Controllers.Admin
                 else if (count == 3)
                 {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "Admin");
-                }
-                else if(count == 4)
-                {
-                    FormsAuthentication.SetAuthCookie(model.account_username, false);
                     return RedirectToAction("Index", "shippings");
                 }
-                else { return View(); }
-
+                else
+                {
+                    FormsAuthentication.SetAuthCookie(model.account_username, false);
+                    return RedirectToAction("Index", "Blog");
+                }
 
             }
             ModelState.AddModelError("", "invalid Username or Password");

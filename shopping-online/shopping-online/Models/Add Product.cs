@@ -44,6 +44,9 @@ namespace shopping_online.Models
 
         [Required(ErrorMessage = "CreateDate is not empty")]
         public DateTime CreateDate { get; set; }
+
+        [Required(ErrorMessage = "Back_Link is not empty")]
+        public string Back_Link { get; set; }
         public List<Color> lstColor { get; set; }
         public List<Category> lstCategories { get; set; }
         public List<status_product> lstStatus { get; set; }

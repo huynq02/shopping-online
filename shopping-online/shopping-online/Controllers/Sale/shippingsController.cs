@@ -75,7 +75,7 @@ namespace shopping_online.Controllers.Sale
             }
             return View("Edit", shipping);
         }
-        [Authorize(Roles = "Sale")]
+
         // POST: shippings/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -107,7 +107,7 @@ namespace shopping_online.Controllers.Sale
             }
             return View("Delete", shipping);
         }
-        [Authorize(Roles = "Sale")]
+
         // POST: shippings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

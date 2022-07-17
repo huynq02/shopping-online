@@ -14,13 +14,10 @@ namespace shopping_online.Controllers.Marketing
     {
         DBContext db = new DBContext();
         // GET: AddBlogAdmin
-        [Authorize(Roles = "Admin, Sale, Marketing")]
-
         public ActionResult Index()
         {
             return View();
         }
-        [Authorize(Roles = "Marketing")]
 
         [HttpPost]
         public JsonResult uploadFile(HttpPostedFileBase uploadedFiles)
@@ -43,8 +40,6 @@ namespace shopping_online.Controllers.Marketing
             }
             return Json(Convert.ToString(returnImagePath), JsonRequestBehavior.AllowGet);
         }
-        [Authorize(Roles = "Marketing")]
-
 
         [HttpPost]
         [ValidateInput(false)]

@@ -17,7 +17,7 @@ namespace shopping_online.Controllers.Sale
         // GET: Order_Details
         public ActionResult Index()
         {
-            var order_Details = db.Order_Details.Include(o => o.Order).Include(o => o.product);
+            var order_Details = db.Order_Details.Include(o => o.Order).Include(o => o.product).Include(o => o.Order_id);
             return View(order_Details.ToList());
         }
 
@@ -38,15 +38,11 @@ namespace shopping_online.Controllers.Sale
 
         // GET: Order_Details/Create
         public ActionResult Create()
-        {
+        {        
             ViewBag.Order_id = new SelectList(db.Orders, "Order_id", "account_id");
             ViewBag.product_id = new SelectList(db.products, "product_id", "product_name");
             return View();
         }
-
-        // POST: Order_Details/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Order_Details_id,Order_id,product_id,Order_Details_price,Order_Details_num,Order_Details_total_number")] Order_Details order_Details)
@@ -58,7 +54,7 @@ namespace shopping_online.Controllers.Sale
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Order_id = new SelectList(db.Orders, "Order_id", "Order_note", order_Details.Order_id);
+            ViewBag.Order_id = new SelectList(db.Orders, "Order_id", "account_id", order_Details.Order_id);
             ViewBag.product_id = new SelectList(db.products, "product_id", "product_name", order_Details.product_id);
             return View(order_Details);
         }

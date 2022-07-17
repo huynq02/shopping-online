@@ -12,8 +12,6 @@ namespace shopping_online.Controllers.Marketing
     {
         DBContext db = new DBContext();
         // GET: AddProduct
-        [Authorize(Roles = "Admin, Sale, Marketing")]
-
         public ActionResult Index()
         {
             //
@@ -28,10 +26,8 @@ namespace shopping_online.Controllers.Marketing
         }
 
         [HttpPost]
-        [Authorize(Roles = "Marketing")]
-
         public ActionResult Create(product pro, string ProductCode, string ProductName, Decimal ProductPrice, int ProductQuanity, string Description,
-                                   string ImageProduct, int ColorID, int CategoryID, int StatusID, string CreateDate)
+                                   string ImageProduct, int ColorID, int CategoryID, int StatusID, string CreateDate, string Back_Link)
         {
             pro.product_code = ProductCode;
             pro.product_name = ProductName;
@@ -42,6 +38,7 @@ namespace shopping_online.Controllers.Marketing
             pro.color_id = ColorID;
             pro.category_id = CategoryID;
             pro.status_product_id = StatusID;
+            pro.product_backlink = Back_Link;
             pro.product_create_date = DateTime.ParseExact(CreateDate, "yyyy-MM-dd", null);
             db.products.Add(pro);
             db.SaveChanges();
