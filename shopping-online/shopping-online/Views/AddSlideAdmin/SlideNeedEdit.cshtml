@@ -332,18 +332,22 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Title</label>
                                         @Html.EditorFor(model => model.sl.slide_title, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_title, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Descriptions</label>
                                         @Html.EditorFor(model => model.sl.slide_descriptions, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_descriptions, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">CreateDate(yyyy-MM-dd)</label>
                                         @Html.EditorFor(model => model.sl.slide_createdate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_createdate, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">CreateBy</label>
                                         @Html.EditorFor(model => model.sl.slide_createby, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_createby, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">Cover</label>
@@ -354,10 +358,12 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">ModifyDate(yyyy-MM-dd)</label>
                                         @Html.EditorFor(model => model.sl.slide_modifydate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_modifydate, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">ModifyBy</label>
                                         @Html.EditorFor(model => model.sl.slide_modifyby, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sl.slide_modifyby, "", new { @class = "text-danger" })
                                     </div>
                                     <input type="hidden" name="Id" value="@Model.sl.slide_id" />
                                     <input type="hidden" name="Status_id" value="@Model.sl.slide_status_id" />
