@@ -13,6 +13,8 @@ namespace shopping_online.Controllers.Marketing
     {
         DBContext db = new DBContext();
         // GET: CustomerAdmin
+        [Authorize(Roles = "Admin, Marketing")]
+
         public ActionResult Index(string search, int page=1, int pageSize=5)
         {
             //

@@ -13,10 +13,12 @@ namespace shopping_online.Controllers.Marketing
     {
         DBContext db = new DBContext();
         // GET: AddSlideAdmin
+        [Authorize(Roles = "Admin,  Marketing")]
         public ActionResult Index()
         {
             return View();
         }
+        [Authorize(Roles = " Marketing")]
 
         public ActionResult Create(Slide slide,string Title, string Descriptions, string CreateBy, string ModifyBy,
             string CreateDate, string ModifyDate, string Imageslide)
@@ -33,6 +35,8 @@ namespace shopping_online.Controllers.Marketing
             db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");
         }
+        [Authorize(Roles = " Marketing")]
+
         public ActionResult SlideNeedEdit(int Id)
         {
             var slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
@@ -40,6 +44,8 @@ namespace shopping_online.Controllers.Marketing
             sl.sl = slide;
             return View(sl);
         }
+        [Authorize(Roles = " Marketing")]
+
 
         [HttpPost]
         public ActionResult Edit(Slide sl, int Id, string img, string Status_id)
@@ -60,6 +66,7 @@ namespace shopping_online.Controllers.Marketing
             db.SaveChanges();
             return RedirectToAction("Index", "SlideAdmin");
         }
+        [Authorize(Roles = " Marketing")]
 
         public ActionResult Delete(int Id)
         {

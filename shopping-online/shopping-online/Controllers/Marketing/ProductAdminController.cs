@@ -15,6 +15,9 @@ namespace shopping_online.Controllers.Marketing
     {
         // GET: ProductAdmin
         DBContext db = new DBContext();
+        [Authorize(Roles = "Admin, Marketing")]
+        
+
         public ActionResult Index(string search, int page=1, int pageSize=5)
         {
             
@@ -32,6 +35,7 @@ namespace shopping_online.Controllers.Marketing
             product.search = search;
             return View(product);
         }
+        [Authorize(Roles = " Marketing")]
 
         public ActionResult Edit(int Id)
         {
@@ -46,6 +50,7 @@ namespace shopping_online.Controllers.Marketing
             pro.lstCategories = cate;
             return View(pro);
         }
+        [Authorize(Roles = " Marketing")]
 
         public ActionResult SaveEdit(product product, int Id, string Img, int ColorID, int CategoryID, int StatusID)
         {
@@ -67,6 +72,8 @@ namespace shopping_online.Controllers.Marketing
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = " Marketing")]
+
         public ActionResult Delete(int Id)
         {
             product pro = db.products.Where(x => x.product_id == Id).FirstOrDefault();

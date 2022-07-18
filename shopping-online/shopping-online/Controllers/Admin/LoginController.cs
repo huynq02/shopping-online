@@ -11,12 +11,12 @@ using System.Web.Security;
 
 namespace shopping_online.Controllers.Admin
 {
-   
+
     public class LoginController : Controller
     {
         // GET: Login
-        
-          private DBContext db = new DBContext();
+
+        private DBContext db = new DBContext();
 
         public ActionResult Login()
         {
@@ -27,13 +27,19 @@ namespace shopping_online.Controllers.Admin
         {
             bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
                  model.account_username.ToLower() && user.account_password == model.account_password);
-            bool IsValidUserActive = db.Accounts.Any(user => user.account_username.ToLower() ==
-                 model.account_username.ToLower() && user.account_password == model.account_password && user.account_status == true);
+            int count = GetRole(model.account_username.ToLower());
+            var identity = (ClaimsIdentity)User.Identity;
 
+
+            var ClientID = identity.Claims.FirstOrDefault(c => c.Type == "account_id").Value;
+            var a = getUserId(model.account_username);
+
+
+
+            var usersecsion = new UserLogin();
+            usersecsion.account_id = model.account_id;
             if (IsValidUser)
             {
-                if (IsValidUserActive) {
-                int count = GetRole(model.account_username.ToLower());
                 if (count == 1)
                 {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
@@ -47,23 +53,25 @@ namespace shopping_online.Controllers.Admin
                 else if (count == 3)
                 {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "shippings");
+                    return RedirectToAction("Index", "Admin");
                 }
-                else
+                else if (count == 4)
                 {
                     FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "Blog");
+                    return RedirectToAction("Index", "shippings");
                 }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Your account has been ban");
-                    return View();
-                }
+                else { return View(); }
+
+
             }
             ModelState.AddModelError("", "invalid Username or Password");
             return View();
 
+        }
+        public Account getUserId(string username)
+        {
+            return db.Accounts.SingleOrDefault(user => user.account_username.ToLower() ==
+                    username.ToLower());
         }
         private int GetRole(string username)
         {
@@ -90,7 +98,8 @@ namespace shopping_online.Controllers.Admin
                 {
                     model.account_gender = true;
                 }
-                else{
+                else
+                {
                     model.account_gender = false;
                 }
                 model.account_status = true;
@@ -113,8 +122,33 @@ namespace shopping_online.Controllers.Admin
             return RedirectToAction("Login");
         }
 
-        public ActionResult ProfileAdmin(int? id)
+        [HttpPost]
+        public JsonResult uploadFile(HttpPostedFileBase uploadedFiles)
         {
+            string returnImagePath = string.Empty;
+            string fileName;
+            string Extension;
+            string imageName;
+            string imageSavePath;
+
+            if (uploadedFiles.ContentLength > 0)
+            {
+                fileName = System.IO.Path.GetFileNameWithoutExtension(uploadedFiles.FileName);
+                Extension = System.IO.Path.GetExtension(uploadedFiles.FileName);
+                imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
+                imageSavePath = Server.MapPath("/Content/images/") + imageName + Extension;
+
+                uploadedFiles.SaveAs(imageSavePath);
+                returnImagePath = "/Content/images/" + imageName + Extension;
+            }
+            return Json(Convert.ToString(returnImagePath), JsonRequestBehavior.AllowGet);
+        }
+
+
+        [OutputCache(Duration = int.MaxValue, VaryByParam = "id")]
+        public ActionResult ProfileOfAdmin(int? id)
+        {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -176,6 +210,7 @@ namespace shopping_online.Controllers.Admin
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
             return View(account);
         }
+
     }
-    
+
 }

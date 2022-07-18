@@ -14,6 +14,7 @@ namespace shopping_online.Controllers.Marketing
     {
         DBContext db = new DBContext();
         // GET: AddBlogAdmin
+        [Authorize(Roles = "Admin, Marketing")]
         public ActionResult Index()
         {
             return View();
@@ -43,6 +44,7 @@ namespace shopping_online.Controllers.Marketing
 
         [HttpPost]
         [ValidateInput(false)]
+        [Authorize(Roles = " Marketing")]
         public ActionResult Create(Blog entity, string CreateDate, string ModifyDate, string Image, 
                                     string Title, string Author, string Descriptions, string CreateBy, string Detail, string ModifyBy, string Back_Link)
         {
