@@ -11,12 +11,12 @@ using System.Web.Security;
 
 namespace shopping_online.Controllers.Admin
 {
-   
+
     public class LoginController : Controller
     {
         // GET: Login
-        
-          private DBContext db = new DBContext();
+
+        private DBContext db = new DBContext();
 
         public ActionResult Login()
         {
@@ -29,31 +29,43 @@ namespace shopping_online.Controllers.Admin
                  model.account_username.ToLower() && user.account_password == model.account_password);
             bool IsValidUserActive = db.Accounts.Any(user => user.account_username.ToLower() ==
                  model.account_username.ToLower() && user.account_password == model.account_password && user.account_status == true);
-
+            
+            Session["account_username"] = "";
             if (IsValidUser)
             {
-                if (IsValidUserActive) {
-                int count = GetRole(model.account_username.ToLower());
-                if (count == 1)
+                if (IsValidUserActive)
                 {
-                    FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "ListHome");
-                }
-                else if (count == 2)
-                {
-                    FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "Accounts");
-                }
-                else if (count == 3)
-                {
-                    FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "shippings");
-                }
-                else
-                {
-                    FormsAuthentication.SetAuthCookie(model.account_username, false);
-                    return RedirectToAction("Index", "Blog");
-                }
+                    int count = GetRole(model.account_username.ToLower());
+                    int id = GetID(model.account_username.ToLower());
+                    if (count == 1)
+                    {
+                        FormsAuthentication.SetAuthCookie(model.account_username, false);
+                        Session["account_username"] = model.account_username;
+                        Session["account_id"] = id;
+                        return RedirectToAction("Index", "ListHome");
+                    }
+                    else if (count == 2)
+                    {
+                        FormsAuthentication.SetAuthCookie(model.account_username, false);
+                        Session["account_username"] = model.account_username;
+                        Session["account_id"] = id;
+                        return RedirectToAction("Index", "Accounts");
+                    }
+                    else if (count == 4)
+                    {
+                        FormsAuthentication.SetAuthCookie(model.account_username, false);
+                        Session["account_username"] = model.account_username;
+                        Session["account_id"] = id;
+                        return RedirectToAction("Index", "shippings");
+                    }
+                    else if (count == 3)
+                    {
+                        Session["account_username"] = model.account_username;
+                        Session["account_id"] = id;
+                        FormsAuthentication.SetAuthCookie(model.account_username, false);
+                        return RedirectToAction("Index", "Blog");
+                    }
+                    else { return View(); }
                 }
                 else
                 {
@@ -74,6 +86,14 @@ namespace shopping_online.Controllers.Admin
                         select roles.Role_id).SingleOrDefault();
             return role;
         }
+
+        private int GetID(string username)
+        {
+            int id = (from user in db.Accounts
+                        where user.account_username.ToLower() == username.ToLower()
+                        select user.account_id).SingleOrDefault();
+            return id;
+        }
         public ActionResult Signup()
         {
             return View();
@@ -90,7 +110,8 @@ namespace shopping_online.Controllers.Admin
                 {
                     model.account_gender = true;
                 }
-                else{
+                else
+                {
                     model.account_gender = false;
                 }
                 model.account_status = true;
@@ -107,11 +128,43 @@ namespace shopping_online.Controllers.Admin
 
 
         }
+        //[Authorize(Roles = "Admin, Sale, Customer, Marketing")]
+        public ActionResult profile(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Account account = db.Accounts.Find(id);
+            if (account == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
+            return View(account);
+        }
+        //[Authorize(Roles = "Admin, Sale, Customer, Marketing")]
+        // POST: Accounts/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult profile([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(account).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
+            return View(account);
+        }
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
         }
     }
-    
+
 }

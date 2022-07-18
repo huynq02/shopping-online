@@ -134,20 +134,7 @@ namespace shopping_online.Controllers.Admin
                 return RedirectToAction("Index");
             }
         }
-        public ActionResult ProfileAdmin(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
-            return View(account);
-        }
+      
 
         
        

@@ -16,7 +16,7 @@ namespace shopping_online.Controllers.Sale
         private DBContext db = new DBContext();
 
         // GET: Order
-        [Authorize(Roles = "Admin, Sale, Marketing")]
+        [Authorize(Roles = "Admin, Sale")]
         public ActionResult Index(string table_search, int? page)
         {
             int padeNum = (page ?? 1);
@@ -37,7 +37,7 @@ namespace shopping_online.Controllers.Sale
         }
 
         // GET: Order/Details/5
-        [Authorize(Roles = "Admin, Sale, Marketing")]
+        [Authorize(Roles = "Admin, Sale")]
         public ActionResult Details(int? id)
         {
             if (id == null)

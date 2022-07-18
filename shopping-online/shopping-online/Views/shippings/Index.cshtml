@@ -12,17 +12,18 @@
             List ship
         </header>
         <div class="panel-body table-responsive">
-            <div class=" add-task-row">
-                @if (User.IsInRole("Sale"))
-                {
+
+            @if (User.IsInRole("Sale"))
+            {<div class=" add-task-row">
                     <p class="btn btn-success btn-sm pull-left">
 
                         @Html.ActionLink("Create New", "Create")
 
                         @*@Html.ActionLink("Create New", "Create")*@
                     </p>
-                }
-            </div>
+                </div>
+            }
+
             @using (Html.BeginForm("Shipping", "shipping", FormMethod.Get))
             {
                 <div class="box-tools m-b-15">
@@ -72,7 +73,7 @@
                             </td>
                         }
                     </tr>
-}
+                }
             </table>
             <hr />
             <div>

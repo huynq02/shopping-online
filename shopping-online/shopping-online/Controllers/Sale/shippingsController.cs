@@ -17,9 +17,10 @@ namespace shopping_online.Controllers.Sale
         private DBContext db = new DBContext();
 
         // GET: shippings
-        [Authorize(Roles = "Admin, Sale, Marketing")]
+        [Authorize(Roles = "Admin, Sale")]
         public ActionResult Index(string table_search, int? page)
         {
+            if (Session["account_id"] != null) {
             int padeNum = (page ?? 1);
             int pageSize = 10;
             List<shipping> ship = db.shippings.ToList();
@@ -31,7 +32,13 @@ namespace shopping_online.Controllers.Sale
             }
             var pts = pt.OrderBy(x => x.shipping_id).ToPagedList(padeNum, pageSize);
             ViewBag.table_search = table_search;
+            ViewBag.id = Session["account_id"];
             return View("Index", pts);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
 

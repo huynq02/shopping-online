@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Order status | Dashboard</title>
+    <title>Order Status | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Developed By M Abdur Rokib Promy">
     <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
@@ -229,28 +229,11 @@
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
 
-                            @*<li>
-                                    <a href="#">
-                                        <i class="fa fa-clock-o fa-fw pull-right"></i>
-                                        <span class="badge badge-success pull-right">10</span> Updates
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-envelope-o fa-fw pull-right"></i>
-                                        <span class="badge badge-danger pull-right">5</span> Messages
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-magnet fa-fw pull-right"></i>
-                                        <span class="badge badge-info pull-right">3</span> Subscriptions
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
-                                    </a>
-                                </li>*@
 
                             <li class="divider"></li>
 
                             <li>
-                                <a href="#">
+                                <a href="~/Login/profile/@ViewBag.id">
                                     <i class="fa fa-user fa-fw pull-right"></i>
                                     Profile
                                 </a>
@@ -332,12 +315,12 @@
                                 <i class="fa fa-globe"></i> <span>Order</span>
                             </a>
                         </li>
-                        <li  class="active">
+                        <li class="active">
                             <a href="/Order_status/Index">
                                 <i class="fa fa-globe"></i> <span>Order Status</span>
                             </a>
                         </li>
-                        <li>
+                        <li >
                             <a href="/shippings/Index">
                                 <i class="fa fa-globe"></i> <span>Ship</span>
                             </a>
@@ -480,7 +463,7 @@
             });
 
         });
-                                                                                                        // Chart.defaults.global.responsive = true;
+                                                                                                    // Chart.defaults.global.responsive = true;
     </script>
 
 </body>

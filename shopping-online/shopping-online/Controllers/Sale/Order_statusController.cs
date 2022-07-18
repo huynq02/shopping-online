@@ -15,7 +15,7 @@ namespace shopping_online.Controllers.Sale
         private DBContext db = new DBContext();
 
         // GET: Order_status
-        [Authorize(Roles = "Admin, Sale, Marketing")]
+        [Authorize(Roles = "Admin, Sale")]
 
         public ActionResult Index()
         {
