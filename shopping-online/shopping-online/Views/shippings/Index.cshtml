@@ -21,7 +21,7 @@
 
                         @*@Html.ActionLink("Create New", "Create")*@
                     </p>
-                    }
+                }
             </div>
             @using (Html.BeginForm("Shipping", "shipping", FormMethod.Get))
             {
@@ -35,45 +35,44 @@
                 </div>
             }
             <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>
-                            <p>Name</p>
-                        </th>
-                        <th>
-                            <p>Email</p>
-                        </th>
-                        <th>
-                            <p>Phone</p>
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
+                <tr>
+                    <th>
+                        <p>Name</p>
+                    </th>
+                    <th>
+                        <p>Email</p>
+                    </th>
+                    <th>
+                        <p>Phone</p>
+                    </th>
+                    @if (User.IsInRole("Sale"))
+                    {
+                        <th><p>Action</p></th>
+                    }
+                </tr>
 
                 @foreach (var item in Model)
                 {
-                    <tbody>
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.shipping_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.shipping_email)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.shipping_phone)
-                            </td>
-                            <td>
-                                @if (User.IsInRole("Sale"))
-                                {
-                                    <a href="~/shippings/Edit/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                    <a href="~/shippings/Delete/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>}
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.shipping_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.shipping_email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.shipping_phone)
+                        </td>
 
-                                }
+                        @if (User.IsInRole("Sale"))
+                        {
+                            <td>
+                                <a href="~/shippings/Edit/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                <a href="~/shippings/Delete/@item.shipping_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
                             </td>
-                        </tr>
-                    </tbody>
-                 }
+                        }
+                    </tr>
+}
             </table>
             <hr />
             <div>

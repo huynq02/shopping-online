@@ -28,10 +28,10 @@ namespace shopping_online.Controllers.Admin
             bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
                  model.account_username.ToLower() && user.account_password == model.account_password);
             int count = GetRole(model.account_username.ToLower());
-            var identity = (ClaimsIdentity)User.Identity;
+          
 
 
-            var ClientID = identity.Claims.FirstOrDefault(c => c.Type == "account_id").Value;
+           
             var a = getUserId(model.account_username);
 
 

@@ -15,9 +15,12 @@
 
         <div class="panel-body table-responsive">
             <div class=" add-task-row">
-                <p class="btn btn-success btn-sm pull-left">
-                    @Html.ActionLink("Create New", "Create")
-                </p>
+                @if (User.IsInRole("Sale"))
+                {
+                    <p class="btn btn-success btn-sm pull-left">
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                }
             </div>
             <table class="table table-hover">
                 <thead>
@@ -25,9 +28,12 @@
                         <th>
                             <p>Order Status</p>
                         </th>
-                        <th>
-                            <p>Action</p>
-                        </th>
+                        @if (User.IsInRole("Sale"))
+                        {
+                            <th>
+                                <p>Action</p>
+                            </th>
+                        }
                     </tr>
                 </thead>
                 <tbody>
@@ -37,10 +43,15 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Order_status_status)
                             </td>
-                            <td>
-                                <a href="~/Order_status/Edit/@item.Order_status_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                <a href="~/Order_status/Delete/@item.Order_status_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                            </td>
+
+                            @if (User.IsInRole("Sale"))
+                            {
+                                <td>
+                                    <a href="~/Order_status/Edit/@item.Order_status_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                    <a href="~/Order_status/Delete/@item.Order_status_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                </td>
+}
+
                         </tr>
                     }
                 </tbody>

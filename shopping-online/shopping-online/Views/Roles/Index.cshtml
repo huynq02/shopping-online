@@ -15,7 +15,7 @@
 
         <div class="panel-body table-responsive">
             <div class=" add-task-row">
-                @if (User.IsInRole("Sale"))
+                @if (User.IsInRole("Admin"))
                 {
                     <p class="btn btn-success btn-sm pull-left">
                         @Html.ActionLink("Create New", "Create")
@@ -42,7 +42,7 @@
                                 </td>
 
                                 <td>
-                                    @if (User.IsInRole("Sale"))
+                                    @if (User.IsInRole("Admin"))
                                     {
                                         <a href="~/Controllers/Admin/Roles/Edit/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
                                         <a href="~/Roles/Delete/@item.Role_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>

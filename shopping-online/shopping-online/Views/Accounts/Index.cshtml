@@ -36,39 +36,30 @@
                 <thead>
                     <tr>
                         <th>
-                            @*<p> @Html.DisplayNameFor(model => model.account_username)</p>*@
                             <p>Account</p>
                         </th>
                         <th>
-                            @*<p> @Html.DisplayNameFor(model => model.account_email)</p>*@
                             <p>Email</p>
                         </th>
                         <th>
-                            @*<p>  @Html.DisplayNameFor(model => model.account_name)</p>*@
                             <p>FullName</p>
                         </th>
                         <th>
-                            @*<p>    @Html.DisplayNameFor(model => model.account_phone)</p>*@
                             <p>Phone</p>
                         </th>
                         <th>
-                            @*<p> @Html.DisplayNameFor(model => model.account_address)</p>*@
                             <p>Address</p>
                         </th>
                         <th>
-                            @*<p>   @Html.DisplayNameFor(model => model.account_gender)</p>*@
                             <p>Gender</p>
                         </th>
                         <th>
-                            @*<p>   @Html.DisplayNameFor(model => model.account_status)</p>*@
                             <p>Status</p>
                         </th>
                         <th>
-                            @*<p>    @Html.DisplayNameFor(model => model.account_createdate)</p>*@
                             <p>Create date</p>
                         </th>
                         <th>
-                            @*<p>   @Html.DisplayNameFor(model => model.Role.Role_name)</p>*@
                             <p>Role</p>
                         </th>
                         <th> <p>Action</p></th>
@@ -95,19 +86,19 @@
                             </td>
                             @if (item.account_gender == true)
                             {
-                                <td>Nam</td>
+                                <td>Male</td>
                             }
                             @if (item.account_gender == false)
                             {
-                                <td>Nữ</td>
+                                <td>Female</td>
                             }
                             @if (item.account_status == true)
                             {
-                                <td>Hoạt động</td>
+                                <td>Active</td>
                             }
                             @if (item.account_status == false)
                             {
-                                <td>Không hoạt động</td>
+                                <td>Ban</td>
                             }
                             <td>
                                 @Html.DisplayFor(modelItem => item.account_createdate)

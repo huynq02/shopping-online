@@ -4,6 +4,8 @@
 @model PagedList.PagedList<shopping_online.Context.Order>
 @{
     Layout = "~/Views/Shared/Order.cshtml";
+
+
 }
 
 <div class="col-xs-12">
@@ -17,10 +19,11 @@
         <div class="panel-body table-responsive">
             <div class=" add-task-row">
                 <p class="btn btn-success btn-sm pull-left">
-                   
-                    <a href="~/Order_Details/Create">
-                        Create
-                    </a>
+                    @if (User.IsInRole("Sale"))
+                    {
+                        <a href="~/Order_Details/Create">
+                            Create
+                        </a>}
                 </p>
             </div>
             @using (Html.BeginForm("Orders", "Index", FormMethod.Get))
@@ -56,9 +59,12 @@
                         <th>
                             <p>Note</p>
                         </th>
-                        <th>
-                            <p>Action</p>
-                        </th>
+                        @if (User.IsInRole("Sale"))
+                        {
+                            <th>
+                                <p>Action</p>
+                            </th>
+                        }
                     </tr>
                 </thead>
                 <tbody>
@@ -84,11 +90,16 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Order_note)
                             </td>
-                            <td>
-                                <a href="~/Order/Edit/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                <a href="~/Order/Details/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-outdent"></i></button></a>
-                                <a href="~/Order/Delete/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                            </td>
+
+                            @if (User.IsInRole("Sale"))
+                            {
+                                <td>
+                                    <a href="~/Order/Edit/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                    <a href="~/Order/Details/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-outdent"></i></button></a>
+                                    <a href="~/Order/Delete/@item.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                </td>
+                            }
+
                         </tr>
                     }
                 </tbody>
