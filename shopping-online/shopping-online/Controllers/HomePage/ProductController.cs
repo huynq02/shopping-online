@@ -14,20 +14,30 @@ namespace shopping_online.Controllers.HomePage
         // GET: Product
         public ActionResult Index(int Id)
         {
-            var objProduct = obj.products.Where(n => n.product_id == Id).FirstOrDefault();
-            //var objImg = obj.Image_product.Where(x => x.id == objProduct.image_id).FirstOrDefault();
-            var listCategory = obj.Categories.ToList();
-            var listColor = obj.Colors.ToList();
-            var listProduct = obj.products.ToList();
-            var listSize = obj.sizes.ToList();
-            ProductDetail productDetail = new ProductDetail();
-            productDetail.objProduct = objProduct;
-            //productDetail.objImage = objImg;
-            productDetail.lstCategory = listCategory;
-            productDetail.lstColor = listColor;
-            productDetail.lstProduct = listProduct;
-            productDetail.lstSize = listSize;
-            return View("Index",productDetail);
+
+          
+
+                ViewBag.id = Session["account_id"];
+                var objProduct = obj.products.Where(n => n.product_id == Id).FirstOrDefault();
+                //var objImg = obj.Image_product.Where(x => x.id == objProduct.image_id).FirstOrDefault();
+                var listCategory = obj.Categories.ToList();
+                var listColor = obj.Colors.ToList();
+                var listProduct = obj.products.ToList();
+                var listSize = obj.sizes.ToList();
+                ProductDetail productDetail = new ProductDetail();
+                productDetail.objProduct = objProduct;
+                //productDetail.objImage = objImg;
+                productDetail.lstCategory = listCategory;
+                productDetail.lstColor = listColor;
+                productDetail.lstProduct = listProduct;
+                productDetail.lstSize = listSize;
+                return View("Index", productDetail);
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.id = Session["account_id"];
+
+            }
+
         }
     }
 }

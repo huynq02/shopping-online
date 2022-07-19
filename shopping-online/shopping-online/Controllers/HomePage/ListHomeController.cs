@@ -15,24 +15,33 @@ namespace shopping_online.Controllers.HomePage
         private DBContext obj = new DBContext();
         // GET: ListHome
         public ActionResult Index(string search ,int page = 1, int pageSize = 9)
-        { 
+        {
+           
+
+                
+                    var listProduct = obj.products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
+                    if (!String.IsNullOrEmpty(search))
+                    {
+                        listProduct = obj.products.OrderByDescending(x => x.product_id).Where(n => n.product_name.Contains(search)).ToPagedList(page, pageSize);
+                    }
+                    var listCategory = obj.Categories.ToList();
+                    var listColor = obj.Colors.ToList();
+                    var listSlide = obj.Slides.ToList();
+                    ListHome List = new ListHome();
+                    List.listColor = listColor;
+                    List.listProduct = listProduct;
+                    List.listCategory = listCategory;
+                    List.listSlide = listSlide;
+                    return View("Index", List);
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.id = Session["account_id"];
+
+            }
             
 
             //var listProduct = obj.Products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
-            var listProduct = obj.products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
-            if (!String.IsNullOrEmpty(search))
-            {
-                 listProduct = obj.products.OrderByDescending(x => x.product_id).Where(n=>n.product_name.Contains(search)).ToPagedList(page, pageSize);
-            }
-            var listCategory = obj.Categories.ToList();
-            var listColor = obj.Colors.ToList();
-            var listSlide = obj.Slides.ToList();
-            ListHome List = new ListHome();
-            List.listColor = listColor;
-            List.listProduct = listProduct; 
-            List.listCategory = listCategory;
-            List.listSlide = listSlide;
-            return View("Index", List);
+           
         }
         //public ActionResult Search(string search)
         //{

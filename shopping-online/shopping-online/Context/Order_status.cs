@@ -9,7 +9,6 @@
 
 namespace shopping_online.Context
 {
-    using shopping_online.Common;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -22,13 +21,13 @@ namespace shopping_online.Context
         {
             this.Orders = new HashSet<Order>();
         }
-    
+
         public int Order_status_id { get; set; }
         [DisplayName("Order Status")]
         [Required(ErrorMessage = "Status is Required")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Note should be between 2 and 50 characters")]
         public string Order_status_status { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }

@@ -19,7 +19,7 @@ namespace shopping_online.Controllers.Admin
         private DBContext db = new DBContext();
         // GET: Accounts
         [Authorize(Roles = "Admin")]
-        public ActionResult Index(string table_search, int? page)
+        public ActionResult Index1(string table_search, int? page)
         {
             int padeNum = (page ?? 1);
             int pageSize = 20;

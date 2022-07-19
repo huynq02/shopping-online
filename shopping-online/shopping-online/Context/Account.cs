@@ -79,16 +79,8 @@ namespace shopping_online.Context
 
         [DisplayName("Phone Number")]
         [Required(ErrorMessage = "Phone Number is Required")]
-        [StringLength(11, MinimumLength = 10, ErrorMessage = "Phone Number should be between 10 and 11 characters")]
+        [StringLength(10, ErrorMessage = "Phone Number should be 10 characters")]
         public string account_phone { get; set; }
-
-
-
-
-
-
-
-
         [DisplayName("Address")]
         [Required(ErrorMessage = "Address is Required")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Address should be between 5 and 50 characters")]

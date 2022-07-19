@@ -60,7 +60,6 @@ namespace shopping_online.Controllers.Admin
                         FormsAuthentication.SetAuthCookie(model.account_username, false);
                         Session["account_username"] = model.account_username;
                         Session["account_id"] = id;
-                      
                         return RedirectToAction("Index", "ProductAdmin");
                     }
                      else if (count == 4)
@@ -99,12 +98,29 @@ namespace shopping_online.Controllers.Admin
                         select user.account_id).SingleOrDefault();
             return id;
         }
+
+        [HttpPost]
+        public JsonResult IsUserNameAvailable(string UserName)
+        {
+            return Json(!db.Accounts.Any(x => x.account_username == UserName),
+                                                 JsonRequestBehavior.AllowGet);
+        }
         public ActionResult Signup()
         {
+           
             return View();
         }
+
+        private string getImage(int id)
+        {
+            string image = (from user in db.Accounts
+                      where user.account_id == id
+                      select user.account_image).SingleOrDefault();
+            return image;
+        }
+
         [HttpPost]
-        public ActionResult Signup(Account model, string gender)
+        public ActionResult Signup(Account model, string gender, string phone)
         {
 
             bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
@@ -122,6 +138,8 @@ namespace shopping_online.Controllers.Admin
                 model.account_status = true;
                 model.account_role_id = 1;
                 model.account_createdate = DateTime.Today;
+              
+                model.account_image = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
 
                 db.Accounts.Add(model);
                 db.SaveChanges();
@@ -134,8 +152,12 @@ namespace shopping_online.Controllers.Admin
 
         }
         //[Authorize(Roles = "Admin, Sale, Customer, Marketing")]
+        [HttpGet]
         public ActionResult profile(int? id)
         {
+           
+                ViewBag.id = Session["account_id"];
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -146,24 +168,49 @@ namespace shopping_online.Controllers.Admin
                 return HttpNotFound();
             }
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
-            return View(account);
+            Account acc = db.Accounts.Where(a => a.account_id == id).FirstOrDefault();
+            ViewBag.account_image = acc.account_image;
+            return View("profile", account);
         }
-        //[Authorize(Roles = "Admin, Sale, Customer, Marketing")]
-        // POST: Accounts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [HttpPost]
+        public JsonResult uploadFile(HttpPostedFileBase uploadedFiles)
+        {
+            string returnImagePath = string.Empty;
+            string fileName;
+            string Extension;
+            string imageName;
+            string imageSavePath;
+
+            if (uploadedFiles.ContentLength > 0)
+            {
+                fileName = System.IO.Path.GetFileNameWithoutExtension(uploadedFiles.FileName);
+                Extension = System.IO.Path.GetExtension(uploadedFiles.FileName);
+                imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
+                imageSavePath = Server.MapPath("/Content/images/") + imageName + Extension;
+
+                uploadedFiles.SaveAs(imageSavePath);
+                returnImagePath = "/Content/images/" + imageName + Extension;
+            }
+            return Json(Convert.ToString(returnImagePath), JsonRequestBehavior.AllowGet);
+        }
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult profile([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account)
+        public ActionResult profile([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account, string account_image)
         {
+            ViewBag.id = Session["account_id"];
+            account.account_image = Request["account_image"];
             if (ModelState.IsValid)
             {
                 db.Entry(account).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View("profile", account);
             }
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
-            return View(account);
+            return View("profile", account);
         }
 
         public ActionResult profileAdmin(int? id)
@@ -178,6 +225,7 @@ namespace shopping_online.Controllers.Admin
                 return HttpNotFound();
             }
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
+            ViewBag.account_image = account.account_image;
             return View(account);
         }
         //[Authorize(Roles = "Admin, Sale, Customer, Marketing")]
@@ -186,7 +234,7 @@ namespace shopping_online.Controllers.Admin
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult profileAdmin([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account)
+        public ActionResult profileAdmin([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account, string account_image)
         {
             if (ModelState.IsValid)
             {

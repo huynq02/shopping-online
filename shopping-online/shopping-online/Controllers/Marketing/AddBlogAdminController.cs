@@ -17,7 +17,16 @@ namespace shopping_online.Controllers.Marketing
         [Authorize(Roles = "Admin, Marketing")]
         public ActionResult Index()
         {
-            return View();
+            if (Session["account_id"] != null)
+            {
+               
+                ViewBag.id = Session["account_id"];
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         [HttpPost]
@@ -48,24 +57,34 @@ namespace shopping_online.Controllers.Marketing
         public ActionResult Create(Blog entity, string CreateDate, string ModifyDate, string Image, 
                                     string Title, string Author, string Descriptions, string CreateBy, string Detail, string ModifyBy, string Back_Link)
         {
-            //
-            if (ModelState.IsValid)
+            if (Session["account_id"] != null)
             {
-                entity.blog_title = Title;
-                entity.blog_author = Author;
-                entity.blog_descriptions = Descriptions;
-                entity.blog_createby = CreateBy;
-                entity.blog_detail = Detail;
-                entity.blog_modifyby = ModifyBy;
-                entity.blog_back_link = Back_Link;
-                entity.blog_createdate = DateTime.ParseExact(CreateDate, "yyyy-MM-dd", null);
-                entity.blog_modifydate = DateTime.ParseExact(ModifyDate, "yyyy-MM-dd", null);
-                entity.blog_images = Image;
-                db.Blogs.Add(entity);
-                db.SaveChanges();
-                return RedirectToAction("Index", "BlogAdmin");
+
+                ViewBag.id = Session["account_id"];
+                if (ModelState.IsValid)
+                {
+                    entity.blog_title = Title;
+                    entity.blog_author = Author;
+                    entity.blog_descriptions = Descriptions;
+                    entity.blog_createby = CreateBy;
+                    entity.blog_detail = Detail;
+                    entity.blog_modifyby = ModifyBy;
+                    entity.blog_back_link = Back_Link;
+                    entity.blog_createdate = DateTime.ParseExact(CreateDate, "yyyy-MM-dd", null);
+                    entity.blog_modifydate = DateTime.ParseExact(ModifyDate, "yyyy-MM-dd", null);
+                    entity.blog_images = Image;
+                    db.Blogs.Add(entity);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "BlogAdmin");
+                }
+                return View("Index");
             }
-            return View("Index");
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+          
         }
     }
 }

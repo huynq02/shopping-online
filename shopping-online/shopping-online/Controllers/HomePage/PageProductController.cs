@@ -14,14 +14,22 @@ namespace shopping_online.Controllers.HomePage
         // GET: PageProduct
         public ActionResult Index(int page = 1, int pageSize = 15)
         {
-            var listProduct = obj.products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
-            var listColors = obj.Colors.ToList();
-            var listCategory = obj.Categories.ToList();
-            PageProduct productDetail = new PageProduct();
-            productDetail.listCategory = listCategory;
-            productDetail.listColor = listColors;
-            productDetail.listProduct = listProduct;
-            return View("Index",productDetail);
+           
+                ViewBag.id = Session["account_id"];
+                var listProduct = obj.products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
+                var listColors = obj.Colors.ToList();
+                var listCategory = obj.Categories.ToList();
+                PageProduct productDetail = new PageProduct();
+                productDetail.listCategory = listCategory;
+                productDetail.listColor = listColors;
+                productDetail.listProduct = listProduct;
+                return View("Index", productDetail);
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.id = Session["account_id"];
+
+            }
+
         }
        
     }

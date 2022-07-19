@@ -14,18 +14,27 @@ namespace shopping_online.Controllers.HomePage
         // GET: ProductByCategory
         public ActionResult Index(int Id)
         {
-            var listProductByCategory = objCategory.products.Where(n => n.category_id == Id).ToList();
-            var listC = objCategory.Categories.ToList();
-            var listColor = objCategory.Colors.ToList();
-            //var listImage = objCategory..ToList();
-            var listP = objCategory.products.ToList();
-            ProductByCategory p1 = new ProductByCategory();
-            p1.listProductByCate = listProductByCategory;
-            p1.listC = listC;
-            p1.listColor = listColor;
-            //p1.listI = listImage;
-            p1.listP = listP;
-            return View("Index",p1);
+           
+
+                ViewBag.id = Session["account_id"];
+                var listProductByCategory = objCategory.products.Where(n => n.category_id == Id).ToList();
+                var listC = objCategory.Categories.ToList();
+                var listColor = objCategory.Colors.ToList();
+                //var listImage = objCategory..ToList();
+                var listP = objCategory.products.ToList();
+                ProductByCategory p1 = new ProductByCategory();
+                p1.listProductByCate = listProductByCategory;
+                p1.listC = listC;
+                p1.listColor = listColor;
+                //p1.listI = listImage;
+                p1.listP = listP;
+                return View("Index", p1);
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.id = Session["account_id"];
+
+            }
+
         }
     }
 }
