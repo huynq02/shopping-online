@@ -18,38 +18,73 @@ namespace shopping_online.Controllers.Marketing
 
         public ActionResult Index(string search, int page = 1, int pageSize = 5)
         {
-            //
-            var slAc = db.Slides.OrderByDescending(x => x.slide_createdate).Where(x => x.slide_status_id == true).ToPagedList(page, pageSize);
-            var slide = db.Slides.OrderByDescending(x => x.slide_createdate).ToPagedList(page, pageSize);
-            if (search != null)
+            if (Session["account_id"] != null)
             {
-                slide = db.Slides.Where(x => x.slide_title.Contains(search)).OrderByDescending(x => x.slide_createdate).ToPagedList(page, pageSize);
+                ViewBag.id = Session["account_id"];
+
+                var slAc = db.Slides.OrderByDescending(x => x.slide_createdate).Where(x => x.slide_status_id == true).ToPagedList(page, pageSize);
+                var slide = db.Slides.OrderByDescending(x => x.slide_createdate).ToPagedList(page, pageSize);
+                if (search != null)
+                {
+                    slide = db.Slides.Where(x => x.slide_title.Contains(search)).OrderByDescending(x => x.slide_createdate).ToPagedList(page, pageSize);
+                }
+                SlideModel sl = new SlideModel();
+                sl.slide = slide;
+                sl.slActive = slAc;
+                sl.search = search;
+                return View(sl);
+
             }
-            SlideModel sl = new SlideModel();
-            sl.slide = slide;
-            sl.slActive = slAc;
-            sl.search = search;
-            return View(sl);
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            //
+            
         }
         [Authorize(Roles = " Marketing")]
 
         public ActionResult InsertActive(int Id)
         {
-            Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
-            slide.slide_status_id = true;
-            db.Entry(slide).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index", "SlideAdmin");
+            if (Session["account_id"] != null)
+            {
+                ViewBag.id = Session["account_id"];
+
+                Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
+                slide.slide_status_id = true;
+                db.Entry(slide).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", "SlideAdmin");
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+           
         }
         [Authorize(Roles = " Marketing")]
 
         public ActionResult DeleteSlideActive(int Id)
         {
-            Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
-            slide.slide_status_id = false;
-            db.Entry(slide).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index", "SlideAdmin");
+
+            if (Session["account_id"] != null)
+            {
+                ViewBag.id = Session["account_id"];
+
+                Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
+                slide.slide_status_id = false;
+                db.Entry(slide).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", "SlideAdmin");
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+          
         }
     }
 }

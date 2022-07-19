@@ -47,7 +47,12 @@ namespace shopping_online.Controllers.Sale
         [Authorize(Roles =  "Sale")]
         public ActionResult Create()
         {
-            return View("Create");
+            if (Session["account_id"] != null)
+            {
+                ViewBag.id = Session["account_id"];
+                return View("Create");
+            }
+            else { return RedirectToAction("Login", "Login"); }
         }
 
         // POST: shippings/Create

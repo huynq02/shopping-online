@@ -39,6 +39,7 @@ namespace shopping_online.Controllers.Admin
                     int id = GetID(model.account_username.ToLower());
                     if (count == 1)
                     {
+                        // 1 customer
                         FormsAuthentication.SetAuthCookie(model.account_username, false);
                         Session["account_username"] = model.account_username;
                         Session["account_id"] = id;
@@ -46,26 +47,30 @@ namespace shopping_online.Controllers.Admin
                     }
                     else if (count == 2)
                     {
+                        //admin
                         FormsAuthentication.SetAuthCookie(model.account_username, false);
                         Session["account_username"] = model.account_username;
                         Session["account_id"] = id;
                         return RedirectToAction("Index", "Accounts");
                     }
-                    else if (count == 4)
+                    
+                    else if (count == 3)
                     {
+                        // marketing
+                        FormsAuthentication.SetAuthCookie(model.account_username, false);
+                        Session["account_username"] = model.account_username;
+                        Session["account_id"] = id;
+                      
+                        return RedirectToAction("Index", "ProductAdmin");
+                    }
+                     else if (count == 4)
+                    {
+                        //sale
                         FormsAuthentication.SetAuthCookie(model.account_username, false);
                         Session["account_username"] = model.account_username;
                         Session["account_id"] = id;
                         return RedirectToAction("Index", "shippings");
-                    }
-                    else if (count == 3)
-                    {
-                        Session["account_username"] = model.account_username;
-                        Session["account_id"] = id;
-                        FormsAuthentication.SetAuthCookie(model.account_username, false);
-                        return RedirectToAction("Index", "Blog");
-                    }
-                    else { return View(); }
+                    }else{ return View(); }
                 }
                 else
                 {
@@ -150,6 +155,38 @@ namespace shopping_online.Controllers.Admin
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult profile([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(account).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
+            return View(account);
+        }
+
+        public ActionResult profileAdmin(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Account account = db.Accounts.Find(id);
+            if (account == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
+            return View(account);
+        }
+        //[Authorize(Roles = "Admin, Sale, Customer, Marketing")]
+        // POST: Accounts/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult profileAdmin([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account)
         {
             if (ModelState.IsValid)
             {

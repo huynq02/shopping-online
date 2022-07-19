@@ -11,7 +11,19 @@ namespace shopping_online.Controllers.Sale
         // GET: DashboardSale
         public ActionResult Index()
         {
-            return View();
+            if (Session["account_id"] != null)
+            {
+                ViewBag.id = Session["account_id"];
+               
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
         }
+
     }
 }

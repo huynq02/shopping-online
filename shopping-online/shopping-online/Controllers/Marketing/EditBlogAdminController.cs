@@ -17,10 +17,20 @@ namespace shopping_online.Controllers.Marketing
 
         public ActionResult Index(int Id)
         {
-            var blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
-            EditBlog bg = new EditBlog();
-            bg.blog = blog;
-            return View(bg);
+            if (Session["account_id"] != null)
+            {
+                ViewBag.id = Session["account_id"];
+                var blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
+                EditBlog bg = new EditBlog();
+                bg.blog = blog;
+                return View(bg);
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+          
         }
 
         [HttpPost]
@@ -51,24 +61,44 @@ namespace shopping_online.Controllers.Marketing
         [ValidateInput(false)]
         public ActionResult Edit(Blog blog, int Id, string img, string Back)
         {
-            if (blog.blog_images == null)
+            if (Session["account_id"] != null)
             {
-                blog.blog_images = img;
+                ViewBag.id = Session["account_id"];
+                if (blog.blog_images == null)
+                {
+                    blog.blog_images = img;
+                }
+                blog.blog_back_link = Back;
+                blog.blog_id = Id;
+                db.Entry(blog).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", "BlogAdmin");
+
             }
-            blog.blog_back_link = Back;
-            blog.blog_id = Id;
-            db.Entry(blog).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index", "BlogAdmin");
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+           
         }
         [Authorize(Roles = " Marketing")]
 
         public ActionResult Delete(int Id)
         {
-            Blog blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
-            db.Blogs.Remove(blog);
-            db.SaveChanges();
-            return RedirectToAction("Index", "BlogAdmin");
+            if (Session["account_id"] != null)
+            {
+                ViewBag.id = Session["account_id"];
+                Blog blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
+                db.Blogs.Remove(blog);
+                db.SaveChanges();
+                return RedirectToAction("Index", "BlogAdmin"); 
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+          
         }
     }
 }

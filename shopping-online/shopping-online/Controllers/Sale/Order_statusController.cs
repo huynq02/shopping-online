@@ -19,10 +19,21 @@ namespace shopping_online.Controllers.Sale
 
         public ActionResult Index()
         {
-            var a = db.Order_status.ToList();
+            if (Session["account_id"] != null)
+            {
+                var lis = db.Order_status.ToList();
 
 
-            return View("Index", a);
+                
+                ViewBag.id = Session["account_id"];
+                return View("Index", lis);
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+           
         }
         //db.Order_status.ToList()
         // GET: Order_status/Create
@@ -30,7 +41,17 @@ namespace shopping_online.Controllers.Sale
 
         public ActionResult Create()
         {
-            return View("Create");
+            if (Session["account_id"] != null)
+            {
+                ViewBag.id = Session["account_id"];
+                return View("Create");
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+          
         }
         [Authorize(Roles = "Sale")]
 
@@ -39,30 +60,50 @@ namespace shopping_online.Controllers.Sale
         public ActionResult Create([Bind(Include = "Order_status_id,Order_status_status")] Order_status order_status)
         {
 
-            if (ModelState.IsValid)
+            if (Session["account_id"] != null)
             {
-                db.Order_status.Add(order_status);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                ViewBag.id = Session["account_id"];
+                if (ModelState.IsValid)
+                {
+                    db.Order_status.Add(order_status);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(order_status);
+                return View(order_status);
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            
         }
         [Authorize(Roles = "Sale")]
 
         // GET: Order_status/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["account_id"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                ViewBag.id = Session["account_id"];
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Order_status order_status = db.Order_status.Find(id);
+                if (order_status == null)
+                {
+                    return HttpNotFound();
+                }
+                return View("Edit", order_status);
+
             }
-            Order_status order_status = db.Order_status.Find(id);
-            if (order_status == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "Login");
             }
-            return View("Edit", order_status);
+           
         }
 
         [Authorize(Roles = "Sale")]
@@ -71,18 +112,27 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Order_status order_status, int id, string status)
         {
+            if (Session["account_id"] != null)
+            {
+                ViewBag.id = Session["account_id"];
+                order_status.Order_status_id = id;
+                if (order_status.Order_status_status == null)
+                {
+                    order_status.Order_status_status = status;
+                }
+                if (ModelState.IsValid)
+                {
+                    db.Entry(order_status).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "Order_status");
 
-            order_status.Order_status_id = id;
-            if (order_status.Order_status_status == null)
-            {
-                order_status.Order_status_status = status;
             }
-            if (ModelState.IsValid)
+            else
             {
-                db.Entry(order_status).State = EntityState.Modified;
-                db.SaveChanges();
+                return RedirectToAction("Login", "Login");
             }
-            return RedirectToAction("Index", "Order_status");
+           
 
 
         }
@@ -92,16 +142,26 @@ namespace shopping_online.Controllers.Sale
         // GET: Order_status/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["account_id"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                ViewBag.id = Session["account_id"];
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Order_status order_status = db.Order_status.Find(id);
+                if (order_status == null)
+                {
+                    return HttpNotFound();
+                }
+                return View("Delete", order_status);
+
             }
-            Order_status order_status = db.Order_status.Find(id);
-            if (order_status == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "Login");
             }
-            return View("Delete", order_status);
+            
         }
         [Authorize(Roles = "Sale")]
 
@@ -110,10 +170,20 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Order_status order_status = db.Order_status.Find(id);
-            db.Order_status.Remove(order_status);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Order_status");
+            if (Session["account_id"] != null)
+            {
+                ViewBag.id = Session["account_id"];
+                Order_status order_status = db.Order_status.Find(id);
+                db.Order_status.Remove(order_status);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Order_status");
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+           
         }
 
 

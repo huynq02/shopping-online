@@ -17,16 +17,25 @@ namespace shopping_online.Controllers.Marketing
         public ActionResult Index(string search, int page = 1, int pageSize = 5)
         {
 
-            //
-            var blog = db.Blogs.OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
-            if (search != null)
+            if (Session["account_id"] != null)
             {
-                blog = db.Blogs.Where(x => x.blog_title.Contains(search)).OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
+                ViewBag.id = Session["account_id"];
+                var blog = db.Blogs.OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
+                if (search != null)
+                {
+                    blog = db.Blogs.Where(x => x.blog_title.Contains(search)).OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
+                }
+                BlogModel bg = new BlogModel();
+                bg.blog = blog;
+                bg.search = search;
+                return View(bg);
+
             }
-            BlogModel bg = new BlogModel();
-            bg.blog = blog;
-            bg.search = search;
-            return View(bg);
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+           
         }
     }
 }
