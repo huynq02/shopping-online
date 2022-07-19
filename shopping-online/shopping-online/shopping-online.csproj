@@ -1112,11 +1112,6 @@
     <Content Include="Views\Accounts\Delete.cshtml" />
     <Content Include="Views\Accounts\Edit.cshtml" />
     <Content Include="Views\Accounts\Index.cshtml" />
-    <Content Include="Views\Functions\Create.cshtml" />
-    <Content Include="Views\Functions\Delete.cshtml" />
-    <Content Include="Views\Functions\Details.cshtml" />
-    <Content Include="Views\Functions\Edit.cshtml" />
-    <Content Include="Views\Functions\Index.cshtml" />
     <Content Include="Views\Shared\Role.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />

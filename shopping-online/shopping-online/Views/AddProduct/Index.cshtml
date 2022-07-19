@@ -177,35 +177,21 @@
                 </li>
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user"></i>
-                        <span>Jane Doe <i class="caret"></i></span>
-                    </a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                            <span>@User.Identity.Name <i class="caret"></i></span>
+                        </a>
+                    }
                     <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                         <li class="dropdown-header text-center">Account</li>
 
-                        @*<li>
-                            <a href="#">
-                                <i class="fa fa-clock-o fa-fw pull-right"></i>
-                                <span class="badge badge-success pull-right">10</span> Updates
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-envelope-o fa-fw pull-right"></i>
-                                <span class="badge badge-danger pull-right">5</span> Messages
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-magnet fa-fw pull-right"></i>
-                                <span class="badge badge-info pull-right">3</span> Subscriptions
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> FAQ
-                            </a>
-                        </li>*@
 
-                        @*<li class="divider"></li>*@
+                        <li class="divider"></li>
 
                         <li>
-                            <a href="#">
+                            <a href="~/Login/profile/@ViewBag.id">
                                 <i class="fa fa-user fa-fw pull-right"></i>
                                 Profile
                             </a>
@@ -217,9 +203,13 @@
 
                         <li class="divider"></li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                            <li>
+                                <a href="@Url.Action("Logout", "Login")"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                            </li>
+                        }
                     </ul>
                 </li>
             </ul>
@@ -236,12 +226,16 @@
                 <div class="pull-left image">
                     <img src="~/Content/img/26115.jpg" class="img-circle" alt="User Image" />
                 </div>
-                <div class="pull-left info">
-                    <p>Hello, Jane</p>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="pull-left info">
+                        <p>Hello, @User.Identity.Name</p>
 
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                }
             </div>
+
             <!-- search form -->
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
@@ -259,62 +253,69 @@
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/Accounts/Index">
-                        <i class="fa fa-user"></i> <span>Account</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Roles/Index">
-                        <i class="fa fa-user"></i> <span>Role</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/ProductAdmin/loadProduct">
-                        <i class="fa fa-gavel"></i> <span>Product</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Order/Index">
-                        <i class="fa fa-globe"></i> <span>Order</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Order_status/Index">
-                        <i class="fa fa-globe"></i> <span>Order Status</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/shippings/Index">
-                        <i class="fa fa-globe"></i> <span>Ship</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="/ProductAdmin/Index">
-                        <i class="fa fa-globe"></i> <span>Product</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/BlogAdmin/Index">
-                        <i class="fa fa-globe"></i> <span>Blog</span>
-                    </a>
-                </li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>
+                        <a href="/Accounts/Index">
+                            <i class="fa fa-user"></i> <span>Account</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Roles/Index">
+                            <i class="fa fa-user"></i> <span>Role</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
+                {
+                    <li>
+                        <a href="/Order/Index">
+                            <i class="fa fa-globe"></i> <span>Order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Order_status/Index">
+                            <i class="fa fa-globe"></i> <span>Order Status</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shippings/Index">
+                            <i class="fa fa-globe"></i> <span>Ship</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
+                {
+                    <li class="active">
+                        <a href="/ProductAdmin/Index">
+                            <i class="fa fa-globe"></i> <span>Product</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/BlogAdmin/Index">
+                            <i class="fa fa-globe"></i> <span>Blog</span>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="/SlideAdmin/Index">
-                        <i class="fa fa-glass"></i> <span>Slide</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="/SlideAdmin/Index">
+                            <i class="fa fa-glass"></i> <span>Slide</span>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="/CustomerAdmin/Index">
-                        <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="/CustomerAdmin/Index">
+                            <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
+                        </a>
+                    </li>
+
+                }
             </ul>
+
         </section>
         <!-- /.sidebar -->
     </aside>
+
 
     <aside class="right-side">
 
@@ -431,8 +432,10 @@
                                                data-val-required="Back_Link is not empty" id="Back_Link" value="" />
                                         @Html.ValidationMessageFor(model => model.Back_Link, "", new { @class = "text-danger" })
                                     </div>
-                                    <button type="submit" class="btn btn-info">Add Product</button>
-                                </form>
+                                    @if (User.IsInRole("Marketing"))
+                                    {<button type="submit" class="btn btn-info">Add Product</button>
+                                    }
+                                    </form>
 
                             </div>
                         }
@@ -455,9 +458,9 @@
     data-val-length="Use 10-150 characters" data-val-length-max="150" data-val-length-min="10"
     data-val-required="Mời nhập Title" id="Title" name="Title" placeholder="Title" type="text" value="">*@
 
-@*<input class="form-control text-box single-line" data-val="true" 
-    data-val-email="The email address is not valid" 
-    data-val-regex="E-mail is not valid orUse letters, numbers &amp; preriods or Must be between 5-32 character or Not special character " 
-    data-val-regex-pattern="^[a-z][a-z0-9_.]{5,32}@[a-z0-9]{2,}(.[a-z0-9]{2,4}){1,2}$" 
+@*<input class="form-control text-box single-line" data-val="true"
+    data-val-email="The email address is not valid"
+    data-val-regex="E-mail is not valid orUse letters, numbers &amp; preriods or Must be between 5-32 character or Not special character "
+    data-val-regex-pattern="^[a-z][a-z0-9_.]{5,32}@[a-z0-9]{2,}(.[a-z0-9]{2,4}){1,2}$"
     data-val-required="Email is not empty" id="Account_email" name="Account_email" type="email" value="">*@
 

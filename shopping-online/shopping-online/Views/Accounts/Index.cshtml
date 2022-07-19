@@ -15,11 +15,14 @@
             List Account
         </header>
         <div class="panel-body table-responsive">
-            <div class=" add-task-row">
-                <p class="btn btn-success btn-sm pull-left">
-                    @Html.ActionLink("Create New", "Create")
-                </p>
-            </div>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class=" add-task-row">
+
+                    <p class="btn btn-success btn-sm pull-left">
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                </div>}
             @using (Html.BeginForm("Accounts", "Index", FormMethod.Get))
             {
                 <div class="box-tools m-b-15">
@@ -62,7 +65,10 @@
                         <th>
                             <p>Role</p>
                         </th>
-                        <th> <p>Action</p></th>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <th> <p>Action</p></th>
+}
                     </tr>
                 </thead>
                 <tbody>
@@ -106,10 +112,13 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Role.Role_name)
                             </td>
-                            <td>
-                                <a href="~/Accounts/Edit/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                <a href="~/Accounts/Delete/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                            </td>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <td>
+                                    <a href="~/Accounts/Edit/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                    <a href="~/Accounts/Delete/@item.account_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
+                                </td>
+}
                         </tr>
                     }
                 </tbody>
