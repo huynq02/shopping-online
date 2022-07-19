@@ -22,11 +22,14 @@ namespace shopping_online.Controllers
             }
             var cate = db.Categories.ToList();
             var color = db.Colors.ToList();
+            var pro = db.products.ToList();
+
             BlogModel bg = new BlogModel();
             bg.bg = blog;
             bg.relateBlog = relateBlog;
             bg.cate = cate;
             bg.color = color;
+            bg.ListProducts = pro;
             return View(bg);
         }
     }

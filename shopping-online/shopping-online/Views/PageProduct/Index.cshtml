@@ -76,43 +76,42 @@
 
                         </div>
                         @*<div class="btn-group pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    USA
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Canada</a></li>
-                                    <li><a href="#">UK</a></li>
-                                </ul>
-                            </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                        USA
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Canada</a></li>
+                                        <li><a href="#">UK</a></li>
+                                    </ul>
+                                </div>
 
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    DOLLAR
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Canadian Dollar</a></li>
-                                    <li><a href="#">Pound</a></li>
-                                </ul>
-                            </div>
-                        </div>*@
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                        DOLLAR
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Canadian Dollar</a></li>
+                                        <li><a href="#">Pound</a></li>
+                                    </ul>
+                                </div>
+                            </div>*@
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-
+                                @*<li><a href="#"><i class="fa fa-user"></i> Account</a></li>*@
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <li><a href="#"><i class="fa fa-user"></i>@User.Identity.Name</a></li>
-                                    <li><i class="fa fa-user-md"></i>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                                    <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                                    <li><a href="@Url.Action("Logout","Login")"><i class="fa fa-lock"></i>Logout</a></li>
                                 }
                                 else
                                 {
-                                    <li>  <i class="fa fa-lock"></i>@Html.ActionLink("Login", "Login", "Login")</li>
+                                    <li><a href="@Url.Action("Login","Login")"><i class="fa fa-lock"></i> Login</a></li>
                                 }
                             </ul>
                         </div>
@@ -136,10 +135,11 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="@Url.Action("Index","ListHome")" >Home</a></li>
+                                <li><a href="@Url.Action("Index","ListHome")">Home</a></li>
                                 <li><a href="@Url.Action("Index","PageProduct")" class="active">Product All</a></li>
                                 <li> <a href="@Url.Action("Index","Blog")">Blog</a></li>
-</ul>
+                                <li><a href="@Url.Action("Index","AboutUs")">About Us</a></li>
+                            </ul>
                         </div>
                     </div>
                     @using (Html.BeginForm("Index", "Search", FormMethod.Get))
@@ -151,15 +151,15 @@
                         </div>
                     }
                     @*@using (Html.BeginForm("Index", "ListHome", FormMethod.Get))
-        {
-            <div class="col-sm-3">
-                <div class="search_box pull-right">
-                    @Html.TextBox("search", null, (new { @placeholder = "Search" }))
-                </div>
-            </div>
+                        {
+                            <div class="col-sm-3">
+                                <div class="search_box pull-right">
+                                    @Html.TextBox("search", null, (new { @placeholder = "Search" }))
+                                </div>
+                            </div>
 
 
-        }*@
+                        }*@
                 </div>
             </div>
         </div><!--/header-bottom-->
@@ -240,15 +240,15 @@
                             <!--category-productsr-->
                             @foreach (var item in Model.listCategory)
                             {
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            @*<a href="#">@item.category_name</a>*@
-                            @*<p> @Html.ActionLink(item.category_name, "Index", "Category", new { Id = item.category_id }, null)</p>*@
-                            <p> <a href="/ProductByCategory/Index?Id=@item.category_id"> @item.category_name</a> </p>
-                        </h4>
-                    </div>
-                </div>}
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            @*<a href="#">@item.category_name</a>*@
+                                            @*<p> @Html.ActionLink(item.category_name, "Index", "Category", new { Id = item.category_id }, null)</p>*@
+                                            <p> <a href="/ProductByCategory/Index?Id=@item.category_id"> @item.category_name</a> </p>
+                                        </h4>
+                                    </div>
+                                </div>}
 
                         </div><!--/category-products-->
 
@@ -259,10 +259,10 @@
                             <div class="brands-name">
                                 @foreach (var item in Model.listColor)
                                 {
-                    <ul class="nav nav-pills nav-stacked">
-                        <li> <p> <a href="/ProductByColor/Index?Id=@item.color_id"> @item.color_name</a> </p></li>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li> <p> <a href="/ProductByColor/Index?Id=@item.color_id"> @item.color_name</a> </p></li>
 
-                    </ul>}
+                                    </ul>}
 
                             </div>
                         </div><!--/brands_products-->
@@ -290,31 +290,31 @@
                         <h2 class="title text-center">Features Items</h2>
                         @foreach (var item in Model.listProduct)
                         {
-            <div class="col-sm-4">
-                <div class="product-image-wrapper">
-                    <div class="single-products">
-                        <div class="productinfo text-center">
-                            <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
-                            <h2>@item.product_price</h2>
-                            <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h2>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                        </div>
-                        <div class="product-overlay">
-                            <div class="overlay-content">
-                                <h2>@item.product_name</h2>
-                                <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h2>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="choose">
-                        <ul class="nav nav-pills nav-justified">
-                            <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                            <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>}
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
+                                            <h2>@item.product_price</h2>
+                                            <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        </div>
+                                        <div class="product-overlay">
+                                            <div class="overlay-content">
+                                                <h2>@item.product_name</h2>
+                                                <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="choose">
+                                        <ul class="nav nav-pills nav-justified">
+                                            <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                                            <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>}
                         @*@Html.PagedListPager(Model.listProduct, page => Url.Action("Index", new { page }))*@
 
 
@@ -338,37 +338,37 @@
                                 {
 
 
-                    <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
-                                    <h2>@item.product_price</h2>
-                                    <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                </div>
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
+                                                    <h2>@item.product_price</h2>
+                                                    <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
 
-                            </div>
-                        </div>
-                    </div>}
+                                            </div>
+                                        </div>
+                                    </div>}
                             </div>
 
                             <div class="tab-pane fade" id="blazers">
                                 @foreach (var item in Model.listProduct.Where(n => n.category_id == 5).Take(4))
                                 {
-                    <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
-                                    <h2>@item.product_price</h2>
-                                    <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                </div>
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
+                                                    <h2>@item.product_price</h2>
+                                                    <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
 
-                            </div>
-                        </div>
-                    </div>}
+                                            </div>
+                                        </div>
+                                    </div>}
 
                             </div>
 
@@ -387,38 +387,38 @@
                                     {
 
 
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
-                                        <h2>@item.product_price</h2>
-                                        <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
+                                        <div class="col-sm-4">
+                                            <div class="product-image-wrapper">
+                                                <div class="single-products">
+                                                    <div class="productinfo text-center">
+                                                        <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
+                                                        <h2>@item.product_price</h2>
+                                                        <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
 
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    </div>
+                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                    </div>
 
-                                </div>
-                            </div>
-                        </div>}
+                                                </div>
+                                            </div>
+                                        </div>}
                                 </div>
                                 <div class="item">
                                     @foreach (var item in Model.listProduct.Where(n => n.color_id == 4).Take(3))
                                     {
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
-                                        <h2>@item.product_price</h2>
-                                        <h3>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, null)</h3>
+                                        <div class="col-sm-4">
+                                            <div class="product-image-wrapper">
+                                                <div class="single-products">
+                                                    <div class="productinfo text-center">
+                                                        <img class="media-object" src="~/Content/images/product-details/product/@item.product_image" />
+                                                        <h2>@item.product_price</h2>
+                                                        <h2>@Html.ActionLink(item.product_name, "Index", "Product", new { Id = item.product_id }, new { @style = "font-family: 'Nunito', sans-serif ; font-size: 16px ; color:black" })</h2>
 
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    </div>
+                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                    </div>
 
-                                </div>
-                            </div>
-                        </div>}
+                                                </div>
+                                            </div>
+                                        </div>}
                                 </div>
                             </div>
                             <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
@@ -469,52 +469,52 @@
 
 
                         @*<div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="~/Content/images/product-details/product/MLB LA DODGERS.jpg" />
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                        <div class="iframe-img">
+                                            <img src="~/Content/images/product-details/product/MLB LA DODGERS.jpg" />
 
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
+                                        </div>
+                                        <div class="overlay-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                        </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                    <h2>24 DEC 2014</h2>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="~/Content/images/product-details/product/Nike Air Force 1 Pixel.jpg" />
+                            <div class="col-sm-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                        <div class="iframe-img">
+                                            <img src="~/Content/images/product-details/product/Nike Air Force 1 Pixel.jpg" />
 
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
+                                        </div>
+                                        <div class="overlay-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                        </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                    <h2>24 DEC 2014</h2>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="~/Content/images/product-details/product/Reebok Pump Fury Phoenix Suns.jpg" />
+                            <div class="col-sm-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                        <div class="iframe-img">
+                                            <img src="~/Content/images/product-details/product/Reebok Pump Fury Phoenix Suns.jpg" />
 
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>*@
+                                        </div>
+                                        <div class="overlay-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                        </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                    <h2>24 DEC 2014</h2>
+                                </div>
+                            </div>*@
                     </div>
                     <div class="col-sm-3 ">
                         <div class="address">
@@ -549,7 +549,7 @@
                                 <li><a href="#">Liên Hệ</a></li>
                                 @*<li><a href="#">Womens</a></li>*@
                                 @*<li><a href="#">Gift Cards</a></li>
-                                <li><a href="#">Shoes</a></li>*@
+                                    <li><a href="#">Shoes</a></li>*@
                             </ul>
                         </div>
                     </div>
@@ -594,7 +594,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+                    <p class="pull-left">Copyright © 2022 E-SHOPPER Inc. All rights reserved.</p>
                     <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
                 </div>
             </div>

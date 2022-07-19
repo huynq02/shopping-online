@@ -19,10 +19,12 @@ namespace shopping_online.Controllers
             var blog = db.Blogs.OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
             var cate = db.Categories.ToList();
             var color = db.Colors.ToList();
+            var pro = db.products.ToList();
             BlogModel bg = new BlogModel();
             bg.blog = blog;
             bg.cate = cate;
             bg.color = color;
+            bg.ListProducts = pro;
             return View(bg);
         }
     }
