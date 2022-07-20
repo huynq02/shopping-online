@@ -2,7 +2,8 @@
 @{
     Layout = null;
 }
-@model shopping_online.Models.HomeAdmin
+@model shopping_online.Models.UserAdmin
+@using PagedList.Mvc
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,8 +45,11 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->
+
+    <style type="text/css">
+    </style>
 </head>
-<body>
+<body class="skin-black">
     <header class="header">
         <a href="index.html" class="logo">
             Director
@@ -289,243 +293,108 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li>
-                        <a href="/Admin/Index">
-                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        <a href="/UserAdmin/UserAccount">
+                            <i class="fa fa-dashboard"></i> <span>My Account</span>
                         </a>
                     </li>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <li>
-                            <a href="/Accounts/Index">
-                                <i class="fa fa-user"></i> <span>Account</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Roles/Index">
-                                <i class="fa fa-user"></i> <span>Role</span>
-                            </a>
-                        </li>
-                    }
-                    @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
-                    {
-                        <li>
-                            <a href="/Order/Index">
-                                <i class="fa fa-globe"></i> <span>Order</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Order_status/Index">
-                                <i class="fa fa-globe"></i> <span>Order Status</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/shippings/Index">
-                                <i class="fa fa-globe"></i> <span>Ship</span>
-                            </a>
-                        </li>
-                    }
-                    @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
-                    {
-                        <li>
-                            <a href="/ProductAdmin/Index">
-                                <i class="fa fa-globe"></i> <span>Product</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/BlogAdmin/Index">
-                                <i class="fa fa-globe"></i> <span>Blog</span>
-                            </a>
-                        </li>
+                    <li class="active">
+                        <a href="/UserAdmin/Index">
+                            <i class="fa fa-user"></i> <span>My All Purchase</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/UserAdmin/ToPay">
+                            <i class="fa fa-user"></i> <span>To Pay</span>
+                        </a>
+                    </li>
 
-                        <li>
-                            <a href="/SlideAdmin/Index">
-                                <i class="fa fa-glass"></i> <span>Slide</span>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="/UserAdmin/ToShip">
+                            <i class="fa fa-globe"></i> <span>To Ship</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/UserAdmin/ToReceive">
+                            <i class="fa fa-globe"></i> <span>To Receive</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/UserAdmin/Completed">
+                            <i class="fa fa-globe"></i> <span>Completed</span>
+                        </a>
+                    </li>
 
-                        <li>
-                            <a href="/CustomerAdmin/Index">
-                                <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
-                            </a>
-                        </li>
-
-                    }
+                    <li>
+                        <a href="/UserAdmin/Cancelled">
+                            <i class="fa fa-globe"></i> <span>Cancelled</span>
+                        </a>
+                    </li>
                 </ul>
 
             </section>
             <!-- /.sidebar -->
         </aside>
 
+
         <aside class="right-side">
 
             <!-- Main content -->
             <section class="content">
 
-                <div class="row" style="margin-bottom:5px;">
-
-
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-red"><i class="fa fa-gavel"></i></span>
-                            <div class="sm-st-info">
-                                <span>@Model.lstProduct.Count()</span>
-                                Total Products
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-violet"><i class="glyphicon glyphicon-user"></i></span>
-                            <div class="sm-st-info">
-                                <span>@Model.lstCustomer.Count()</span>
-                                Total Customers
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-blue"><i class="fa fa-globe"></i></span>
-                            <div class="sm-st-info">
-                                <span>@Model.lstBlog.Count()</span>
-                                Total Blogs
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-green"><i class="glyphicon glyphicon-usd"></i></span>
-                            <div class="sm-st-info">
-                                <span>@Model.sum</span>
-                                Total Profits
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Main row -->
                 <div class="row">
-
-                    <div class="col-md-8">
-                        <!--earning graph start-->
-                        <section class="panel">
+                    <div class="col-md-12">
+                        <section class="panel tasks-widget">
                             <header class="panel-heading">
-                                Earning Graph
+                                My Purchase
                             </header>
-                            <div class="panel-body">
-                                <canvas id="linechart" width="600" height="330"></canvas>
+                            <div class="panel-body table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Product Name</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var or in Model.lstOder)
+                                        {
+                                            foreach (var de in Model.lstOde)
+                                            {
+                                                if (or.Order_id == de.Order_id)
+                                                {
+                                                    foreach (var item in Model.lstPro)
+                                                    {
+                                                        if (item.product_id == de.product_id)
+                                                        {
+                                                            <tr>
+                                                                <td>@item.product_name</td>
+                                                                <td>@de.Order_Details_num</td>
+                                                                <td>@de.Order_Details_price</td>
+                                                                <td><a href="/UserAdmin/Cancel?Id=@or.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a></td>
+                                                            </tr>
+                                                        }
+
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
                             </div>
                         </section>
-                        <!--earning graph end-->
-
                     </div>
-                    <div class="col-lg-4">
-
-                        <!--chat start-->
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Notifications
-                            </header>
-                            <div class="panel-body" id="noti-box">
-
-                                @if (Model.blog != null)
-                                {
-                                    <div class="alert alert-success">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong>Well done!</strong> You successfully add new blog.
-                                    </div>
-                                }
-
-                                @if (Model.proCreate != null)
-                                {
-                                    <div class="alert alert-success">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong>Well done!</strong> You successfully add new product.
-                                    </div>
-                                }
-
-                                @if (Model.cusCreate != null)
-                                {
-                                    <div class="alert alert-success">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong>Well done!</strong> New customer added.
-                                    </div>
-                                }
-
-                                @if (Model.slideCreate != null)
-                                {
-                                    <div class="alert alert-success">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong>Well done!</strong> You successfully add new slide.
-                                    </div>
-                                }
-
-                                @foreach (var item in Model.lstProOder)
-                                {
-                                    <div class="alert alert-info">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong>Heads up!</strong> @item.product_name has just been purchased
-                                    </div>
-                                }
-
-                                @foreach (var item in Model.lstProOut)
-                                {
-                                    <div class="alert alert-warning">
-                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                        <strong>Warning!</strong> @item.product_name is out of stock
-                                    </div>
-                                }
-
-                                <div class="alert alert-block alert-danger">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Oh snap!</strong> Change a few things up and try submitting again.
-                                </div>
-                                <div class="alert alert-success">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Well done!</strong> You successfully read this important alert message.
-                                </div>
-                                <div class="alert alert-info">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-                                </div>
-                                <div class="alert alert-warning">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Warning!</strong> Best check yo self, you're not looking too good.
-                                </div>
-                            </div>
-                        </section>
-
-                    </div>
-
-
                 </div>
-
-
                 <!-- row end -->
             </section><!-- /.content -->
             <div class="footer-main">
-                Copyright &copy Director, 2014
+                Copyright &copy Director, 2022
             </div>
         </aside><!-- /.right-side -->
+
     </div><!-- ./wrapper -->
     <!-- jQuery 2.0.2 -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
@@ -616,7 +485,9 @@
                 responsive: true,
                 maintainAspectRatio: false,
             });
+
         });
+                                                                                    // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

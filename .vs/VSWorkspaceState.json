@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\shopping-online",
-    "\\shopping-online\\shopping-online",
-    "\\shopping-online\\shopping-online\\Views",
-    "\\shopping-online\\shopping-online\\Views\\AddBlogAdmin"
+    ""
   ],
-  "SelectedNode": "\\shopping-online\\shopping-online\\Views\\AddBlogAdmin\\Index.cshtml",
+  "SelectedNode": "\\shopping-online.sln",
   "PreviewInSolutionExplorer": false
 }

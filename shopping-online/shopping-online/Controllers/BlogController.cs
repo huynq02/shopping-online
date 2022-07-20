@@ -13,7 +13,7 @@ namespace shopping_online.Controllers
     {
         DBContext db = new DBContext();
         // GET: Blog
-        public ActionResult Index(int page = 1, int pageSize = 1)
+        public ActionResult Index(int page = 1, int pageSize = 4)
         {
             var blog = db.Blogs.OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
             var cate = db.Categories.ToList();
