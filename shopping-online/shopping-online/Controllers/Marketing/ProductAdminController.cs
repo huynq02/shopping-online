@@ -78,7 +78,7 @@ namespace shopping_online.Controllers.Marketing
             if (Session["account_id"] != null)
             {
                 ViewBag.id = Session["account_id"];
-
+                ViewBag.image = Session["account_image"];
                 var pro = db.products.Where(x => x.product_id == Id).FirstOrDefault();
                 //Console.WriteLine(pro);
                 pro.product_code = product.product_code;
@@ -110,7 +110,8 @@ namespace shopping_online.Controllers.Marketing
         {
             if (Session["account_id"] != null)
             {
-                ViewBag.id = Session["account_id"];
+                ViewBag.image = Session["account_image"];
+                ViewBag.id = Session["account_id"]; 
                 product pro = db.products.Where(x => x.product_id == Id).FirstOrDefault();
                 db.products.Remove(pro);
                 db.SaveChanges();

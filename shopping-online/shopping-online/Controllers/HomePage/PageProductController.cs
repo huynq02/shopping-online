@@ -15,6 +15,7 @@ namespace shopping_online.Controllers.HomePage
         public ActionResult Index(int page = 1, int pageSize = 15)
         {
 
+            ViewBag.image = Session["account_image"];
             ViewBag.id = Session["account_id"];
             var listProduct = obj.products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
                 var listColors = obj.Colors.ToList();

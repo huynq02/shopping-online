@@ -21,6 +21,7 @@ namespace shopping_online.Controllers.Sale
         public ActionResult Index(string table_search, int? page)
         {
             if (Session["account_id"] != null) {
+              ViewBag.image =  Session["account_image"];
             int padeNum = (page ?? 1);
             int pageSize = 10;
             List<shipping> ship = db.shippings.ToList();
@@ -49,6 +50,7 @@ namespace shopping_online.Controllers.Sale
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 return View("Create");
             }
@@ -64,6 +66,8 @@ namespace shopping_online.Controllers.Sale
         {
             if (ModelState.IsValid)
             {
+                ViewBag.image = Session["account_image"];
+                ViewBag.id = Session["account_id"];
                 db.shippings.Add(shipping);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -76,6 +80,8 @@ namespace shopping_online.Controllers.Sale
         [Authorize(Roles = "Sale")]
         public ActionResult Edit(int? id)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -95,6 +101,8 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "shipping_id,shipping_name,shipping_email,shipping_phone")] shipping shipping)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             if (ModelState.IsValid)
             {
                 db.Entry(shipping).State = EntityState.Modified;
@@ -108,6 +116,8 @@ namespace shopping_online.Controllers.Sale
         [Authorize(Roles = "Sale")]
         public ActionResult Delete(int? id)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -125,10 +135,16 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            shipping shipping = db.shippings.Find(id);
+            try {
+                ViewBag.image = Session["account_image"];
+                ViewBag.id = Session["account_id"];
+                shipping shipping = db.shippings.Find(id);
             db.shippings.Remove(shipping);
             db.SaveChanges();
             return RedirectToAction("Index");
+            } catch (Exception) { 
+            ModelState.AddModelError("", "The shiper has been in use so you can not delete them");
+            return View();}
         }
 
         protected override void Dispose(bool disposing)

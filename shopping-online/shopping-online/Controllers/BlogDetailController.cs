@@ -14,6 +14,7 @@ namespace shopping_online.Controllers
         // GET: BlogDetail
         public ActionResult Index(int Id)
         {
+            ViewBag.image = Session["account_image"];
             ViewBag.id = Session["account_id"];
             var blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
             var relateBlog = db.Blogs.Where(x => x.blog_id == Id - 1).FirstOrDefault();

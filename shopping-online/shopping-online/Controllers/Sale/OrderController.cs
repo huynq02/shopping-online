@@ -21,6 +21,7 @@ namespace shopping_online.Controllers.Sale
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 int padeNum = (page ?? 1);
                 int pageSize = 20;
                 List<Order> orders = db.Orders.ToList();
@@ -61,6 +62,7 @@ namespace shopping_online.Controllers.Sale
                 {
                     return HttpNotFound();
                 }
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 return View(order);
 
@@ -81,6 +83,7 @@ namespace shopping_online.Controllers.Sale
                 ViewBag.account_id = new SelectList(db.Accounts, "account_id", "account_username");
                 ViewBag.Order_status_id = new SelectList(db.Order_status, "Order_status_id", "Order_status_status");
                 ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name");
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 return View();
 
@@ -112,6 +115,7 @@ namespace shopping_online.Controllers.Sale
                 ViewBag.account_id = new SelectList(db.Accounts, "account_id", "account_username", order.account_id);
                 ViewBag.Order_status_id = new SelectList(db.Order_status, "Order_status_id", "Order_status_status", order.Order_status_id);
                 ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name", order.shipping_id);
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 return View(order);
 
@@ -130,6 +134,7 @@ namespace shopping_online.Controllers.Sale
             {
                 ViewBag.Order_id = new SelectList(db.Orders, "Order_id", "Order_note");
                 ViewBag.product_id = new SelectList(db.products, "product_id", "product_name");
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 return View();
 
@@ -156,6 +161,7 @@ namespace shopping_online.Controllers.Sale
                 {
                     db.Order_Details.Add(order_Details);
                     db.SaveChanges();
+                    ViewBag.image = Session["account_image"];
                     ViewBag.id = Session["account_id"];
                     return RedirectToAction("Create");
 

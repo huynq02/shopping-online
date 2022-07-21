@@ -14,6 +14,8 @@ namespace shopping_online.Controllers.HomePage
         // GET: AboutUs
         public ActionResult Index()
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             var product = obj.products.ToList();
             BlogModel bg = new BlogModel();
             bg.ListProducts = product;

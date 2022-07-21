@@ -19,6 +19,7 @@ namespace shopping_online.Controllers.Marketing
 
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 var blog = db.Blogs.OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
                 if (search != null)

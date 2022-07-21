@@ -21,7 +21,7 @@ namespace shopping_online.Controllers.Marketing
             if (Session["account_id"] != null)
             {
                 ViewBag.id = Session["account_id"];
-
+                ViewBag.image = Session["account_image"];
                 var slAc = db.Slides.OrderByDescending(x => x.slide_createdate).Where(x => x.slide_status_id == true).ToPagedList(page, pageSize);
                 var slide = db.Slides.OrderByDescending(x => x.slide_createdate).ToPagedList(page, pageSize);
                 if (search != null)
@@ -49,6 +49,7 @@ namespace shopping_online.Controllers.Marketing
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
 
                 Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
@@ -71,6 +72,7 @@ namespace shopping_online.Controllers.Marketing
 
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
 
                 Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();

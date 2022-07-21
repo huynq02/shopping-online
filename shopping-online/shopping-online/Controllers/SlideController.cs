@@ -14,6 +14,7 @@ namespace shopping_online.Controllers
         DBContext db = new DBContext();
         public ActionResult Index()
         {
+            ViewBag.image = Session["account_image"];
             ViewBag.id = Session["account_id"];
             var slide = db.Slides.Where(x => x.slide_status_id == true).ToList();
             SlideModel sl = new SlideModel();

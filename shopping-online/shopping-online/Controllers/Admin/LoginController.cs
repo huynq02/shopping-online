@@ -38,12 +38,17 @@ namespace shopping_online.Controllers.Admin
                 {
                     int count = GetRole(model.account_username.ToLower());
                     int id = GetID(model.account_username.ToLower());
+                    string image = (from user in db.Accounts
+                                    where user.account_id == id
+                                    select user.account_image).SingleOrDefault();
+
                     if (count == 1)
                     {
                         // 1 customer
                         FormsAuthentication.SetAuthCookie(model.account_username, false);
                         Session["account_username"] = model.account_username;
                         Session["account_id"] = id;
+                        Session["account_image"] = image;
                         return RedirectToAction("Index", "ListHome");
                     }
                     else if (count == 2)
@@ -52,6 +57,7 @@ namespace shopping_online.Controllers.Admin
                         FormsAuthentication.SetAuthCookie(model.account_username, false);
                         Session["account_username"] = model.account_username;
                         Session["account_id"] = id;
+                        Session["account_image"] = image;
                         return RedirectToAction("Index", "Accounts");
                     }
 
@@ -61,6 +67,7 @@ namespace shopping_online.Controllers.Admin
                         FormsAuthentication.SetAuthCookie(model.account_username, false);
                         Session["account_username"] = model.account_username;
                         Session["account_id"] = id;
+                        Session["account_image"] = image;
                         return RedirectToAction("Index", "ProductAdmin");
                     }
                     else if (count == 4)
@@ -69,6 +76,7 @@ namespace shopping_online.Controllers.Admin
                         FormsAuthentication.SetAuthCookie(model.account_username, false);
                         Session["account_username"] = model.account_username;
                         Session["account_id"] = id;
+                        Session["account_image"] = image;
                         return RedirectToAction("Index", "shippings");
                     }
                     else { return View(); }
@@ -92,20 +100,19 @@ namespace shopping_online.Controllers.Admin
                         select roles.Role_id).SingleOrDefault();
             return role;
         }
-
+        //private string getImage(int id)
+        //{
+        //    string image = (from user in db.Accounts
+        //                    where user.account_id == id
+        //                    select user.account_image).SingleOrDefault();
+        //    return image;
+        //}
         private int GetID(string username)
         {
             int id = (from user in db.Accounts
                       where user.account_username.ToLower() == username.ToLower()
                       select user.account_id).SingleOrDefault();
             return id;
-        }
-
-        [HttpPost]
-        public JsonResult IsUserNameAvailable(string UserName)
-        {
-            return Json(!db.Accounts.Any(x => x.account_username == UserName),
-                                                 JsonRequestBehavior.AllowGet);
         }
         public ActionResult Signup()
         {
@@ -180,6 +187,9 @@ namespace shopping_online.Controllers.Admin
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
             Account acc = db.Accounts.Where(a => a.account_id == id).FirstOrDefault();
             ViewBag.gender = acc.account_gender;
+
+            //Session["account_image"] = acc.account_image;
+            //ViewBag.account_image = Session["account_image"];
             ViewBag.account_image = acc.account_image;
             return View("profile", account);
         }
@@ -203,7 +213,7 @@ namespace shopping_online.Controllers.Admin
             {
                 account.account_gender = false;
             }
-            account.account_image = ViewBag.account_image;
+             ViewBag.account_image= account.account_image;
 
 
             if (ModelState.IsValid)

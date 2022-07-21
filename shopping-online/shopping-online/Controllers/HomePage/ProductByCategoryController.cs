@@ -14,10 +14,11 @@ namespace shopping_online.Controllers.HomePage
         // GET: ProductByCategory
         public ActionResult Index(int Id)
         {
-           
 
-                ViewBag.id = Session["account_id"];
-                var listProductByCategory = objCategory.products.Where(n => n.category_id == Id).ToList();
+
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
+            var listProductByCategory = objCategory.products.Where(n => n.category_id == Id).ToList();
                 var listC = objCategory.Categories.ToList();
                 var listColor = objCategory.Colors.ToList();
                 //var listImage = objCategory..ToList();

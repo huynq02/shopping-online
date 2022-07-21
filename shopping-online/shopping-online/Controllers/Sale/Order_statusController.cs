@@ -22,9 +22,9 @@ namespace shopping_online.Controllers.Sale
             if (Session["account_id"] != null)
             {
                 var lis = db.Order_status.ToList();
+                ViewBag.image = Session["account_image"];
 
 
-                
                 ViewBag.id = Session["account_id"];
                 return View("Index", lis);
 
@@ -33,7 +33,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return RedirectToAction("Login", "Login");
             }
-           
+
         }
         //db.Order_status.ToList()
         // GET: Order_status/Create
@@ -43,6 +43,7 @@ namespace shopping_online.Controllers.Sale
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 return View("Create");
 
@@ -51,7 +52,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return RedirectToAction("Login", "Login");
             }
-          
+
         }
         [Authorize(Roles = "Sale")]
 
@@ -62,6 +63,7 @@ namespace shopping_online.Controllers.Sale
 
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 if (ModelState.IsValid)
                 {
@@ -77,7 +79,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return RedirectToAction("Login", "Login");
             }
-            
+
         }
         [Authorize(Roles = "Sale")]
 
@@ -86,6 +88,7 @@ namespace shopping_online.Controllers.Sale
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 if (id == null)
                 {
@@ -103,7 +106,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return RedirectToAction("Login", "Login");
             }
-           
+
         }
 
         [Authorize(Roles = "Sale")]
@@ -114,6 +117,7 @@ namespace shopping_online.Controllers.Sale
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 order_status.Order_status_id = id;
                 if (order_status.Order_status_status == null)
@@ -132,7 +136,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return RedirectToAction("Login", "Login");
             }
-           
+
 
 
         }
@@ -144,6 +148,7 @@ namespace shopping_online.Controllers.Sale
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 if (id == null)
                 {
@@ -161,7 +166,7 @@ namespace shopping_online.Controllers.Sale
             {
                 return RedirectToAction("Login", "Login");
             }
-            
+
         }
         [Authorize(Roles = "Sale")]
 
@@ -172,18 +177,31 @@ namespace shopping_online.Controllers.Sale
         {
             if (Session["account_id"] != null)
             {
-                ViewBag.id = Session["account_id"];
-                Order_status order_status = db.Order_status.Find(id);
-                db.Order_status.Remove(order_status);
-                db.SaveChanges();
-                return RedirectToAction("Index", "Order_status");
+                try
+                {
+                    ViewBag.image = Session["account_image"];
+                    ViewBag.id = Session["account_id"];
+                    Order_status order_status = db.Order_status.Find(id);
+                    db.Order_status.Remove(order_status);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Order_status");
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "The status has been in use so you can not delete them");
+                    return View();
+
+                }
+
 
             }
             else
             {
+
+
                 return RedirectToAction("Login", "Login");
             }
-           
+
         }
 
 

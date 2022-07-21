@@ -15,10 +15,11 @@ namespace shopping_online.Controllers.HomePage
         public ActionResult Index(int Id)
         {
 
-          
 
-                ViewBag.id = Session["account_id"];
-                var objProduct = obj.products.Where(n => n.product_id == Id).FirstOrDefault();
+
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
+            var objProduct = obj.products.Where(n => n.product_id == Id).FirstOrDefault();
                 //var objImg = obj.Image_product.Where(x => x.id == objProduct.image_id).FirstOrDefault();
                 var listCategory = obj.Categories.ToList();
                 var listColor = obj.Colors.ToList();

@@ -19,7 +19,7 @@ namespace shopping_online.Controllers.Marketing
         {
             if (Session["account_id"] != null)
             {
-
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 return View();
             }
@@ -60,6 +60,7 @@ namespace shopping_online.Controllers.Marketing
             if (Session["account_id"] != null)
             {
 
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 entity.blog_title = Title;
                 entity.blog_author = Author;

@@ -18,6 +18,7 @@ namespace shopping_online.Controllers.Sale
         public ActionResult Index()
         {
             var order_Details = db.Order_Details.Include(o => o.Order).Include(o => o.product).Include(o => o.Order_id);
+            ViewBag.image = Session["account_image"];
             return View(order_Details.ToList());
         }
 

@@ -16,6 +16,9 @@ namespace shopping_online.Controllers.Marketing
         [Authorize(Roles = "Admin,  Marketing")]
         public ActionResult Index()
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
+
             return View();
         }
         [Authorize(Roles = " Marketing")]
@@ -26,6 +29,7 @@ namespace shopping_online.Controllers.Marketing
             if (Session["account_id"] != null)
             {
 
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 slide.slide_title = Title;
                 slide.slide_descriptions = Descriptions;
@@ -52,6 +56,7 @@ namespace shopping_online.Controllers.Marketing
             if (Session["account_id"] != null)
             {
 
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 var slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
                 SlideModel sl = new SlideModel();
@@ -72,7 +77,7 @@ namespace shopping_online.Controllers.Marketing
         {
             if (Session["account_id"] != null)
             {
-
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 if (sl.slide_imageslide == null)
                 {
@@ -103,7 +108,7 @@ namespace shopping_online.Controllers.Marketing
         {
             if (Session["account_id"] != null)
             {
-
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 Slide slide = db.Slides.Where(x => x.slide_id == Id).FirstOrDefault();
                 db.Slides.Remove(slide);

@@ -19,6 +19,7 @@ namespace shopping_online.Controllers.Marketing
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 var blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
                 EditBlog bg = new EditBlog();
@@ -63,6 +64,7 @@ namespace shopping_online.Controllers.Marketing
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 if (blog.blog_images == null)
                 {
@@ -87,6 +89,7 @@ namespace shopping_online.Controllers.Marketing
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 Blog blog = db.Blogs.Where(x => x.blog_id == Id).FirstOrDefault();
                 db.Blogs.Remove(blog);

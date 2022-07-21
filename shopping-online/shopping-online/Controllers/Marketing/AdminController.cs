@@ -18,6 +18,7 @@ namespace shopping_online.Controllers.Marketing
         {
             if (Session["account_id"] != null)
             {
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 var lstProduct = db.products.ToList();
                 var cus = db.Roles.Where(x => x.Role_name == "Customer").FirstOrDefault();

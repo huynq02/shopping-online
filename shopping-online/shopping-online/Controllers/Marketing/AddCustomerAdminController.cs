@@ -22,8 +22,8 @@ namespace shopping_online.Controllers.Marketing
            
                 if (Session["account_id"] != null)
                 {
-
-                    ViewBag.id = Session["account_id"];
+                ViewBag.image = Session["account_image"];
+                ViewBag.id = Session["account_id"];
                     return View();
                 }
                 else
@@ -40,6 +40,7 @@ namespace shopping_online.Controllers.Marketing
             if (Session["account_id"] != null)
             {
 
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 if (gender == "Male")
                 {
@@ -67,6 +68,7 @@ namespace shopping_online.Controllers.Marketing
             if (Session["account_id"] != null)
             {
 
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 var customer = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
                 var orderCustomer = db.Orders.Where(x => x.account_id == Id).ToList();
@@ -101,7 +103,8 @@ namespace shopping_online.Controllers.Marketing
                 if (Session["account_id"] != null)
                 {
 
-                    ViewBag.id = Session["account_id"];
+                ViewBag.image = Session["account_image"];
+                ViewBag.id = Session["account_id"];
                 var role = db.Roles.Where(x => x.Role_name == "Customer").FirstOrDefault();
                 var accold = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
                 if (gender == "Male")
@@ -140,6 +143,8 @@ namespace shopping_online.Controllers.Marketing
 
         public ActionResult UnLockAccount(int Id)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             Account account = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
             account.account_status = true;
             db.Entry(account).State = EntityState.Modified;
@@ -169,6 +174,7 @@ namespace shopping_online.Controllers.Marketing
             if (Session["account_id"] != null)
             {
 
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 Account account = db.Accounts.Where(x => x.account_id == Id).FirstOrDefault();
                 account.account_status = false;

@@ -18,6 +18,8 @@ namespace shopping_online.Controllers.Admin
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             return View(db.Roles.ToList());
         }
 
@@ -25,6 +27,8 @@ namespace shopping_online.Controllers.Admin
         [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -52,6 +56,8 @@ namespace shopping_online.Controllers.Admin
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Role_id,Role_name")] Role role)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             if (ModelState.IsValid)
             {
                 db.Roles.Add(role);
@@ -66,6 +72,8 @@ namespace shopping_online.Controllers.Admin
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +92,8 @@ namespace shopping_online.Controllers.Admin
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Role_id,Role_name")] Role role)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             if (ModelState.IsValid)
             {
                 db.Entry(role).State = EntityState.Modified;
@@ -97,6 +107,8 @@ namespace shopping_online.Controllers.Admin
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -115,6 +127,8 @@ namespace shopping_online.Controllers.Admin
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            ViewBag.image = Session["account_image"];
+            ViewBag.id = Session["account_id"];
             Role role = db.Roles.Find(id);
             db.Roles.Remove(role);
             db.SaveChanges();

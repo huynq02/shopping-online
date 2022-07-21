@@ -18,8 +18,8 @@ namespace shopping_online.Controllers.Marketing
            
                 if (Session["account_id"] != null)
                 {
-
-                    ViewBag.id = Session["account_id"];
+                ViewBag.image = Session["account_image"];
+                ViewBag.id = Session["account_id"];
                     var lstColor = db.Colors.ToList();
                     var lstCategory = db.Categories.ToList();
                     var lstStatus = db.status_product.ToList();
@@ -46,6 +46,7 @@ namespace shopping_online.Controllers.Marketing
             if (Session["account_id"] != null)
             {
 
+                ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 pro.product_code = ProductCode;
                 pro.product_name = ProductName;
