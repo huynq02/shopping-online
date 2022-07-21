@@ -39,6 +39,7 @@ namespace shopping_online.Context
 
         [DisplayName("Password")]
         [Required(ErrorMessage = "Password is Required")]
+        [DataType(DataType.Password)]
         [StringLength(20, MinimumLength = 8, ErrorMessage = "Password should be between 8 and 20 characters")]
         public string account_password { get; set; }
 
@@ -81,6 +82,10 @@ namespace shopping_online.Context
         [Required(ErrorMessage = "Phone Number is Required")]
         [StringLength(10, ErrorMessage = "Phone Number should be 10 characters")]
         public string account_phone { get; set; }
+
+
+
+
         [DisplayName("Address")]
         [Required(ErrorMessage = "Address is Required")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Address should be between 5 and 50 characters")]
@@ -116,6 +121,7 @@ namespace shopping_online.Context
         public Nullable<System.DateTime> account_createdate { get; set; }
 
         [DisplayName("Image")]
+        [DataType(DataType.Upload)]
         public string account_image { get; set; }
 
         [DisplayName("Date of birth")]
