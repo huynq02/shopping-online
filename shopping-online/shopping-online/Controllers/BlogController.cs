@@ -15,6 +15,7 @@ namespace shopping_online.Controllers
         // GET: Blog
         public ActionResult Index(int page = 1, int pageSize = 4)
         {
+            ViewBag.id = Session["account_id"];
             var blog = db.Blogs.OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
             var cate = db.Categories.ToList();
             var color = db.Colors.ToList();

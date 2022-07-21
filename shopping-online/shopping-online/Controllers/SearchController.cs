@@ -34,6 +34,7 @@ namespace shopping_online.Controllers
             //{
             //    lstBlog = db.Blogs.Where(x => x.blog_title.Contains(search)).OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
             //}
+            ViewBag.id = Session["account_id"];
             var lstPro = db.products.Where(x => x.product_name.Contains(search)).OrderByDescending(x => x.product_name).ToPagedList(page, pageSize);
             var lstBlog = db.Blogs.Where(x => x.blog_title.Contains(search)).OrderByDescending(x => x.blog_createdate).ToPagedList(page, pageSize);
             var product = db.products.ToList();

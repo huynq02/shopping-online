@@ -29,11 +29,7 @@ namespace shopping_online.Controllers.HomePage
                 p2.ListProductByColor = listProductByColor;
                 p2.listP = listP;
                 return View("Index", p2);
-                if (User.Identity.IsAuthenticated)
-                {
-                    ViewBag.id = Session["account_id"];
-
-                }
+                
             }
     }
 }

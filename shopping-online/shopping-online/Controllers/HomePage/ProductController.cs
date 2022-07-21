@@ -32,12 +32,7 @@ namespace shopping_online.Controllers.HomePage
                 productDetail.lstProduct = listProduct;
                 productDetail.lstSize = listSize;
                 return View("Index", productDetail);
-            if (User.Identity.IsAuthenticated)
-            {
-                ViewBag.id = Session["account_id"];
-
-            }
-
+           
         }
     }
 }

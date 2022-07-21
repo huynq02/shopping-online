@@ -18,7 +18,7 @@ namespace shopping_online.Controllers.HomePage
         {
            
 
-                
+                  ViewBag.id = Session["account_id"];
                     var listProduct = obj.products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
                     if (!String.IsNullOrEmpty(search))
                     {
@@ -33,11 +33,10 @@ namespace shopping_online.Controllers.HomePage
                     List.listCategory = listCategory;
                     List.listSlide = listSlide;
                     return View("Index", List);
-            if (User.Identity.IsAuthenticated)
-            {
-                ViewBag.id = Session["account_id"];
+           
+              
 
-            }
+          
             
 
             //var listProduct = obj.Products.OrderByDescending(x => x.product_id).ToPagedList(page, pageSize);
