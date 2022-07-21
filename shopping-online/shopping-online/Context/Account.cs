@@ -116,6 +116,8 @@ namespace shopping_online.Context
         public Nullable<System.DateTime> account_createdate { get; set; }
 
         [DisplayName("Image")]
+        [DataType(DataType.Upload)]
+        [Required(ErrorMessage = "Please choose file to upload.")]
         public string account_image { get; set; }
 
         [DisplayName("Date of birth")]
