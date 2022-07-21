@@ -4,11 +4,11 @@
 @model PagedList.PagedList<shopping_online.Context.Order>
 @{
     Layout = "~/Views/Shared/Order.cshtml";
-    
+
 
 }
 
-<div class="col-md-12">
+<div class="col-xs-12">
     <div class="panel">
         <header class="panel-heading">
             List Order
@@ -17,8 +17,17 @@
 
 
         <div class="panel-body table-responsive">
-            
-            @using (Html.BeginForm("Index", "Order", FormMethod.Get))
+            <div class=" add-task-row">
+                <p class="btn btn-success btn-sm pull-left">
+                    @if (User.IsInRole("Sale"))
+                    {
+                        <a href="~/Order_Details/Create">
+                            Create
+                        </a>
+                        }
+                </p>
+            </div>
+            @using (Html.BeginForm("Orders", "Index", FormMethod.Get))
             {
                 <div class="box-tools m-b-15">
                     <div class="input-group">

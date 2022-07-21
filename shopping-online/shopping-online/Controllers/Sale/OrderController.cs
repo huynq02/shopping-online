@@ -1,25 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 using PagedList;
-using shopping_online.Common;
 using shopping_online.Context;
-using shopping_online.Models;
 
 namespace shopping_online.Controllers.Sale
 {
     public class OrderController : Controller
     {
         private DBContext db = new DBContext();
-
-
 
         // GET: Order
         [Authorize(Roles = "Admin, Sale")]
@@ -77,13 +71,111 @@ namespace shopping_online.Controllers.Sale
             }
            
         }
-        private int GetID(string username)
+
+        // GET: Order/Create
+        [Authorize(Roles = "Sale")]
+        public ActionResult Create()
         {
-            int id = (from user in db.Accounts
-                      where user.account_username.ToLower() == username.ToLower()
-                      select user.account_id).SingleOrDefault();
-            return id;
+            if (Session["account_id"] != null)
+            {
+                ViewBag.account_id = new SelectList(db.Accounts, "account_id", "account_username");
+                ViewBag.Order_status_id = new SelectList(db.Order_status, "Order_status_id", "Order_status_status");
+                ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name");
+                ViewBag.id = Session["account_id"];
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+           
         }
+        [Authorize(Roles = "Sale")]
+
+        // POST: Order/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Order_id,account_id,Order_note,Order_status_id,Order_total_money,Order_Date,shipping_id")] Order order)
+        {
+            if (Session["account_id"] != null)
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Orders.Add(order);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.account_id = new SelectList(db.Accounts, "account_id", "account_username", order.account_id);
+                ViewBag.Order_status_id = new SelectList(db.Order_status, "Order_status_id", "Order_status_status", order.Order_status_id);
+                ViewBag.shipping_id = new SelectList(db.shippings, "shipping_id", "shipping_name", order.shipping_id);
+                ViewBag.id = Session["account_id"];
+                return View(order);
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+           
+        }
+        [Authorize(Roles = "Sale")]
+
+        public ActionResult Create_order_detail()
+        {
+            if (Session["account_id"] != null)
+            {
+                ViewBag.Order_id = new SelectList(db.Orders, "Order_id", "Order_note");
+                ViewBag.product_id = new SelectList(db.products, "product_id", "product_name");
+                ViewBag.id = Session["account_id"];
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+          
+        }
+
+        // POST: Order_Details/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Sale")]
+
+        public ActionResult Create_order_detail([Bind(Include = "Order_Details_id,Order_id,product_id,Order_Details_price,Order_Details_num,Order_Details_total_number")] Order_Details order_Details)
+        {
+            if (Session["account_id"] != null)
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Order_Details.Add(order_Details);
+                    db.SaveChanges();
+                    ViewBag.id = Session["account_id"];
+                    return RedirectToAction("Create");
+
+                }
+
+                ViewBag.Order_id = new SelectList(db.Orders, "Order_id", "Order_note", order_Details.Order_id);
+                ViewBag.product_id = new SelectList(db.products, "product_id", "product_name", order_Details.product_id);
+                return View(order_Details);
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            
+        }
+
+
+
+
 
         [Authorize(Roles = "Sale")]
 
@@ -181,9 +273,8 @@ namespace shopping_online.Controllers.Sale
         public ActionResult DeleteConfirmed(int id)
         {
             if (Session["account_id"] != null)
-            {Order order = db.Orders.Find(id);
-                Order_Details order_Details = db.Order_Details.Where(o => o.Order_id == id).FirstOrDefault();
-                db.Order_Details.Remove(order_Details);
+            {
+                Order order = db.Orders.Find(id);
                 db.Orders.Remove(order);
                 db.SaveChanges();
                 ViewBag.id = Session["account_id"];

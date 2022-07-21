@@ -11,5 +11,6 @@ namespace shopping_online.Models
         public List<product> lstPro { get; set; }
         public List<Order> lstOder { get; set; }
         public List<Order_Details> lstOde { get; set; }
+        public List<Order_status> lstOSta { get; set; }
     }
 }

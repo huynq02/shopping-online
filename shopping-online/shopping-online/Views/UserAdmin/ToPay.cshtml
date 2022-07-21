@@ -297,12 +297,12 @@
                             <i class="fa fa-dashboard"></i> <span>My Account</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/UserAdmin/Index">
                             <i class="fa fa-user"></i> <span>My All Purchase</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/UserAdmin/ToPay">
                             <i class="fa fa-user"></i> <span>To Pay</span>
                         </a>
@@ -356,7 +356,7 @@
                                             <th>Quantity</th>
                                             <th>Price</th>
                                             <th>Status</th>
-                                            @*<th>Action</th>*@
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -379,7 +379,7 @@
                                                                         <td>@de.Order_Details_num</td>
                                                                         <td>@de.Order_Details_price</td>
                                                                         <td>@sta.Order_status_status</td>
-                                                                        @*<td><a href="/UserAdmin/Cancel?Id=@or.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a></td>*@
+                                                                        <td><a href="/UserAdmin/Cancel?Id=@or.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a></td>
                                                                     </tr>
                                                                 }
                                                             }

@@ -297,7 +297,7 @@
                             <i class="fa fa-dashboard"></i> <span>My Account</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/UserAdmin/Index">
                             <i class="fa fa-user"></i> <span>My All Purchase</span>
                         </a>
@@ -324,7 +324,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    <li class="active">
                         <a href="/UserAdmin/Cancelled">
                             <i class="fa fa-globe"></i> <span>Cancelled</span>
                         </a>
@@ -355,8 +355,7 @@
                                             <th>Product Name</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
-                                            <th>Status</th>
-                                            @*<th>Action</th>*@
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -370,19 +369,14 @@
                                                     {
                                                         if (item.product_id == de.product_id)
                                                         {
-                                                            foreach (var sta in Model.lstOSta)
-                                                            {
-                                                                if (sta.Order_status_id == or.Order_status_id)
-                                                                {
-                                                                    <tr>
-                                                                        <td>@item.product_name</td>
-                                                                        <td>@de.Order_Details_num</td>
-                                                                        <td>@de.Order_Details_price</td>
-                                                                        <td>@sta.Order_status_status</td>
-                                                                        @*<td><a href="/UserAdmin/Cancel?Id=@or.Order_id"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a></td>*@
-                                                                    </tr>
-                                                                }
-                                                            }
+
+                                                            <tr>
+                                                                <td>@item.product_name</td>
+                                                                <td>@de.Order_Details_num</td>
+                                                                <td>@de.Order_Details_price</td>
+                                                                <td><a href="/Product/Index?Id=@item.product_id"><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a></td>
+                                                            </tr>
+
                                                         }
 
                                                     }
@@ -495,7 +489,7 @@
             });
 
         });
-                                                                                        // Chart.defaults.global.responsive = true;
+                                                                                            // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

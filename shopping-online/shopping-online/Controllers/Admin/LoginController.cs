@@ -3,7 +3,6 @@ using shopping_online.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -30,7 +29,7 @@ namespace shopping_online.Controllers.Admin
                  model.account_username.ToLower() && user.account_password == model.account_password);
             bool IsValidUserActive = db.Accounts.Any(user => user.account_username.ToLower() ==
                  model.account_username.ToLower() && user.account_password == model.account_password && user.account_status == true);
-
+            
             Session["account_username"] = "";
             if (IsValidUser)
             {
@@ -54,7 +53,7 @@ namespace shopping_online.Controllers.Admin
                         Session["account_id"] = id;
                         return RedirectToAction("Index", "Accounts");
                     }
-
+                    
                     else if (count == 3)
                     {
                         // marketing
@@ -63,15 +62,14 @@ namespace shopping_online.Controllers.Admin
                         Session["account_id"] = id;
                         return RedirectToAction("Index", "ProductAdmin");
                     }
-                    else if (count == 4)
+                     else if (count == 4)
                     {
                         //sale
                         FormsAuthentication.SetAuthCookie(model.account_username, false);
                         Session["account_username"] = model.account_username;
                         Session["account_id"] = id;
                         return RedirectToAction("Index", "shippings");
-                    }
-                    else { return View(); }
+                    }else{ return View(); }
                 }
                 else
                 {
@@ -96,8 +94,8 @@ namespace shopping_online.Controllers.Admin
         private int GetID(string username)
         {
             int id = (from user in db.Accounts
-                      where user.account_username.ToLower() == username.ToLower()
-                      select user.account_id).SingleOrDefault();
+                        where user.account_username.ToLower() == username.ToLower()
+                        select user.account_id).SingleOrDefault();
             return id;
         }
 
@@ -109,15 +107,15 @@ namespace shopping_online.Controllers.Admin
         }
         public ActionResult Signup()
         {
-
+           
             return View();
         }
 
         private string getImage(int id)
         {
             string image = (from user in db.Accounts
-                            where user.account_id == id
-                            select user.account_image).SingleOrDefault();
+                      where user.account_id == id
+                      select user.account_image).SingleOrDefault();
             return image;
         }
 
@@ -140,7 +138,7 @@ namespace shopping_online.Controllers.Admin
                 model.account_status = true;
                 model.account_role_id = 1;
                 model.account_createdate = DateTime.Today;
-
+              
                 model.account_image = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
 
                 db.Accounts.Add(model);
@@ -153,44 +151,12 @@ namespace shopping_online.Controllers.Admin
 
 
         }
-
-        [HttpPost]
-        public ActionResult UploadFiles(HttpPostedFileBase file)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    //Method 2 Get file details from HttpPostedFileBase class    
-
-                    if (file != null)
-                    {
-                        string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file.FileName));
-                        file.SaveAs(path);
-                    }
-                    ViewBag.FileStatus = "File uploaded successfully.";
-                }
-                catch (Exception)
-                {
-                    ViewBag.FileStatus = "Error while file uploading."; ;
-                }
-            }
-            return View("Index");
-        }
-
-
-
-
         //[Authorize(Roles = "Admin, Sale, Customer, Marketing")]
         [HttpGet]
         public ActionResult profile(int? id)
         {
-            if (ViewBag.account_image == null)
-            {
-
-                ViewBag.account_image = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
-            }
-            ViewBag.id = Session["account_id"];
+           
+                ViewBag.id = Session["account_id"];
 
             if (id == null)
             {
@@ -233,28 +199,14 @@ namespace shopping_online.Controllers.Admin
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult profile([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status, account_image,account_createdate")] Account account, HttpPostedFileBase account_image)
+        public ActionResult profile([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status,account_createdate")] Account account, string account_image)
         {
-            if (ViewBag.account_image == null)
-            {
-
-                ViewBag.account_image = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
-            }
             ViewBag.id = Session["account_id"];
+            account.account_image = Request["account_image"];
             if (ModelState.IsValid)
             {
-                if (account_image != null)
-                {
-                    string a = Path.GetFileName(account_image.FileName);
-                    string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(account_image.FileName));
-                    account_image.SaveAs(path);
-                    account.account_image = account_image.FileName;
-                   
-                }
-
                 db.Entry(account).State = EntityState.Modified;
                 db.SaveChanges();
-                ViewBag.account_image = account.account_image;
                 return View("profile", account);
             }
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);

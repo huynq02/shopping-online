@@ -22,7 +22,7 @@ namespace shopping_online.Controllers.Sale
         {
             if (Session["account_id"] != null) {
             int padeNum = (page ?? 1);
-            int pageSize = 5;
+            int pageSize = 10;
             List<shipping> ship = db.shippings.ToList();
             IQueryable<shipping> pt = db.shippings;
 

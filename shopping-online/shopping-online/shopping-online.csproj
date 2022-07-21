@@ -1143,6 +1143,11 @@
     <Content Include="Views\Login\profile.cshtml" />
     <Content Include="Views\Shared\ProfileAdmin.cshtml" />
     <Content Include="Views\UserAdmin\Index.cshtml" />
+    <Content Include="Views\UserAdmin\ToPay.cshtml" />
+    <Content Include="Views\UserAdmin\ToReceive.cshtml" />
+    <Content Include="Views\UserAdmin\ToShip.cshtml" />
+    <Content Include="Views\UserAdmin\Completed.cshtml" />
+    <Content Include="Views\UserAdmin\Cancelled.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
