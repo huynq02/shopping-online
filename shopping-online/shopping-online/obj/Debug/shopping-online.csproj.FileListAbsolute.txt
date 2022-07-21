@@ -346,3 +346,7 @@ D:\Op\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompi
 D:\Op\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CopyComplete
 D:\Op\shopping-online\shopping-online\obj\Debug\shopping-online.dll
 D:\Op\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
+C:\Users\panh0\OneDrive\Desktop\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.AssemblyReference.cache
+C:\Users\panh0\OneDrive\Desktop\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.csproj.CoreCompileInputs.cache
+C:\Users\panh0\OneDrive\Desktop\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.dll
+C:\Users\panh0\OneDrive\Desktop\shopping-online\shopping-online\shopping-online\obj\Debug\shopping-online.pdb
