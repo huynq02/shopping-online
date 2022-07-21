@@ -15,8 +15,7 @@ namespace shopping_online.Controllers.User
         // GET: UserAdmin
         public ActionResult Index()
         {
-            if (ViewBag.Id != null)
-            {
+           
  ViewBag.Id = Session["account_id"];
             int Id = ViewBag.Id;
             var user = db.Accounts.FirstOrDefault(x => x.account_id == Id);
@@ -30,11 +29,7 @@ namespace shopping_online.Controllers.User
             userAdmin.lstPro = product;
             userAdmin.lstOSta = lstOSta;
             return View(userAdmin);
-            }
-            else
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            
            
         }
 

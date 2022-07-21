@@ -74,23 +74,38 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
+                                @if (User.IsInRole("Sale"))
+                                {
+                                    <li><a href="@Url.Action("Index", "Order") " class="active"><i class="fa fa-lock"></i> Back to the Order</a></li>
+                                    }
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <li><a href="@Url.Action("Index", "Account") " class="active"><i class="fa fa-lock"></i> Back to the account </a></li>
+                                        }
+                                        @if (User.IsInRole("Marketing"))
+                                        {
+                                            <li><a href="@Url.Action("Index", "BlogAdmin") " class="active"><i class="fa fa-lock"></i> Back to the blog</a></li>
+                                            }
+                                            @if (User.IsInRole("Customer"))
+                                            {
+                                                <li><a href="@Url.Action("Index", "ListHome")" class="active"><i class="fa fa-lock"></i> Homepage</a></li>
+                                            }
 
-                                <li><a href="login.html" class="active"><i class="fa fa-lock"></i> Login</a></li>
-                            </ul>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/header-middle-->
-    </header><!--/header-->
-    <div class="container bootstrap snippet">
-        <div class="row">
-            
-            @RenderBody()
+                    </div><!--/header-middle-->
+                </header><!--/header-->
+                <div class="container bootstrap snippet">
+                    <div class="row">
 
-        </div><!--/col-9-->
-    </div><!--/row-->
-    
-</body>
+                        @RenderBody()
 
-</html>
+                    </div><!--/col-9-->
+                </div><!--/row-->
+
+            </body>
+
+        </html>

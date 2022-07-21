@@ -126,7 +126,7 @@ namespace shopping_online.Controllers.Admin
         {
 
             bool IsValidUser = db.Accounts.Any(user => user.account_username.ToLower() ==
-                     model.account_username.ToLower());
+                 model.account_username.ToLower());
             if (IsValidUser == false)
             {
                 if (gender == "Male")
@@ -142,11 +142,13 @@ namespace shopping_online.Controllers.Admin
                 model.account_createdate = DateTime.Today;
 
                 model.account_image = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
+                if (ModelState.IsValid)
+                {
+                    db.Accounts.Add(model);
+                    db.SaveChanges();
 
-                db.Accounts.Add(model);
-                db.SaveChanges();
-
-                return RedirectToAction("Login");
+                    return RedirectToAction("Login");
+                }
             }
             ModelState.AddModelError("", "invalid Username or Password");
             return View();
@@ -154,55 +156,6 @@ namespace shopping_online.Controllers.Admin
 
         }
 
-        [HttpPost]
-        public ActionResult UploadFiles(HttpPostedFileBase file)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    //Method 2 Get file details from HttpPostedFileBase class    
-
-                    if (file != null)
-                    {
-                        string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file.FileName));
-                        file.SaveAs(path);
-                    }
-                    ViewBag.FileStatus = "File uploaded successfully.";
-                }
-                catch (Exception)
-                {
-                    ViewBag.FileStatus = "Error while file uploading."; ;
-                }
-            }
-            return View("Index");
-        }
-
-        public ActionResult ViewProfile(int? id)
-        {
-            if (ViewBag.account_image == null)
-            {
-
-                ViewBag.account_image = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
-            }
-
-            ViewBag.id = Session["account_id"];
-
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
-            Account acc = db.Accounts.Where(a => a.account_id == id).FirstOrDefault();
-
-            ViewBag.account_image = acc.account_image;
-            return View("profile", account);
-        }
 
         [HttpGet]
         public ActionResult profile(int? id)
@@ -226,38 +179,15 @@ namespace shopping_online.Controllers.Admin
             }
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
             Account acc = db.Accounts.Where(a => a.account_id == id).FirstOrDefault();
-
+            ViewBag.gender = acc.account_gender;
             ViewBag.account_image = acc.account_image;
             return View("profile", account);
         }
 
-        [HttpPost]
-        public JsonResult uploadFile(HttpPostedFileBase uploadedFiles)
-        {
-            string returnImagePath = string.Empty;
-            string fileName;
-            string Extension;
-            string imageName;
-            string imageSavePath;
-
-            if (uploadedFiles.ContentLength > 0)
-            {
-                fileName = System.IO.Path.GetFileNameWithoutExtension(uploadedFiles.FileName);
-                Extension = System.IO.Path.GetExtension(uploadedFiles.FileName);
-                imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
-                imageSavePath = Server.MapPath("/Content/images/") + imageName + Extension;
-
-                uploadedFiles.SaveAs(imageSavePath);
-                returnImagePath = "/Content/images/" + imageName + Extension;
-            }
-            return Json(Convert.ToString(returnImagePath), JsonRequestBehavior.AllowGet);
-        }
-
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult profile([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status, account_image,account_createdate")] Account account, HttpPostedFileBase account_image)
+        public ActionResult profile([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status, account_image,account_createdate")] Account account, HttpPostedFileBase account_image, string gender)
         {
             if (ViewBag.account_image == null)
             {
@@ -265,6 +195,17 @@ namespace shopping_online.Controllers.Admin
                 ViewBag.account_image = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
             }
             ViewBag.id = Session["account_id"];
+            if (gender == "Male")
+            {
+                account.account_gender = true;
+            }
+            else
+            {
+                account.account_gender = false;
+            }
+            account.account_image = ViewBag.account_image;
+
+
             if (ModelState.IsValid)
             {
                 if (account_image != null)
@@ -273,7 +214,6 @@ namespace shopping_online.Controllers.Admin
                     string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(account_image.FileName));
                     account_image.SaveAs(path);
                     account.account_image = account_image.FileName;
-
                 }
 
                 db.Entry(account).State = EntityState.Modified;
@@ -285,63 +225,6 @@ namespace shopping_online.Controllers.Admin
             return View("profile", account);
         }
 
-        [HttpGet]
-        public ActionResult profileCustomer(int? id)
-        {
-            if (ViewBag.account_image == null)
-            {
-
-                ViewBag.account_image = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
-            }
-            ViewBag.id = Session["account_id"];
-
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
-            Account acc = db.Accounts.Where(a => a.account_id == id).FirstOrDefault();
-            ViewBag.account_image = acc.account_image;
-            return View("profile", account);
-        }
-        //[Authorize(Roles = "Admin, Sale, Customer, Marketing")]
-        // POST: Accounts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult profileCustomer([Bind(Include = "account_id,account_username,account_password,account_email,account_name,account_phone,account_address,account_role_id,account_gender,account_status, account_image,account_createdate")] Account account, HttpPostedFileBase account_image)
-        {
-            if (ViewBag.account_image == null)
-            {
-
-                ViewBag.account_image = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
-            }
-            ViewBag.id = Session["account_id"];
-            if (ModelState.IsValid)
-            {
-                if (account_image != null)
-                {
-                    string a = Path.GetFileName(account_image.FileName);
-                    string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(account_image.FileName));
-                    account_image.SaveAs(path);
-                    account.account_image = account_image.FileName;
-
-                }
-
-                db.Entry(account).State = EntityState.Modified;
-                db.SaveChanges();
-                ViewBag.account_image = account.account_image;
-                return View("profile", account);
-            }
-            ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
-            return View("profile", account);
-        }
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
