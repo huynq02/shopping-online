@@ -229,6 +229,7 @@ namespace shopping_online.Controllers.Admin
                 db.Entry(account).State = EntityState.Modified;
                 db.SaveChanges();
                 ViewBag.account_image = account.account_image;
+                Session["account_image"] = account.account_image;
                 return View("profile", account);
             }
             ViewBag.account_role_id = new SelectList(db.Roles, "Role_id", "Role_name", account.account_role_id);
