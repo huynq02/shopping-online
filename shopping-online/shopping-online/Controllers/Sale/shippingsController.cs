@@ -11,7 +11,7 @@ using shopping_online.Context;
 
 namespace shopping_online.Controllers.Sale
 {
-    
+
     public class shippingsController : Controller
     {
         private DBContext db = new DBContext();
@@ -20,21 +20,22 @@ namespace shopping_online.Controllers.Sale
         [Authorize(Roles = "Admin, Sale")]
         public ActionResult Index(string table_search, int? page)
         {
-            if (Session["account_id"] != null) {
-              ViewBag.image =  Session["account_image"];
-            int padeNum = (page ?? 1);
-            int pageSize = 10;
-            List<shipping> ship = db.shippings.ToList();
-            IQueryable<shipping> pt = db.shippings;
-
-            if (!string.IsNullOrEmpty(table_search))
+            if (Session["account_id"] != null)
             {
-                pt = pt.Where(x => x.shipping_name.Contains(table_search) || x.shipping_email.Contains(table_search) || x.shipping_phone.Contains(table_search));
-            }
-            var pts = pt.OrderBy(x => x.shipping_id).ToPagedList(padeNum, pageSize);
-            ViewBag.table_search = table_search;
-            ViewBag.id = Session["account_id"];
-            return View("Index", pts);
+                ViewBag.image = Session["account_image"];
+                int padeNum = (page ?? 1);
+                int pageSize = 10;
+                List<shipping> ship = db.shippings.ToList();
+                IQueryable<shipping> pt = db.shippings;
+
+                if (!string.IsNullOrEmpty(table_search))
+                {
+                    pt = pt.Where(x => x.shipping_name.Contains(table_search) || x.shipping_email.Contains(table_search) || x.shipping_phone.Contains(table_search));
+                }
+                var pts = pt.OrderBy(x => x.shipping_id).ToPagedList(padeNum, pageSize);
+                ViewBag.table_search = table_search;
+                ViewBag.id = Session["account_id"];
+                return View("Index", pts);
             }
             else
             {
@@ -45,7 +46,7 @@ namespace shopping_online.Controllers.Sale
 
 
         // GET: shippings/Create
-        [Authorize(Roles =  "Sale")]
+        [Authorize(Roles = "Sale")]
         public ActionResult Create()
         {
             if (Session["account_id"] != null)
@@ -135,16 +136,22 @@ namespace shopping_online.Controllers.Sale
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            try {
+            try
+            {
+                
                 ViewBag.image = Session["account_image"];
                 ViewBag.id = Session["account_id"];
                 shipping shipping = db.shippings.Find(id);
-            db.shippings.Remove(shipping);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-            } catch (Exception) { 
-            ModelState.AddModelError("", "The shiper has been in use so you can not delete them");
-            return View();}
+                db.shippings.Remove(shipping);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "The shiper has been in use so you can not delete them");
+                shipping shipping = db.shippings.Find(id);
+                return View("Delete", shipping);
+            }
         }
 
         protected override void Dispose(bool disposing)
