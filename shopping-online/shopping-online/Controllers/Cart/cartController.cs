@@ -151,6 +151,8 @@ namespace shopping_online.Controllers
                     db.Order_Details.Add(orderDetail);
                     db.SaveChanges();
                     //total += (item.product.product_price * item.Quantity);
+                    product product = db.products.Where(x => x.product_id == orderDetail.product_id).FirstOrDefault();
+                    product.product_quantity = (int)(product.product_quantity - orderDetail.Order_Details_num);
                     total += (item.product.product_price * item.Quantity);
                 }
                 string content = System.IO.File.ReadAllText(Server.MapPath("~/content/template/neworder.html"));
