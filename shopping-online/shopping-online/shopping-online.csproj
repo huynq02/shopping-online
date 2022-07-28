@@ -200,7 +200,6 @@
       <DependentUpon>OnlineShopping.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Admin\AccountsController.cs" />
-    <Compile Include="Controllers\Admin\FunctionsController.cs" />
     <Compile Include="Controllers\Admin\LoginController.cs" />
     <Compile Include="Controllers\Admin\RolesController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -1141,13 +1140,13 @@
     <Content Include="Views\UpdateProfile\Index.cshtml" />
     <Content Include="Views\ProductAdmin\Edit.cshtml" />
     <Content Include="Views\Login\profile.cshtml" />
-    <Content Include="Views\Shared\ProfileAdmin.cshtml" />
     <Content Include="Views\UserAdmin\Index.cshtml" />
     <Content Include="Views\UserAdmin\ToPay.cshtml" />
     <Content Include="Views\UserAdmin\ToReceive.cshtml" />
     <Content Include="Views\UserAdmin\ToShip.cshtml" />
     <Content Include="Views\UserAdmin\Completed.cshtml" />
     <Content Include="Views\UserAdmin\Cancelled.cshtml" />
+    <Content Include="Views\Shared\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
