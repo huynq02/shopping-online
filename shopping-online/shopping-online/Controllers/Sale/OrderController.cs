@@ -257,9 +257,11 @@ namespace shopping_online.Controllers.Sale
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 Order order = db.Orders.Find(id);
-                bool getstatus = db.Orders.Any(p => p.Order_id == id && p.Order_status_id != 5);
-                if(getstatus == true)
+                bool getstatus1 = db.Orders.Any(p => p.Order_id == id && p.Order_status_id == 5);
+                bool getstatus2 = db.Orders.Any(p => p.Order_id == id && p.Order_status_id == 4);
+                if (order.Order_status_id != 5 && order.Order_status_id != 4)
                 {
+
                     ModelState.AddModelError("", "The Order has been in transfer. Are you sure to delete them?");
                 }
                 if (order == null)
@@ -292,12 +294,17 @@ namespace shopping_online.Controllers.Sale
 
             if (Session["account_id"] != null)
             {
-                bool getstatus = db.Orders.Any(p => p.Order_id == id && p.Order_status_id != 5);
-                if (getstatus == true)
+                
+
+                Order order = db.Orders.Find(id);
+                bool getstatus1 = db.Orders.Any(p => p.Order_id == id && p.Order_status_id == 5);
+                bool getstatus2 = db.Orders.Any(p => p.Order_id == id && p.Order_status_id == 4);
+                if (order.Order_status_id != 5 && order.Order_status_id != 4)
                 {
+
                     ModelState.AddModelError("", "The Order has been in transfer. Are you sure to delete them?");
                 }
-                Order order = db.Orders.Find(id);
+              
                 var details = db.Order_Details.Where(p => p.Order_id == id).ToList();
                 foreach (var item in details)
                 {
