@@ -257,6 +257,11 @@ namespace shopping_online.Controllers.Sale
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 Order order = db.Orders.Find(id);
+                bool getstatus = db.Orders.Any(p => p.Order_id == id && p.Order_status_id != 5);
+                if(getstatus == true)
+                {
+                    ModelState.AddModelError("", "The Order has been in transfer. Are you sure to delete them?");
+                }
                 if (order == null)
                 {
                     return HttpNotFound();
@@ -273,14 +278,32 @@ namespace shopping_online.Controllers.Sale
         }
         [Authorize(Roles = "Sale")]
 
+        [HttpGet]
+        public JavaScriptResult WarningMessage()
+        {
+            var msg = "alert('Are you sure want to delete Order because this order has been transform?');";
+            return new JavaScriptResult() { Script = msg };
+        }
         // POST: Order/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             if (Session["account_id"] != null)
             {
+                bool getstatus = db.Orders.Any(p => p.Order_id == id && p.Order_status_id != 5);
+                if (getstatus == true)
+                {
+                    ModelState.AddModelError("", "The Order has been in transfer. Are you sure to delete them?");
+                }
                 Order order = db.Orders.Find(id);
+                var details = db.Order_Details.Where(p => p.Order_id == id).ToList();
+                foreach (var item in details)
+                {
+                    db.Order_Details.Remove(item);
+                    db.SaveChanges();
+                }
                 db.Orders.Remove(order);
                 db.SaveChanges();
                 ViewBag.id = Session["account_id"];

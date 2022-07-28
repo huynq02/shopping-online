@@ -189,6 +189,7 @@ namespace shopping_online.Controllers.Sale
                 catch
                 {
                     ModelState.AddModelError("", "The status has been in use so you can not delete them");
+                   
                     Order_status order_status = db.Order_status.Find(id);
                     return View("Delete", order_status);
                 }
