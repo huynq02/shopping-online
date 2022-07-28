@@ -164,7 +164,7 @@ namespace shopping_online.Controllers.Marketing
             //  Đồng thời tài khoản Gmail cũng cần bật IMAP
             //Truy cập địa chỉ https://mail.google.com/mail/#settings/fwdandpop
 
-            new MailHelper().SendMail("tuananh462001@gmail.com", "Thông báo", content);
+            new MailHelper().SendMail("phuongnthe151412@fpt.edu.vn", "Thông báo", content);
             return RedirectToAction("Index", "CustomerAdmin");
         }
 
@@ -195,7 +195,7 @@ namespace shopping_online.Controllers.Marketing
                 //  Đồng thời tài khoản Gmail cũng cần bật IMAP
                 //Truy cập địa chỉ https://mail.google.com/mail/#settings/fwdandpop
 
-                new MailHelper().SendMail("tuananh462001@gmail.com", "Thông báo", content);
+                new MailHelper().SendMail("phuongnthe151412@fpt.edu.vn", "Thông báo", content);
                 new MailHelper().SendMail(toEmail, "Thông báo", content);
                 return RedirectToAction("Index", "CustomerAdmin");
             }
