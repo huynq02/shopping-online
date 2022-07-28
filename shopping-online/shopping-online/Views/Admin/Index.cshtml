@@ -46,8 +46,8 @@
       <![endif]-->
 </head>
 <body>
-    <header class="header">
-        <a href="index.html" class="logo">
+    <header class="header" style="background-color: white">
+        <a href="index.html" class="logo" style="background-color: rgba(57,67,92,255); color: white">
             Director
         </a>
         <!-- Header Navbar: style can be found in header.less -->
@@ -216,7 +216,7 @@
                         </ul>
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
+                    <li class="dropdown user user-menu" >
                         @if (User.Identity.IsAuthenticated)
                         {
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -256,7 +256,7 @@
             </div>
         </nav>
     </header>
-    <div class="wrapper row-offcanvas row-offcanvas-left">
+    <div class="wrapper row-offcanvas row-offcanvas-left" style="background-color: rgba(57,67,92,255); color :white">
         <!-- Left side column. contains the logo and sidebar -->
         <aside class="left-side sidebar-offcanvas">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -277,31 +277,31 @@
                 </div>
 
                 <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search..." />
-                        <span class="input-group-btn">
+                @*<form action="#" method="get" class="sidebar-form" style="background-color: rgba(57,67,92,255)">
+                    <div class="input-group" style="background-color: rgba(57,67,92,255)">
+                        <input type="text" name="q" class="form-control" placeholder="Search..." style="background-color: rgba(57,67,92,255)" />
+                        <span class="input-group-btn" style="background-color: rgba(57,67,92,255)">
                             <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
                         </span>
                     </div>
-                </form>
+                </form>*@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li>
-                        <a href="/Admin/Index">
+                        <a href="/Admin/Index" style="color: white">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
                     @if (User.IsInRole("Admin"))
                     {
                         <li>
-                            <a href="/Accounts/Index">
+                            <a href="/Accounts/Index" style="color: white">
                                 <i class="fa fa-user"></i> <span>Account</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Roles/Index">
+                            <a href="/Roles/Index" style="color: white">
                                 <i class="fa fa-user"></i> <span>Role</span>
                             </a>
                         </li>
@@ -309,17 +309,17 @@
                     @if (User.IsInRole("Sale") || User.IsInRole("Admin"))
                     {
                         <li>
-                            <a href="/Order/Index">
+                            <a href="/Order/Index" style="color: white">
                                 <i class="fa fa-globe"></i> <span>Order</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Order_status/Index">
+                            <a href="/Order_status/Index" style="color: white">
                                 <i class="fa fa-globe"></i> <span>Order Status</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/shippings/Index">
+                            <a href="/shippings/Index" style="color: white">
                                 <i class="fa fa-globe"></i> <span>Ship</span>
                             </a>
                         </li>
@@ -327,24 +327,24 @@
                     @if (User.IsInRole("Marketing") || User.IsInRole("Admin"))
                     {
                         <li>
-                            <a href="/ProductAdmin/Index">
+                            <a href="/ProductAdmin/Index" style="color: white">
                                 <i class="fa fa-globe"></i> <span>Product</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/BlogAdmin/Index">
+                            <a href="/BlogAdmin/Index" style="color: white">
                                 <i class="fa fa-globe"></i> <span>Blog</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="/SlideAdmin/Index">
+                            <a href="/SlideAdmin/Index" style="color: white">
                                 <i class="fa fa-glass"></i> <span>Slide</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="/CustomerAdmin/Index">
+                            <a href="/CustomerAdmin/Index" style="color: white">
                                 <i class="glyphicon glyphicon-user"></i> <span>Customer</span>
                             </a>
                         </li>
@@ -408,7 +408,7 @@
                     <div class="col-md-8">
                         <!--earning graph start-->
                         <section class="panel">
-                            <header class="panel-heading">
+                            <header class="panel-heading" style="color: darkslateblue">
                                 Earning Graph
                             </header>
                             <div class="panel-body">
@@ -422,7 +422,7 @@
 
                         <!--chat start-->
                         <section class="panel">
-                            <header class="panel-heading">
+                            <header class="panel-heading" style="color: darkslateblue">
                                 Notifications
                             </header>
                             <div class="panel-body" id="noti-box">
